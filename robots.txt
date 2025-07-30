@@ -1,0 +1,10 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /scripts/
+Disallow: /php/
+Disallow: /php/send-email.php
+Disallow: /php/submit_application.php
+Disallow: /*.php$
+Allow: /
+
+Sitemap: https://uxory.com/sitemap.xml

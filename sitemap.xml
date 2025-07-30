@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset 
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <url>
+    <loc>https://www.uxory.com/</loc>
+    <priority>1.00</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+
+  <url>
+    <loc>https://www.uxory.com/about</loc>
+    <priority>0.80</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+
+  <url>
+    <loc>https://www.uxory.com/services</loc>
+    <priority>0.80</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+
+  <url>
+    <loc>https://www.uxory.com/whyuxory</loc>
+    <priority>0.80</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+
+  <url>
+    <loc>https://www.uxory.com/pricing</loc>
+    <priority>0.70</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+
+  <url>
+    <loc>https://www.uxory.com/contact</loc>
+    <priority>0.60</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+
+  <url>
+    <loc>https://www.uxory.com/faq</loc>
+    <priority>0.70</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+
+  <url>
+    <loc>https://www.uxory.com/privacy-policy</loc>
+    <priority>0.60</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+
+  <url>
+    <loc>https://www.uxory.com/team</loc>
+    <priority>0.60</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+
+  <url>
+    <loc>https://www.uxory.com/terms</loc>
+    <priority>0.60</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+
+  <url>
+    <loc>https://www.uxory.com/terms</loc>
+    <priority>0.60</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+
+    <!-- career opportunities -->
+
+    <url>
+    <loc>https://www.uxory.com/careers</loc>
+    <priority>0.80</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+
+  <url>
+    <loc>https://www.uxory.com/business-dev-intern</loc>
+    <priority>0.80</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+
+  <url>
+    <loc>https://www.uxory.com/product-dev-intern</loc>
+    <priority>0.80</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+
+  <url>
+    <loc>https://www.uxory.com/sales-intern</loc>
+    <priority>0.80</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+
+  <url>
+    <loc>https://www.uxory.com/software-dev-intern</loc>
+    <priority>0.80</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+
+  <url>
+    <loc>https://www.uxory.com/web-des-intern</loc>
+    <priority>0.80</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+
+  <url>
+    <loc>https://www.uxory.com/web-dev-intern</loc>
+    <priority>0.80</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+
+  <!-- Add more URLs here -->
+
+</urlset>
