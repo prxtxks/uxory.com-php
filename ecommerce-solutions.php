@@ -64,7 +64,7 @@ include 'components/header.php';
 
 <!-- nav  -->
 <?php
-$currentPage = 'website_dev';
+$currentPage = 'ecommerce-solutions';
 $currentParent = 'services';
 include 'components/nav.php';
 ?>

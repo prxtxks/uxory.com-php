@@ -67,7 +67,7 @@
            <li>
             <a
               href="/ecommerce-solutions.php"
-              class="text-white inline-block pb-1 pl-3 menu-list-item-dropdown-list text-base md:text-lg leading-8 md:leading-[50px] <?= ($currentPage ?? '') === 'seo' ? 'active' : '' ?>"
+              class="text-white inline-block pb-1 pl-3 menu-list-item-dropdown-list text-base md:text-lg leading-8 md:leading-[50px] <?= ($currentPage ?? '') === 'ecommerce-solutions' ? 'active' : '' ?>"
               >E-commerce Solutions
             </a>
           </li>
@@ -236,7 +236,7 @@
           <li>
             <a
               href="/ecommerce-solutions.php"
-              class="text-white inline-block pb-1 pl-3 menu-list-item-dropdown-list text-base md:text-lg leading-8 md:leading-[50px] <?= ($currentPage ?? '') === 'web-app-solutions' ? 'active' : '' ?>"
+              class="text-white inline-block pb-1 pl-3 menu-list-item-dropdown-list text-base md:text-lg leading-8 md:leading-[50px] <?= ($currentPage ?? '') === 'ecommerce-solutions' ? 'active' : '' ?>"
               >E-commerce Solutions
             </a>
           </li>
