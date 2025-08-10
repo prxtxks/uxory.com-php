@@ -110,7 +110,7 @@ include 'components/dark_mode.php';
       <div class="rv-badge">
         <span class="rv-badge-text">Career</span>
       </div>
-      <h1 class="mt-3.5 sm:mt-6 md:mt-7 mb-5 md:mb-8 font-medium">Start building your <i class="font-instrument italic font-normal">future</i> here</h1>
+      <h2 class="mt-3.5 sm:mt-6 md:mt-7 mb-5 md:mb-8 font-medium">Start building your <i class="font-instrument italic font-normal">future</i> here</h2>
       <p class="">We provide a wide range of growth opportunities, a <br> collaborative work culture, and a supportive team focused on your success</p>
     </div>
 
@@ -195,9 +195,9 @@ include 'components/dark_mode.php';
   </div>
   <!-- Section Header -->
   <div class="container">
-    <h2 class="text-center text-appear">
+    <h3 class="text-center text-appear">
       Start your professional journey today
-    </h2>
+    </h3>
   </div>
 
   <!-- Job Listings Container -->

@@ -81,8 +81,8 @@
           India
         </h4>
 
-        <address class="not-italic text-white font-semibold leading-relaxed">
-          Uxory PVT. LTD.<br />
+        <address class="not-italic text-white font-semibold break-words">
+          Uxory Technologies <br> PVT. LTD. <br />
           B-401, Belair <br />
           VTP Blue Waters<br />
           Pune, MH 425001<br />
@@ -96,7 +96,7 @@
       <div>
         <h5
           class="uppercase text-sm font-satoshi text-white tracking-[3px] mb-4 sm:mb-8 font-bold"
-        >
+        > 
           Important Links
         </h5>
         <ul>

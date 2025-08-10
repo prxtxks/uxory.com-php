@@ -3963,10 +3963,7 @@ to{
     letter-spacing: -1.68px;
   }
 }
-@media (min-width: 1280px){.blog-details-body h3{
-    font-size: 48px;
-  }
-}
+
 .blog-details-body p{
   color: #181818b3;
 }

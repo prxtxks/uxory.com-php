@@ -139,11 +139,11 @@ include 'components/dark_mode.php';
       >
         <div>
           <h6 class="text-sm font-satoshi font-bold text-black dark:text-white">
-            Schedule a Free Meeting
+            Contact Us
           </h6>
-          <p class="text-sm text-black dark:text-white">Few spots left this month</p>
+          <!-- <p class="text-sm text-black dark:text-white">Few spots left this month</p> -->
         </div>
-          <a href="calendly.php">
+          <a href="contact.php">
             <figure
               class="bg-primary w-[44px] h-[44px] cursor-pointer relative overflow-hidden"
             >

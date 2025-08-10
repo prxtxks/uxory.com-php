@@ -105,7 +105,7 @@ include 'components/dark_mode.php';
       </div>
 
       <!-- Title and Description -->
-      <h1 class="mt-3.5 sm:mt-5 lg:mt-9 mb-3 sm:mb-4 lg:mb-7"><i class="font-instrument">Pricing</i> Plan</h1>
+      <h2 class="mt-3.5 sm:mt-5 lg:mt-9 mb-3 sm:mb-4 lg:mb-7 font-semibold"><i class="font-instrument">Pricing</i> Plan</h2>
       <p>We don’t offer a fixed pricing structure, as each service is uniquely tailored to your brand’s goals. Reach out to us for a custom package or schedule a meeting with our experts to explore what your business truly needs and get a personalized quote.</p>
     </div>
   </div>
@@ -121,8 +121,8 @@ include 'components/dark_mode.php';
 >
   <div class="container">
     <!-- CTA Heading -->
-    <h2
-      class="text-center xl:text-[96px] font-normal xl:leading-[1.1] xl:tracking-[-2.88px]"
+    <h3
+      class="text-center font-normal"
     >
       Get in Touch
       <div
@@ -145,7 +145,7 @@ include 'components/dark_mode.php';
       <span class="font-instrument sm:mt-10 italic block max-md:inline-block"
         >A virtual coffee?</span
       >
-    </h2>
+    </h3>
   </div>
 </section>
 

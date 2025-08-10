@@ -34,7 +34,7 @@
           <img src="/images/review.svg" class="h-20 w-20" alt="Review Author" />
           <div>
             <h3 class="text-xl leading-[1.2] tracking-wide font-medium">
-              RND Fabtech Pvt. Ltd.
+              Praptik Synergy LLP
             </h3>
             <div class="text-base font-light leading-5 mt-[3.5px]">
               <div class="flex pt-2 gap-1 items-center mb-5">
@@ -216,7 +216,7 @@
           <img src="/images/review.svg" class="h-20 w-20" alt="Review Author" />
           <div>
             <h3 class="text-xl leading-[1.2] tracking-wide font-medium">
-              AlphaMax Pvt. Ltd.
+              AlphaZix LLC
             </h3>
             <div class="text-base font-light leading-5 mt-[3.5px]">
               <div class="flex pt-2 gap-1 items-center mb-5">
@@ -298,44 +298,5 @@
 
     </div>
   </div>
-
-      <!-- 100+ projects, 5+years section -->
-      <!-- <div class="container mt-14">
-
-        <div class="grid grid-cols-12 gap-8 justify-items-center">
-          
-          <div
-            class="border-y dark:border-dark py-5 flex flex-col md:flex-row justify-center md:justify-between items-center md:items-start w-full sm:min-w-[355px] lg:min-w-[300px] xl:min-w-[355px] reveal-me col-span-12 md:col-span-6 lg:col-span-4"
-            id="counter"
-          >
-            <h2 class="md:min-w-[170px] font-instrument">
-              <span class="counter" data-value="100"></span>+
-            </h2>
-            <p class="text-lg">Successful Campaigns</p>
-          </div>
-          
-          <div
-            class="border-y dark:border-dark py-5 flex flex-col md:flex-row justify-center md:justify-between items-center md:items-start w-full sm:min-w-[355px] lg:min-w-[300px] xl:min-w-[355px] reveal-me col-span-12 md:col-span-6 lg:col-span-4"
-            id="counter"
-          >
-            <h2 class="md:min-w-[170px] font-instrument">
-              <span class="counter" data-value="5"></span>+
-            </h2>
-            <p class="text-lg">Years of experience</p>
-          </div>
-        
-          <div
-            class="border-y dark:border-dark py-5 flex flex-col md:flex-row justify-center md:justify-between items-center md:items-start w-full sm:min-w-[355px] lg:min-w-[300px] xl:min-w-[355px] reveal-me col-span-12 md:col-span-6 lg:col-span-4"
-            id="counter"
-          >
-            <h2 class="md:min-w-[170px] font-instrument">
-              <span class="counter" data-value="4.9"></span>
-              +
-            </h2>
-            <p class="text-lg">Star rating from global clients</p>
-          </div>
-        </div>
-
-      </div> -->
 
 </section>

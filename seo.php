@@ -1078,7 +1078,7 @@ Samples Slider
             class="flex flex-col md:flex-row items-start gap-y-5 md:space-x-10 content-between"
           >
             <img
-              src="/images/home-ai/real-estate.jpg"
+              src="/images/techverse.png"
               alt="User Image"
               class="max-md:w-full object-cover md:max-w-[300px] md:max-h-[260px]"
             />
@@ -1124,7 +1124,7 @@ Samples Slider
             class="flex flex-col md:flex-row items-start gap-y-5 md:space-x-10 content-between"
           >
             <img
-              src="/images/home-ai/restaurant.jpg"
+              src="/images/home-ai/clothing.jpg"
               alt="User Image"
               class="max-md:w-full object-cover md:max-w-[300px] md:max-h-[260px]"
             />
@@ -1170,7 +1170,7 @@ Samples Slider
             class="flex flex-col md:flex-row items-start gap-y-5 md:space-x-10 content-between"
           >
             <img
-              src="/images/home-ai/clothing.jpg"
+              src="/images/home-ai/real-estate.jpg"
               alt="User Image"
               class="max-md:w-full object-cover md:max-w-[300px] md:max-h-[260px]"
             />
@@ -1313,7 +1313,7 @@ Samples Slider
                     <h4
                       class="text-lg md:text-xl md:leading-[1.2] text-backgroundBody"
                     >
-                    RND FABTECH PVT. LTD.
+                    Praptik Synergy LLP
                     </h4>
                   </div>
                 </div>

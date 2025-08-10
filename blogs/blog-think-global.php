@@ -81,9 +81,9 @@ include '../components/dark_mode.php';
       </div>
 
       <!-- Hero Title -->
-      <h1 class="mb-5 lg:mb-8 max-sm:max-w-md max-sm:mx-auto">
+      <h2 class="mb-5 lg:mb-8 max-sm:max-w-md max-sm:mx-auto font-semibold">
         Think Global with Uxory
-      </h1>
+      </h2>
     </div>
   </div>
 </section>
@@ -406,6 +406,9 @@ include '../components/cta.php';
 <?php       
 include '../components/socials.php';
 ?>
+
+<section class="pb-16"> 
+</section>
 
 </main>
 

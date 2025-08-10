@@ -141,21 +141,21 @@
             >
           </li>
 
-          <li>
+          <!-- <li>
             <a
               href="/coming-soon.php"
               class="text-white inline-block pb-1 pl-3 menu-list-item-dropdown-list text-base md:text-lg leading-8 md:leading-[50px] <?= ($currentPage ?? '') === 'why_uxory' ? 'active' : '' ?>"
               >Why Uxory
             </a>
-          </li>
+          </li> -->
 
-          <li>
+          <!-- <li>
             <a
               href="/coming-soon.php"
               class="text-white inline-block pb-1 pl-3 menu-list-item-dropdown-list text-base md:text-lg leading-8 md:leading-[50px] <?= ($currentPage ?? '') === 'portfolio' ? 'active' : '' ?>"
               >Case Studies
             </a>
-          </li>
+          </li> -->
 
           <li>
             <a

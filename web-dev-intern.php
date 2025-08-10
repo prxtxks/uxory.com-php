@@ -119,7 +119,7 @@ include 'components/dark_mode.php';
       <span class="rv-badge-text">Full Time</span>
     </div>
 
-    <h1 class="mb-5 md:mb-8">Website Developer Intern</h1>
+    <h2 class="mb-5 md:mb-8 font-semibold">Website Developer Intern</h2>
   </div>
 </section>
 

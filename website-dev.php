@@ -1066,13 +1066,13 @@ Our Projects-Slider Section
   <div class="swiper overflow-hidden reveal-me" id="reviewer">
       <div class="swiper-wrapper">
 
-         <!-- Slide 00 Project Nexus -->
+         <!-- Slide 01 Project TrimHR -->
         <div class="swiper-slide">
           <div
             class="flex flex-col md:flex-row items-start gap-y-5 md:space-x-10 content-between"
           >
             <img
-              src="/images/home-ai/project-placeholder-trimhr.jpg"
+              src="/images/home-ai/trimhr.png"
               alt="TrimHR"
               class="max-md:w-full object-cover md:max-w-[300px] md:max-h-[260px]"
             />
@@ -1112,13 +1112,13 @@ Our Projects-Slider Section
           </div>
         </div>
 
-         <!-- Slide 07 Project Trezure -->
+         <!-- Slide 02 Project Trezure -->
         <div class="swiper-slide">
           <div
             class="flex flex-col md:flex-row items-start gap-y-5 md:space-x-10 content-between"
           >
             <img
-              src="/images/home-ai/project-placeholder-trezure.jpg"
+              src="/images/home-ai/trezure.png"
               alt="User Image"
               class="max-md:w-full object-cover md:max-w-[300px] md:max-h-[260px]"
             />
@@ -1157,291 +1157,7 @@ Our Projects-Slider Section
 
             </div>
           </div>
-        </div>
-
-        <!-- Slide 01 Project Nexus -->
-        <div class="swiper-slide">
-          <div
-            class="flex flex-col md:flex-row items-start gap-y-5 md:space-x-10 content-between"
-          >
-            <img
-              src="/images/home-ai/real-estate.jpg"
-              alt="User Image"
-              class="max-md:w-full object-cover md:max-w-[300px] md:max-h-[260px]"
-            />
-            <div class="flex flex-col md:max-w-[650px]">
-              
-              <div class="flex items-center gap-x-6 mt-5 mb-[34px]">
-                <p class="text-2xl leading-[1.1]">Project Nexus</p>
-              </div>
-
-              <p class="text-lg leading-[1.6] tracking-[0.36px]">
-                A responsive real estate website to showcase properties and connect potential buyers with agents. 
-                Designed with a clean layout and easy navigation for a smooth browsing experience.
-              </p>
-
-              <div class="flex items-center justify-between mt-12">
-                
-                  <a
-                    href="https://projects.uxory.com/real_estate/"
-                    class="border dark:border-dark p-1.5 md:p-3 hover:bg-primary duration-300"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <img
-                      src="/images/icons/top-arrow.svg"
-                      alt="icon"
-                      class="block dark:hidden mt-[2px]"
-                    />
-                    <img
-                      src="/images/icons/top-arrow-dark.svg"
-                      alt="icon"
-                      class="hidden dark:block mt-[2px]"
-                    />
-                  </a>
-                
-              </div>
-
-            </div>
-          </div>
-        </div>
-
-        <!-- Slide 02 Project Gourmet -->
-        <div class="swiper-slide">
-          <div
-            class="flex flex-col md:flex-row items-start gap-y-5 md:space-x-10 content-between"
-          >
-            <img
-              src="/images/home-ai/restaurant.jpg"
-              alt="User Image"
-              class="max-md:w-full object-cover md:max-w-[300px] md:max-h-[260px]"
-            />
-            <div class="flex flex-col md:max-w-[650px]">
-              
-              <div class="flex items-center gap-x-6 mt-5 mb-[34px]">
-                <p class="text-2xl leading-[1.1]">Project Gourmet</p>
-              </div>
-
-              <p class="text-lg leading-[1.6] tracking-[0.36px]">
-                A responsive restaurant website to showcase dishes, ambience, and attract new customers. 
-                Designed with a clean layout and easy navigation for a smooth browsing experience.
-              </p>
-
-              <div class="flex items-center justify-between mt-12">
-                
-                  <a
-                    href="https://projects.uxory.com/restaurant/"
-                    class="border dark:border-dark p-1.5 md:p-3 hover:bg-primary duration-300"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <img
-                      src="/images/icons/top-arrow.svg"
-                      alt="icon"
-                      class="block dark:hidden mt-[2px]"
-                    />
-                    <img
-                      src="/images/icons/top-arrow-dark.svg"
-                      alt="icon"
-                      class="hidden dark:block mt-[2px]"
-                    />
-                  </a>
-                
-              </div>
-
-            </div>
-          </div>
-        </div>
-
-        <!-- Slide 03 Project Apparel -->
-        <div class="swiper-slide">
-          <div
-            class="flex flex-col md:flex-row items-start gap-y-5 md:space-x-10 content-between"
-          >
-            <img
-              src="/images/home-ai/clothing.jpg"
-              alt="User Image"
-              class="max-md:w-full object-cover md:max-w-[300px] md:max-h-[260px]"
-            />
-            <div class="flex flex-col md:max-w-[650px]">
-              
-              <div class="flex items-center gap-x-6 mt-5 mb-[34px]">
-                <p class="text-2xl leading-[1.1]">Project Apparel</p>
-              </div>
-
-              <p class="text-lg leading-[1.6] tracking-[0.36px]">
-               A responsive clothing store website to display collections and connect with fashion-conscious shoppers. 
-               Designed with a clean layout and easy navigation for a smooth browsing experience.
-              </p>
-
-              <div class="flex items-center justify-between mt-12">
-                
-                  <a
-                    href="https://projects.uxory.com/clothing_store/"
-                    class="border dark:border-dark p-1.5 md:p-3 hover:bg-primary duration-300"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <img
-                      src="/images/icons/top-arrow.svg"
-                      alt="icon"
-                      class="block dark:hidden mt-[2px]"
-                    />
-                    <img
-                      src="/images/icons/top-arrow-dark.svg"
-                      alt="icon"
-                      class="hidden dark:block mt-[2px]"
-                    />
-                  </a>
-                
-              </div>
-
-            </div>
-          </div>
-        </div>
-
-        <!-- Slide 04 Project Harvest -->
-        <div class="swiper-slide">
-          <div
-            class="flex flex-col md:flex-row items-start gap-y-5 md:space-x-10 content-between"
-          >
-            <img
-              src="/images/home-ai/organic.jpg"
-              alt="User Image"
-              class="max-md:w-full object-cover md:max-w-[300px] md:max-h-[260px]"
-            />
-            <div class="flex flex-col md:max-w-[650px]">
-              
-              <div class="flex items-center gap-x-6 mt-5 mb-[34px]">
-                <p class="text-2xl leading-[1.1]">Project Harvest</p>
-              </div>
-
-              <p class="text-lg leading-[1.6] tracking-[0.36px]">
-                A responsive organic store website to promote natural products and engage health-focused customers. 
-                Designed with a clean layout and easy navigation for a smooth browsing experience.
-              </p>
-
-              <div class="flex items-center justify-between mt-12">
-                
-                  <a
-                    href="https://projects.uxory.com/organic_store/"
-                    class="border dark:border-dark p-1.5 md:p-3 hover:bg-primary duration-300"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <img
-                      src="/images/icons/top-arrow.svg"
-                      alt="icon"
-                      class="block dark:hidden mt-[2px]"
-                    />
-                    <img
-                      src="/images/icons/top-arrow-dark.svg"
-                      alt="icon"
-                      class="hidden dark:block mt-[2px]"
-                    />
-                  </a>
-                
-              </div>
-
-            </div>
-          </div>
-        </div>
-
-        <!-- Slide 05 Project Donuts -->
-        <div class="swiper-slide">
-          <div
-            class="flex flex-col md:flex-row items-start gap-y-5 md:space-x-10 content-between"
-          >
-            <img
-              src="/images/home-ai/car-rental.jpg"
-              alt="User Image"
-              class="max-md:w-full object-cover md:max-w-[300px] md:max-h-[260px]"
-            />
-            <div class="flex flex-col md:max-w-[650px]">
-              
-              <div class="flex items-center gap-x-6 mt-5 mb-[34px]">
-                <p class="text-2xl leading-[1.1]">Project Donuts</p>
-              </div>
-
-              <p class="text-lg leading-[1.6] tracking-[0.36px]">
-               A responsive car rental website to feature available vehicles and streamline customer inquiries.
-                Designed with a clean layout and easy navigation for a smooth browsing experience.
-              </p>
-
-              <div class="flex items-center justify-between mt-12">
-                
-                  <a
-                    href="https://projects.uxory.com/car_rental/"
-                    class="border dark:border-dark p-1.5 md:p-3 hover:bg-primary duration-300"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <img
-                      src="/images/icons/top-arrow.svg"
-                      alt="icon"
-                      class="block dark:hidden mt-[2px]"
-                    />
-                    <img
-                      src="/images/icons/top-arrow-dark.svg"
-                      alt="icon"
-                      class="hidden dark:block mt-[2px]"
-                    />
-                  </a>
-                
-              </div>
-
-            </div>
-          </div>
-        </div>
-
-        <!-- Slide 06 Project Honors -->
-        <div class="swiper-slide">
-          <div
-            class="flex flex-col md:flex-row items-start gap-y-5 md:space-x-10 content-between"
-          >
-            <img
-              src="/images/home-ai/education.jpg"
-              alt="User Image"
-              class="max-md:w-full object-cover md:max-w-[300px] md:max-h-[260px]"
-            />
-            <div class="flex flex-col md:max-w-[650px]">
-              
-              <div class="flex items-center gap-x-6 mt-5 mb-[34px]">
-                <p class="text-2xl leading-[1.1]">Project Honors</p>
-              </div>
-
-              <p class="text-lg leading-[1.6] tracking-[0.36px]">
-               A responsive education website to present courses and support student engagement. 
-               Designed with a clean layout and easy navigation for a smooth browsing experience.
-              </p>
-
-              <div class="flex items-center justify-between mt-12">
-                
-                  <a
-                    href="https://projects.uxory.com/education/"
-                    class="border dark:border-dark p-1.5 md:p-3 hover:bg-primary duration-300"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <img
-                      src="/images/icons/top-arrow.svg"
-                      alt="icon"
-                      class="block dark:hidden mt-[2px]"
-                    />
-                    <img
-                      src="/images/icons/top-arrow-dark.svg"
-                      alt="icon"
-                      class="hidden dark:block mt-[2px]"
-                    />
-                  </a>
-                
-              </div>
-
-            </div>
-          </div>
-        </div>
-
-       
+        </div>       
         
       </div>
       
