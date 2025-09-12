@@ -191,7 +191,7 @@
 
           <li>
             <a
-              href="/coming-soon.php"
+              href="/privacy-policy.php"
               class="text-white inline-block pb-1 pl-3 menu-list-item-dropdown-list text-base md:text-lg leading-8 md:leading-[50px] <?= ($currentPage ?? '') === 'privacy_policy' ? 'active' : '' ?>"
               >Privacy Policy
             </a>

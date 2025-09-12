@@ -109,9 +109,9 @@ include 'components/dark_mode.php';
         <span class="rv-badge-text">Faq</span>
       </div>
     </div>
-    <h1 class="mb-10 md:mb-20 text-center text-appear-2">
+    <h2 class="mb-10 md:mb-20 text-center text-appear-2 font-semibold">
       Frequently Asked <i class="font-instrument">Questions</i>
-    </h1>
+    </h2>
 
     <!-- FAQ Items Container -->
     <div

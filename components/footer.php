@@ -118,14 +118,7 @@
             <a
               href="/services.php"
               class="block text-white transition-colors duration-300 font-semibold hover:text-primary"
-              >All Services</a
-            >
-          </li>
-          <li class="mb-4">
-            <a
-              href="/whyuxory.php"
-              class="block text-white transition-colors duration-300 font-semibold hover:text-primary"
-              >Why Uxory</a
+              >Services</a
             >
           </li>
           <li class="mb-4">
@@ -133,6 +126,13 @@
               href="/career.php"
               class="block text-white transition-colors duration-300 font-semibold hover:text-primary"
               >Career</a
+            >
+          </li>
+          <li class="mb-4">
+            <a
+              href="/privacy-policy.php"
+              class="block text-white transition-colors duration-300 font-semibold hover:text-primary"
+              >Privacy Policy</a
             >
           </li>
         </ul>

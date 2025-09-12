@@ -104,7 +104,10 @@ include 'components/dark_mode.php';
     </div>
 
     <!-- Main Title -->
-    <h1 class="dark:text-white">Privacy & Policy</h1>
+    <h2 class="dark:text-white font-semibold">Privacy & Policy</h2>
+    <p class="max-w-3xl text-center mx-auto mt-3 text-appear">
+     Last Updated: June 30, 2025 | Effective Date: June 30, 2025
+    </p>
   </div>
 </section>
 
@@ -115,170 +118,221 @@ include 'components/dark_mode.php';
 <section class="pb-14 md:pb-16 lg:pb-[88px] xl:pb-[100px]">
   <div class="container">
     <!-- Introduction Header -->
-    <h2
-      class="text-[25px] md:text-4xl md:leading-[1.5] mb-12 md:mb-24 reveal-me"
+    <p
+      class="eveal-text-2 text-2xl lg:text-3xl text-secondary/90 dark:text-backgroundBody/70 mb-12 md:mb-24"
     >
-      The contents of a Terms and Conditions (T&C) agreement can differ based on
-      the specific service or product provided. However, for a
-      subscription-based design agency, you'll typically find the following key
-      elements:
-    </h2>
+      At Uxory LLC (USA) and Uxory Technologies Private Limited (India), we value your trust and are committed to protecting your personal information. This Privacy Policy explains how we collect, use, store, and safeguard your data when you interact with our websites, applications, products, and services, including software development, digital marketing, SEO, branding, and related solutions. We follow strict privacy standards in compliance with applicable laws in the United States, India, and other jurisdictions where we operate.
+  </p>
 
     <!-- Terms Content Body -->
     <div class="blog-details-body">
       <!-- 1. Introduction and Definitions -->
       <div class="reveal-me">
-        <h3>1. Introduction and Definitions:</h3>
+        <h3>1. Introduction</h3>
         <p>
-          This section outlines the basic information, such as the date the
-          agreement is established, the parties involved (your agency and the
-          user), and any definitions of key terms used within the document.
+         This Privacy Policy describes how Uxory LLC (a company registered in the United States) and Uxory Technologies Private Limited (a company registered in India) (collectively, “Uxory,” “we,” “our,” or “us”) collect, use, disclose, and protect your personal information when you use our websites, mobile applications, software, and digital services (collectively, the “Services”).
+        </p>
+        <p class="pt-4">
+          By using our Services, you agree to the terms of this Privacy Policy. If you do not agree, please discontinue use of our Services.
         </p>
       </div>
 
       <!-- 2. Use of Service -->
       <div class="reveal-me">
-        <h3>2. Use of the Service:</h3>
+        <h3>2.  Information We Collect</h3>
         <p>
-          This section details the user's rights and limitations when using your
-          subscription design service. It might specify:
+          We may collect the following types of information:
         </p>
         <ul>
-          <li>Permitted uses of the designs created for the user.</li>
-          <li>Permitted uses of the designs created for the user.</li>
+          <li>Name, email address, phone number, billing/shipping address.</li>
+          <li>Company details (business name, registration details, tax information).</li>
           <li>
-            Restrictions on using the platform or design services for illegal or
-            unethical purposes.
+            Account login credentials (for client portals or CRMs).
           </li>
           <li>
-            User responsibility for providing accurate and complete information
-            during the design request process.
+           Payment details (processed securely via third-party payment gateways).
+          </li>
+          <li>
+           	Any content you upload (documents, images, project files).
+          </li>
+          <li>
+           IP address, device type, browser type, operating system.
+          </li>
+          <li>
+           Cookies, tracking pixels, and analytics data.
+          </li>
+          <li>
+           Access times, pages visited, and referring URLs.
+          </li>
+          <li>
+          Social media platforms (when you connect accounts).
+          </li>
+          <li>
+           Advertising networks, analytics providers, and partners.
+          </li>
+          <li>
+           Public databases or business directories.
           </li>
         </ul>
       </div>
 
       <!-- 3. Subscription Plans -->
       <div class="reveal-me">
-        <h3>3. Subscription Plans and Fees:</h3>
+        <h3>3. How We Use Your Information</h3>
         <p>
-          This section clarifies the details of your subscription plans,
-          including:
+          We use your information to:
         </p>
         <ul>
           <li>
-            Description of different subscription tiers and their features
-            (number of design requests, project complexity, etc.).
+            Provide and maintain our Services.
           </li>
           <li>
-            Payment terms, including billing cycles, accepted payment methods,
-            and any applicable taxes.
+            Communicate with you regarding projects, updates, and marketing.
           </li>
           <li>
-            Information on automatic renewals and the process for cancellation.
+            Process payments and send invoices.
+          </li>
+          <li>
+            Customize and improve user experience.
+          </li>
+          <li>
+            Comply with legal and regulatory requirements
+          </li>
+          <li>
+            Prevent fraud, unauthorized access, and misuse of our Services.
           </li>
         </ul>
       </div>
 
       <!-- 4. Intellectual Property -->
       <div class="reveal-me">
-        <h3>4. Intellectual Property:</h3>
+        <h3>4. Sharing of Information</h3>
         <p>
-          This section outlines ownership rights of the designs created for the
-          user. It typically states that:
+          We may share your information with:
         </p>
         <ul>
           <li>
-            You (the agency) retain ownership of the original design concepts
-            and copyright.
+            <span class="font-semibold">Service Providers</span> (hosting, payment processing, email marketing, CRM tools).
           </li>
           <li>
-            The user receives a license to use the final designs for their
-            specific purposes as outlined in the agreement.
+            <span class="font-semibold">Business Partners</span> (collaborators or subcontractors working on your project).
           </li>
           <li>
-            Limitations on modifying or redistributing the designs without your
-            permission.
+            <span class="font-semibold">Legal Authorities</span> (where required by law or to protect our rights).
+          </li>
+          <li>
+            <span class="font-semibold">Successors</span> (in the event of a merger, acquisition, or asset sale).
           </li>
         </ul>
+         <p>
+          We do not sell your personal information.
+        </p>
       </div>
 
       <!-- 5. Disclaimers -->
       <div class="reveal-me">
-        <h3>5. Disclaimers and Warranties:</h3>
+        <h3>5.  International Data Transfers</h3>
         <p>
-          This section outlines limitations on your liability. It might clarify
-          that:
+         Your information may be transferred between the United States, India, and other countries where we or our partners operate. We ensure appropriate safeguards under GDPR and other applicable laws for such transfers.
         </p>
-        <ul>
-          <li>
-            The service is provided "as is" and there are no guarantees of
-            specific results.
-          </li>
-          <li>
-            You are not liable for any damages caused by the use of the designs
-            by the user.
-          </li>
-          <li>
-            You are not responsible for any delays or disruptions in the
-            service.
-          </li>
-        </ul>
       </div>
 
       <!-- 6. Dispute Resolution -->
       <div class="reveal-me">
-        <h3>6. Dispute Resolution:</h3>
+        <h3>6. Cookies and Tracking Technologies</h3>
         <p>
-          This section outlines the process for resolving any disagreements
-          between you and the user. It might specify:
+          We use cookies, pixels, and analytics tools (such as Google Analytics, Facebook Pixel) to:
         </p>
         <ul>
           <li>
-            The preferred method of resolving disputes (e.g., mediation,
-            arbitration).
+           Improve site performance.
           </li>
-          <li>Governing law that applies to the agreement.</li>
-          <li>pen_spark</li>
+          <li>Measure campaign effectiveness.</li>
+          <li>Personalize content and ads.</li>
         </ul>
+        <p>
+          You may disable cookies via your browser settings, but this may affect certain functionalities.
+        </p>
       </div>
 
       <!-- 7. Termination -->
       <div class="reveal-me">
-        <h3>7. Termination:</h3>
+        <h3>7. Data Retention</h3>
         <p>
-          This section outlines ownership rights of the designs created for the
-          user. It typically states that:
+          We retain personal information only as long as necessary to fulfill the purposes outlined in this policy, unless a longer retention period is required by law.
+        </p>
+        
+      </div>
+
+      <!-- 8. Termination -->
+      <div class="reveal-me">
+        <h3>8. Data Security</h3>
+        <p>
+          We implement technical and organizational measures to protect your data from unauthorized access, alteration, disclosure, or destruction. However, no method of transmission over the internet is 100% secure.
+        </p>
+        
+      </div>
+
+      <!-- 9. Dispute Resolution -->
+      <div class="reveal-me">
+        <h3>9. Your Rights</h3>
+        <p>
+          Depending on your jurisdiction (e.g., <span class="font-semibold">GDPR</span> in the EU, <span class="font-semibold">CCPA</span> in California, <span class="font-semibold">DPDP Act</span> in India), you may have rights to:
         </p>
         <ul>
           <li>
-            You (the agency) retain ownership of the original design concepts
-            and copyright.
+           Access, correct, or delete your data.
           </li>
           <li>
-            The user receives a license to use the final designs for their
-            specific purposes as outlined in the agreement.
+            Object to or restrict processing.
           </li>
           <li>
-            Limitations on modifying or redistributing the designs without your
-            permission.
+            Withdraw consent for marketing.
+          </li>
+          <li>
+            Request a copy of your data (data portability).
           </li>
         </ul>
+        <p>
+          Requests can be sent to: <span class="font-semibold">contact@uxory.com</span>
+        </p>
       </div>
 
-      <!-- 8. Entire Agreement -->
+      <!-- 10. Termination -->
       <div class="reveal-me">
-        <h3>8. Entire Agreement and Amendments:</h3>
-        <ul>
-          <li>
-            This section clarifies that the T&C constitutes the entire agreement
-            between you and the user, superseding any prior communications.
-          </li>
-          <li>
-            It also specifies the process for amending the terms and conditions
-            in the future.
-          </li>
-        </ul>
+        <h3>10. Third-Party Links</h3>
+        <p>
+          Our Services may contain links to third-party websites. We are not responsible for their privacy practices and encourage you to review their policies.
+        </p>
+        
       </div>
+
+      <!-- 11. Termination -->
+      <div class="reveal-me">
+        <h3>11. Children’s Privacy</h3>
+        <p>
+          Our Services are not directed to children under 13 (or under 16 in some jurisdictions). We do not knowingly collect personal data from children.
+        </p>
+        
+      </div>
+
+      <!-- 12. Termination -->
+      <div class="reveal-me">
+        <h3>12. Changes to This Policy</h3>
+        <p>
+          We may update this Privacy Policy from time to time. The “Last Updated” date will reflect the latest changes. Continued use of our Services after changes means you accept the updated policy.
+        </p>
+      </div>
+
+      <!-- 13. Termination -->
+      <div class="reveal-me">
+        <h3>13. Contact Us</h3>
+        <p>
+          We operate remotely and do not accept physical mail. You can reach us at <span class="font-semibold">contact@uxory.com</span> or call us at <span class="font-semibold">+1 513-413-7427</span> (USA) or <span class="font-semibold">+91 73506-77916</span> (India). Uxory is registered as <span class="font-semibold">Uxory LLC</span> in the United States and <span class="font-semibold">Uxory Technologies Private Limited
+      </div>
+
+
+
     </div>
   </div>
 </section>

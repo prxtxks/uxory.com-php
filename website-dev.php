@@ -1072,14 +1072,14 @@ Our Projects-Slider Section
             class="flex flex-col md:flex-row items-start gap-y-5 md:space-x-10 content-between"
           >
             <img
-              src="/images/home-ai/trimhr.png"
+              src="/images/home-ai/trimhr.webp"
               alt="TrimHR"
               class="max-md:w-full object-cover md:max-w-[300px] md:max-h-[260px]"
             />
             <div class="flex flex-col md:max-w-[650px]">
               
               <div class="flex items-center gap-x-6 mt-5 mb-[34px]">
-                <p class="text-2xl leading-[1.1]">Project TrimHR</p>
+                <p class="font-medium text-2xl leading-[1.1]">TRIM HR CONSULTING PRIVATE LIMITED</p>
               </div>
 
               <p class="text-lg leading-[1.6] tracking-[0.36px]">
@@ -1118,18 +1118,18 @@ Our Projects-Slider Section
             class="flex flex-col md:flex-row items-start gap-y-5 md:space-x-10 content-between"
           >
             <img
-              src="/images/home-ai/trezure.png"
+              src="/images/home-ai/trezure.webp"
               alt="User Image"
               class="max-md:w-full object-cover md:max-w-[300px] md:max-h-[260px]"
             />
             <div class="flex flex-col md:max-w-[650px]">
               
               <div class="flex items-center gap-x-6 mt-5 mb-[34px]">
-                <p class="text-2xl leading-[1.1]">Project Trezure (Concept Design)</p>
+                <p class="text-2xl font-medium leading-[1.1]">TREZURE LIFESTYLE PRIVATE LIMITED</p>
               </div>
 
               <p class="text-lg leading-[1.6] tracking-[0.36px]">
-                A responsive website for a Mumbai-based furniture brand to showcase custom designs and attract design-conscious buyers. 
+                A responsive website (concept design) for a Mumbai-based furniture brand to showcase custom designs and attract design-conscious buyers. 
                 Designed with a clean layout and easy navigation for a smooth browsing experience.
               </p>
 
@@ -1158,6 +1158,53 @@ Our Projects-Slider Section
             </div>
           </div>
         </div>       
+
+         <!-- Slide 03 Project Avics -->
+        <div class="swiper-slide">
+          <div
+            class="flex flex-col md:flex-row items-start gap-y-5 md:space-x-10 content-between"
+          >
+            <img
+              src="/images/home-ai/avics.webp"
+              alt="User Image"
+              class="max-md:w-full object-cover md:max-w-[300px] md:max-h-[260px]"
+            />
+            <div class="flex flex-col md:max-w-[650px]">
+              
+              <div class="flex items-center gap-x-6 mt-5 mb-[34px]">
+                <p class="text-2xl font-medium leading-[1.1]">AVICS CONSULTANCY SERVICES</p>
+              </div>
+
+              <p class="text-lg leading-[1.6] tracking-[0.36px]">
+               A responsive website for a Pune-based SaaS company to showcase cutting-edge software solutions and attract global clients.
+              Built with a modern layout and intuitive navigation for a seamless user experience.
+              </p>
+
+              <div class="flex items-center justify-between mt-12">
+                
+                  <a
+                    href="https://www.uxory.shop"
+                    class="border dark:border-dark p-1.5 md:p-3 hover:bg-primary duration-300"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <img
+                      src="/images/icons/top-arrow.svg"
+                      alt="icon"
+                      class="block dark:hidden mt-[2px]"
+                    />
+                    <img
+                      src="/images/icons/top-arrow-dark.svg"
+                      alt="icon"
+                      class="hidden dark:block mt-[2px]"
+                    />
+                  </a>
+                
+              </div>
+
+            </div>
+          </div>
+        </div>    
         
       </div>
       
@@ -1506,7 +1553,7 @@ $299 website
                   />
                 </svg>
               </span>
-              100% money-back guarantee
+              100% money-back guarantee<sup>*</sup>
             </li>
 
             <li
@@ -2311,7 +2358,7 @@ $299 website
     >
        
       <span class="font-instrument sm:mt-10 italic block max-md:inline-block"
-        >"100% Money Back Guarantee"</span 
+        >"100% money-back guarantee<sup>*</sup>"</span 
       >
       
     </h2>

@@ -34,7 +34,7 @@
           <img src="/images/review.svg" class="h-20 w-20" alt="Review Author" />
           <div>
             <h3 class="text-xl leading-[1.2] tracking-wide font-medium">
-              Praptik Synergy LLP
+              Sarah Mitchell
             </h3>
             <div class="text-base font-light leading-5 mt-[3.5px]">
               <div class="flex pt-2 gap-1 items-center mb-5">
@@ -125,7 +125,7 @@
           <img src="/images/review.svg" class="h-20 w-20" alt="Review Author" />
           <div>
             <h3 class="text-xl leading-[1.2] tracking-wide font-medium">
-              Lotus Shapes Pvt. Ltd.
+              Siddharth Bhosale
             </h3>
             <div class="text-base font-light leading-5 mt-[3.5px]">
               <div class="flex pt-2 gap-1 items-center mb-5">
@@ -216,7 +216,7 @@
           <img src="/images/review.svg" class="h-20 w-20" alt="Review Author" />
           <div>
             <h3 class="text-xl leading-[1.2] tracking-wide font-medium">
-              AlphaZix LLC
+              Anjali Patel
             </h3>
             <div class="text-base font-light leading-5 mt-[3.5px]">
               <div class="flex pt-2 gap-1 items-center mb-5">

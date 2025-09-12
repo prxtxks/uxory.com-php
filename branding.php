@@ -302,16 +302,16 @@ Our Solution
         id="counter"
       >
         <h2 class="lg:text-7xl">
-          <span class="counter" data-value="25"></span>
+          <span class="counter" data-value="25"></span>+
         </h2>
-        <p>Years of Experience</p>
+        <p>Unique Brand Identities Created</p>
       </div>
       <div
         class="border dark:border-dark py-7 lg:py-10 px-9 lg:px-16 space-y-3 flex justify-center flex-col items-center min-w-[280px] lg:min-w-[320px] min-h-[180px]"
         id="counter"
       >
         <h2 class="lg:text-7xl">
-          <span class="counter" data-value="300"></span> +
+          <span class="counter" data-value="20"></span> +
         </h2>
         <p>Clients Globally</p>
       </div>
@@ -320,9 +320,9 @@ Our Solution
         id="counter"
       >
         <h2 class="lg:text-7xl">
-          <span class="counter" data-value="90"></span> %
+          <span class="counter" data-value="100"></span> %
         </h2>
-        <p>Business Growth Rate</p>
+        <p>Return Clients</p>
       </div>
   </div>
   
