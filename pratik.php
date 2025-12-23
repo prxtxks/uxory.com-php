@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -13090,7 +13090,7 @@
                   <section class="tw-relative" brand-page-token="6669682e-647b-4c1c-82cd-17fe87e63b36"
                     container-client-height="0" container-client-width="0" data-v-fbee2bb3="" data-v-7e71fc85="">
                     <div class="bp-button tw-mb-4 tw-min-h-14" data-v-fbee2bb3=""><!----><a title="Add to Contacts"
-                        href="https://www.uxory.com/pratik-chaudhari.vcf" target="_blank"
+                        href="./pratik-chaudhari.vcf" download
                         class="c-button tw-py-4 tw-items-center tw-px-5"
                         style="color:#ffffff;box-shadow:;border-color:#ffffff;border-style:solid;border-width:2px;border-radius:8px;background-color:#63e6dd;overflow-wrap:anywhere;word-break:normal;"
                         rel="noopener" data-v-fbee2bb3=""><span class="c-button__icon"

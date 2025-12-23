@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zxx">
+<html lang="zxx" class="dark">
 
 <head>
   <!-- Title -->
@@ -84,7 +84,7 @@ include 'components/dark_mode.php';
     404 Error Page Section
 ==========================-->
 <section
-  class="pt-36 md:pt-12 lg:pt-0 2xl:pt-12 min-h-screen relative overflow-hidden"
+  class=" min-h-screen relative overflow-hidden"
 >
   <div class="container">
     <!-- Gradient Background Wrapper -->

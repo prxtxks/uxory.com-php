@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zxx">
+<html lang="zxx" class="dark">
 
 <head>
   <!-- Title -->
@@ -140,15 +140,8 @@ include 'components/dark_mode.php';
               class="bg-primary w-[44px] h-[44px] cursor-pointer relative overflow-hidden"
             >
               <img
-                src="images/icons/arrow-Icon.svg"
-                alt="Arrow Icon"
-                class="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 group-hover:-translate-y-12 group-hover:translate-x-8 transition-all duration-500 opacity-100 group-hover:opacity-0"
-              />
-              <img
-                src="images/icons/arrow-Icon.svg"
-                alt="Arrow Icon"
-                class="absolute translate-y-12 -translate-x-4 transition-all duration-500 opacity-0 group-hover:opacity-100 group-hover:translate-x-[19px] group-hover:translate-y-5"
-              />
+                src="images/icons/hyper-arrow-new.svg"
+                alt="Arrow Icon"              />
             </figure>
           </a>
       </div>
@@ -168,15 +161,8 @@ include 'components/dark_mode.php';
               class="bg-primary w-[44px] h-[44px] cursor-pointer relative overflow-hidden"
             >
               <img
-                src="images/icons/arrow-Icon.svg"
-                alt="Arrow Icon"
-                class="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 group-hover:-translate-y-12 group-hover:translate-x-8 transition-all duration-500 opacity-100 group-hover:opacity-0"
-              />
-              <img
-                src="images/icons/arrow-Icon.svg"
-                alt="Arrow Icon"
-                class="absolute translate-y-12 -translate-x-4 transition-all duration-500 opacity-0 group-hover:opacity-100 group-hover:translate-x-[19px] group-hover:translate-y-5"
-              />
+                src="images/icons/hyper-arrow-new.svg"
+                alt="Arrow Icon"              />
             </figure>
           </a>
       </div>
@@ -1024,7 +1010,7 @@ Our Work Heading Section
         <div class="flex-1 md:self-start">
           <h3 class="text-appear lg:leading-[1.1]">
             Explore Our Work,
-            <i class="font-instrument"> websites we've built. </i>
+            <i class="font-instrument"> our happy clients. </i>
           </h3>
         </div>
 
@@ -1079,7 +1065,7 @@ Our Projects-Slider Section
             <div class="flex flex-col md:max-w-[650px]">
               
               <div class="flex items-center gap-x-6 mt-5 mb-[34px]">
-                <p class="font-medium text-2xl leading-[1.1]">TRIM HR CONSULTING PRIVATE LIMITED</p>
+                <p class="font-medium text-2xl leading-[1.1]">TRIM HR&reg; CONSULTING PRIVATE LIMITED</p>
               </div>
 
               <p class="text-lg leading-[1.6] tracking-[0.36px]">
@@ -1183,7 +1169,7 @@ Our Projects-Slider Section
               <div class="flex items-center justify-between mt-12">
                 
                   <a
-                    href="https://www.uxory.shop"
+                    href="https://projects.uxory.com/avics/"
                     class="border dark:border-dark p-1.5 md:p-3 hover:bg-primary duration-300"
                     target="_blank"
                     rel="noopener noreferrer"
@@ -1204,7 +1190,99 @@ Our Projects-Slider Section
 
             </div>
           </div>
-        </div>    
+        </div>
+        
+        <!-- Slide Project 04 JadeRock Capital -->
+        <div class="swiper-slide">
+          <div
+            class="flex flex-col md:flex-row items-start gap-y-5 md:space-x-10 content-between"
+          >
+            <img
+              src="/images/home-ai/jaderock.png"
+              alt="JadeRock Capital Website"
+              class="max-md:w-full object-cover md:max-w-[300px] md:max-h-[260px]"
+            />
+            <div class="flex flex-col md:max-w-[650px]">
+              
+              <div class="flex items-center gap-x-6 mt-5 mb-[34px]">
+                <p class="text-2xl font-medium leading-[1.1]">JADEROCK CAPITAL</p>
+              </div>
+
+              <p class="text-lg leading-[1.6] tracking-[0.36px]">
+                A professional website for a U.S.-based commercial real estate and SBA financing advisory firm.
+                Designed to establish credibility, clearly communicate financing services, and support client acquisition
+                through a clean structure and conversion-focused layout.
+              </p>
+
+              <div class="flex items-center justify-between mt-12">
+                <a
+                  href="https://projects.uxory.com/jaderockcap/"
+                  class="border dark:border-dark p-1.5 md:p-3 hover:bg-primary duration-300"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img
+                    src="/images/icons/top-arrow.svg"
+                    alt="icon"
+                    class="block dark:hidden mt-[2px]"
+                  />
+                  <img
+                    src="/images/icons/top-arrow-dark.svg"
+                    alt="icon"
+                    class="hidden dark:block mt-[2px]"
+                  />
+                </a>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide Project: Jahnavi Ammineni Portfolio -->
+        <!-- <div class="swiper-slide">
+          <div
+            class="flex flex-col md:flex-row items-start gap-y-5 md:space-x-10 content-between"
+          >
+            <img
+              src="/images/home-ai/jahnavi.png"
+              alt="Jahnavi Ammineni Portfolio"
+              class="max-md:w-full object-cover md:max-w-[300px] md:max-h-[260px]"
+            />
+            <div class="flex flex-col md:max-w-[650px]">
+              
+              <div class="flex items-center gap-x-6 mt-5 mb-[34px]">
+                <p class="text-2xl font-medium leading-[1.1]">JAHNAVI AMMINENI CV</p>
+              </div>
+
+              <p class="text-lg leading-[1.6] tracking-[0.36px]">
+                  Designed a modern, responsive portfolio website for our US-based client Jahnavi Ammineni, highlighting her projects, CV, and professional achievements.
+              </p>
+
+              <div class="flex items-center justify-between mt-12">
+                
+                <a
+                  href="https://www.jahnaviammineni.com"
+                  class="border dark:border-dark p-1.5 md:p-3 hover:bg-primary duration-300"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img
+                    src="/images/icons/top-arrow.svg"
+                    alt="View Project"
+                    class="block dark:hidden mt-[2px]"
+                  />
+                  <img
+                    src="/images/icons/top-arrow-dark.svg"
+                    alt="View Project"
+                    class="hidden dark:block mt-[2px]"
+                  />
+                </a>
+              
+              </div>
+
+            </div>
+          </div>
+        </div> -->
         
       </div>
       
@@ -2384,15 +2462,8 @@ $299 website
               class="bg-primary w-[44px] h-[44px] cursor-pointer relative overflow-hidden"
             >
               <img
-                src="images/icons/arrow-Icon.svg"
-                alt="Arrow Icon"
-                class="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 group-hover:-translate-y-12 group-hover:translate-x-8 transition-all duration-500 opacity-100 group-hover:opacity-0"
-              />
-              <img
-                src="images/icons/arrow-Icon.svg"
-                alt="Arrow Icon"
-                class="absolute translate-y-12 -translate-x-4 transition-all duration-500 opacity-0 group-hover:opacity-100 group-hover:translate-x-[19px] group-hover:translate-y-5"
-              />
+                src="images/icons/hyper-arrow-new.svg"
+                alt="Arrow Icon"              />
             </figure>
           </a>
       </div>

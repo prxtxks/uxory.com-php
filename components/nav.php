@@ -44,79 +44,23 @@
             <a
               href="/"
               class="text-white inline-block pb-1 pl-3 menu-list-item-dropdown-list text-base md:text-lg leading-8 md:leading-[50px] <?= ($currentPage ?? '') === 'index' ? 'active' : '' ?>"
-              >Uxory - Homepage
-            </a>
-          </li>
-
-          <li>
-            <a
-              href="/website-dev.php"
-              class="text-white inline-block pb-1 pl-3 menu-list-item-dropdown-list text-base md:text-lg leading-8 md:leading-[50px] <?= ($currentPage ?? '') === 'website_dev' ? 'active' : '' ?>"
-              >Website Development
+              >Homepage
             </a>
           </li>
 
           <li>
             <a
               href="/available-soon.php"
-              class="text-white inline-block pb-1 pl-3 menu-list-item-dropdown-list text-base md:text-lg leading-8 md:leading-[50px] <?= ($currentPage ?? '') === 'web-app-solutions' ? 'active' : '' ?>"
-              >Web & Mobile App Devemopment
-            </a>
-          </li>
-
-           <li>
-            <a
-              href="/ecommerce-solutions.php"
-              class="text-white inline-block pb-1 pl-3 menu-list-item-dropdown-list text-base md:text-lg leading-8 md:leading-[50px] <?= ($currentPage ?? '') === 'ecommerce-solutions' ? 'active' : '' ?>"
-              >E-commerce Solutions
-            </a>
-          </li>
-
-          <li>
-            <a
-              href="/seo.php"
-              class="text-white inline-block pb-1 pl-3 menu-list-item-dropdown-list text-base md:text-lg leading-8 md:leading-[50px] <?= ($currentPage ?? '') === 'seo' ? 'active' : '' ?>"
-              >Search Engine Optimization
-            </a>
-          </li>
-
-          <li>
-            <a
-              href="/email-marketing-and-automation.php"
-              class="text-white inline-block pb-1 pl-3 menu-list-item-dropdown-list text-base md:text-lg leading-8 md:leading-[50px] <?= ($currentPage ?? '') === 'email-makreting-and-automation' ? 'active' : '' ?>"
-              >Email & CRM Automation
+              class="text-white inline-block pb-1 pl-3 menu-list-item-dropdown-list text-base md:text-lg leading-8 md:leading-[50px] <?= ($currentPage ?? '') === 'all_services' ? 'active' : '' ?>"
+              >All Services
             </a>
           </li>
 
           <li>
             <a
               href="/coming-soon.php"
-              class="text-white inline-block pb-1 pl-3 menu-list-item-dropdown-list text-base md:text-lg leading-8 md:leading-[50px] <?= ($currentPage ?? '') === 'digital-ads' ? 'active' : '' ?>"
-              >Paid Advertising (PPC)
-            </a>
-          </li>
-
-          <li>
-            <a
-              href="/social-media.php"
-              class="text-white inline-block pb-1 pl-3 menu-list-item-dropdown-list text-base md:text-lg leading-8 md:leading-[50px] <?= ($currentPage ?? '') === 'social_media' ? 'active' : '' ?>"
-              >Social Media Marketing
-            </a>
-          </li>
-
-          <li>
-            <a
-              href="/branding.php"
-              class="text-white inline-block pb-1 pl-3 menu-list-item-dropdown-list text-base md:text-lg leading-8 md:leading-[50px] <?= ($currentPage ?? '') === 'branding' ? 'active' : '' ?>"
-              >Branding & Identity Design
-            </a>
-          </li>
-
-          <li>
-            <a
-              href="/custom-package.php"
-              class="text-white inline-block pb-1 pl-3 menu-list-item-dropdown-list text-base md:text-lg leading-8 md:leading-[50px] <?= ($currentPage ?? '') === 'custom' ? 'active' : '' ?>"
-              >Custom Packages
+              class="text-white inline-block pb-1 pl-3 menu-list-item-dropdown-list text-base md:text-lg leading-8 md:leading-[50px] <?= ($currentPage ?? '') === 'shop' ? 'active' : '' ?>"
+              >The Uxory Store
             </a>
           </li>
 
@@ -137,31 +81,15 @@
             <a
               href="/coming-soon.php"
               class="text-white inline-block pb-1 pl-3 menu-list-item-dropdown-list text-base md:text-lg leading-8 md:leading-[50px] <?= ($currentPage ?? '') === 'about' ? 'active' : '' ?>"
-              >About Uxory</a
+              >About Us</a
             >
           </li>
-
-          <!-- <li>
-            <a
-              href="/coming-soon.php"
-              class="text-white inline-block pb-1 pl-3 menu-list-item-dropdown-list text-base md:text-lg leading-8 md:leading-[50px] <?= ($currentPage ?? '') === 'why_uxory' ? 'active' : '' ?>"
-              >Why Uxory
-            </a>
-          </li> -->
-
-          <!-- <li>
-            <a
-              href="/coming-soon.php"
-              class="text-white inline-block pb-1 pl-3 menu-list-item-dropdown-list text-base md:text-lg leading-8 md:leading-[50px] <?= ($currentPage ?? '') === 'portfolio' ? 'active' : '' ?>"
-              >Case Studies
-            </a>
-          </li> -->
 
           <li>
             <a
               href="/blog-listings.php"
               class="text-white inline-block pb-1 pl-3 menu-list-item-dropdown-list text-base md:text-lg leading-8 md:leading-[50px] <?= ($currentPage ?? '') === 'blog' ? 'active' : '' ?>"
-              >Blog
+              >Blogs & Insights
             </a>
           </li>
           
@@ -177,7 +105,7 @@
             <a
               href="/team.php"
               class="text-white inline-block pb-1 pl-3 menu-list-item-dropdown-list text-base md:text-lg leading-8 md:leading-[50px] <?= ($currentPage ?? '') === 'team' ? 'active' : '' ?>"
-              >Team Uxory
+              >Our Team
             </a>
           </li>
 
@@ -209,11 +137,29 @@
         <ul
           class="menu-list-item-dropdown relative md:absolute top-0 w-full md:w-auto h-fit left-0 md:left-[48%]"
         >
+          
+
           <li>
             <a
-              href="/services.php"
-              class="text-white inline-block pb-1 pl-3 menu-list-item-dropdown-list text-base md:text-lg leading-8 md:leading-[50px] <?= ($currentPage ?? '') === 'all_services' ? 'active' : '' ?>"
-              >All Services
+              href="/available-soon.php"
+              class="text-white inline-block pb-1 pl-3 menu-list-item-dropdown-list text-base md:text-lg leading-8 md:leading-[50px] <?= ($currentPage ?? '') === 'empty' ? 'active' : '' ?>"
+              >AI Systems & Agents
+            </a>
+          </li>
+
+          <li>
+            <a
+              href="/available-soon.php"
+              class="text-white inline-block pb-1 pl-3 menu-list-item-dropdown-list text-base md:text-lg leading-8 md:leading-[50px] <?= ($currentPage ?? '') === 'empty' ? 'active' : '' ?>"
+              >Business Process Automation
+            </a>
+          </li>
+
+          <li>
+            <a
+              href="/available-soon.php"
+              class="text-white inline-block pb-1 pl-3 menu-list-item-dropdown-list text-base md:text-lg leading-8 md:leading-[50px] <?= ($currentPage ?? '') === 'empty' ? 'active' : '' ?>"
+              >AI-Powered SaaS Development
             </a>
           </li>
 
@@ -221,15 +167,15 @@
             <a
               href="/website-dev.php"
               class="text-white inline-block pb-1 pl-3 menu-list-item-dropdown-list text-base md:text-lg leading-8 md:leading-[50px] <?= ($currentPage ?? '') === 'website_dev' ? 'active' : '' ?>"
-              >Website Development
+              >High-Performance Websites
             </a>
           </li>
 
           <li>
             <a
-              href="/available-soon.php"
+              href="/web-and-app-solutions.php"
               class="text-white inline-block pb-1 pl-3 menu-list-item-dropdown-list text-base md:text-lg leading-8 md:leading-[50px] <?= ($currentPage ?? '') === 'web-app-solutions' ? 'active' : '' ?>"
-              >Web & Mobile App Devemopment
+              >Web & Mobile App Development
             </a>
           </li>
 
@@ -238,54 +184,6 @@
               href="/ecommerce-solutions.php"
               class="text-white inline-block pb-1 pl-3 menu-list-item-dropdown-list text-base md:text-lg leading-8 md:leading-[50px] <?= ($currentPage ?? '') === 'ecommerce-solutions' ? 'active' : '' ?>"
               >E-commerce Solutions
-            </a>
-          </li>
-
-          <li>
-            <a
-              href="/seo.php"
-              class="text-white inline-block pb-1 pl-3 menu-list-item-dropdown-list text-base md:text-lg leading-8 md:leading-[50px] <?= ($currentPage ?? '') === 'seo' ? 'active' : '' ?>"
-              >Search Engine Optimization
-            </a>
-          </li>
-
-          <li>
-            <a
-              href="/email-marketing-and-automation.php"
-              class="text-white inline-block pb-1 pl-3 menu-list-item-dropdown-list text-base md:text-lg leading-8 md:leading-[50px] <?= ($currentPage ?? '') === 'email-makreting-and-automation' ? 'active' : '' ?>"
-              >Email & CRM Automation
-            </a>
-          </li>
-
-          <li>
-            <a
-              href="/coming-soon.php"
-              class="text-white inline-block pb-1 pl-3 menu-list-item-dropdown-list text-base md:text-lg leading-8 md:leading-[50px] <?= ($currentPage ?? '') === 'digital_ads' ? 'active' : '' ?>"
-              >Paid Advertising (PPC)
-            </a>
-          </li>
-
-           <li>
-            <a
-              href="/social-media.php"
-              class="text-white inline-block pb-1 pl-3 menu-list-item-dropdown-list text-base md:text-lg leading-8 md:leading-[50px] <?= ($currentPage ?? '') === 'social_media' ? 'active' : '' ?>"
-              >Social Media Marketing
-            </a>
-          </li>
-
-          <li>
-            <a
-              href="/branding.php"
-              class="text-white inline-block pb-1 pl-3 menu-list-item-dropdown-list text-base md:text-lg leading-8 md:leading-[50px] <?= ($currentPage ?? '') === 'branding' ? 'active' : '' ?>"
-              >Branding & Identity Design
-            </a>
-          </li>
-
-          <li>
-            <a
-              href="/custom-package.php"
-              class="text-white inline-block pb-1 pl-3 menu-list-item-dropdown-list text-base md:text-lg leading-8 md:leading-[50px] <?= ($currentPage ?? '') === 'custom' ? 'active' : '' ?>"
-              >Custom Packages
             </a>
           </li>
           

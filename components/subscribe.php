@@ -1,6 +1,15 @@
 <?php
 // subscribe.php
 
+// TEMPORARILY DISABLE SUBSCRIPTIONS (ANTI-SPAM)
+header('Content-Type: application/json');
+http_response_code(403);
+echo json_encode([
+    'status' => 'disabled',
+    'message' => 'Subscriptions are temporarily disabled. Please try again later.'
+]);
+exit;
+
 // Return JSON
 header('Content-Type: application/json');
 

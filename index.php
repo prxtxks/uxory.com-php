@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="zxx">
+<html lang="zxx" class="dark">
 
 <head>
 
   <!--Tittle-->
-<title>Uxory | Design-Driven Digital Solutions Agency</title>
-<meta name="description" content="Uxory is a design-driven digital solutions agency crafting websites, interfaces, and creative solutions for future-forward brands." />
+<title>Uxory | Intelligent Software & Automation Solutions</title>
+<meta name="description" content="We build AI-powered systems that automate operations, increase revenue, and eliminate inefficiencies." />
 
 <meta charset="utf-8" />
 
@@ -35,16 +35,16 @@ Favicon
 <link rel="canonical" href="https://uxory.com/" />
 
 <!-- Open Graph -->
-<meta property="og:title" content="Uxory | Design-Driven Digital Solutions Agency" />
-<meta property="og:description" content="We craft digital experiences that elevate brands." />
+<meta property="og:title" content="Uxory | Intelligent Software & Automation Solutions" />
+<meta property="og:description" content="We build AI-powered systems that automate operations, increase revenue, and eliminate inefficiencies." />
 <meta property="og:image" content="https://www.uxory.com/images/logo.png" />
 <meta property="og:url" content="https://www.uxory.com" />
 <meta property="og:type" content="website" />
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Uxory | Design-Driven Digital Agency" />
-<meta name="twitter:description" content="We craft digital experiences that elevate brands." />
+<meta name="twitter:title" content="Uxory | Intelligent Software & Automation Solutions" />
+<meta name="twitter:description" content="We build AI-powered systems that automate operations, increase revenue, and eliminate inefficiencies." />
 <meta name="twitter:image" content="https://www.uxory.com/images/logo.png" />
 
 <!-- JSON-LD Structured Data -->
@@ -55,7 +55,7 @@ Favicon
     "name": "Uxory",
     "url": "https://uxory.com",
     "logo": "https://uxory.com/images/logo.png",
-    "description": "Design-Driven Digital Solutions Agency building websites and experiences for forward-thinking brands."
+    "description": "We build AI-powered systems that automate operations, increase revenue, and eliminate inefficiencies."
   }
   </script>
 
@@ -80,7 +80,7 @@ include 'components/nav.php';
 ></div>
 
 <!-- Cursor Pointer -->
-<div class="pointer"></div>
+<!-- <div class="pointer"></div> -->
 
 <!-- Dark Mode toggle -->
 <?php       
@@ -114,20 +114,18 @@ include 'components/dark_mode.php';
     <p
       class="flex text-secondary dark:text-backgroundBody justify-center lg:justify-start items-center gap-5 text-sm font-normal leading-6 tracking-[3px] uppercase"
     >
-      <span>YOUR TECH PARTNER</span>
-      <span
+      <span>YOUR TECHNOLOGY PARTNER</span>
+      <!-- <span
         class="inline-block w-[150px] h-[1px] bg-secondary dark:bg-backgroundBody/70"
       ></span>
-      <span>Uxory</span>
+      <span>Uxory</span> -->
     </p>
 
     <!-- Hero Heading -->
-    <h2 class="font-semibold mt-5 sm:mt-10">
-     Scaling your brand with a 
-      <i class="font-instrument">Digital Presence</i> like no one 
-      <i class="font-instrument">else.</i>
-    </h2>
-
+<h2 class="font-semibold mt-5 sm:mt-10">
+  Software, automation, and AI systems designed for 
+  <i class="font-instrument">modern business growth.</i>
+</h2>
     <!-- CTA Buttons -->
     <ul class="flex justify-start list-none mt-14">
       <div
@@ -144,15 +142,8 @@ include 'components/dark_mode.php';
               class="bg-primary w-[44px] h-[44px] cursor-pointer relative overflow-hidden"
             >
               <img
-                src="images/icons/arrow-Icon.svg"
-                alt="Arrow Icon"
-                class="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 group-hover:-translate-y-12 group-hover:translate-x-8 transition-all duration-500 opacity-100 group-hover:opacity-0"
-              />
-              <img
-                src="images/icons/arrow-Icon.svg"
-                alt="Arrow Icon"
-                class="absolute translate-y-12 -translate-x-4 transition-all duration-500 opacity-0 group-hover:opacity-100 group-hover:translate-x-[19px] group-hover:translate-y-5"
-              />
+                src="images/icons/hyper-arrow-new.svg"
+                alt="Arrow Icon"              />
             </figure>
           </a>
       </div>
@@ -173,7 +164,7 @@ include 'components/dark_mode.php';
         <p
           class="reveal-text-2 text-2xl lg:text-3xl text-secondary/90 dark:text-backgroundBody/70 text-left font-normal lg:leading-[1.2] lg:tracking-[0.72px] pb-10 sm:pb-20"
         >
-        At Uxory, we specialize in crafting stunning websites, revenue-driven SEO, and impactful digital marketing that helps your business stand out, and unlock the exponential growth you've been missing.   
+        At Uxory, We help growing businesses build intelligent digital platforms, automate operations, and scale using custom software and AI-driven systems. From internal tools to customer-facing platforms, we design systems that reduce manual work and make daily operations easier.
       </p>
     </div>
 
@@ -194,13 +185,13 @@ include 'components/dark_mode.php';
         />
       </figure>
       <div class="text">
-        <p>Building Brands,that Create Impact</p>
+        <p>Helping Businesses Scale Smarter ★</p>
       </div>
     </div>
 
 
       <p class="reveal-text-2 text-2xl lg:text-3xl text-secondary/90 dark:text-backgroundBody/70 text-left font-normal lg:leading-[1.2] lg:tracking-[0.72px] pt-10 sm:pt-20">
-        Uxory combines proven strategies, expert execution, and data-driven insights to help your business reach—and exceed—its revenue goals. We see your business goals as our own, building a partnership for shared success.
+        In today’s world, efficiency is a requirement, not an advantage. Businesses that use AI and automation can handle more work with the same team, respond faster to customers, and adapt quickly as markets change. Uxory helps you build those systems: custom software, automation, and AI solutions designed around how your business actually runs.
       </p>
 
   </div>
@@ -217,32 +208,12 @@ include 'components/dark_mode.php';
   <!-- Clients Logo Marquee -->
   <div class="marquee-container reveal-me">
     <div class="flex items-center justify-between py-2.5 pb-5">
+      
       <div class="flex items-center gap-6 mr-5">
         <span
           class="text-4xl sm:text-[36px] md:text-[55px] font-semibold leading-tight xl:leading-[1.1] tracking-[-1.5px] xl:tracking-[-2px] text-nowrap"
         >
-          Website Development
-        </span>
-        <span class="mt-5">
-          <svg
-            xmlns="https://www.w3.org/2000/svg"
-            width="32"
-            height="32"
-            viewBox="0 0 40 40"
-            fill="none"
-          >
-            <path
-              d="M20.002 0C20.002 0 19.789 11.2169 24.2871 15.7149C28.785 20.2129 40.002 20 40.002 20C40.002 20 28.785 19.7871 24.2871 24.2851C19.789 28.7831 20.002 40 20.002 40C20.002 40 20.2149 28.7831 15.7168 24.2851C11.2189 19.7871 0.00195312 20 0.00195312 20C0.00195312 20 11.2189 20.2129 15.7168 15.7149C20.2149 11.2169 20.002 0 20.002 0Z"
-              class="fill-black dark:fill-backgroundBody"
-            />
-          </svg>
-        </span>
-      </div>
-      <div class="flex items-center gap-6 mr-5">
-        <span
-          class="text-4xl sm:text-[36px] md:text-[55px] font-semibold leading-tight xl:leading-[1.1] tracking-[-1.5px] xl:tracking-[-2px] text-nowrap"
-        >
-        SEO
+        AI Systems & Agents
         </span>
         <span class="mt-5">
          <svg
@@ -263,7 +234,7 @@ include 'components/dark_mode.php';
         <span
           class="text-4xl sm:text-[36px] md:text-[55px] font-semibold leading-tight xl:leading-[1.1] tracking-[-1.5px] xl:tracking-[-2px] text-nowrap"
         >
-          Digital Marketing
+          Workflow Automation
         </span>
         <span class="mt-5">
           <svg
@@ -284,7 +255,7 @@ include 'components/dark_mode.php';
         <span
           class="text-4xl sm:text-[36px] md:text-[55px] font-semibold leading-tight xl:leading-[1.1] tracking-[-1.5px] xl:tracking-[-2px] text-nowrap"
         >
-          Rank #1 on Google
+          AI Powered Apps
         </span>
         <span class="mt-5">
           <svg
@@ -312,7 +283,7 @@ include 'components/dark_mode.php';
         <span
           class="text-4xl sm:text-[36px] md:text-[55px] font-semibold leading-tight xl:leading-[1.1] tracking-[-1.5px] xl:tracking-[-2px] text-nowrap"
         >
-          Digital Marketing
+          AI Powered Apps
         </span>
         <span class="mt-5">
           <svg
@@ -333,7 +304,7 @@ include 'components/dark_mode.php';
         <span
           class="text-4xl sm:text-[36px] md:text-[55px] font-semibold leading-tight xl:leading-[1.1] tracking-[-1.5px] xl:tracking-[-2px] text-nowrap"
         >
-          Rank #1 on Google
+          Process Automation
         </span>
         <span class="mt-5">
           <svg
@@ -354,7 +325,7 @@ include 'components/dark_mode.php';
         <span
           class="text-4xl sm:text-[36px] md:text-[55px] font-semibold leading-tight xl:leading-[1.1] tracking-[-1.5px] xl:tracking-[-2px] text-nowrap"
         >
-          SEO
+          AI-Powered SAAS
         </span>
         <span class="mt-5">
           <svg
@@ -370,28 +341,9 @@ include 'components/dark_mode.php';
             />
           </svg>
         </span>
+
       </div>
-      <div class="flex items-center gap-6 mr-5">
-        <span
-          class="text-4xl sm:text-[36px] md:text-[55px] font-semibold leading-tight xl:leading-[1.1] tracking-[-1.5px] xl:tracking-[-2px] text-nowrap"
-        >
-          Website Development
-        </span>
-        <span class="mt-5">
-          <svg
-            xmlns="https://www.w3.org/2000/svg"
-            width="32"
-            height="32"
-            viewBox="0 0 40 40"
-            fill="none"
-          >
-            <path
-              d="M20.002 0C20.002 0 19.789 11.2169 24.2871 15.7149C28.785 20.2129 40.002 20 40.002 20C40.002 20 28.785 19.7871 24.2871 24.2851C19.789 28.7831 20.002 40 20.002 40C20.002 40 20.2149 28.7831 15.7168 24.2851C11.2189 19.7871 0.00195312 20 0.00195312 20C0.00195312 20 11.2189 20.2129 15.7168 15.7149C20.2149 11.2169 20.002 0 20.002 0Z"
-              class="fill-black dark:fill-backgroundBody"
-            />
-          </svg>
-        </span>
-      </div>
+
     </div>
   </div>
 
@@ -419,7 +371,7 @@ include 'components/dark_mode.php';
 
       <div class="md:self-end max-md:w-full flex-1">
         <p class="text-appear md:justify-self-end max-w-lg md:text-right">
-          We offer everything you need to build, manage, and grow your digital presence—effortlessly.
+          Everything your business needs to thrive in the competition.
         </p>
 
         <ul class="justify-self-end max-md:w-full mt-5 md:mt-10 reveal-me">
@@ -446,7 +398,101 @@ include 'components/dark_mode.php';
     <!-- Accordion Container -->
     
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-[1170px] w-full mx-auto pt-2 reveal-me">
-        <a href="./website-dev.php" class="fab-member max-w-[370px] border dark:border-dark p-5 flex items-center gap-5 transitionTimingFunction relative overflow-visible">
+
+        <a href="./available-soon.php" class="fab-member max-w-[370px] border dark:border-dark p-5 flex items-center gap-5 transitionTimingFunction relative overflow-visible">
+          <figure class="flex-none w-[100px] h-[100px]">
+            <img
+              src="images/services-icons/agent.png"
+              alt="SEO"
+              class="w-full h-full object-contain"
+            />
+          </figure>
+          <div class="flex-1">
+            <h3 class="text-2xl leading-[1.2] tracking-[-0.72px] mb-3 mr-2">
+              AI Systems & Agents
+            </h3>
+          </div>
+          <span class="absolute top-3 right-3">
+              <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-4 w-4 text-gray-500 dark:text-gray-400"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="2"
+              >
+                  <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M7 17L17 7m0 0H7m10 0v10"
+                  />
+              </svg>
+          </span>
+        </a>
+
+        <a href="/available-soon.php" class="fab-member max-w-[370px] border dark:border-dark p-5 flex items-center gap-5 transitionTimingFunction relative overflow-visible">
+          <figure class="flex-none w-[100px] h-[100px]">
+            <img
+              src="/images/services-icons/auto.png"
+              alt="Email"
+              class="w-full h-full object-contain"
+            />
+          </figure>
+          <div class="flex-1">
+            <h3 class="text-2xl leading-[1.2] tracking-[-0.72px] mb-3 mr-2">
+              Business Process Automation
+            </h3>
+          </div>
+          <span class="absolute top-3 right-3">
+              <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-4 w-4 text-gray-500 dark:text-gray-400"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="2"
+              >
+                  <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M7 17L17 7m0 0H7m10 0v10"
+                  />
+              </svg>
+          </span>
+        </a>
+
+        <a href="./coming-soon.php" class="fab-member max-w-[370px] border dark:border-dark p-5 flex items-center gap-5 transitionTimingFunction relative overflow-visible">
+          <figure class="flex-none w-[100px] h-[100px]">
+            <img
+              src="images/services-icons/saas.png"
+              alt="Paid Ads"
+              class="w-full h-full object-contain"
+            />
+          </figure>
+          <div class="flex-1">
+            <h3 class="text-2xl leading-[1.2] tracking-[-0.72px] mb-3 mr-2">
+              AI-Powered SaaS Development
+            </h3>
+          </div>
+          <span class="absolute top-3 right-3">
+              <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-4 w-4 text-gray-500 dark:text-gray-400"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="2"
+              >
+                  <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M7 17L17 7m0 0H7m10 0v10"
+                  />
+              </svg>
+          </span>
+        </a>   
+
+         <a href="./website-dev.php" class="fab-member max-w-[370px] border dark:border-dark p-5 flex items-center gap-5 transitionTimingFunction relative overflow-visible">
               <figure class="flex-none w-[100px] h-[100px]">
                 <img
                   src="images/services-icons/web-dev-services-icon.webp"
@@ -456,7 +502,7 @@ include 'components/dark_mode.php';
               </figure>
               <div class="flex-1">
                 <h3 class="text-2xl leading-[1.2] tracking-[-0.72px] mb-3 mr-2">
-                  Website Development
+                  High-Performance Websites
                 </h3>
               </div>
               <span class="absolute top-3 right-3">
@@ -540,192 +586,6 @@ include 'components/dark_mode.php';
           </span>
         </a>
 
-        <a href="./seo.php" class="fab-member max-w-[370px] border dark:border-dark p-5 flex items-center gap-5 transitionTimingFunction relative overflow-visible">
-          <figure class="flex-none w-[100px] h-[100px]">
-            <img
-              src="images/services-icons/seo.webp"
-              alt="SEO"
-              class="w-full h-full object-contain"
-            />
-          </figure>
-          <div class="flex-1">
-            <h3 class="text-2xl leading-[1.2] tracking-[-0.72px] mb-3 mr-2">
-              Search Engine Optimization
-            </h3>
-          </div>
-          <span class="absolute top-3 right-3">
-              <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-4 w-4 text-gray-500 dark:text-gray-400"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  stroke-width="2"
-              >
-                  <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="M7 17L17 7m0 0H7m10 0v10"
-                  />
-              </svg>
-          </span>
-        </a>
-
-        <a href="/email-marketing-and-automation.php" class="fab-member max-w-[370px] border dark:border-dark p-5 flex items-center gap-5 transitionTimingFunction relative overflow-visible">
-          <figure class="flex-none w-[100px] h-[100px]">
-            <img
-              src="/images/services-icons/Email-services-icon.webp"
-              alt="Email"
-              class="w-full h-full object-contain"
-            />
-          </figure>
-          <div class="flex-1">
-            <h3 class="text-2xl leading-[1.2] tracking-[-0.72px] mb-3 mr-2">
-              Email & CRM Automation
-            </h3>
-          </div>
-          <span class="absolute top-3 right-3">
-              <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-4 w-4 text-gray-500 dark:text-gray-400"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  stroke-width="2"
-              >
-                  <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="M7 17L17 7m0 0H7m10 0v10"
-                  />
-              </svg>
-          </span>
-        </a>
-
-        <a href="./coming-soon.php" class="fab-member max-w-[370px] border dark:border-dark p-5 flex items-center gap-5 transitionTimingFunction relative overflow-visible">
-          <figure class="flex-none w-[100px] h-[100px]">
-            <img
-              src="images/services-icons/adwords-services-icon.webp"
-              alt="Paid Ads"
-              class="w-full h-full object-contain"
-            />
-          </figure>
-          <div class="flex-1">
-            <h3 class="text-2xl leading-[1.2] tracking-[-0.72px] mb-3 mr-2">
-              Paid Advertising (PPC)
-            </h3>
-          </div>
-          <span class="absolute top-3 right-3">
-              <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-4 w-4 text-gray-500 dark:text-gray-400"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  stroke-width="2"
-              >
-                  <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="M7 17L17 7m0 0H7m10 0v10"
-                  />
-              </svg>
-          </span>
-        </a>   
-        
-        <a href="./social-media.php" class="fab-member relative max-w-[370px] border dark:border-dark p-5 flex items-center gap-5 overflow-visible transitionTimingFunction">
-          <figure class="flex-none w-[100px] h-[100px]">
-            <img
-              src="images/services-icons/verified.webp"
-              alt="Social Media Marketing"
-              class="w-full h-full object-contain"
-            />
-          </figure>
-          <div class="flex-1">
-            <h3 class="text-2xl leading-[1.2] tracking-[-0.72px] mb-3 mr-2">
-              Social Media Marketing
-            </h3>
-          </div>
-          <span class="absolute top-3 right-3">
-              <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-4 w-4 text-gray-500 dark:text-gray-400"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  stroke-width="2"
-              >
-                  <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="M7 17L17 7m0 0H7m10 0v10"
-                  />
-              </svg>
-          </span>
-        </a>
-        
-        <a href="./branding.php" class="fab-member max-w-[370px] border dark:border-dark p-5 flex items-center gap-5 transitionTimingFunction relative overflow-visible">
-          <figure class="flex-none w-[100px] h-[100px]">
-            <img
-              src="images/services-icons/branding-services-icon.webp"
-              alt="Branding"
-              class="w-full h-full object-contain"
-            />
-          </figure>
-          <div class="flex-1">
-            <h3 class="text-2xl leading-[1.2] tracking-[-0.72px] mb-3 mr-2">
-              Branding & Identity Design
-            </h3>
-          </div>
-          <span class="absolute top-3 right-3">
-              <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-4 w-4 text-gray-500 dark:text-gray-400"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  stroke-width="2"
-              >
-                  <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="M7 17L17 7m0 0H7m10 0v10"
-                  />
-              </svg>
-          </span>
-        </a>
-
-        <a href="./custom-package.php" class="fab-member max-w-[370px] border dark:border-dark p-5 flex items-center gap-5 transitionTimingFunction relative overflow-visible">
-          <figure class="flex-none w-[100px] h-[100px]">
-            <img
-              src="images/services-icons/custom-packages-services-icon.webp"
-              alt="Custom Packages"
-              class="w-full h-full object-contain"
-            />
-          </figure>
-          <div class="flex-1">
-            <h3 class="text-2xl leading-[1.2] tracking-[-0.72px] mb-3 mr-2">
-              Custom Packages
-            </h3>
-          </div>
-          <span class="absolute top-3 right-3">
-              <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-4 w-4 text-gray-500 dark:text-gray-400"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  stroke-width="2"
-              >
-                  <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="M7 17L17 7m0 0H7m10 0v10"
-                  />
-              </svg>
-          </span>
-        </a>
-
     </div>
 
 
@@ -751,15 +611,8 @@ include 'components/dark_mode.php';
               class="bg-primary w-[44px] h-[44px] cursor-pointer relative overflow-hidden"
             >
               <img
-                src="images/icons/arrow-Icon.svg"
-                alt="Arrow Icon"
-                class="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 group-hover:-translate-y-12 group-hover:translate-x-8 transition-all duration-500 opacity-100 group-hover:opacity-0"
-              />
-              <img
-                src="images/icons/arrow-Icon.svg"
-                alt="Arrow Icon"
-                class="absolute translate-y-12 -translate-x-4 transition-all duration-500 opacity-0 group-hover:opacity-100 group-hover:translate-x-[19px] group-hover:translate-y-5"
-              />
+                src="images/icons/hyper-arrow-new.svg"
+                alt="Arrow Icon"              />
             </figure>
           </a>
       </div>
@@ -778,15 +631,8 @@ include 'components/dark_mode.php';
               class="bg-primary w-[44px] h-[44px] cursor-pointer relative overflow-hidden"
             >
               <img
-                src="images/icons/arrow-Icon.svg"
-                alt="Arrow Icon"
-                class="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 group-hover:-translate-y-12 group-hover:translate-x-8 transition-all duration-500 opacity-100 group-hover:opacity-0"
-              />
-              <img
-                src="images/icons/arrow-Icon.svg"
-                alt="Arrow Icon"
-                class="absolute translate-y-12 -translate-x-4 transition-all duration-500 opacity-0 group-hover:opacity-100 group-hover:translate-x-[19px] group-hover:translate-y-5"
-              />
+                src="images/icons/hyper-arrow-new.svg"
+                alt="Arrow Icon"              />
             </figure>
           </a>
       </div>
@@ -806,15 +652,8 @@ include 'components/dark_mode.php';
               class="bg-primary w-[44px] h-[44px] cursor-pointer relative overflow-hidden"
             >
               <img
-                src="images/icons/arrow-Icon.svg"
-                alt="Arrow Icon"
-                class="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 group-hover:-translate-y-12 group-hover:translate-x-8 transition-all duration-500 opacity-100 group-hover:opacity-0"
-              />
-              <img
-                src="images/icons/arrow-Icon.svg"
-                alt="Arrow Icon"
-                class="absolute translate-y-12 -translate-x-4 transition-all duration-500 opacity-0 group-hover:opacity-100 group-hover:translate-x-[19px] group-hover:translate-y-5"
-              />
+                src="images/icons/hyper-arrow-new.svg"
+                alt="Arrow Icon"              />
             </figure>
           </a>
       </div>
@@ -822,7 +661,7 @@ include 'components/dark_mode.php';
 </section>
 
 <!-- ================================
-How We Drive Revenue Section
+What we build and why it works Section
 ================================ -->
 
 <section
@@ -835,15 +674,15 @@ How We Drive Revenue Section
     >
       <div class="flex-1">
         <h3 class="text-appear-2">
-          How We
-          <span class="font-instrument italic">Drive Revenue</span>
+          What We Build &
+          <span class="font-instrument italic">Why It Works</span>
         </h3>
       </div>
       <div class="max-md:w-full md:max-w-[470px]">
         <p
           class="text-appear max-md:text-justify max-w-lg md:place-self-end md:text-right text-appear-2"
         >
-          Discover how Uxory drives real results. We use smart digital marketing tactics to increase your leads, sales, and overall business profitability.
+          Our approach is practical, not theoretical, which is why the solutions we deliver work in real business environments.
         </p>
       </div>
     </div>
@@ -861,11 +700,11 @@ How We Drive Revenue Section
         >
           
           <figcaption class="absolute top-8">
-            <h6 class="text-[22px] leading-[1.2] mb-[2px] pr-2">High-Converting Landing Pages</h6>
+            <h6 class="text-[22px] leading-[1.2] mb-[2px] pr-2">AI Agents for Customer Operations</h6>
           </figcaption>
 
           <p class="text-lg leading-[1.6] mt-20 ">
-            We design dedicated pages optimized for a single goal: converting interested prospects.
+           AI agents that handle customer questions, bookings, and basic support whereas reducing response time and operational load.
           </p>
         </div>
       </div>
@@ -877,11 +716,11 @@ How We Drive Revenue Section
         >
           
           <figcaption class="absolute top-8">
-            <h6 class="text-[22px] leading-[1.2] mb-[2px] pr-2">Unforgettable Brand Identity</h6>
+            <h6 class="text-[22px] leading-[1.2] mb-[2px] pr-2">AI-Enabled Software Platforms</h6>
           </figcaption>
 
           <p class="text-lg leading-[1.6] mt-20">
-            We build strong, resonant brand identities that connect deeply with your target audience.
+            We build custom software platforms with AI built in, helping reduce manual work and improve accuracy as your business grows.
           </p>
         </div>
       </div>
@@ -893,11 +732,11 @@ How We Drive Revenue Section
         >
           
           <figcaption class="absolute top-8">
-            <h6 class="text-[22px] leading-[1.2] mb-[2px] pr-2">Profit-Driven PPC Campaigns</h6>
+            <h6 class="text-[22px] leading-[1.2] mb-[2px] pr-2">AI Systems Trained on Your Data</h6>
           </figcaption>
 
           <p class="text-lg leading-[1.6] mt-20">
-           We design, manage, and optimize pay-per-click ads that deliver immediate, measurable ROI.
+           We build AI systems trained on your data and workflows, so outputs are relevant, accurate, and useful to your team.
           </p>
         </div>
       </div>
@@ -909,11 +748,11 @@ How We Drive Revenue Section
         >
           
           <figcaption class="absolute top-8">
-            <h6 class="text-[22px] leading-[1.2] mb-[2px] pr-2">Hyper-Targeted Local SEO</h6>
+            <h6 class="text-[22px] leading-[1.2] mb-[2px] pr-2">Intelligent Systems for Internal Teams</h6>
           </figcaption>
 
           <p class="text-lg leading-[1.6] mt-20">
-            Reach customers right in your neighborhood. We optimize your online presence so local searchers find you first.
+            We create systems that help teams find information faster, manage tasks efficiently, and reduce dependency on manual processes.
           </p>
         </div>
       </div>
@@ -925,11 +764,11 @@ How We Drive Revenue Section
         >
           
           <figcaption class="absolute top-8">
-            <h6 class="text-[22px] leading-[1.2] mb-[2px] pr-2">Engaging Social Media Funnels</h6>
+            <h6 class="text-[22px] leading-[1.2] mb-[2px] pr-2">Automation Where It Actually Helps</h6>
           </figcaption>
 
           <p class="text-lg leading-[1.6] mt-20">
-           We craft compelling social strategies that build community and drive conversions across platforms.
+          We help identify where automation makes sense and design systems that remove friction instead of adding complexity.
           </p>
         </div>
       </div>
@@ -941,11 +780,11 @@ How We Drive Revenue Section
         >
           
           <figcaption class="absolute top-8">
-            <h6 class="text-[22px] leading-[1.2] mb-[2px] pr-2">Conversion-Optimized Web Design</h6>
+            <h6 class="text-[22px] leading-[1.2] mb-[2px] pr-2">Systems Designed to Scale</h6>
           </figcaption>
 
           <p class="text-lg leading-[1.6] mt-20">
-            Your website, engineered for action. We create visually stunning and highly functional sites designed to convert visitors into leads.
+           We build systems with growth in mind, ensuring your software continues to perform as complexity and usage increase.
           </p>
         </div>
       </div>
@@ -957,11 +796,11 @@ How We Drive Revenue Section
         >
           
           <figcaption class="absolute top-8">
-            <h6 class="text-[22px] leading-[1.2] mb-[2px] pr-2">Data-Powered Marketing Insights</h6>
+            <h6 class="text-[22px] leading-[1.2] mb-[2px] pr-2">Automation Built Around Your Processes</h6>
           </figcaption>
 
           <p class="text-lg leading-[1.6] mt-20">
-            Make smarter decisions, faster. We analyze market data to uncover growth opportunities and refine your marketing strategy.
+            We automate the way your business already works, replacing repetitive tasks with reliable systems that scale with you.
           </p>
         </div>
       </div>
@@ -973,27 +812,11 @@ How We Drive Revenue Section
         >
           
           <figcaption class="absolute top-8">
-            <h6 class="text-[22px] leading-[1.2] mb-[2px] pr-2">Compelling Video Marketing</h6>
+            <h6 class="text-[22px] leading-[1.2] mb-[2px] pr-2">Automated Appointment & Scheduling Systems</h6>
           </figcaption>
 
           <p class="text-lg leading-[1.6] mt-20">
-            Capture attention and tell your story. Our video production connects with your audience, boosting engagement and brand recall.
-          </p>
-        </div>
-      </div>
-
-      <!-- Card 9 -->
-      <div class="swiper-slide">
-        <div
-          class="max-w-full 2xl:max-w-[360px] min-h-[320px] border dark:border-dark p-8 relative"
-        >
-          
-          <figcaption class="absolute top-8">
-            <h6 class="text-[22px] leading-[1.2] mb-[2px] pr-2">Precision Messaging & Copywriting</h6>
-          </figcaption>
-
-          <p class="text-lg leading-[1.6] mt-20">
-            We design dedicated pages optimized for a single goal: converting interested prospects.
+            Systems that manage bookings, rescheduling, reminders, and cancellations automatically.
           </p>
         </div>
       </div>
@@ -1009,23 +832,7 @@ How We Drive Revenue Section
           </figcaption>
 
           <p class="text-lg leading-[1.6] mt-20">
-            Fill your sales pipeline effortlessly. We set up systems that consistently attract and qualify potential customers for you.
-          </p>
-        </div>
-      </div>
-
-      <!-- Card 11 -->
-      <div class="swiper-slide">
-        <div
-          class="max-w-full 2xl:max-w-[360px] min-h-[320px] border dark:border-dark p-8 relative"
-        >
-          
-          <figcaption class="absolute top-8">
-            <h6 class="text-[22px] leading-[1.2] mb-[2px] pr-2">Seamless UI/UX Experience</h6>
-          </figcaption>
-
-          <p class="text-lg leading-[1.6] mt-20">
-            Delight your users at every click. We design intuitive and engaging user interfaces that keep visitors on your site longer.
+            We set up systems that can consistently attract and qualify potential customers for you.
           </p>
         </div>
       </div>
@@ -1037,11 +844,11 @@ How We Drive Revenue Section
         >
           
           <figcaption class="absolute top-8">
-            <h6 class="text-[22px] leading-[1.2] mb-[2px] pr-2">End-to-End Funnels</h6>
+            <h6 class="text-[22px] leading-[1.2] mb-[2px] pr-2">Decision-Support AI Systems</h6>
           </figcaption>
 
           <p class="text-lg leading-[1.6] mt-20">
-            We build complete marketing funnels that guide prospects seamlessly through their buying journey.
+            AI systems that assist with analysis and recommendations, helping teams make faster, more informed decisions.
           </p>
         </div>
       </div>
@@ -1053,43 +860,11 @@ How We Drive Revenue Section
         >
           
           <figcaption class="absolute top-8">
-            <h6 class="text-[22px] leading-[1.2] mb-[2px] pr-2">Powerful Influencer Marketing</h6>
+            <h6 class="text-[22px] leading-[1.2] mb-[2px] pr-2">Automation-First Product Design</h6>
           </figcaption>
 
           <p class="text-lg leading-[1.6] mt-20">
-            We connect you with relevant influencers to authentically promote your brand to engaged audiences.
-          </p>
-        </div>
-      </div>
-
-      <!-- Card 14 -->
-      <div class="swiper-slide">
-        <div
-          class="max-w-full 2xl:max-w-[360px] min-h-[320px] border dark:border-dark p-8 relative"
-        >
-          
-          <figcaption class="absolute top-8">
-            <h6 class="text-[22px] leading-[1.2] mb-[2px] pr-2">UX Heatmap Analysis</h6>
-          </figcaption>
-
-          <p class="text-lg leading-[1.6] mt-20">
-            See exactly how users interact with your site. Our heatmap analysis identifies pain points and opportunities for conversion optimization.
-          </p>
-        </div>
-      </div>
-
-      <!-- Card 15 -->
-      <div class="swiper-slide">
-        <div
-          class="max-w-full 2xl:max-w-[360px] min-h-[320px] border dark:border-dark p-8 relative"
-        >
-          
-          <figcaption class="absolute top-8">
-            <h6 class="text-[22px] leading-[1.2] mb-[2px] pr-2">Google Business Optimization</h6>
-          </figcaption>
-
-          <p class="text-lg leading-[1.6] mt-20">
-             Dominate local search results. We optimize your Google Business Profile to attract more local customers directly to your doorstep.
+            Products designed with automation and efficiency in mind, reducing operational overhead from day one.
           </p>
         </div>
       </div>
@@ -1157,215 +932,6 @@ How We Drive Revenue Section
 <?php       
 include 'components/testimonials.php';
 ?>
-
-<!-- =======================
- Feedback Section
- ====================== -->
- <!-- <section
-  class="pb-14 pt-14 md:pb-16 md:pt-16 lg:pb-[88px] lg:pt-[88px] xl:pb-[100px] xl:pt-[100px]"
->
-  <div class="container relative">
-    <h2 class="mt-3 mb-10 lg:mb-20 text-center text-appear">
-      Feedback
-    </h2>
-
-    <div class="swiper overflow-hidden reveal-me" id="reviewer">
-      <div class="swiper-wrapper">
-        
-        <div class="swiper-slide">
-          <div
-            class="flex flex-col md:flex-row items-start gap-y-5 md:space-x-10 content-between"
-          >
-            <img
-              src="/images/home-4/user-1.png"
-              alt="User Image"
-              class="max-md:w-full object-cover md:max-w-[300px] md:max-h-[260px]"
-            />
-            <div class="flex flex-col md:max-w-[650px]">
-              <p class="text-lg leading-[1.6] tracking-[0.36px]">
-                Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                accusantium doloremque laudantium totam rem aperiam eaque ipsa
-                quae ab illo inventore veritatis et quasi architecto beatae
-                vitae dicta sunt explicabo.
-              </p>
-              <div class="flex items-center gap-x-6 mt-5 mb-[34px]">
-                <p class="text-2xl leading-[1.1]">Jaks Shkurdze</p>
-                <p>|</p>
-                <p class="leading-[1.6] text-sm">Co-Founder</p>
-              </div>
-              <div class="flex items-center justify-between mt-12">
-                <div class="flex space-x-3">
-                  <a
-                    href="https://www.linkedin.com/company/staticmania"
-                    class="border dark:border-dark p-1.5 md:p-3 hover:bg-primary duration-300"
-                  >
-                    <img
-                      src="/images/home-4/linkedin.png"
-                      alt="icon"
-                      class="block dark:hidden mt-[2px]"
-                    />
-                    <img
-                      src="/images/home-4/linkedin-dark.png"
-                      alt="icon"
-                      class="hidden dark:block mt-[2px]"
-                    />
-                  </a>
-                  <a
-                    href="https://x.com/heystaticmania"
-                    target="_blank"
-                    class="border dark:border-dark p-1.5 md:p-3 hover:bg-primary duration-300"
-                  >
-                    <img
-                      src="/images/home-4/old-twitter.png"
-                      alt="icon"
-                      class="block dark:hidden"
-                    />
-                    <img
-                      src="/images/home-4/old-twitter-dark.png"
-                      target="_blank"
-                      alt="icon"
-                      class="hidden dark:block"
-                    />
-                  </a>
-                  <a
-                    href="https://www.instagram.com/staticmania_/"
-                    target="_blank"
-                    class="border dark:border-dark p-1.5 md:p-3 hover:bg-primary duration-300"
-                  >
-                    <img
-                      src="/images/home-4/instragram.png"
-                      alt="icon"
-                      class="block dark:hidden"
-                    />
-                    <img
-                      src="/images/home-4/instragram-dark.png"
-                      alt="icon"
-                      class="hidden dark:block"
-                    />
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <div class="swiper-slide">
-          <div
-            class="flex flex-col md:flex-row items-start gap-y-5 md:space-x-10 content-between"
-          >
-            <img
-              src="/images/team/team-1.png"
-              alt="User Image"
-              class="max-md:w-full object-cover md:max-w-[300px] md:max-h-[260px]"
-            />
-            <div class="flex flex-col md:max-w-[650px]">
-              <p class="text-lg leading-[1.6] tracking-[0.36px]">
-                Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                accusantium doloremque laudantium totam rem aperiam eaque ipsa
-                quae ab illo inventore veritatis et quasi architecto beatae
-                vitae dicta sunt explicabo.
-              </p>
-              <div class="flex items-center gap-x-6 mt-5 mb-[34px]">
-                <p class="text-2xl leading-[1.1]">Roy</p>
-                <p>|</p>
-                <p class="leading-[1.6] text-sm">Co-Founder</p>
-              </div>
-              <div class="flex items-center justify-between mt-12">
-                <div class="flex space-x-3">
-                  <a
-                    href="https://www.linkedin.com/company/staticmania"
-                    class="border dark:border-dark p-1.5 md:p-3 hover:bg-primary duration-300"
-                  >
-                    <img
-                      src="/images/home-4/linkedin.png"
-                      alt="icon"
-                      class="block dark:hidden mt-[2px]"
-                    />
-                    <img
-                      src="/images/home-4/linkedin-dark.png"
-                      alt="icon"
-                      class="hidden dark:block mt-[2px]"
-                    />
-                  </a>
-                  <a
-                    href="https://x.com/heystaticmania"
-                    target="_blank"
-                    class="border dark:border-dark p-1.5 md:p-3 hover:bg-primary duration-300"
-                  >
-                    <img
-                      src="/images/home-4/old-twitter.png"
-                      alt="icon"
-                      class="block dark:hidden"
-                    />
-                    <img
-                      src="/images/home-4/old-twitter-dark.png"
-                      target="_blank"
-                      alt="icon"
-                      class="hidden dark:block"
-                    />
-                  </a>
-                  <a
-                    href="https://www.instagram.com/staticmania_/"
-                    target="_blank"
-                    class="border dark:border-dark p-1.5 md:p-3 hover:bg-primary duration-300"
-                  >
-                    <img
-                      src="/images/home-4/instragram.png"
-                      alt="icon"
-                      class="block dark:hidden"
-                    />
-                    <img
-                      src="/images/home-4/instragram-dark.png"
-                      alt="icon"
-                      class="hidden dark:block"
-                    />
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-      <div class="absolute right-[15%] bottom-[0px] z-50">
-        <div class="flex items-center space-x-2">
-          <button
-            class="swiper-button-prev p-1.5 md:p-2.5 bg-backgroundBody dark:bg-secondary border dark:border-dark active:bg-primary hover:bg-primary duration-300"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="20"
-              height="21"
-              viewBox="0 0 20 21"
-              fill="none"
-            >
-              <path
-                d="M12.9417 16.5621C12.9998 16.6201 13.0458 16.6891 13.0773 16.7649C13.1087 16.8408 13.1249 16.9221 13.1249 17.0043C13.1249 17.0864 13.1087 17.1677 13.0773 17.2436C13.0458 17.3194 12.9998 17.3884 12.9417 17.4464C12.8836 17.5045 12.8147 17.5506 12.7388 17.582C12.663 17.6134 12.5816 17.6296 12.4995 17.6296C12.4174 17.6296 12.3361 17.6134 12.2602 17.582C12.1843 17.5506 12.1154 17.5045 12.0573 17.4464L5.80733 11.1964C5.74922 11.1384 5.70312 11.0695 5.67167 10.9936C5.64021 10.9177 5.62402 10.8364 5.62402 10.7543C5.62402 10.6721 5.64021 10.5908 5.67167 10.5149C5.70312 10.439 5.74922 10.3701 5.80733 10.3121L12.0573 4.06207C12.1746 3.94479 12.3337 3.87891 12.4995 3.87891C12.6654 3.87891 12.8244 3.94479 12.9417 4.06207C13.059 4.17934 13.1249 4.3384 13.1249 4.50425C13.1249 4.67011 13.059 4.82917 12.9417 4.94644L7.13311 10.7543L12.9417 16.5621Z"
-                class="fill-secondary dark:fill-backgroundBody"
-              />
-            </svg>
-          </button>
-          <button
-            class="swiper-button-next p-1.5 md:p-2.5 bg-backgroundBody dark:bg-secondary border dark:border-dark active:bg-primary hover:bg-primary duration-300"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="20"
-              height="21"
-              viewBox="0 0 20 21"
-              fill="none"
-            >
-              <path
-                d="M14.1925 11.1964L7.94254 17.4464C7.88447 17.5045 7.81553 17.5506 7.73966 17.582C7.66379 17.6134 7.58247 17.6296 7.50035 17.6296C7.41823 17.6296 7.33691 17.6134 7.26104 17.582C7.18517 17.5506 7.11623 17.5045 7.05816 17.4464C7.00009 17.3884 6.95403 17.3194 6.9226 17.2436C6.89117 17.1677 6.875 17.0864 6.875 17.0043C6.875 16.9221 6.89117 16.8408 6.9226 16.7649C6.95403 16.6891 7.00009 16.6201 7.05816 16.5621L12.8668 10.7543L7.05816 4.94644C6.94088 4.82917 6.875 4.67011 6.875 4.50425C6.875 4.3384 6.94088 4.17934 7.05816 4.06207C7.17544 3.94479 7.3345 3.87891 7.50035 3.87891C7.6662 3.87891 7.82526 3.94479 7.94254 4.06207L14.1925 10.3121C14.2506 10.3701 14.2967 10.439 14.3282 10.5149C14.3597 10.5908 14.3758 10.6721 14.3758 10.7543C14.3758 10.8364 14.3597 10.9177 14.3282 10.9936C14.2967 11.0695 14.2506 11.1384 14.1925 11.1964Z"
-                class="fill-secondary dark:fill-backgroundBody"
-              />
-            </svg>
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
-</section> -->
 
 <!--=====================================
    FAQ Section

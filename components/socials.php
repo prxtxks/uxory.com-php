@@ -32,7 +32,7 @@
 
       <!-- WhatsApp Chat -->
       <figure class="flex items-center justify-center px-4 py-4">
-        <a href="https://wa.me/15134137427" target="_blank" rel="noopener noreferrer">
+        <a href="https://wa.me/917350677916" target="_blank" rel="noopener noreferrer">
           <img class="h-12 w-12" src="/images/marquee-img/2.svg" alt="WHATSAPP" />
         </a>
       </figure>

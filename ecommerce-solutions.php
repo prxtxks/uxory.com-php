@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zxx">
+<html lang="zxx" class="dark">
 
 <head>
   <title>eCommerce Website Development Solutions | Sell Online with Uxory</title>
@@ -134,15 +134,8 @@ include 'components/dark_mode.php';
               class="bg-primary w-[44px] h-[44px] cursor-pointer relative overflow-hidden"
             >
               <img
-                src="images/icons/arrow-Icon.svg"
-                alt="Arrow Icon"
-                class="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 group-hover:-translate-y-12 group-hover:translate-x-8 transition-all duration-500 opacity-100 group-hover:opacity-0"
-              />
-              <img
-                src="images/icons/arrow-Icon.svg"
-                alt="Arrow Icon"
-                class="absolute translate-y-12 -translate-x-4 transition-all duration-500 opacity-0 group-hover:opacity-100 group-hover:translate-x-[19px] group-hover:translate-y-5"
-              />
+                src="images/icons/hyper-arrow-new.svg"
+                alt="Arrow Icon"              />
             </figure>
           </a>
       </div>
@@ -162,15 +155,8 @@ include 'components/dark_mode.php';
               class="bg-primary w-[44px] h-[44px] cursor-pointer relative overflow-hidden"
             >
               <img
-                src="images/icons/arrow-Icon.svg"
-                alt="Arrow Icon"
-                class="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 group-hover:-translate-y-12 group-hover:translate-x-8 transition-all duration-500 opacity-100 group-hover:opacity-0"
-              />
-              <img
-                src="images/icons/arrow-Icon.svg"
-                alt="Arrow Icon"
-                class="absolute translate-y-12 -translate-x-4 transition-all duration-500 opacity-0 group-hover:opacity-100 group-hover:translate-x-[19px] group-hover:translate-y-5"
-              />
+                src="images/icons/hyper-arrow-new.svg"
+                alt="Arrow Icon"              />
             </figure>
           </a>
       </div>

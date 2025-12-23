@@ -1,5 +1,9 @@
 <?php
 
+// TEMPORARILY DISABLE CONTACT FORM
+http_response_code(403);
+exit('Contact form temporarily disabled. Please try again later.');
+
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 

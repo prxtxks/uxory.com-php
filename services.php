@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zxx">
+<html lang="zxx" class="dark">
 
 <head>
   <!-- Title -->
@@ -65,7 +65,7 @@ include 'components/header.php';
 <!-- nav  -->
 <?php
 $currentPage = 'all_services';
-$currentParent = 'services';
+$currentParent = 'home';
 include 'components/nav.php';
 ?>
 

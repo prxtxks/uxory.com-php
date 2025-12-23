@@ -1,5 +1,5 @@
 <!-- Dark Mode toggle -->
-<div class="toggle-button fixed right-10 bottom-10 z-[1000]">
+<!-- <div class="toggle-button fixed right-10 bottom-10 z-[1000]">
   <button
     id="theme-toggle"
     type="button"
@@ -38,4 +38,4 @@
       ></path>
     </svg>
   </button>
-</div>
+</div> -->

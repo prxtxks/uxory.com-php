@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zxx">
+<html lang="zxx" class="dark">
 
 <head>
   <!-- Title -->
@@ -72,7 +72,7 @@ include 'components/nav.php';
 ></div>
 
 <!-- Cursor Pointer -->
-<div class="pointer"></div>
+<!-- <div class="pointer"></div> -->
 
 <!-- Dark Mode toggle -->
 <?php       
@@ -83,12 +83,12 @@ include 'components/dark_mode.php';
 
 <!-- Calendly inline widget begin -->
 <section class="pt-[120px]">
-  <div class="calendly-inline-widget" 
-       data-url="https://calendly.com/uxoryllc?primary_color=13d8cc" 
-       style="min-width:320px; height:700px;">
-  </div>
+  <div class="calendly-inline-widget" data-url="https://calendly.com/uxory/30min" style="min-width:320px;height:700px;"></div>
 </section>
 <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+<!-- Calendly inline widget begin -->
+
+<!-- Calendly inline widget end -->
 <!-- Calendly inline widget end -->
 
 
