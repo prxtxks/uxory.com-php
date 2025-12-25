@@ -1342,7 +1342,7 @@ $299 website
       <div class="col-span-12 lg:col-span-7">
         <h3 class=" text-appear-2 text-secondary dark:text-secondary text-left">
           Launch your vision — 
-          <span class="font-instrument italic">build a website for just </span>$299.
+          <span class="font-instrument italic">build a website for just </span><span id="titlePrice">&nbsp;.</span>
         </h3>
       </div>
       <div class="col-span-12 lg:col-span-5 lg:text-right">
@@ -2165,7 +2165,7 @@ $299 website
                   />
                 </svg>
               </span>
-              Monthly maintenance starting at just $29/month
+              Monthly maintenance plans available
             </li>
 
 
@@ -2396,7 +2396,7 @@ $299 website
                   />
                 </svg>
               </span>
-              Monthly maintenance starting at just $15/month
+              Monthly maintenance plans available
             </li>
 
           </ul>
