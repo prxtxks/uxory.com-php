@@ -1630,7 +1630,7 @@ $299 website
                   />
                 </svg>
               </span>
-              100% money-back guarantee<sup>*</sup>
+              100% money-back guarantee*
             </li>
 
             <li
