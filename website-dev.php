@@ -1382,8 +1382,7 @@ $299 website
             <span class="rv-badge-text">Starter Spark</span>
           </div>
 
-          <h5 class=" pt-2 pb-4">$299</h5>
-          <p class=" mb-[30px]">(₹25,000)</p>
+          <h5 id="sparkPrice" class="pt-2 pb-4">&nbsp;</h5>
 
           <a href="./contact.php" class="rv-button rv-button-white !w-full mb-10" >
             <div class="rv-button-top !w-full !text-center">
@@ -1782,8 +1781,7 @@ $299 website
             <span class="rv-badge-text">Commerce Catalyst</span>
           </div>
 
-          <h5 class=" pt-2 pb-4">$639</h5>
-          <p class=" mb-[30px]">(₹55,000)</p>
+          <h5 id="catalystPrice" class="pt-2 pb-4">&nbsp;</h5>
 
           <a href="./contact.php" class="rv-button rv-button-white !w-full mb-10">
             <div class="rv-button-top !w-full !text-center">
@@ -2184,9 +2182,6 @@ $299 website
           </div>
 
           <h5 class="pt-2 pb-4">Ask Us</h5>
-          <p class=" mb-[30px]">--</p>
-
-          
           
 
           <a href="./contact.php" class="rv-button rv-button-white !w-full mb-10 mt-auto">
@@ -2522,6 +2517,8 @@ include 'components/chatsimple.php';
 <?php       
 include 'components/scripts.php';
 ?>
+
+<script src="/js/currency_conversion.js"></script>
 
 </body>
 

@@ -495,7 +495,7 @@ Pricing Section
             </div>
 
             <div id="yearlyCharge" style="display: none">
-              <div class="flex flex-col md:flex-row items-start gap-10 py-8">
+              <div class="flex flex-col md:flex-row items-start md:items-end gap-y-3 md:gap-y-6 gap-x-10 py-8">
                 <p id="yearlyPrice"
                   class="text-6xl leading-[60px] text-secondary dark:text-backgroundBody"
                 >
@@ -769,65 +769,7 @@ include 'components/chatsimple.php';
 <?php       
 include 'components/scripts.php';
 ?>
-
-<script>
-  async function localizeCurrency() {
-    // Original USD Prices
-    const baseMonthly = 29;
-    const baseYearly = 139;
-    const API_KEY = '6bd430fc121c67638b0a6cc8';
-
-    try {
-        let userCurrency = "USD";
-        let currencySymbol = "$";
-
-        // Check if we are on Localhost for testing
-        const isLocal = window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1";
-
-        if (isLocal) {
-            console.log("Localhost detected: Forcing India (INR) for testing.");
-            userCurrency = "INR";
-            currencySymbol = "₹";
-        } else {
-            // Real IP Check for Production
-            const geoRes = await fetch('https://ipwho.is/');
-            const geoData = await geoRes.json();
-            if (geoData.success) {
-                userCurrency = geoData.currency.code;
-                currencySymbol = geoData.currency.symbol;
-            }
-        }
-
-        // If user is actually in the US, stop here
-        if (userCurrency === 'USD' && !isLocal) return;
-
-        // Get live exchange rates
-        const rateRes = await fetch(`https://v6.exchangerate-api.com/v6/${API_KEY}/latest/USD`);
-        const rateData = await rateRes.json();
-        
-        if (rateData.result === "success") {
-            const rate = rateData.conversion_rates[userCurrency];
-            
-            // Calculate and format with Indian commas (e.g. 2,400)
-            const localMonthly = Math.round(baseMonthly * rate).toLocaleString('en-IN');
-            const localYearly = Math.round(baseYearly * rate).toLocaleString('en-IN');
-
-            // Update UI
-            const mEl = document.getElementById('monthlyPrice');
-            const yEl = document.getElementById('yearlyPrice');
-
-            if (mEl) mEl.innerText = `${currencySymbol}${localMonthly} /m`;
-            if (yEl) yEl.innerText = `${currencySymbol}${localYearly} /y`;
-            
-            console.log(`Successfully converted to ${userCurrency} at rate ${rate}`);
-        }
-    } catch (err) {
-        console.error("Currency conversion error:", err);
-    }
-}
-
-window.addEventListener('DOMContentLoaded', localizeCurrency);
-</script>
+<script src="/js/currency_conversion.js"></script>
 
 </body>
 
