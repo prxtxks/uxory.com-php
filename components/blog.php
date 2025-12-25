@@ -20,7 +20,7 @@
       <!-- Description -->
       <div class="flex-1 md:self-end">
         <p class="text-appear max-w-lg md:text-right md:place-self-end">
-          We share the lessons, tools, and trends that keep our clients ahead—and show you how to do the same.
+          We share the lessons, tools, and trends that keep our clients ahead, and show you how to do the same.
 
         </p>
 
