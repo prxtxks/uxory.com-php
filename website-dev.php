@@ -188,7 +188,7 @@ include 'components/dark_mode.php';
     <p
       class="reveal-text-2 text-2xl lg:text-3xl text-secondary/90 dark:text-backgroundBody/70 text-left font-normal lg:leading-[1.2] lg:tracking-[0.72px]"
     >
-      Your website is how the world experiences your brand — instantly, visually, and permanently. At Uxory, we craft lightning-fast, beautifully designed websites that don’t just look great — they work great.  
+      Your website is how the world experiences your brand - instantly, visually, and permanently. At Uxory, we craft lightning-fast, beautifully designed websites that don’t just look great but also work great.
   </p>
   <br>
   <p
@@ -1341,7 +1341,7 @@ $299 website
     <div class="grid grid-cols-12 gap-y-3 md:gap-x-10 items-start">
       <div class="col-span-12 lg:col-span-7">
         <h3 class=" text-appear-2 text-secondary dark:text-secondary text-left">
-          Launch your vision — 
+          Launch your vision - 
           <span class="font-instrument italic">build a website for just </span><span id="titlePrice">&nbsp;.</span>
         </h3>
       </div>
