@@ -206,6 +206,13 @@
               >Explore Pricing
             </a>
           </li>
+          <li>
+            <a
+              href="/smb-hosting.php"
+              class="text-white inline-block pb-1 pl-3 menu-list-item-dropdown-list text-base md:text-lg leading-8 md:leading-[50px] <?= ($currentPage ?? '') === 'smb-hosting' ? 'active' : '' ?>"
+              >SMB Hosting Plans
+            </a>
+          </li>
           
         </ul>
       </li>
