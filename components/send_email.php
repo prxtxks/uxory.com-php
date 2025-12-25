@@ -26,8 +26,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $mail->isSMTP();
         $mail->Host = 'smtp.gmail.com';
         $mail->SMTPAuth = true;
-        $mail->Username = 'uxoryllc@gmail.com';
-        $mail->Password = 'jfsk uhey buqj hvsf';
+        $mail->Username = '';
+        $mail->Password = '';
         $mail->SMTPSecure = 'tls';
         $mail->Port = 587;
 
@@ -51,8 +51,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $autoReply->isSMTP();
         $autoReply->Host = 'smtp.hostinger.com';
         $autoReply->SMTPAuth = true;
-        $autoReply->Username = 'contact@uxory.com';
-        $autoReply->Password = 'N2v&tb6/;Wu';
+        $autoReply->Username = '';
+        $autoReply->Password = '';
         $autoReply->SMTPSecure = 'tls';
         $autoReply->Port = 587;
 
