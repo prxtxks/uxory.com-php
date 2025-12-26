@@ -5,9 +5,12 @@
   <!-- Title -->
   <title>Website Development Services | Uxory</title>
   <meta name="description" content="Get a professional, modern website built with performance and design in mind. Explore our website development services tailored for businesses of all sizes." />
-  <meta name="keywords" content="website development, custom websites, responsive design, business websites, Uxory digital solutions, web development services">
+  <meta name="keywords" content="website development, custom websites, responsive design, business websites, Uxory Technologies, web development services">
 
   <meta charset="utf-8" />
+
+  <!-- index  -->
+  <meta name="robots" content="index,follow">
 
   <!-- Mobile responsive meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -29,7 +32,7 @@
 
   <!-- Open Graph -->
   <meta property="og:title" content="Website Development Services | Uxory" />
-  <meta property="og:description" content="Discover modern, mobile-optimized website development solutions from Uxory tailored to elevate your brand's online presence." />
+  <meta property="og:description" content="Discover modern, mobile-optimized website development solutions from Uxory tailored to elevate your business's online presence." />
   <meta property="og:image" content="https://uxory.com/images/logo.png" />
   <meta property="og:url" content="https://uxory.com/website-dev.php" />
   <meta property="og:type" content="website" />
@@ -37,7 +40,7 @@
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Website Development Services | Uxory" />
-  <meta name="twitter:description" content="Professional website development for startups and growing brands. Built with UX, speed, and scalability in mind." />
+  <meta name="twitter:description" content="Professional website development for startups and local businesses. Built with UX, speed, and scalability in mind." />
   <meta name="twitter:image" content="https://uxory.com/images/logo.png" />
 
   <!-- JSON-LD Structured Data -->
@@ -53,7 +56,7 @@
         "logo": "https://uxory.com/images/logo.png"
       },
       "url": "https://uxory.com/website-dev.php",
-      "description": "Website development services for modern brands. Built with design, performance, and SEO in mind."
+      "description": "Website development services for startups and local businesses. Built with design, performance, and SEO in mind."
     }
   </script>
 
