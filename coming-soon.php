@@ -98,7 +98,7 @@ include 'components/dark_mode.php';
 
     </h1>
     <p class="max-w-3xl text-center mx-auto mt-3 text-appear">
-      This page is under construction, but our support isn’t. Feel free to contact us anytime—we’re here for you!
+      This page is under construction, but our support isn’t. Feel free to contact us anytime - we’re here for you!
     </p>
 
     <!-- Hero Buttons -->
