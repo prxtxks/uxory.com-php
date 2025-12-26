@@ -239,7 +239,7 @@
           <form
             class="max-md:max-w-sm max-w-[588px] mt-8 md:mt-10 flex bg-secondary border dark:border-dark text-white w-full relative"
             id="subscribeForm"
-            action="/php/subscribe"
+            
             method="POST"
           >
             <input

@@ -2,6 +2,7 @@
 <html lang="zxx" class="dark">
 
 <head>
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
   <!-- Title -->
   <title>Contact Us | Uxory Digital Solutions</title>
   <meta name="description" content="Get in touch with Uxory Digital Solutions for website development, SEO, branding, and digital marketing. Let’s bring your vision to life." />
@@ -138,7 +139,9 @@ include 'components/dark_mode.php';
 
         <!-- ./contact Form -->
         <form
-          id="contactForm" action="/php/send_email.php" method="POST" class="grid grid-cols-1 md:grid-cols-2 gap-[20px] max-w-[800px] mx-auto reveal-me"
+          id="contactForm"
+          method="POST"
+          class="grid grid-cols-1 md:grid-cols-2 gap-[20px] max-w-[800px] mx-auto reveal-me"
         >
           <!-- Full Name Field -->
           <div class="md:col-span-full">
@@ -223,6 +226,10 @@ include 'components/dark_mode.php';
               class="py-4 pl-5 bg-backgroundBody dark:bg-dark focus:outline-none focus:border-primary border dark:border-dark w-full text-colorText dark:text-backgroundBody/70 text-xl leading-[1.4] tracking-[0.4px] mt-3"
             ></textarea>
           </div>
+
+          <div id="recaptcha-widget" class="g-recaptcha mt-4" data-sitekey="6LeSajcsAAAAALS4VDz_NUpt7ZxXziL1q-GZuklX"></div>
+          
+          <div id="statusMsg" class="mt-3 text-sm"></div>
 
           <!-- Submit Button -->
           <div class="col-span-full mx-auto mt-4">

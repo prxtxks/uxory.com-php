@@ -2,6 +2,7 @@
 <html lang="zxx" class="dark">
 
 <head>
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
   <!-- Title -->
   <title>Website Development Services | Uxory</title>
   <meta name="description" content="Get a professional, modern website built with performance and design in mind. Explore our website development services tailored for businesses of all sizes." />
