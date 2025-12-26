@@ -309,56 +309,6 @@ include 'components/dark_mode.php';
       </div>
     </div>
 
-    <div
-      class="our-team-details flex flex-col lg:flex-row gap-10 gap-x-[30px] max-md:justify-center max-md:items-center border dark:border-dark p-5 lg:p-10 bg-backgroundBody dark:bg-dark"
-    >
-      <figure class="max-lg:w-full lg:max-w-[290px] lg:max-h-[305px]">
-        <img
-          src="images/home-ai/team/ai-team.png"
-          alt="Team Leader"
-          class="w-full object-cover"
-        />
-      </figure>
-
-      <!-- Profile Details Container -->
-      <div>
-        <div
-          class="flex flex-col gap-y-10 md:flex-row justify-between mb-5 lg:mb-10"
-        >
-          <div>
-            <h2 class="lg:text-4xl lg:leading-[1.2] lg:-tracking-[1.08px] mb-3">
-              Lakesh Kahnal
-            </h2>
-
-            <p class="text-lg font-light leading-[20px]">Business Development Head </p>
-          </div>
-          <ul class="flex gap-5 md:self-end">
-            <!-- <li>
-              <a
-                href="https://www.linkedin.com/"
-                target="_blank"
-              >
-                <img
-                  src="images\icons\LinkedinLogo.svg"
-                  alt="linkedin"
-                  class="inline dark:hidden"
-                />
-                <img
-                  src="images\icons\LinkedinLogo-dark.svg"
-                  alt="linkedin"
-                  class="hidden dark:inline"
-                />
-              </a>
-            </li> -->
-          </ul>
-        </div>
-        <div class="max-w-[730px] border-t dark:border-dark pt-5 lg:pt-10">
-          <p>
-            With a finance degree from the U.S. and strong experience in corporate finance, Lakesh drives Uxory’s growth by spotting new opportunities and building key client relationships. His passion for digital innovation helps create lasting impact and success.          </p>
-        </div>
-      </div>
-    </div>
-
     <!-- Team Member Selection Tabs -->
 
       <!-- <div class="marquee-container">
