@@ -234,10 +234,12 @@
 
           <!-- Email Subscription Form -->
 
+          <div id="recaptcha-widget" class="g-recaptcha mt-4" data-sitekey="6LeSajcsAAAAALS4VDz_NUpt7ZxXziL1q-GZuklX"></div>
+
           <form
             class="max-md:max-w-sm max-w-[588px] mt-8 md:mt-10 flex bg-secondary border dark:border-dark text-white w-full relative"
             id="subscribeForm"
-            action="/php/subscribe.php"
+            action="/php/subscribe"
             method="POST"
           >
             <input

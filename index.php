@@ -3,6 +3,8 @@
 
 <head>
 
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
   <!--Tittle-->
 <title>Uxory | Intelligent Software & Automation Solutions</title>
 <meta name="description" content="We build AI-powered systems that automate operations, increase revenue, and eliminate inefficiencies." />
