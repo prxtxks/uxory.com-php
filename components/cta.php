@@ -25,7 +25,7 @@
           </div>
         </div>
       </div>
-      with us.
+      DM us.
 
       <span class="font-instrument sm:mt-10 italic block max-md:inline-block"
         >A virtual coffee?</span
