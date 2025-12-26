@@ -117,7 +117,7 @@ function sendEmails($email) {
         $mail->SMTPSecure = 'tls';
         $mail->Port = 587;
         $mail->setFrom('noreply.uxory@gmail.com', 'Uxory Subscriptions');
-        $mail->addAddress('noreply.uxory@gmail.com');
+        $mail->addAddress('uxoryllc@gmail.com');
         $mail->isHTML(true);
         $mail->Subject = 'New Subscriber';
         $mail->Body = "<h1>New Uxory Subscription</h1><p>Email: {$email}</p>";

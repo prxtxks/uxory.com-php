@@ -108,7 +108,7 @@ try {
     $mail->Port = 587;
 
     $mail->setFrom('noreply.uxory@gmail.com', 'Uxory Contact');
-    $mail->addAddress('noreply.uxory@gmail.com');
+    $mail->addAddress('uxoryllc@gmail.com');
     $mail->isHTML(true);
     $mail->Subject = 'New Contact Form Submission';
 
