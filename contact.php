@@ -228,8 +228,8 @@ include 'components/dark_mode.php';
           </div>
 
           <div id="recaptcha-widget" class="g-recaptcha mt-4" data-sitekey="6LeSajcsAAAAALS4VDz_NUpt7ZxXziL1q-GZuklX"></div>
-          
-          <div id="statusMsg" class="mt-3 text-sm"></div>
+
+          <div id="statusMsg" class="mt-3 text-base lg:text-lg font-medium"></div>
 
           <!-- Submit Button -->
           <div class="col-span-full mx-auto mt-4">

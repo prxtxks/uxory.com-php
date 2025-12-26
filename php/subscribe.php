@@ -112,12 +112,12 @@ function sendEmails($email) {
         $mail->isSMTP();
         $mail->Host = 'smtp.gmail.com';
         $mail->SMTPAuth = true;
-        $mail->Username = 'uxoryllc@gmail.com';
-        $mail->Password = 'csqh ehxs itjm nfko'; 
+        $mail->Username = 'noreply.uxory@gmail.com';
+        $mail->Password = 'hxge frbq sbur wjug'; 
         $mail->SMTPSecure = 'tls';
         $mail->Port = 587;
-        $mail->setFrom('uxoryllc@gmail.com', 'Uxory Subscriptions');
-        $mail->addAddress('uxoryllc@gmail.com');
+        $mail->setFrom('noreply.uxory@gmail.com', 'Uxory Subscriptions');
+        $mail->addAddress('noreply.uxory@gmail.com');
         $mail->isHTML(true);
         $mail->Subject = 'New Subscriber';
         $mail->Body = "<h1>New Uxory Subscription</h1><p>Email: {$email}</p>";
