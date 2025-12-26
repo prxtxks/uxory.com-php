@@ -63,13 +63,13 @@
           United States
         </h4>
 
-        <address class="not-italic text-white font-semibold leading-relaxed">
+        <address class="text-white font-semibold leading-relaxed">
           Uxory LLC<br />
           30 N Gould St Ste N<br />
           Sheridan, WY 82801<br />
           United States<br />
           <a href="tel:+15134137427" class="text-white mt-6 hover:text-primary transition-colors duration-300">US: +1 513 413 7427</a>
-           <p class="text-white text-sm" style="font-style: normal;">(MON-SAT EST: 9AM-4PM)</p>
+           <p class="text-white text-sm">(MON-SAT EST: 9AM-4PM)</p>
         </address>
       </div>
 
@@ -81,14 +81,14 @@
           India
         </h4>
 
-        <address class="not-italic text-white font-semibold break-words">
+        <address class="text-white font-semibold break-words">
           Uxory Technologies <br> PVT. LTD. <br />
           B-401, VTP Belair <br />
           Blue Waters Township<br />
           Pune, MH 411045<br />
           India<br />
           <a href="tel:+917350677916" class="text-white mt-6 hover:text-primary transition-colors duration-300" >IND: +91 7350677916</a>
-          <p class="text-white text-sm" style="font-style: normal;">(MON-SAT IST: 9AM-8PM)</p>
+          <p class="text-white text-sm">(MON-SAT IST: 9AM-8PM)</p>
         </address>
       </div>
 

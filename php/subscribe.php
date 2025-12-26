@@ -33,6 +33,41 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit;
     }
 
+    // Rate limiting
+    $ip = $_SERVER['REMOTE_ADDR'];
+        $limit = 5;           // max attempts
+        $window = 3600;       // 1 hour in seconds
+        $rateDir = __DIR__ . '/rate-limit';
+
+        if (!is_dir($rateDir)) {
+            mkdir($rateDir, 0755, true);
+        }
+
+        $file = $rateDir . '/' . md5($ip);
+
+        $data = ['count' => 0, 'time' => time()];
+
+        if (file_exists($file)) {
+            $data = json_decode(file_get_contents($file), true) ?: $data;
+
+            if (time() - $data['time'] < $window) {
+                if ($data['count'] >= $limit) {
+                    echo json_encode([
+                        'status' => 'error',
+                        'message' => 'Too many attempts. Please try again later.'
+                    ]);
+                    exit;
+                }
+                $data['count']++;
+            } else {
+                $data = ['count' => 1, 'time' => time()];
+            }
+        } else {
+            $data = ['count' => 1, 'time' => time()];
+        }
+
+        file_put_contents($file, json_encode($data));
+
     $email = filter_var(trim($_POST['email'] ?? ''), FILTER_SANITIZE_EMAIL);
 
     if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
