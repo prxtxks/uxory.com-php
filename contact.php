@@ -1,73 +1,170 @@
 <!DOCTYPE html>
-<html lang="zxx" class="dark">
+<html lang="en">
 
 <head>
-  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
   <!-- Title -->
-  <title>Contact Us | Uxory Digital Solutions</title>
-  <meta name="description" content="Get in touch with Uxory Digital Solutions for website development, SEO, branding, and digital marketing. Let’s bring your vision to life." />
+  <title>Contact Us | Uxory</title>
+  <meta name="description" content="Get in touch with Uxory for custom software, website development, automation, and AI solutions. Let's bring your vision to life." />
 
   <meta charset="utf-8" />
 
-  <!-- Responsive -->
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-
-  <!-- Indexing -->
-  <meta name="robots" content="index, follow" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <meta name="googlebot" content="index, follow" />
   
-<!-- Stylesheets -->
-<link href="assets/css/main.css?v=<?= filemtime('assets/css/main.css') ?>" rel="stylesheet" />
-
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="./images/favicon.png" sizes="96x96" />
-  <link rel="icon" type="image/svg+xml" href="./images/favicon.svg" />
-  <link rel="shortcut icon" href="images/favicon.png" />
-  <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png" />
-
-  <!-- Canonical -->
+  <!-- Theme & Mobile Optimization -->
+  <meta name="theme-color" content="#000000" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="format-detection" content="telephone=yes" />
+  
+  <!-- Canonical URL -->
   <link rel="canonical" href="https://uxory.com/contact.php" />
+  
+  <!-- Performance Hints -->
+  <link rel="preconnect" href="https://www.google.com" crossorigin />
+  <link rel="dns-prefetch" href="https://www.google.com" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/images/favicon.svg" />
+  <link rel="icon" type="image/png" href="/images/favicon.png" sizes="96x96" />
+  <link rel="shortcut icon" href="/images/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png" />
+  
+  <!-- Stylesheets -->
+  <link href="assets/css/main.css?v=<?= filemtime('assets/css/main.css') ?>" rel="stylesheet" />
+
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Contact Us | Uxory Digital Solutions" />
-  <meta property="og:description" content="Let’s connect! Reach out to Uxory Digital Solutions for digital services tailored to your business goals." />
+  <meta property="og:title" content="Contact Us | Uxory" />
+  <meta property="og:description" content="Let's connect! Reach out to Uxory for custom software, automation, and AI solutions tailored to your business goals." />
   <meta property="og:image" content="https://uxory.com/images/logo.png" />
   <meta property="og:url" content="https://uxory.com/contact.php" />
   <meta property="og:type" content="website" />
 
-  <!-- Twitter -->
+  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Contact Uxory Digital Solutions" />
-  <meta name="twitter:description" content="Have a project in mind? Message us today to get started." />
+  <meta name="twitter:url" content="https://uxory.com/contact.php" />
+  <meta name="twitter:title" content="Contact Us | Uxory" />
+  <meta name="twitter:description" content="Have a project in mind? Message us today to get started with custom software and automation solutions." />
   <meta name="twitter:image" content="https://uxory.com/images/logo.png" />
+  <meta name="twitter:image:alt" content="Uxory Contact Page" />
 
+  <!-- Structured Data -->
   <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "ContactPage",
-  "name": "Contact Us | Uxory Digital Solutions",
-  "url": "https://uxory.com/contact.php",
-  "mainEntity": {
-    "@type": "Organization",
-    "name": "Uxory Digital Solutions LLC",
-    "url": "https://uxory.com",
-    "logo": "https://uxory.com/images/logo.png",
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "telephone": "+1-xxx-xxx-xxxx",
-      "contactType": "Customer Service",
-      "areaServed": "US, IN",
-      "availableLanguage": ["English", "Hindi"]
-    },
-    "sameAs": [
-      "https://www.linkedin.com/company/uxory"  // Or Twitter if you choose that
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://uxory.com/#organization",
+        "name": "Uxory",
+        "url": "https://uxory.com",
+        "logo": {
+          "@type": "ImageObject",
+          "@id": "https://uxory.com/#logo",
+          "url": "https://uxory.com/images/logo.png",
+          "contentUrl": "https://uxory.com/images/logo.png",
+          "width": 512,
+          "height": 512
+        },
+        "email": "contact@uxory.com",
+        "address": [
+          {
+            "@type": "PostalAddress",
+            "streetAddress": "30 N Gould St Ste N",
+            "addressLocality": "Sheridan",
+            "addressRegion": "WY",
+            "postalCode": "82801",
+            "addressCountry": "US"
+          },
+          {
+            "@type": "PostalAddress",
+            "streetAddress": "B-401, VTP Belair",
+            "addressLocality": "Pune",
+            "addressRegion": "MH",
+            "postalCode": "411045",
+            "addressCountry": "IN"
+          }
+        ],
+        "contactPoint": [
+          {
+            "@type": "ContactPoint",
+            "email": "contact@uxory.com",
+            "contactType": "Customer Service",
+            "areaServed": [
+              {
+                "@type": "Country",
+                "name": "United States"
+              },
+              {
+                "@type": "Country",
+                "name": "India"
+              }
+            ],
+            "availableLanguage": ["English", "Hindi"]
+          }
+        ],
+        "sameAs": [
+          "https://www.linkedin.com/company/uxory/",
+          "https://www.instagram.com/uxoryllc/"
+        ]
+      },
+      {
+        "@type": "ContactPage",
+        "@id": "https://uxory.com/contact.php#webpage",
+        "url": "https://uxory.com/contact.php",
+        "name": "Contact Us | Uxory",
+        "description": "Get in touch with Uxory for custom software, website development, automation, and AI solutions.",
+        "mainEntity": {
+          "@id": "https://uxory.com/#organization"
+        },
+        "isPartOf": {
+          "@id": "https://uxory.com/#website"
+        },
+        "primaryImageOfPage": {
+          "@id": "https://uxory.com/#logo"
+        }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://uxory.com/#website",
+        "url": "https://uxory.com",
+        "name": "Uxory",
+        "publisher": {
+          "@id": "https://uxory.com/#organization"
+        }
+      }
     ]
   }
-}
-</script>
+  </script>
+  
+  <!-- reCAPTCHA -->
+  <script src="https://www.google.com/recaptcha/api.js" async defer crossorigin="anonymous"></script>
 
 </head>
 
-<body >
+<body>
+  <!-- Skip to main content for accessibility -->
+  <a href="#main-content" class="sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[99999] focus:px-4 focus:py-2 focus:bg-primary focus:text-black focus:font-bold focus:rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary" style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border-width: 0;">
+    Skip to main content
+  </a>
+  <style>
+    .sr-only:focus {
+      position: fixed !important;
+      width: auto !important;
+      height: auto !important;
+      padding: 0.5rem 1rem !important;
+      margin: 0 !important;
+      overflow: visible !important;
+      clip: auto !important;
+      white-space: normal !important;
+    }
+  </style>
 
 <!-- header  -->
 <?php       
@@ -85,15 +182,13 @@ include 'components/nav.php';
   class="menu-overflow fixed z-[9999] bg-[rgba(10,10,10,0.95)] bg-opacity-60 backdrop-blur-[25px] w-full h-full pointer-events-none"
 ></div>
 
-<!-- Cursor Pointer -->
-<div class="pointer"></div>
 
 <!-- Dark Mode toggle -->
 <?php       
 include 'components/dark_mode.php';
 ?>
 
-<main class="lg:mb-[600px] relative z-10 bg-backgroundBody dark:bg-dark">
+<main id="main-content" class="lg:mb-[600px] relative z-10 bg-backgroundBody dark:bg-dark">
 <!--=====================================
    ./contact Page Header Section
 ======================================-->
@@ -113,13 +208,13 @@ include 'components/dark_mode.php';
         >
           <div class="cta-inline-slider">
             <div class="slide">
-              <img src="images/agent/01.webp" alt="Slide 1" />
+              <img src="images/agent/1.webp" alt="Slide 1" />
             </div>
             <div class="slide">
-              <img src="images/agent/02.webp" alt="Slide 2" />
+              <img src="images/agent/2.webp" alt="Slide 2" />
             </div>
             <div class="slide">
-              <img src="images/agent/03.webp" alt="Slide 3" />
+              <img src="images/agent/3.webp" alt="Slide 3" />
             </div>
           </div>
         </div>
@@ -250,29 +345,31 @@ include 'components/dark_mode.php';
     <div
       class="max-w-4xl mx-auto grid max-md:grid-cols-2 md:grid-cols-4 reveal-me border-t border-x [&>*]:border-r max-md:[&>*:nth-child(2)]:border-r-0 max-md:[&>*:nth-child(6)]:border-r-0 [&>*:nth-child(4)]:border-r-0 [&>*:nth-child(8)]:border-r-0 [&>*]:border-b dark:[&>*]:border-dark dark:border-dark"
     >
+      <!-- Instagram-->
       <figure class="flex items-center justify-center px-4 py-4">
         <a href="https://www.instagram.com/uxoryllc/" target="_blank" rel="noopener noreferrer">
-          <img class="h-10 w-10" src="/images/marquee-img/1.svg" alt="IG" />
+          <img class="h-12 w-12" src="/images/marquee-img/1.svg" alt="IG" />
         </a>
       </figure>
 
+      <!-- Linkedin Contact -->
       <figure class="flex items-center justify-center px-4 py-4">
-        <a href="#" target="_blank" rel="noopener noreferrer">
-          <img class="h-10 w-10" src="/images/marquee-img/3.svg" alt="X" />
+        <a href="https://www.linkedin.com/company/uxory/" target="_blank" rel="noopener noreferrer">
+          <img class="h-12 w-12" src="/images/marquee-img/5.svg" alt="Linkedin" />
         </a>
       </figure>
 
       <!-- Email Contact -->
       <figure class="flex items-center justify-center px-4 py-4">
         <a href="mailto:contact@uxory.com" target="_blank" rel="noopener noreferrer">
-          <img class="h-10 w-10" src="/images/marquee-img/4.svg" alt="MAIL" />
+          <img class="h-12 w-12" src="/images/marquee-img/4.svg" alt="MAIL" />
         </a>
       </figure>
 
       <!-- WhatsApp Chat -->
       <figure class="flex items-center justify-center px-4 py-4">
-        <a href="https://wa.me/15134137427" target="_blank" rel="noopener noreferrer">
-          <img class="h-10 w-10" src="/images/marquee-img/2.svg" alt="WHATSAPP" />
+        <a href="https://wa.me/917350677916" target="_blank" rel="noopener noreferrer">
+          <img class="h-12 w-12" src="/images/marquee-img/2.svg" alt="WHATSAPP" />
         </a>
       </figure>
      

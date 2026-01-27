@@ -12,7 +12,7 @@
       <!-- Title -->
       <div class="flex-1 md:self-start">
         <h3 class="text-appear lg:text-[70px]">
-          <span class="font-instrument italic"> Insights</span>
+          <span> Insights</span>
           <br class="hidden md:block" />
           we share
         </h3>
@@ -222,7 +222,7 @@
       Subscribe Container
     ======================================-->
 
-      <div class="container mt-16">
+      <div class="container mt-16 mb-16">
         <!-- About Content and Subscription -->
         <div>
           <!-- About Text -->
@@ -237,7 +237,7 @@
           <div id="recaptcha-widget" class="g-recaptcha mt-4" data-sitekey="6LeSajcsAAAAALS4VDz_NUpt7ZxXziL1q-GZuklX"></div>
 
           <form
-            class="max-md:max-w-sm max-w-[588px] mt-8 md:mt-10 flex bg-secondary border dark:border-dark text-white w-full relative"
+            class="max-md:max-w-sm max-w-[588px] mt-8 md:mt-10 flex border w-full relative subscribe-form-light"
             id="subscribeForm"
             
             method="POST"
@@ -246,7 +246,7 @@
               type="email"
               name="email"
               placeholder="Your email here"
-              class="border-none focus:outline-none bg-transparent text-backgroundBody text-base block w-full p-5 md:p-[30px]"
+              class="border-none focus:outline-none bg-transparent text-base block w-full p-5 md:p-[30px]"
               required
             />
             <button

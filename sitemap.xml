@@ -1,71 +1,136 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset 
-  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <!-- Homepage -->
   <url>
-    <loc>https://www.uxory.com/</loc>
-    <priority>1.00</priority>
+    <loc>https://uxory.com/</loc>
+    <lastmod>2026-01-26</lastmod>
     <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
   </url>
 
+  <!-- Main Service Pages -->
+  <url>
+    <loc>https://uxory.com/software-dev.php</loc>
+    <lastmod>2026-01-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
 
   <url>
-    <loc>https://www.uxory.com/website-dev</loc>
-    <lastmod>2025-01-26</lastmod>
+    <loc>https://uxory.com/website-dev.php</loc>
+    <lastmod>2026-01-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://uxory.com/web-and-app-solutions.php</loc>
+    <lastmod>2026-01-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://uxory.com/process-automation.php</loc>
+    <lastmod>2026-01-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://uxory.com/smb-hosting.php</loc>
+    <lastmod>2026-01-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
+  <!-- Company Pages -->
   <url>
-    <loc>https://www.uxory.com/contact</loc>
-    <priority>0.8</priority>
+    <loc>https://uxory.com/about-us.php</loc>
+    <lastmod>2026-01-26</lastmod>
     <changefreq>monthly</changefreq>
-  </url>
-
-    <!-- career opportunities -->
-
-    <url>
-    <loc>https://www.uxory.com/careers</loc>
-    <priority>0.80</priority>
-    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://www.uxory.com/business-dev-intern</loc>
-    <priority>0.80</priority>
+    <loc>https://uxory.com/contact.php</loc>
+    <lastmod>2026-01-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Content Pages -->
+  <url>
+    <loc>https://uxory.com/blog-listings.php</loc>
+    <lastmod>2026-01-26</lastmod>
     <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://www.uxory.com/product-dev-intern</loc>
-    <priority>0.80</priority>
+    <loc>https://uxory.com/faq.php</loc>
+    <lastmod>2026-01-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Career Pages -->
+  <url>
+    <loc>https://uxory.com/career.php</loc>
+    <lastmod>2026-01-26</lastmod>
     <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://www.uxory.com/sales-intern</loc>
-    <priority>0.80</priority>
+    <loc>https://uxory.com/job-postings/software-dev-intern.php</loc>
+    <lastmod>2026-01-26</lastmod>
     <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://www.uxory.com/software-dev-intern</loc>
-    <priority>0.80</priority>
+    <loc>https://uxory.com/job-postings/product-dev-intern.php</loc>
+    <lastmod>2026-01-26</lastmod>
     <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://www.uxory.com/web-des-intern</loc>
-    <priority>0.80</priority>
+    <loc>https://uxory.com/job-postings/business-dev-intern.php</loc>
+    <lastmod>2026-01-26</lastmod>
     <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://www.uxory.com/web-dev-intern</loc>
-    <priority>0.80</priority>
+    <loc>https://uxory.com/job-postings/web-dev-intern.php</loc>
+    <lastmod>2026-01-26</lastmod>
     <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url>
 
-  <!-- Add more URLs here -->
+  <url>
+    <loc>https://uxory.com/job-postings/web-des-intern.php</loc>
+    <lastmod>2026-01-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://uxory.com/job-postings/sales-intern.php</loc>
+    <lastmod>2026-01-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Utility Pages -->
+  <url>
+    <loc>https://uxory.com/calendly.php</loc>
+    <lastmod>2026-01-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
 
 </urlset>

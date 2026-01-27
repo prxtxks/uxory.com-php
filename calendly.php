@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zxx" class="dark">
+<html lang="zxx">
 
 <head>
   <!-- Title -->
@@ -71,8 +71,6 @@ include 'components/nav.php';
   class="menu-overflow fixed z-[9999] bg-[rgba(10,10,10,0.95)] bg-opacity-60 backdrop-blur-[25px] w-full h-full pointer-events-none"
 ></div>
 
-<!-- Cursor Pointer -->
-<!-- <div class="pointer"></div> -->
 
 <!-- Dark Mode toggle -->
 <?php       

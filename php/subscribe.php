@@ -9,13 +9,15 @@ require 'src/PHPMailer-master/src/Exception.php';
 require 'src/PHPMailer-master/src/PHPMailer.php';
 require 'src/PHPMailer-master/src/SMTP.php';
 
-$host = 'localhost';
-$db   = 'uxory_db';
-$user = 'root'; 
-$pass = 'uxory_pratikesh_2025'; 
+// Load secrets from config file (outside web root)
+$config = require __DIR__ . '/../../../config/secrets.php';
+
+// Supabase configuration
+$supabaseUrl = $config['supabase_url'];
+$supabaseKey = $config['supabase_service_key']; 
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $recaptchaSecret = '6LeSajcsAAAAADjIlVWH7gmuRqSoHwMVecXYM_Ei';
+    $recaptchaSecret = $config['recaptcha_secret'];
     $recaptchaResponse = $_POST['g-recaptcha-response'] ?? '';
 
     // Verify reCAPTCHA
@@ -72,26 +74,180 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
         try {
-            $pdo = new PDO("mysql:host=$host;dbname=$db", $user, $pass);
-            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            // Check if email exists in Supabase
+            $checkUrl = $supabaseUrl . '/rest/v1/subscribers?email=eq.' . urlencode($email) . '&select=id,status';
+            $ch = curl_init($checkUrl);
+            curl_setopt_array($ch, [
+                CURLOPT_RETURNTRANSFER => true,
+                CURLOPT_HTTPHEADER => [
+                    'apikey: ' . $supabaseKey,
+                    'Authorization: Bearer ' . $supabaseKey,
+                    'Content-Type: application/json'
+                ]
+            ]);
+            $response = curl_exec($ch);
+            $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+            curl_close($ch);
 
-            $stmt = $pdo->prepare("SELECT id FROM subscribers WHERE email = :email");
-            $stmt->execute(['email' => $email]);
-            
-            if ($stmt->fetchColumn()) {
-                $stmt = $pdo->prepare("UPDATE subscribers SET is_subscribed = 1, subscribed_at = NOW(), unsubscribe_at = NULL WHERE email = :email");
-            } else {
-                $stmt = $pdo->prepare("INSERT INTO subscribers (email, is_subscribed, subscribed_at) VALUES (:email, 1, NOW())");
+            if ($httpCode !== 200) {
+                throw new Exception('Failed to check existing subscription');
             }
-            $stmt->execute(['email' => $email]);
+
+            $existing = json_decode($response, true);
+            
+            if (!empty($existing) && count($existing) > 0) {
+                // Email exists - check status
+                $currentStatus = $existing[0]['status'] ?? 'inactive';
+                
+                if ($currentStatus === 'active') {
+                    // Already subscribed - don't update timestamp or send emails
+                    echo json_encode(['status' => 'success', 'message' => 'You are already subscribed.']);
+                    exit;
+                } else {
+                    // Status is inactive - resubscribe (update to active)
+                    $updateUrl = $supabaseUrl . '/rest/v1/subscribers?email=eq.' . urlencode($email);
+                    $updateData = [
+                        'status' => 'active',
+                        'subscribed_at' => date('c'), // ISO 8601 format
+                        'unsubscribed_at' => null
+                    ];
+                    
+                    $ch = curl_init($updateUrl);
+                    curl_setopt_array($ch, [
+                        CURLOPT_CUSTOMREQUEST => 'PATCH',
+                        CURLOPT_POSTFIELDS => json_encode($updateData),
+                        CURLOPT_RETURNTRANSFER => true,
+                        CURLOPT_HTTPHEADER => [
+                            'apikey: ' . $supabaseKey,
+                            'Authorization: Bearer ' . $supabaseKey,
+                            'Content-Type: application/json',
+                            'Prefer: return=representation'
+                        ]
+                    ]);
+                    $response = curl_exec($ch);
+                    $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+                    curl_close($ch);
+
+                    if ($httpCode !== 200 && $httpCode !== 204) {
+                        throw new Exception('Failed to update subscription');
+                    }
+                    
+                    // Resubscribed - send emails and return resubscribed message
+                    if (!sendEmails($email, $config)) {
+                        echo json_encode(['status' => 'error', 'message' => 'Resubscription saved but failed to send notification. Please try again.']);
+                        exit;
+                    }
+
+                    echo json_encode(['status' => 'success', 'message' => 'You are resubscribed!']);
+                    exit;
+                }
+            } else {
+                // Email doesn't exist - insert new record
+                $insertUrl = $supabaseUrl . '/rest/v1/subscribers';
+                $insertData = [
+                    'email' => $email,
+                    'status' => 'active',
+                    'subscribed_at' => date('c') // ISO 8601 format
+                ];
+                
+                $ch = curl_init($insertUrl);
+                curl_setopt_array($ch, [
+                    CURLOPT_POST => true,
+                    CURLOPT_POSTFIELDS => json_encode($insertData),
+                    CURLOPT_RETURNTRANSFER => true,
+                    CURLOPT_HTTPHEADER => [
+                        'apikey: ' . $supabaseKey,
+                        'Authorization: Bearer ' . $supabaseKey,
+                        'Content-Type: application/json',
+                        'Prefer: return=representation'
+                    ]
+                ]);
+                $response = curl_exec($ch);
+                $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+                curl_close($ch);
+
+                if ($httpCode !== 201 && $httpCode !== 200) {
+                    $errorData = json_decode($response, true);
+                    // Check if it's a unique constraint violation (email already exists)
+                    if (isset($errorData['code']) && $errorData['code'] === '23505') {
+                        // Email was inserted between check and insert - check status first
+                        $checkUrl = $supabaseUrl . '/rest/v1/subscribers?email=eq.' . urlencode($email) . '&select=status';
+                        $ch = curl_init($checkUrl);
+                        curl_setopt_array($ch, [
+                            CURLOPT_RETURNTRANSFER => true,
+                            CURLOPT_HTTPHEADER => [
+                                'apikey: ' . $supabaseKey,
+                                'Authorization: Bearer ' . $supabaseKey,
+                                'Content-Type: application/json'
+                            ]
+                        ]);
+                        $response = curl_exec($ch);
+                        $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+                        curl_close($ch);
+
+                        if ($httpCode === 200) {
+                            $existing = json_decode($response, true);
+                            $currentStatus = $existing[0]['status'] ?? 'inactive';
+                            
+                            if ($currentStatus === 'active') {
+                                // Already subscribed - don't update
+                                echo json_encode(['status' => 'success', 'message' => 'You are already subscribed.']);
+                                exit;
+                            } else {
+                                // Status is inactive - resubscribe
+                                $updateUrl = $supabaseUrl . '/rest/v1/subscribers?email=eq.' . urlencode($email);
+                                $updateData = [
+                                    'status' => 'active',
+                                    'subscribed_at' => date('c'),
+                                    'unsubscribed_at' => null
+                                ];
+                                
+                                $ch = curl_init($updateUrl);
+                                curl_setopt_array($ch, [
+                                    CURLOPT_CUSTOMREQUEST => 'PATCH',
+                                    CURLOPT_POSTFIELDS => json_encode($updateData),
+                                    CURLOPT_RETURNTRANSFER => true,
+                                    CURLOPT_HTTPHEADER => [
+                                        'apikey: ' . $supabaseKey,
+                                        'Authorization: Bearer ' . $supabaseKey,
+                                        'Content-Type: application/json',
+                                        'Prefer: return=representation'
+                                    ]
+                                ]);
+                                curl_exec($ch);
+                                $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+                                curl_close($ch);
+
+                                if ($httpCode !== 200 && $httpCode !== 204) {
+                                    throw new Exception('Failed to update subscription');
+                                }
+                                
+                                // Resubscribed - send emails
+                                if (!sendEmails($email, $config)) {
+                                    echo json_encode(['status' => 'error', 'message' => 'Resubscription saved but failed to send notification. Please try again.']);
+                                    exit;
+                                }
+
+                                echo json_encode(['status' => 'success', 'message' => 'You are resubscribed!']);
+                                exit;
+                            }
+                        }
+                    } else {
+                        throw new Exception('Failed to create subscription');
+                    }
+                }
+            }
             
             // Logic succeeded, now send emails
-            sendEmails($email);
+            if (!sendEmails($email, $config)) {
+                echo json_encode(['status' => 'error', 'message' => 'Subscription saved but failed to send notification. Please try again.']);
+                exit;
+            }
 
             echo json_encode(['status' => 'success', 'message' => 'Subscription successful!']);
             exit;
 
-        } catch (PDOException $e) {
+        } catch (Exception $e) {
             echo json_encode(['status' => 'error', 'message' => 'Database error.']);
             exit;
         }
@@ -105,15 +261,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 // Function stays outside the logic block
-function sendEmails($email) {
+function sendEmails($email, $config) {
+    // Admin Notification
     try {
-        // Admin Notification
         $mail = new PHPMailer(true);
         $mail->isSMTP();
         $mail->Host = 'smtp.gmail.com';
         $mail->SMTPAuth = true;
         $mail->Username = 'noreply.uxory@gmail.com';
-        $mail->Password = 'hxge frbq sbur wjug'; 
+        $mail->Password = $config['gmail_smtp_password']; 
         $mail->SMTPSecure = 'tls';
         $mail->Port = 587;
         $mail->setFrom('noreply.uxory@gmail.com', 'Uxory Subscriptions');
@@ -122,14 +278,18 @@ function sendEmails($email) {
         $mail->Subject = 'New Subscriber';
         $mail->Body = "<h1>New Uxory Subscription</h1><p>Email: {$email}</p>";
         $mail->send();
+    } catch (Exception $e) {
+        return false; // Admin email failed
+    }
 
-        // User Confirmation
+    // User Confirmation (separate try-catch, silent fail)
+    try {
         $autoReply = new PHPMailer(true);
         $autoReply->isSMTP();
         $autoReply->Host = 'smtp.hostinger.com';
         $autoReply->SMTPAuth = true;
         $autoReply->Username = 'contact@uxory.com';
-        $autoReply->Password = 'N2v&tb6/;Wu';
+        $autoReply->Password = $config['hostinger_email_password'];
         $autoReply->SMTPSecure = 'tls';
         $autoReply->Port = 587;
         $autoReply->setFrom('contact@uxory.com', 'Uxory Team');
@@ -140,6 +300,8 @@ function sendEmails($email) {
         $autoReply->Body = file_exists($tplPath) ? str_replace(['{EMAIL}'], [$email], file_get_contents($tplPath)) : "Thank you for subscribing!";
         $autoReply->send();
     } catch (Exception $e) {
-        // We don't exit here so the user still gets a "Success" message even if email logs fail
+        // Silent fail - user still sees success since admin received the notification
     }
+
+    return true;
 }

@@ -119,12 +119,12 @@
     <div class="flex justify-between">
       <a href="/index.php">
         <img
-          class="max-h-[50px] w-auto inline-block dark:hidden"
+          class="w-auto inline-block dark:hidden"
           src="/images/logo-white.svg"
           alt="logo"
         />
         <img
-          class="max-h-[50px] w-auto dark:inline-block hidden"
+          class="w-auto dark:inline-block hidden"
           src="/images/logo-black.svg"
           alt="logo"
         />

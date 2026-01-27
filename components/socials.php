@@ -2,7 +2,7 @@
  Socials Section
 ================================ -->
 <section
-  class="pt-14 md:pt-16 lg:pt-20 xl:pt-[88px]"
+  class="pt-14 md:pt-16 lg:pt-[88px] xl:pt-[100px] md:pb-16 lg:pb-[88px] xl:pb-[100px] relative overflow-hidden"
 >
   <div class="container">
     <div

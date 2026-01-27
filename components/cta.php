@@ -7,27 +7,27 @@
   <div class="container">
     <!-- CTA Heading -->
     <h3
-      class="text-center font-normal"
+      class="text-center font-normal cta-heading-mobile"
     >
-      Let's Talk!
+      <span class="sm:inline">Let's Talk!</span>
       <div
-        class="cta-slider-container max-sm:block sm:inline-block max-sm:mb-5 translate-y-2 sm:translate-y-[20px] max-sm:mt-2.5"
+        class="cta-slider-container sm:inline-block translate-y-1 sm:translate-y-[14px]"
       >
         <div class="cta-inline-slider">
           <div class="slide">
-            <img src="/images/agent/01.webp" alt="Slide 1" />
+            <img src="/images/agent/1.webp" alt="Slide 1" />
           </div>
           <div class="slide">
-            <img src="/images/agent/02.webp" alt="Slide 2" />
+            <img src="/images/agent/2.webp" alt="Slide 2" />
           </div>
           <div class="slide">
-            <img src="/images/agent/03.webp" alt="Slide 3" />
+            <img src="/images/agent/3.webp" alt="Slide 3" />
           </div>
         </div>
       </div>
-      DM us.
+      <span class="sm:inline">DM us.</span>
 
-      <span class="font-instrument sm:mt-10 italic block max-md:inline-block"
+      <span class="font-instrument sm:mt-10 italic block max-md:inline-block cta-virtual-coffee"
         >A virtual coffee?</span
       >
     </h3>

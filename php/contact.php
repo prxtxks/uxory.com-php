@@ -8,6 +8,9 @@ require 'src/PHPMailer-master/src/Exception.php';
 require 'src/PHPMailer-master/src/PHPMailer.php';
 require 'src/PHPMailer-master/src/SMTP.php';
 
+// Load secrets from config file (outside web root)
+$config = require __DIR__ . '/../../../config/secrets.php';
+
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     echo json_encode(['status' => 'error', 'message' => 'Invalid request method.']);
     exit;
@@ -17,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
    RECAPTCHA
    =============================== */
 
-$recaptchaSecret = '6LeSajcsAAAAADjIlVWH7gmuRqSoHwMVecXYM_Ei';
+$recaptchaSecret = $config['recaptcha_secret'];
 $recaptchaResponse = $_POST['g-recaptcha-response'] ?? '';
 
 $ch = curl_init('https://www.google.com/recaptcha/api/siteverify');
@@ -103,7 +106,7 @@ try {
     $mail->Host = 'smtp.gmail.com';
     $mail->SMTPAuth = true;
     $mail->Username = 'noreply.uxory@gmail.com';
-    $mail->Password = 'hxge frbq sbur wjug';
+    $mail->Password = $config['gmail_smtp_password'];
     $mail->SMTPSecure = 'tls';
     $mail->Port = 587;
 
@@ -123,13 +126,19 @@ try {
 
     $mail->send();
 
-    // User auto-reply
+} catch (Exception $e) {
+    echo json_encode(['status' => 'error', 'message' => 'Failed to send message. Please try again later.']);
+    exit;
+}
+
+// User auto-reply (separate try-catch, silent fail)
+try {
     $autoReply = new PHPMailer(true);
     $autoReply->isSMTP();
     $autoReply->Host = 'smtp.hostinger.com';
     $autoReply->SMTPAuth = true;
     $autoReply->Username = 'contact@uxory.com';
-    $autoReply->Password = 'N2v&tb6/;Wu';
+    $autoReply->Password = $config['hostinger_email_password'];
     $autoReply->SMTPSecure = 'tls';
     $autoReply->Port = 587;
 
@@ -146,7 +155,7 @@ try {
     $autoReply->send();
 
 } catch (Exception $e) {
-    // Silent fail by design
+    // Silent fail - user still sees success since admin received the message
 }
 
 echo json_encode([

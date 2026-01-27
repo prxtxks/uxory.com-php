@@ -1,64 +1,132 @@
 <!DOCTYPE html>
-<html lang="zxx" class="dark">
+<html lang="en">
 
 <head>
-  <!-- Title -->
-  <title>Careers at Uxory | Remote Internship & Career Opportunities</title>
-  <meta name="description" content="Explore remote internship and career opportunities at Uxory. Join a fast-growing digital solutions company and gain real-world experience in tech, design, and business." />
-
+  <!-- Primary Meta Tags -->
   <meta charset="utf-8" />
-
-  <!-- Responsive -->
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-
-  <!-- Indexing -->
-  <meta name="robots" content="index, follow" />
-
-<!-- Stylesheets -->
-<link href="assets/css/main.css?v=<?= filemtime('assets/css/main.css') ?>" rel="stylesheet" />
-
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="./images/favicon.png" sizes="96x96" />
-  <link rel="icon" type="image/svg+xml" href="./images/favicon.svg" />
-  <link rel="shortcut icon" href="images/favicon.png" />
-  <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png" />
-
-  <!-- Canonical -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  
+  <title>Careers at Uxory | Remote Internship & Career Opportunities</title>
+  <meta name="description" content="Explore remote internship and career opportunities at Uxory. Join a fast-growing software solutions company and gain real-world experience in software development, web development, design, and business." />
+  <meta name="author" content="Uxory" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <meta name="googlebot" content="index, follow" />
+  
+  <!-- Theme & Mobile Optimization -->
+  <meta name="theme-color" content="#000000" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="format-detection" content="telephone=no" />
+  
+  <!-- Canonical URL -->
   <link rel="canonical" href="https://uxory.com/career.php" />
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="Careers at Uxory | Join Our Team Remotely" />
-  <meta property="og:description" content="Browse exciting internship and career opportunities at Uxory. Work remotely, learn new skills, and grow your career in tech and marketing." />
-  <meta property="og:image" content="https://uxory.com/images/logo.png" />
-  <meta property="og:url" content="https://uxory.com/career.php" />
+  
+  <!-- Performance Hints -->
+  <link rel="preconnect" href="https://www.google.com" crossorigin />
+  <link rel="dns-prefetch" href="https://www.google.com" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/images/favicon.svg" />
+  <link rel="icon" type="image/png" href="/images/favicon.png" sizes="96x96" />
+  <link rel="shortcut icon" href="/images/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png" />
+  
+  <!-- Stylesheets -->
+  <link href="assets/css/main.css?v=<?= filemtime('assets/css/main.css') ?>" rel="stylesheet" />
+  
+  <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website" />
-
-  <!-- Twitter -->
+  <meta property="og:url" content="https://uxory.com/career.php" />
+  <meta property="og:title" content="Careers at Uxory | Remote Internship & Career Opportunities" />
+  <meta property="og:description" content="Browse exciting internship and career opportunities at Uxory. Work remotely, learn new skills, and grow your career in software development, web development, design, and business." />
+  <meta property="og:image" content="https://uxory.com/images/logo.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Careers at Uxory" />
+  <meta property="og:site_name" content="Uxory" />
+  <meta property="og:locale" content="en_US" />
+  
+  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Careers at Uxory | Remote Internship Openings" />
-  <meta name="twitter:description" content="Apply for remote roles at Uxory. We're hiring interns and professionals in design, development, and business." />
+  <meta name="twitter:url" content="https://uxory.com/career.php" />
+  <meta name="twitter:title" content="Careers at Uxory | Remote Internship & Career Opportunities" />
+  <meta name="twitter:description" content="Apply for remote roles at Uxory. We're hiring interns and professionals in software development, web development, design, and business." />
   <meta name="twitter:image" content="https://uxory.com/images/logo.png" />
-
-  <!-- JSON-LD Structured Data -->
+  <meta name="twitter:image:alt" content="Careers at Uxory" />
+  
+  <!-- Structured Data -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Uxory",
-    "url": "https://uxory.com",
-    "logo": "https://uxory.com/images/logo.png",
-    "sameAs": [],
-    "description": "A remote-first digital solutions company offering modern website design, SEO, and marketing services.",
-    "department": {
-      "@type": "Organization",
-      "name": "Careers",
-      "url": "https://uxory.com/career.php"
-    }
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://uxory.com/#organization",
+        "name": "Uxory",
+        "url": "https://uxory.com",
+        "logo": {
+          "@type": "ImageObject",
+          "@id": "https://uxory.com/#logo",
+          "url": "https://uxory.com/images/logo.png",
+          "contentUrl": "https://uxory.com/images/logo.png",
+          "width": 512,
+          "height": 512
+        },
+        "sameAs": [
+          "https://www.linkedin.com/company/uxory/",
+          "https://www.instagram.com/uxoryllc/"
+        ],
+        "description": "A remote-first software solutions company offering custom software development, website development, automation, and AI solutions."
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://uxory.com/career.php#webpage",
+        "url": "https://uxory.com/career.php",
+        "name": "Careers at Uxory | Remote Internship & Career Opportunities",
+        "description": "Explore remote internship and career opportunities at Uxory. Join a fast-growing software solutions company and gain real-world experience in software development, web development, design, and business.",
+        "isPartOf": {
+          "@id": "https://uxory.com/#website"
+        },
+        "primaryImageOfPage": {
+          "@id": "https://uxory.com/#logo"
+        }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://uxory.com/#website",
+        "url": "https://uxory.com",
+        "name": "Uxory",
+        "publisher": {
+          "@id": "https://uxory.com/#organization"
+        }
+      }
+    ]
   }
   </script>
+
 </head>
 
-<body >
+<body>
+  <!-- Skip to main content for accessibility -->
+  <a href="#main-content" class="sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[99999] focus:px-4 focus:py-2 focus:bg-primary focus:text-black focus:font-bold focus:rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary" style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border-width: 0;">
+    Skip to main content
+  </a>
+  <style>
+    .sr-only:focus {
+      position: fixed !important;
+      width: auto !important;
+      height: auto !important;
+      padding: 0.5rem 1rem !important;
+      margin: 0 !important;
+      overflow: visible !important;
+      clip: auto !important;
+      white-space: normal !important;
+    }
+  </style>
 
 <!-- header  -->
 <?php       
@@ -76,15 +144,13 @@ include 'components/nav.php';
   class="menu-overflow fixed z-[9999] bg-[rgba(10,10,10,0.95)] bg-opacity-60 backdrop-blur-[25px] w-full h-full pointer-events-none"
 ></div>
 
-<!-- Cursor Pointer -->
-<div class="pointer"></div>
 
 <!-- Dark Mode toggle -->
 <?php       
 include 'components/dark_mode.php';
 ?>
 
-<main class="lg:mb-[600px] relative z-10 bg-backgroundBody dark:bg-dark">
+<main id="main-content" class="lg:mb-[600px] relative z-10 bg-backgroundBody dark:bg-dark">
 <!--=====================================
     Career Page Hero Section
 ======================================-->
@@ -107,9 +173,7 @@ include 'components/dark_mode.php';
   <!-- Hero Content -->
   <div class="container reveal-me">
     <div class="text-center">
-      <div class="rv-badge">
-        <span class="rv-badge-text">Career</span>
-      </div>
+      
       <h2 class="mt-3.5 sm:mt-6 md:mt-7 mb-5 md:mb-8 font-medium">Start building your <i class="font-instrument italic font-normal">future</i> here</h2>
       <p class="">We provide a wide range of growth opportunities, a <br> collaborative work culture, and a supportive team focused on your success</p>
     </div>
@@ -128,58 +192,6 @@ include 'components/dark_mode.php';
   </div>
 </section>
 
-
-
-
-<!--=====================================
-   Employee Benefits Section Area
-======================================-->
-<!-- <section
-  class="pt-14 md:pt-16 lg:pt-[88px] xl:pt-[100px] pb-14 md:pb-16 lg:pb-[88px] xl:pb-[100px]"
->
-  <div class="container">
-   
-    <h2 class="text-center mb-4 lg:mb-8 text-appear">Why Join Our Team</h2>
-    <p class="text-center max-w-[750px] mx-auto text-appear max-lg:px-5">
-      Join a dynamic workspace where innovation meets well-being. We provide
-      comprehensive benefits and a supportive environment designed to help you
-      thrive both professionally and personally.
-    </p>
-
-
-    <div
-      class="mt-10 md:mt-[60px] grid xs:grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 justify-center items-center gap-[30px]"
-    >
-      <div class="p-[30px] border dark:border-dark reveal-me">
-        Hybrid Work Environment
-      </div>
-      <div class="p-[30px] border dark:border-dark reveal-me">
-        Competitive Health Benefits
-      </div>
-      <div class="p-[30px] border dark:border-dark reveal-me">
-        Learning & Development Fund
-      </div>
-      <div class="p-[30px] border dark:border-dark reveal-me">
-        Performance Bonuses
-      </div>
-      <div class="p-[30px] border dark:border-dark reveal-me">
-        Mental Health Support
-      </div>
-      <div class="p-[30px] border dark:border-dark reveal-me">
-        Team Building Events
-      </div>
-      <div class="p-[30px] border dark:border-dark reveal-me">
-        Professional Certifications
-      </div>
-      <div class="p-[30px] border dark:border-dark reveal-me">
-        Modern Tech Stack
-      </div>
-      <div class="p-[30px] border dark:border-dark reveal-me">
-        Unlimited PTO Policy
-      </div>
-    </div>
-  </div>
-</section> -->
 
 
 <!--=====================================
@@ -234,7 +246,7 @@ include 'components/dark_mode.php';
       <!-- Apply Button -->
       <div class="max-md:w-full">
         <a
-          href="software-dev-intern.php"
+          href="/job-postings/software-dev-intern.php"
           class="rv-button rv-button-secondary block md:inline-block"
         >
           <div class="rv-button-top text-center">
@@ -279,7 +291,7 @@ include 'components/dark_mode.php';
       <!-- Apply Button -->
       <div class="max-md:w-full">
         <a
-          href="web-dev-intern.php"
+          href="/job-postings/web-dev-intern.php"
           class="rv-button rv-button-secondary block md:inline-block"
         >
           <div class="rv-button-top text-center">
@@ -324,7 +336,7 @@ include 'components/dark_mode.php';
       <!-- Apply Button -->
       <div class="max-md:w-full">
         <a
-          href="web-des-intern.php"
+          href="/job-postings/web-des-intern.php"
           class="rv-button rv-button-secondary block md:inline-block"
         >
           <div class="rv-button-top text-center">
@@ -366,7 +378,7 @@ include 'components/dark_mode.php';
       <!-- Apply Button -->
       <div class="max-md:w-full">
         <a
-          href="product-dev-intern.php"
+          href="/job-postings/product-dev-intern.php"
           class="rv-button rv-button-secondary block md:inline-block"
         >
           <div class="rv-button-top text-center">
@@ -404,13 +416,13 @@ include 'components/dark_mode.php';
         Business Development Intern
       </h3>
       <p class="max-w-[830px]">
-        Help expand Uxory’s reach through partnerships, research, and strategic initiatives.
+        Help expand Uxory's reach through partnerships, research, and strategic initiatives.
       </p>
     </div>
     <!-- Apply Button -->
     <div class="max-md:w-full">
       <a
-        href="business-dev-intern.php"
+        href="/job-postings/business-dev-intern.php"
         class="rv-button rv-button-secondary block md:inline-block"
       >
         <div class="rv-button-top text-center">
@@ -454,7 +466,7 @@ include 'components/dark_mode.php';
   <!-- Apply Button -->
   <div class="max-md:w-full">
     <a
-      href="sales-intern.php"
+      href="/job-postings/sales-intern.php"
       class="rv-button rv-button-secondary block md:inline-block"
     >
       <div class="rv-button-top text-center">

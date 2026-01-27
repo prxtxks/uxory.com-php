@@ -1,71 +1,187 @@
 <!DOCTYPE html>
-<html lang="zxx" class="dark">
+<html lang="en">
 
 <head>
-
-<script src="https://www.google.com/recaptcha/api.js" async defer></script>
-
-  <!--Tittle-->
-<title>Uxory | Intelligent Software & Automation Solutions</title>
-<meta name="description" content="We build AI-powered systems that automate operations, increase revenue, and eliminate inefficiencies." />
-
-<meta charset="utf-8" />
-
-<!-- <meta name="robots" content="noimageindex"> -->
-
-<!-- mobile responsive meta -->
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-
-<!-- Stylesheets -->
-<link href="assets/css/main.css?v=<?= filemtime('assets/css/main.css') ?>" rel="stylesheet" />
-
-<!--========================>
-Favicon
-==========================-->
-<!-- SVG: Modern browsers (scalable, sharp icons) -->
-<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" />
-
-<!-- PNG fallback: Older browsers that don't support SVG -->
-<link rel="icon" type="image/png" href="/images/favicon.png" sizes="96x96" />
-
-<!-- Shortcut icon: Legacy support (especially for Internet Explorer) -->
-<link rel="shortcut icon" href="/images/favicon.ico" />
-
-<!-- Apple Touch Icon: iPhones/iPads when users save your site to home screen -->
-<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png" />
-
-<!-- Canonical-->
-<link rel="canonical" href="https://uxory.com/" />
-
-<!-- Open Graph -->
-<meta property="og:title" content="Uxory | Intelligent Software & Automation Solutions" />
-<meta property="og:description" content="We build AI-powered systems that automate operations, increase revenue, and eliminate inefficiencies." />
-<meta property="og:image" content="https://www.uxory.com/images/logo.png" />
-<meta property="og:url" content="https://www.uxory.com" />
-<meta property="og:type" content="website" />
-
-<!-- Twitter Card -->
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Uxory | Intelligent Software & Automation Solutions" />
-<meta name="twitter:description" content="We build AI-powered systems that automate operations, increase revenue, and eliminate inefficiencies." />
-<meta name="twitter:image" content="https://www.uxory.com/images/logo.png" />
-
-<!-- JSON-LD Structured Data -->
+  <!-- Primary Meta Tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  
+  <title>Uxory | Intelligent Software & Automation Solutions</title>
+  <meta name="description" content="We build AI-powered systems that automate operations, increase revenue, and eliminate inefficiencies. Custom software, automation, and AI solutions for modern businesses." />
+  <meta name="author" content="Uxory" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <meta name="googlebot" content="index, follow" />
+  
+  <!-- Theme & Mobile Optimization -->
+  <meta name="theme-color" content="#000000" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="format-detection" content="telephone=no" />
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://uxory.com/" />
+  
+  <!-- Performance Hints -->
+  <link rel="preconnect" href="https://www.google.com" crossorigin />
+  <link rel="dns-prefetch" href="https://www.google.com" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/images/favicon.svg" />
+  <link rel="icon" type="image/png" href="/images/favicon.png" sizes="96x96" />
+  <link rel="shortcut icon" href="/images/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png" />
+  
+  <!-- Stylesheets -->
+  <link href="assets/css/main.css?v=<?= filemtime('assets/css/main.css') ?>" rel="stylesheet" />
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://uxory.com/" />
+  <meta property="og:title" content="Uxory | Intelligent Software & Automation Solutions" />
+  <meta property="og:description" content="We build AI-powered systems that automate operations, increase revenue, and eliminate inefficiencies. Custom software, automation, and AI solutions for modern businesses." />
+  <meta property="og:image" content="https://uxory.com/images/logo.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Uxory - Intelligent Software & Automation Solutions" />
+  <meta property="og:site_name" content="Uxory" />
+  <meta property="og:locale" content="en_US" />
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://uxory.com/" />
+  <meta name="twitter:title" content="Uxory | Intelligent Software & Automation Solutions" />
+  <meta name="twitter:description" content="We build AI-powered systems that automate operations, increase revenue, and eliminate inefficiencies." />
+  <meta name="twitter:image" content="https://uxory.com/images/logo.png" />
+  <meta name="twitter:image:alt" content="Uxory - Intelligent Software & Automation Solutions" />
+  
+  <!-- Structured Data -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Uxory",
-    "url": "https://uxory.com",
-    "logo": "https://uxory.com/images/logo.png",
-    "description": "We build AI-powered systems that automate operations, increase revenue, and eliminate inefficiencies."
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://uxory.com/#organization",
+        "name": "Uxory",
+        "url": "https://uxory.com",
+        "logo": {
+          "@type": "ImageObject",
+          "@id": "https://uxory.com/#logo",
+          "url": "https://uxory.com/images/logo.png",
+          "contentUrl": "https://uxory.com/images/logo.png",
+          "width": 512,
+          "height": 512
+        },
+        "image": {
+          "@id": "https://uxory.com/#logo"
+        },
+        "description": "We build AI-powered systems that automate operations, increase revenue, and eliminate inefficiencies. Custom software, automation, and AI solutions for modern businesses.",
+        "email": "contact@uxory.com",
+        "address": [
+          {
+            "@type": "PostalAddress",
+            "streetAddress": "30 N Gould St Ste N",
+            "addressLocality": "Sheridan",
+            "addressRegion": "WY",
+            "postalCode": "82801",
+            "addressCountry": "US"
+          },
+          {
+            "@type": "PostalAddress",
+            "streetAddress": "B-401, VTP Belair",
+            "addressLocality": "Pune",
+            "addressRegion": "MH",
+            "postalCode": "411045",
+            "addressCountry": "IN"
+          }
+        ],
+        "sameAs": [
+          "https://www.linkedin.com/company/uxory/",
+          "https://www.instagram.com/uxoryllc/"
+        ],
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "email": "contact@uxory.com",
+          "contactType": "Customer Service",
+          "availableLanguage": ["English"]
+        }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://uxory.com/#website",
+        "url": "https://uxory.com",
+        "name": "Uxory",
+        "description": "Intelligent Software & Automation Solutions",
+        "publisher": {
+          "@id": "https://uxory.com/#organization"
+        },
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": {
+            "@type": "EntryPoint",
+            "urlTemplate": "https://uxory.com/?s={search_term_string}"
+          },
+          "query-input": "required name=search_term_string"
+        }
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://uxory.com/#webpage",
+        "url": "https://uxory.com/",
+        "name": "Uxory | Intelligent Software & Automation Solutions",
+        "description": "We build AI-powered systems that automate operations, increase revenue, and eliminate inefficiencies.",
+        "isPartOf": {
+          "@id": "https://uxory.com/#website"
+        },
+        "about": {
+          "@id": "https://uxory.com/#organization"
+        },
+        "primaryImageOfPage": {
+          "@id": "https://uxory.com/#logo"
+        }
+      }
+    ]
   }
   </script>
+  
+  <!-- reCAPTCHA -->
+  <script src="https://www.google.com/recaptcha/api.js" async defer crossorigin="anonymous"></script>
 
 </head>
 
-<body >
+<body>
+  <!-- Skip to main content for accessibility -->
+  <a href="#main-content" class="sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[99999] focus:px-4 focus:py-2 focus:bg-primary focus:text-black focus:font-bold focus:rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary" style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border-width: 0;">
+    Skip to main content
+  </a>
+  <style>
+    .sr-only:focus {
+      position: fixed !important;
+      width: auto !important;
+      height: auto !important;
+      padding: 0.5rem 1rem !important;
+      margin: 0 !important;
+      overflow: visible !important;
+      clip: auto !important;
+      white-space: normal !important;
+    }
+  </style>
+  <style>
+    .sr-only:focus {
+      position: fixed !important;
+      width: auto !important;
+      height: auto !important;
+      padding: 0.5rem 1rem !important;
+      margin: 0 !important;
+      overflow: visible !important;
+      clip: auto !important;
+      white-space: normal !important;
+    }
+  </style>
 
 <!-- header  -->
 <?php       
@@ -91,7 +207,7 @@ include 'components/nav.php';
 include 'components/dark_mode.php';
 ?>
 
-<main class="lg:mb-[600px] relative z-10 bg-backgroundBody dark:bg-dark">
+<main id="main-content" class="lg:mb-[600px] relative z-10 bg-backgroundBody dark:bg-dark">
 
 <!--=====================================
    Hero Section
@@ -115,21 +231,18 @@ include 'components/dark_mode.php';
   <!-- Hero Content -->
   <div class="container reveal-me">
     <!-- Top Label -->
-    <p
+    <!-- <p
       class="flex text-secondary dark:text-backgroundBody justify-center lg:justify-start items-center gap-5 text-sm font-normal leading-6 tracking-[3px] uppercase"
     >
       <span>YOUR TECHNOLOGY PARTNER</span>
-      <!-- <span
-        class="inline-block w-[150px] h-[1px] bg-secondary dark:bg-backgroundBody/70"
-      ></span>
-      <span>Uxory</span> -->
-    </p>
+      
+    </p> -->
 
     <!-- Hero Heading -->
-<h2 class="font-semibold mt-5 sm:mt-10">
-  Software, automation, and AI systems designed for 
-  <i class="font-instrument">modern business growth.</i>
-</h2>
+  <h2 class="font-medium mt-5 sm:mt-10">
+    Software, automation, and AI systems designed for modern business growth.
+    <!-- <i class="font-instrument">modern business growth.</i> -->
+  </h2>
     <!-- CTA Buttons -->
     <ul class="flex justify-start list-none mt-14">
       <div
@@ -155,12 +268,25 @@ include 'components/dark_mode.php';
   </div>
 </section>
 
+<!--=====================================
+  Promo Video Section
+======================================-->
+<section class="video-parents reveal-me-2 relative overflow-hidden">
+  <!-- Video Wrapper -->
+  <div class="w-full h-fit video-wrapper scale-50 origin-top">
+    <!-- PNG Image -->
+    <img src="images/hero-img/index-hero.webp" alt="Hero Image" class="w-full h-full" />
+    
+  </div>
+</section>
+
 
 <!--=====================================
   Para Text round
 ======================================-->
+
 <section
-  class="pt-14 md:pt-16 lg:pt-[88px] xl:pt-[100px] relative overflow-hidden"
+  class="pt-14 md:pt-16 lg:pt-[88px] xl:pt-[100px] md:pb-16 lg:pb-[88px] xl:pb-[100px] relative overflow-hidden"
 >
   <div class="container"> 
 
@@ -188,14 +314,19 @@ include 'components/dark_mode.php';
           class="hidden dark:inline"
         />
       </figure>
-      <div class="text">
-        <p>Helping Businesses Scale Smarter ★</p>
-      </div>
+      <svg class="circle-text-svg" viewBox="0 0 168 168" width="168" height="168">
+        <defs>
+          <path id="circlePath" d="M 84,84 m -62,0 a 62,62 0 1,1 124,0 a 62,62 0 1,1 -124,0" fill="none"/>
+        </defs>
+        <text class="circle-text-content">
+          <textPath href="#circlePath" startOffset="0%">ENGINEERING APPLIED INTELLIGENCE INTO SOFTWARE ★ </textPath>
+        </text>
+      </svg>
     </div>
 
 
-      <p class="reveal-text-2 text-2xl lg:text-3xl text-secondary/90 dark:text-backgroundBody/70 text-left font-normal lg:leading-[1.2] lg:tracking-[0.72px] pt-10 sm:pt-20">
-        In today’s world, efficiency is a requirement, not an advantage. Businesses that use AI and automation can handle more work with the same team, respond faster to customers, and adapt quickly as markets change. Uxory helps you build those systems: custom software, automation, and AI solutions designed around how your business actually runs.
+      <p class="reveal-text-2 text-2xl lg:text-3xl text-secondary/90 dark:text-backgroundBody/70 text-left font-normal lg:leading-[1.2] lg:tracking-[0.72px] pt-12 sm:pt-24">
+        In today's world, efficiency is a requirement, not an advantage. Businesses that use AI and automation can handle more work with the same team, respond faster to customers, and adapt quickly as markets change. Uxory helps you build those systems: custom software, automation, and AI solutions designed around how your business actually runs.
       </p>
 
   </div>
@@ -207,7 +338,7 @@ include 'components/dark_mode.php';
 ======================================-->
 
 <section
-  class="pt-14 md:pt-16 lg:pt-[88px] xl:pt-[100px] relative overflow-hidden"
+  class="pt-14 md:pt-16 lg:pt-[88px] xl:pt-[100px] md:pb-16 lg:pb-[88px] xl:pb-[100px] relative overflow-hidden"
 >
   <!-- Clients Logo Marquee -->
   <div class="marquee-container reveal-me">
@@ -215,7 +346,7 @@ include 'components/dark_mode.php';
       
       <div class="flex items-center gap-6 mr-5">
         <span
-          class="text-4xl sm:text-[36px] md:text-[55px] font-semibold leading-tight xl:leading-[1.1] tracking-[-1.5px] xl:tracking-[-2px] text-nowrap"
+          class="text-4xl sm:text-[36px] md:text-[45px] font-medium leading-tight xl:leading-[1.1] tracking-[-1.5px] xl:tracking-[-2px] text-nowrap"
         >
         AI Systems & Agents
         </span>
@@ -236,9 +367,9 @@ include 'components/dark_mode.php';
       </div>
       <div class="flex items-center gap-6 mr-5">
         <span
-          class="text-4xl sm:text-[36px] md:text-[55px] font-semibold leading-tight xl:leading-[1.1] tracking-[-1.5px] xl:tracking-[-2px] text-nowrap"
+          class="text-4xl sm:text-[36px] md:text-[45px] font-medium leading-tight xl:leading-[1.1] tracking-[-1.5px] xl:tracking-[-2px] text-nowrap"
         >
-          Workflow Automation
+          Software Development
         </span>
         <span class="mt-5">
           <svg
@@ -257,9 +388,9 @@ include 'components/dark_mode.php';
       </div>
       <div class="flex items-center gap-6 mr-5">
         <span
-          class="text-4xl sm:text-[36px] md:text-[55px] font-semibold leading-tight xl:leading-[1.1] tracking-[-1.5px] xl:tracking-[-2px] text-nowrap"
+          class="text-4xl sm:text-[36px] md:text-[45px] font-medium leading-tight xl:leading-[1.1] tracking-[-1.5px] xl:tracking-[-2px] text-nowrap"
         >
-          AI Powered Apps
+          Automation
         </span>
         <span class="mt-5">
           <svg
@@ -285,9 +416,9 @@ include 'components/dark_mode.php';
     <div class="flex items-center justify-between py-2.5">
       <div class="flex items-center gap-6 mr-5">
         <span
-          class="text-4xl sm:text-[36px] md:text-[55px] font-semibold leading-tight xl:leading-[1.1] tracking-[-1.5px] xl:tracking-[-2px] text-nowrap"
+          class="text-4xl sm:text-[36px] md:text-[45px] font-medium leading-tight xl:leading-[1.1] tracking-[-1.5px] xl:tracking-[-2px] text-nowrap"
         >
-          AI Powered Apps
+          Mobile Appps
         </span>
         <span class="mt-5">
           <svg
@@ -306,9 +437,9 @@ include 'components/dark_mode.php';
       </div>
       <div class="flex items-center gap-6 mr-5">
         <span
-          class="text-4xl sm:text-[36px] md:text-[55px] font-semibold leading-tight xl:leading-[1.1] tracking-[-1.5px] xl:tracking-[-2px] text-nowrap"
+          class="text-4xl sm:text-[36px] md:text-[45px] font-medium leading-tight xl:leading-[1.1] tracking-[-1.5px] xl:tracking-[-2px] text-nowrap"
         >
-          Process Automation
+          Web Apps
         </span>
         <span class="mt-5">
           <svg
@@ -327,7 +458,7 @@ include 'components/dark_mode.php';
       </div>
       <div class="flex items-center gap-6 mr-5">
         <span
-          class="text-4xl sm:text-[36px] md:text-[55px] font-semibold leading-tight xl:leading-[1.1] tracking-[-1.5px] xl:tracking-[-2px] text-nowrap"
+          class="text-4xl sm:text-[36px] md:text-[45px] font-medium leading-tight xl:leading-[1.1] tracking-[-1.5px] xl:tracking-[-2px] text-nowrap"
         >
           AI-Powered SAAS
         </span>
@@ -354,10 +485,10 @@ include 'components/dark_mode.php';
 </section>
 
 <!--=====================================
-   Our Services Section
+   Our Services Section 
 ======================================-->
 <section
-  class="pt-16 md:pt-20 lg:pt-[100px] xl:pt-[120px] mb-10 md:mb-14 relative overflow-hidden"
+  class="pt-14 md:pt-16 lg:pt-[88px] xl:pt-[100px] mb-10 md:mb-14 relative overflow-hidden"
 >
 
   <div class="container">
@@ -367,9 +498,9 @@ include 'components/dark_mode.php';
     >
       <div class="flex-1">
         <h3 class="text-appear max-lg:leading-[1.33]">
-          <span class="font-instrument lg:text-[65px] italic">Our</span>
+          <!-- <span class="font-instrument lg:text-[65px] italic">Our</span> -->
 
-          services
+          Our services
         </h3>
       </div>
 
@@ -383,14 +514,14 @@ include 'components/dark_mode.php';
             class="block md:inline-block w-full mx-auto md:w-auto text-center"
           >
             <a
-              href="./services.php"
+              href="./contact.php"
               class="rv-button rv-button-white block md:inline-block"
             >
               <div class="rv-button-top">
-                <span>Explore Our Services</span>
+                <span>Talk to Sales</span>
               </div>
               <div class="rv-button-bottom">
-                <span>Explore Our Services</span>
+                <span>Talk to Sales</span>
               </div>
             </a>
           </li>
@@ -406,7 +537,7 @@ include 'components/dark_mode.php';
         <a href="./available-soon.php" class="fab-member max-w-[370px] border dark:border-dark p-5 flex items-center gap-5 transitionTimingFunction relative overflow-visible">
           <figure class="flex-none w-[100px] h-[100px]">
             <img
-              src="images/services-icons/agent.png"
+              src="images/services-icons/agent.webp"
               alt="SEO"
               class="w-full h-full object-contain"
             />
@@ -434,10 +565,10 @@ include 'components/dark_mode.php';
           </span>
         </a>
 
-        <a href="/available-soon.php" class="fab-member max-w-[370px] border dark:border-dark p-5 flex items-center gap-5 transitionTimingFunction relative overflow-visible">
+        <a href="/process-automation.php" class="fab-member max-w-[370px] border dark:border-dark p-5 flex items-center gap-5 transitionTimingFunction relative overflow-visible">
           <figure class="flex-none w-[100px] h-[100px]">
             <img
-              src="/images/services-icons/auto.png"
+              src="/images/services-icons/auto.webp"
               alt="Email"
               class="w-full h-full object-contain"
             />
@@ -465,17 +596,17 @@ include 'components/dark_mode.php';
           </span>
         </a>
 
-        <a href="./coming-soon.php" class="fab-member max-w-[370px] border dark:border-dark p-5 flex items-center gap-5 transitionTimingFunction relative overflow-visible">
+        <a href="./software-dev.php" class="fab-member max-w-[370px] border dark:border-dark p-5 flex items-center gap-5 transitionTimingFunction relative overflow-visible">
           <figure class="flex-none w-[100px] h-[100px]">
             <img
-              src="images/services-icons/saas.png"
+              src="images/services-icons/saas.webp"
               alt="Paid Ads"
               class="w-full h-full object-contain"
             />
           </figure>
           <div class="flex-1">
             <h3 class="text-2xl leading-[1.2] tracking-[-0.72px] mb-3 mr-2">
-              AI-Powered SaaS Development
+              Software Development
             </h3>
           </div>
           <span class="absolute top-3 right-3">
@@ -499,7 +630,7 @@ include 'components/dark_mode.php';
          <a href="./website-dev.php" class="fab-member max-w-[370px] border dark:border-dark p-5 flex items-center gap-5 transitionTimingFunction relative overflow-visible">
               <figure class="flex-none w-[100px] h-[100px]">
                 <img
-                  src="images/services-icons/web-dev-services-icon.webp"
+                  src="images/services-icons/website.webp"
                   alt="Website Development"
                   class="w-full h-full object-contain"
                 />
@@ -527,17 +658,17 @@ include 'components/dark_mode.php';
           </span>
         </a>
 
-        <a href="./available-soon.php" class="fab-member max-w-[370px] border dark:border-dark p-5 flex items-center gap-5 transitionTimingFunction relative overflow-visible">
+        <a href="./web-and-app-solutions.php" class="fab-member max-w-[370px] border dark:border-dark p-5 flex items-center gap-5 transitionTimingFunction relative overflow-visible">
           <figure class="flex-none w-[100px] h-[100px]">
             <img
-              src="images/services-icons/new.webp"
+              src="images/services-icons/apps.webp"
               alt="Web-Application-Development"
               class="w-full h-full object-contain"
             />
           </figure>
           <div class="flex-1">
             <h3 class="text-2xl leading-[1.2] tracking-[-0.72px] mb-3 mr-2">
-              Web & Mobile App Development
+             Web & Mobile Apps
             </h3>
           </div>
           
@@ -559,17 +690,17 @@ include 'components/dark_mode.php';
           </span>
         </a>
 
-        <a href="./ecommerce-solutions.php" class="fab-member max-w-[370px] border dark:border-dark p-5 flex items-center gap-5 transitionTimingFunction relative overflow-visible">
+        <a href="./contact.php" class="fab-member max-w-[370px] border dark:border-dark p-5 flex items-center gap-5 transitionTimingFunction relative overflow-visible">
           <figure class="flex-none w-[100px] h-[100px]">
             <img
-              src="images/services-icons/new.png"
+              src="images/services-icons/custom.webp"
               alt="SEO"
               class="w-full h-full object-contain"
             />
           </figure>
           <div class="flex-1">
             <h3 class="text-2xl leading-[1.2] tracking-[-0.72px] mb-3 mr-2">
-              E-commerce Solutions
+              Special Propjects
             </h3>
           </div>
           <span class="absolute top-3 right-3">
@@ -600,26 +731,7 @@ include 'components/dark_mode.php';
 <!--=====================================
    Buttons Below Services Section
 ======================================-->
-<section class="flex flex-col md:flex-row justify-center items-center gap-6 px-4">
-  <!-- Button 1 -->
-  <div
-        class="flex w-full md:w-auto p-3 group bg-primary bg-opacity-30 gap-3 justify-between items-center backdrop-blur-2xl max-w-[320px] md:max-w-[320px]"
-      >
-        <div>
-          <h6 class="text-sm font-satoshi font-bold text-black dark:text-white">
-            Explore Services
-          </h6>
-        </div>
-          <a href="/services.php">
-            <figure
-              class="bg-primary w-[44px] h-[44px] cursor-pointer relative overflow-hidden"
-            >
-              <img
-                src="images/icons/hyper-arrow-new.svg"
-                alt="Arrow Icon"              />
-            </figure>
-          </a>
-      </div>
+<section class="mb-10 md:mb-14 flex flex-col md:flex-row justify-center items-center gap-6 px-4">
 
   <!-- Button 2 -->
   <div
@@ -642,7 +754,7 @@ include 'components/dark_mode.php';
       </div>
 
   <!-- Button 3 -->
- <div
+      <div
         class="flex w-full md:w-auto p-3 group bg-primary bg-opacity-30 gap-3 justify-between items-center backdrop-blur-2xl max-w-[320px] md:max-w-[320px]"
       >
         <div>
@@ -669,7 +781,7 @@ What we build and why it works Section
 ================================ -->
 
 <section
-  class="pt-16 md:pt-20 lg:pt-[100px] xl:pt-[120px] overflow-hidden"
+  class="pt-14 md:pt-16 lg:pt-[88px] xl:pt-[100px] md:pb-16 lg:pb-[88px] xl:pb-[100px] relative overflow-hidden"
 >
   <!--  section header -->
   <div class="container">
@@ -678,8 +790,8 @@ What we build and why it works Section
     >
       <div class="flex-1">
         <h3 class="text-appear-2">
-          What We Build &
-          <span class="font-instrument italic">Why It Works</span>
+          What We Build & 
+          <span>Why It Works</span>
         </h3>
       </div>
       <div class="max-md:w-full md:max-w-[470px]">
@@ -938,162 +1050,6 @@ include 'components/testimonials.php';
 ?>
 
 <!--=====================================
-   FAQ Section
-======================================-->
-<!-- <section
-  class="pt-14 md:pt-16 lg:pt-[88px] xl:pt-[100px] pb-14 md:pb-16 lg:pb-[88px] xl:pb-[100px] relative overflow-hidden"
->
-  <div class="container">
-    
-    <div
-      class="flex flex-col md:flex-row gap-x-10 gap-y-5 justify-center lg:justify-between max-md:items-start md:items-end mb-10 lg:mb-20"
-    >
-     
-      <div class="flex-1">
-        <h2 class="text-appear block md:hidden">
-          <span class="font-instrument italic">People</span>
-          Asked Us
-        </h2>
-        <h2 class="text-appear md:block hidden">
-          <span class="font-instrument lg:text-[70px] italic">People</span>
-          <br />
-          Asked Us
-        </h2>
-      </div>
-      
-      <div class="md:self-end md:justify-self-end flex-1">
-        <p class="text-appear max-w-lg md:text-right">
-          When detailing testimonials, include key elements that provide context
-          and authenticity.
-        </p>
-      </div>
-    </div>
-
-    
-    <div
-      class="w-full mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[30px] items-start"
-    >
-      <div class="space-y-[30px]">
-       
-        <div class="reveal-me">
-          <div
-            class="accordion-itemV4 overflow-hidden relative w-full lg:max-w-[370px] bg-backgroundBody dark:bg-dark border data-[active=true]:border-black data-[active=false]:border-black/10 dark:data-[active=false]:border-white/10 dark:data-[active=true]:border-white/10 duration-300 px-4 md:px-[30px] pt-4 md:pt-[30px] pb-8 md:pb-[60px] space-y-6"
-          >
-            <div class="accordion-headerV4 cursor-pointer">
-              <h3
-                class="text-[23px] md:text-[25px] tracking-normal font-normal md:leading-[25.2px]"
-              >
-              How do I get started with Uxory?
-              </h3>
-              <div class="accordion-header-iconV4 dark:border-dark"></div>
-            </div>
-            <p class="accordion-bodyV4 duration-300 h-0 overflow-hidden">
-              To begin, fill out our Contact Us or Get a Quote form. Our sales team will reach out to understand your initial requirements and assign a dedicated counselor who will connect with you for a deeper discussion about your project goals.
-            </p>
-          </div>
-        </div>
-        
-        <div class="reveal-me">
-          <div
-            class="accordion-itemV4 overflow-hidden relative w-full lg:max-w-[370px] bg-backgroundBody dark:bg-dark border data-[active=true]:border-black data-[active=false]:border-black/10 dark:data-[active=false]:border-white/10 dark:data-[active=true]:border-white/10 duration-300 px-4 md:px-[30px] pt-4 md:pt-[30px] pb-8 md:pb-[60px] space-y-6"
-          >
-            <div class="accordion-headerV4 cursor-pointer">
-              <h3
-                class="text-[23px] md:text-[25px] tracking-normal font-normal md:leading-[25.2px]"
-              >
-              What happens after I receive a quote?
-              </h3>
-              <div class="accordion-header-iconV4 dark:border-dark"></div>
-            </div>
-            <p class="accordion-bodyV4 duration-300 h-0 overflow-hidden">
-              You’ll get a custom quote within 48 hours after your consultation. Once you decide to move forward, we’ll assign an analyst who will work closely with you throughout the entire project—ensuring smooth communication with developers, project clarity, and full support even after launch.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <div class="space-y-[30px]">
-       
-        <div class="reveal-me">
-          <div
-            class="accordion-itemV4 overflow-hidden relative w-full lg:max-w-[370px] bg-backgroundBody dark:bg-dark border data-[active=true]:border-black data-[active=false]:border-black/10 dark:data-[active=false]:border-white/10 dark:data-[active=true]:border-white/10 duration-300 px-4 md:px-[30px] pt-4 md:pt-[30px] pb-8 md:pb-[60px] space-y-6"
-          >
-            <div class="accordion-headerV4 cursor-pointer">
-              <h3
-                class="text-[23px] md:text-[25px] tracking-normal font-normal md:leading-[25.2px]"
-              >
-              Do you work with clients outside the United States?
-              </h3>
-              <div class="accordion-header-iconV4 dark:border-dark"></div>
-            </div>
-            <p class="accordion-bodyV4 duration-300 h-0 overflow-hidden">
-              Yes! We proudly work with clients from around the world and have streamlined processes in place for smooth remote collaboration, no matter the time zone.
-            </p>
-          </div>
-        </div>
-        
-        <div class="reveal-me">
-          <div
-            class="accordion-itemV4 overflow-hidden relative w-full lg:max-w-[370px] bg-backgroundBody dark:bg-dark border data-[active=true]:border-black data-[active=false]:border-black/10 dark:data-[active=false]:border-white/10 dark:data-[active=true]:border-white/10 duration-300 px-4 md:px-[30px] pt-4 md:pt-[30px] pb-8 md:pb-[60px] space-y-6"
-          >
-            <div class="accordion-headerV4 cursor-pointer">
-              <h3
-                class="text-[23px] md:text-[25px] tracking-normal font-normal md:leading-[25.2px]"
-              >
-              Do you work with clients from India?
-              </h3>
-              <div class="accordion-header-iconV4 dark:border-dark"></div>
-            </div>
-            <p class="accordion-bodyV4 duration-300 h-0 overflow-hidden">
-              Yes, we do! In fact, we offer special pricing tailored to match Indian market standards—ensuring high-quality work at competitive local rates.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <div class="space-y-[30px]">
-        
-        <div class="reveal-me">
-          <div
-            class="accordion-itemV4 overflow-hidden relative w-full lg:max-w-[370px] bg-backgroundBody dark:bg-dark border data-[active=true]:border-black data-[active=false]:border-black/10 dark:data-[active=false]:border-white/10 dark:data-[active=true]:border-white/10 duration-300 px-4 md:px-[30px] pt-4 md:pt-[30px] pb-8 md:pb-[60px] space-y-6"
-          >
-            <div class="accordion-headerV4 cursor-pointer">
-              <h3
-                class="text-[23px] md:text-[25px] tracking-normal font-normal md:leading-[25.2px]"
-              >
-              How much do your services cost?
-              </h3>
-              <div class="accordion-header-iconV4 dark:border-dark"></div>
-            </div>
-            <p class="accordion-bodyV4 duration-300 h-0 overflow-hidden">
-              Our pricing varies depending on project scope. After a discovery call and requirement assessment, we’ll send you a custom quote with no hidden charges.
-            </p>
-          </div>
-        </div>
-        
-        <div class="reveal-me">
-          <div
-            class="accordion-itemV4 overflow-hidden relative w-full lg:max-w-[370px] bg-backgroundBody dark:bg-dark border data-[active=true]:border-black data-[active=false]:border-black/10 dark:data-[active=false]:border-white/10 dark:data-[active=true]:border-white/10 duration-300 px-4 md:px-[30px] pt-4 md:pt-[30px] pb-8 md:pb-[60px] space-y-6"
-          >
-            <div class="accordion-headerV4 cursor-pointer">
-              <h3
-                class="text-[23px] md:text-[25px] tracking-normal font-normal md:leading-[25.2px]"
-              >
-              Do you provide post-launch support?
-              </h3>
-              <div class="accordion-header-iconV4 dark:border-dark"></div>
-            </div>
-            <p class="accordion-bodyV4 duration-300 h-0 overflow-hidden">
-              Yes, we offer ongoing maintenance, updates, and technical support packages to keep your product running smoothly after launch.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section> -->
-
-<!--=====================================
    CTA Section
 ======================================-->
 <?php       
@@ -1113,59 +1069,6 @@ include 'components/socials.php';
 <?php       
 include 'components/blog.php';
 ?>
-
-<!--=====================================
-   Let's Work Together Section
-======================================-->
-<section
-class="relative overflow-hidden w-full pt-14 md:pt-16 lg:pt-[88px] xl:pt-[100px] max-lg:pb-10"
->
-  <div
-    class="flex items-center gap-8 flex-nowrap reveal-me"
-    aria-hidden="true"
-    ref="inner"
-  >
-    <div
-      class="marquee-inner flex items-center gap-[30px] text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-normal leading-tight xl:leading-[2.40] tracking-[-1px] xl:tracking-[-2.88px] uppercase text-nowrap"
-    >
-      <span> LET’S WORK TOGETHER </span>
-      <span>
-        <svg
-          xmlns="https://www.w3.org/2000/svg"
-          width="30"
-          height="31"
-          viewBox="0 0 30 31"
-          fill="none"
-        >
-          <circle
-            cx="15"
-            cy="15.5"
-            r="15"
-            class="fill-black dark:fill-backgroundBody"
-          />
-        </svg>
-      </span>
-      <span> LET’S WORK TOGETHER </span>
-      
-        <svg
-          xmlns="https://www.w3.org/2000/svg"
-          width="30"
-          height="31"
-          viewBox="0 0 30 31"
-          fill="none"
-        >
-          <circle
-            cx="15"
-            cy="15.5"
-            r="15"
-            class="fill-black dark:fill-backgroundBody"
-          />
-        </svg>
-     
-
-    </div>
-  </div>
-</section>
 
 </main>
 
@@ -1189,31 +1092,6 @@ include 'components/chatsimple.php';
 <?php       
 include 'components/scripts.php';
 ?>
-
-<!-- Chatsimple - The chatbot is hidden on preview links. -->
-<!-- <script>
-  const urlParams = new URLSearchParams(window.location.search);
-  const isPreview = urlParams.get("preview");
-
-  if (!isPreview) {
-    const chatBotTag = document.createElement("chat-bot");
-    chatBotTag.setAttribute("platform_id", "7c083620-8f10-43c1-9688-70eb5077f9cd");
-    chatBotTag.setAttribute("user_id", "99005bf7-6975-4f10-ad1f-096d7df76a1a");
-    chatBotTag.setAttribute("chatbot_id", "966ad0de-9046-4ae5-8cbc-91bc2629ab91");
-
-    const fallbackLink = document.createElement("a");
-    fallbackLink.href = "https://www.chatsimple.ai/?utm_source=widget&utm_medium=referral";
-    fallbackLink.innerText = "chatsimple";
-
-    chatBotTag.appendChild(fallbackLink);
-    document.body.appendChild(chatBotTag);
-
-    const script = document.createElement("script");
-    script.src = "https://cdn.chatsimple.ai/chat-bot-loader.js";
-    script.defer = true;
-    document.body.appendChild(script);
-  }
-</script> -->
 
 </body>
 </html>

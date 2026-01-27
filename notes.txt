@@ -1,0 +1,21 @@
+Consistent padding between sections (not hero)
+
+<section
+  class="pt-14 md:pt-16 lg:pt-[88px] xl:pt-[100px] md:pb-16 lg:pb-[88px] xl:pb-[100px] relative overflow-hidden"
+>
+
+
+========================
+Changes to Script:
+========================
+
+
+Replaced:
+
+initHeadroom(){var e=document.getElementById("header");if(e){const t=new Headroom(e);t.init()}},
+
+With:
+
+initHeadroom(){}, 
+
+Reason: To always hold navbar on top.

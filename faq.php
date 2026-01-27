@@ -1,62 +1,169 @@
 <!DOCTYPE html>
-<html lang="zxx" class="dark">
+<html lang="en">
 
 <head>
-  <!-- Title -->
-  <title>FAQs – Answers to Your Questions | Uxory</title>
-  <meta name="description" content="Got questions about Uxory’s services? Find quick answers to the most frequently asked questions about web development, SEO, marketing, and more." />
-
+  <!-- Primary Meta Tags -->
   <meta charset="utf-8" />
-
-  <!-- Mobile Responsive Meta -->
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-  <meta name="robots" content="noindex, Nofollow, Noimageindex">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  
+  <title>FAQs – Answers to Your Questions | Uxory</title>
+  <meta name="description" content="Got questions about Uxory's services? Find quick answers to frequently asked questions about software development, website development, automation, AI solutions, and hosting services." />
+  <meta name="author" content="Uxory" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <meta name="googlebot" content="index, follow" />
+  
+  <!-- Theme & Mobile Optimization -->
+  <meta name="theme-color" content="#000000" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="format-detection" content="telephone=no" />
 
   <!-- Stylesheets -->
   <link href="assets/css/main.css?v=<?= filemtime('assets/css/main.css') ?>" rel="stylesheet" />
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="./images/favicon.png" sizes="96x96" />
-  <link rel="icon" type="image/svg+xml" href="./images/favicon.svg" />
-  <link rel="shortcut icon" href="images/favicon.png" />
-  <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png" />
-
-  <!-- Canonical -->
+  <!-- Canonical URL -->
   <link rel="canonical" href="https://uxory.com/faq.php" />
+  
+  <!-- Performance Hints -->
+  <link rel="preconnect" href="https://www.google.com" crossorigin />
+  <link rel="dns-prefetch" href="https://www.google.com" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/images/favicon.svg" />
+  <link rel="icon" type="image/png" href="/images/favicon.png" sizes="96x96" />
+  <link rel="shortcut icon" href="/images/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png" />
 
   <!-- Open Graph -->
   <meta property="og:title" content="FAQs – Answers to Your Questions | Uxory" />
-  <meta property="og:description" content="Got questions about Uxory’s services? Find quick answers to the most frequently asked questions about web development, SEO, marketing, and more." />
+  <meta property="og:description" content="Got questions about Uxory's services? Find quick answers to frequently asked questions about software development, website development, automation, AI solutions, and hosting services." />
   <meta property="og:image" content="https://uxory.com/images/logo.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Uxory FAQs" />
+  <meta property="og:site_name" content="Uxory" />
+  <meta property="og:locale" content="en_US" />
   <meta property="og:url" content="https://uxory.com/faq.php" />
   <meta property="og:type" content="website" />
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="FAQs – Answers to Your Questions | Uxory" />
-  <meta name="twitter:description" content="Got questions about Uxory’s services? Find quick answers to the most frequently asked questions about web development, SEO, marketing, and more." />
+  <meta name="twitter:description" content="Got questions about Uxory's services? Find quick answers to frequently asked questions about software development, website development, automation, AI solutions, and hosting services." />
   <meta name="twitter:image" content="https://uxory.com/images/logo.png" />
+  <meta name="twitter:image:alt" content="Uxory FAQs" />
+  <meta name="twitter:url" content="https://uxory.com/faq.php" />
 
-  <!-- JSON-LD Structured Data -->
+  <!-- Structured Data -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
+    "@graph": [
       {
-        "@type": "Question",
-        "name": "What services does Uxory offer?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Uxory offers web development, SEO, digital marketing, branding, email automation, and e-commerce solutions tailored to your business."
+        "@type": "Organization",
+        "@id": "https://uxory.com/#organization",
+        "name": "Uxory",
+        "url": "https://uxory.com",
+        "logo": {
+          "@type": "ImageObject",
+          "@id": "https://uxory.com/#logo",
+          "url": "https://uxory.com/images/logo.png",
+          "contentUrl": "https://uxory.com/images/logo.png",
+          "width": 512,
+          "height": 512
+        },
+        "sameAs": [
+          "https://www.linkedin.com/company/uxory/",
+          "https://www.instagram.com/uxoryllc/"
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://uxory.com/faq.php#faqpage",
+        "url": "https://uxory.com/faq.php",
+        "name": "FAQs – Answers to Your Questions | Uxory",
+        "description": "Got questions about Uxory's services? Find quick answers to frequently asked questions about software development, website development, automation, AI solutions, and hosting services.",
+        "isPartOf": {
+          "@id": "https://uxory.com/#website"
+        },
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What services does Uxory offer?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Uxory specializes in custom software development, high-performance website development, business process automation, AI systems and agents, web and mobile app development, and managed hosting services. We build intelligent systems that automate operations, increase efficiency, and support business growth."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How long does a project typically take to complete?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Project timelines vary depending on the scope and complexity. Simple automation workflows may take 4-8 weeks, while comprehensive software systems can take several months. We work with you to set clear deadlines and ensure timely delivery without compromising quality."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can Uxory handle both small and large-scale projects?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes, we are equipped to handle projects of any size, from small startups to large enterprises, tailoring our approach to meet your specific needs. Whether you need a simple automation workflow or a complex enterprise software system, we scale our solutions accordingly."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do you provide post-launch support?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Absolutely! We offer ongoing support and maintenance to ensure your systems run smoothly after launch. This includes bug fixes, updates, performance monitoring, and feature enhancements as your business evolves."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can you integrate AI capabilities into existing systems?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes, we can integrate AI capabilities into your existing systems or build new AI-powered solutions from the ground up. Our AI services include intelligent automation, data analysis, predictive systems, and AI agents that enhance your operations and decision-making processes."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is included in your hosting services?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Our managed hosting services include VPS-based hosting, SSL certificates, daily backups, security hardening, performance monitoring, and premium support. We handle configuration, monitoring, and maintenance so you can focus on your business without infrastructure headaches."
+            }
+          }
+        ]
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://uxory.com/faq.php#webpage",
+        "url": "https://uxory.com/faq.php",
+        "name": "FAQs – Answers to Your Questions | Uxory",
+        "description": "Got questions about Uxory's services? Find quick answers to frequently asked questions about software development, website development, automation, AI solutions, and hosting services.",
+        "isPartOf": {
+          "@id": "https://uxory.com/#website"
+        },
+        "about": {
+          "@id": "https://uxory.com/faq.php#faqpage"
+        },
+        "primaryImageOfPage": {
+          "@id": "https://uxory.com/#logo"
         }
       },
       {
-        "@type": "Question",
-        "name": "Do you provide custom packages?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes, we offer custom service packages based on your unique business needs and goals. Visit our custom packages page for more details."
+        "@type": "WebSite",
+        "@id": "https://uxory.com/#website",
+        "url": "https://uxory.com",
+        "name": "Uxory",
+        "publisher": {
+          "@id": "https://uxory.com/#organization"
         }
       }
     ]
@@ -64,7 +171,23 @@
   </script>
 </head>
 
-<body >
+<body>
+  <!-- Skip to main content for accessibility -->
+  <a href="#main-content" class="sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[99999] focus:px-4 focus:py-2 focus:bg-primary focus:text-black focus:font-bold focus:rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary" style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border-width: 0;">
+    Skip to main content
+  </a>
+  <style>
+    .sr-only:focus {
+      position: fixed !important;
+      width: auto !important;
+      height: auto !important;
+      padding: 0.5rem 1rem !important;
+      margin: 0 !important;
+      overflow: visible !important;
+      clip: auto !important;
+      white-space: normal !important;
+    }
+  </style>
 
 <!-- header  -->
 <?php       
@@ -82,15 +205,12 @@ include 'components/nav.php';
   class="menu-overflow fixed z-[9999] bg-[rgba(10,10,10,0.95)] bg-opacity-60 backdrop-blur-[25px] w-full h-full pointer-events-none"
 ></div>
 
-<!-- Cursor Pointer -->
-<div class="pointer"></div>
-
 <!-- Dark Mode toggle -->
 <?php       
 include 'components/dark_mode.php';
 ?>
 
-<main class="lg:mb-[600px] relative z-10 bg-backgroundBody dark:bg-dark">
+<main id="main-content" class="lg:mb-[600px] relative z-10 bg-backgroundBody dark:bg-dark">
 <!--=====================================
    FAQ Section
 ======================================-->
@@ -103,14 +223,10 @@ include 'components/dark_mode.php';
     <img src="images/gradient-bg.png" alt="gradient-bg" />
   </div>
   <div class="container">
-    <!-- FAQ Section Title -->
-    <div class="text-center @@hideBadge">
-      <div class="rv-badge mb-3 lg:mb-7 reveal-me">
-        <span class="rv-badge-text">Faq</span>
-      </div>
-    </div>
-    <h2 class="mb-10 md:mb-20 text-center text-appear-2 font-semibold">
-      Frequently Asked <i class="font-instrument">Questions</i>
+    
+
+    <h2 class="mb-10 md:mb-20 text-center text-appear-2 @@fontSize">
+      Frequently Asked Questions
     </h2>
 
     <!-- FAQ Items Container -->
@@ -125,7 +241,7 @@ include 'components/dark_mode.php';
           class="accordion-header relative cursor-pointer py-5 md:py-[35px] max-md:px-5 md:px-10"
         >
           <h3
-            class="text-xl md:text-[25px] font-normal sm:font-bold md:leading-[25.2px] md:tracking-normal max-md:inline-block max-lg:pr-10"
+            class="text-xl md:text-[25px] font-normal sm:font-medium md:leading-[25.2px] md:tracking-normal max-md:inline-block max-lg:pr-10"
           >
             What services does Uxory offer?
           </h3>
@@ -134,7 +250,10 @@ include 'components/dark_mode.php';
         <p
           class="accordion-body max-md:text-sm max-md:px-5 md:px-10 duration-300 h-0"
         >
-        We specialize in web design, web development, mobile app development, WordPress solutions, UX research, SEO, and branding photography.
+          Uxory specializes in custom software development, high-performance website development, 
+          business process automation, AI systems and agents, web and mobile app development, and 
+          managed hosting services. We build intelligent systems that automate operations, increase 
+          efficiency, and support business growth.
         </p>
       </div>
 
@@ -146,7 +265,7 @@ include 'components/dark_mode.php';
           class="accordion-header relative cursor-pointer py-5 md:py-[35px] max-md:px-5 md:px-10"
         >
           <h3
-            class="text-xl md:text-[25px] font-normal sm:font-bold md:leading-[25.2px] md:tracking-normal max-md:inline-block max-lg:pr-10"
+            class="text-xl md:text-[25px] font-normal sm:font-medium md:leading-[25.2px] md:tracking-normal max-md:inline-block max-lg:pr-10"
           >
             How long does a project typically take to complete?
           </h3>
@@ -155,8 +274,10 @@ include 'components/dark_mode.php';
         <p
           class="accordion-body max-md:text-sm max-md:px-5 md:px-10 duration-300 h-0"
         >
-          Project timelines vary depending on the scope and complexity. We work
-          with you to set clear deadlines and ensure timely delivery.
+          Project timelines vary depending on the scope and complexity. Simple automation 
+          workflows may take 4-8 weeks, while comprehensive software systems can take several 
+          months. We work with you to set clear deadlines and ensure timely delivery without 
+          compromising quality.
         </p>
       </div>
 
@@ -168,7 +289,7 @@ include 'components/dark_mode.php';
           class="accordion-header relative cursor-pointer py-5 md:py-[35px] max-md:px-5 md:px-10"
         >
           <h3
-            class="text-xl md:text-[25px] font-normal sm:font-bold md:leading-[25.2px] md:tracking-normal max-md:inline-block max-lg:pr-8"
+            class="text-xl md:text-[25px] font-normal sm:font-medium md:leading-[25.2px] md:tracking-normal max-md:inline-block max-lg:pr-8"
           >
             Can Uxory handle both small and large-scale projects?
           </h3>
@@ -179,7 +300,8 @@ include 'components/dark_mode.php';
         >
           Yes, we are equipped to handle projects of any size, from small
           startups to large enterprises, tailoring our approach to meet your
-          specific needs.
+          specific needs. Whether you need a simple automation workflow or a 
+          complex enterprise software system, we scale our solutions accordingly.
         </p>
       </div>
 
@@ -191,7 +313,7 @@ include 'components/dark_mode.php';
           class="accordion-header relative cursor-pointer py-5 md:py-[35px] max-md:px-5 md:px-10"
         >
           <h3
-            class="text-xl md:text-[25px] font-normal sm:font-bold md:leading-[25.2px] md:tracking-normal max-md:inline-block max-lg:pr-8"
+            class="text-xl md:text-[25px] font-normal sm:font-medium md:leading-[25.2px] md:tracking-normal max-md:inline-block max-lg:pr-8"
           >
             How involved will I be in the project?
           </h3>
@@ -201,7 +323,9 @@ include 'components/dark_mode.php';
           class="accordion-body max-md:text-sm max-md:px-5 md:px-10 duration-300 h-0"
         >
           We value collaboration and will keep you updated at every stage. Your
-          input is crucial to ensure we align with your vision and goals.
+          input is crucial to ensure we align with your vision and goals. We maintain 
+          transparency and open communication throughout the development process, with 
+          regular check-ins and progress updates.
         </p>
       </div>
 
@@ -213,7 +337,7 @@ include 'components/dark_mode.php';
           class="accordion-header relative cursor-pointer py-5 md:py-[35px] max-md:px-5 md:px-10"
         >
           <h3
-            class="text-xl md:text-[25px] font-normal sm:font-bold md:leading-[25.2px] md:tracking-normal max-md:inline-block max-lg:pr-8"
+            class="text-xl md:text-[25px] font-normal sm:font-medium md:leading-[25.2px] md:tracking-normal max-md:inline-block max-lg:pr-8"
           >
             Do you provide post-launch support?
           </h3>
@@ -223,7 +347,8 @@ include 'components/dark_mode.php';
           class="accordion-body max-md:text-sm max-md:px-5 md:px-10 duration-300 h-0"
         >
           Absolutely! We offer ongoing support and maintenance to ensure your
-          project runs smoothly after launch.
+          systems run smoothly after launch. This includes bug fixes, updates, 
+          performance monitoring, and feature enhancements as your business evolves.
         </p>
       </div>
 
@@ -235,16 +360,19 @@ include 'components/dark_mode.php';
           class="accordion-header relative cursor-pointer py-5 md:py-[35px] max-md:px-5 md:px-10"
         >
           <h3
-            class="text-xl md:text-[25px] font-normal sm:font-bold md:leading-[25.2px] md:tracking-normal max-md:inline-block max-lg:pr-8"
+            class="text-xl md:text-[25px] font-normal sm:font-medium md:leading-[25.2px] md:tracking-normal max-md:inline-block max-lg:pr-8"
           >
-          How do I get started with Uxory?
+            What technologies do you use for development?
           </h3>
           <div class="accordion-header-icon dark:border-dark"></div>
         </div>
         <p
           class="accordion-body max-md:text-sm max-md:px-5 md:px-10 duration-300 h-0"
         >
-        To begin, fill out our Contact Us or Get a Quote form. Our sales team will reach out to understand your initial requirements and assign a dedicated counselor who will connect with you for a deeper discussion about your project goals.
+          We use modern, industry-standard technologies and frameworks that best fit your 
+          project requirements. This includes various programming languages, cloud platforms, 
+          databases, and development tools. We stay current with the latest technologies to 
+          ensure your solutions are built with secure, scalable, and maintainable code.
         </p>
       </div>
 
@@ -256,19 +384,44 @@ include 'components/dark_mode.php';
           class="accordion-header relative cursor-pointer py-5 md:py-[35px] max-md:px-5 md:px-10"
         >
           <h3
-            class="text-xl md:text-[25px] font-normal sm:font-bold md:leading-[25.2px] md:tracking-normal max-md:inline-block max-lg:pr-8"
+            class="text-xl md:text-[25px] font-normal sm:font-medium md:leading-[25.2px] md:tracking-normal max-md:inline-block max-lg:pr-8"
           >
-          What happens after I receive a quote?
+            Can you integrate AI capabilities into existing systems?
           </h3>
           <div class="accordion-header-icon dark:border-dark"></div>
         </div>
         <p
           class="accordion-body max-md:text-sm max-md:px-5 md:px-10 duration-300 h-0"
         >
-        You’ll get a custom quote within 48 hours after your consultation. Once you decide to move forward, we’ll assign an analyst who will work closely with you throughout the entire project—ensuring smooth communication with developers, project clarity, and full support even after launch.
+          Yes, we can integrate AI capabilities into your existing systems or build new 
+          AI-powered solutions from the ground up. Our AI services include intelligent automation, 
+          data analysis, predictive systems, and AI agents that enhance your operations and 
+          decision-making processes.
         </p>
       </div>
 
+      <!-- FAQ Item 8 -->
+      <div
+        class="accordion-item overflow-hidden bg-backgroundBody dark:bg-dark border border-backgroundBody dark:border-[#151515] duration-300"
+      >
+        <div
+          class="accordion-header relative cursor-pointer py-5 md:py-[35px] max-md:px-5 md:px-10"
+        >
+          <h3
+            class="text-xl md:text-[25px] font-normal sm:font-medium md:leading-[25.2px] md:tracking-normal max-md:inline-block max-lg:pr-8"
+          >
+            What is included in your hosting services?
+          </h3>
+          <div class="accordion-header-icon dark:border-dark"></div>
+        </div>
+        <p
+          class="accordion-body max-md:text-sm max-md:px-5 md:px-10 duration-300 h-0"
+        >
+          Our managed hosting services include VPS-based hosting, SSL certificates, daily backups, 
+          security hardening, performance monitoring, and premium support. We handle configuration, 
+          monitoring, and maintenance so you can focus on your business without infrastructure headaches.
+        </p>
+      </div>
     </div>
   </div>
 </section>

@@ -1,69 +1,162 @@
 <!DOCTYPE html>
-<html lang="zxx" class="dark">
+<html lang="en">
 
 <head>
-  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-  <!-- Title -->
-  <title>Website Development Services | Uxory</title>
-  <meta name="description" content="Get a professional, modern website built with performance and design in mind. Explore our website development services tailored for businesses of all sizes." />
-  <meta name="keywords" content="website development, custom websites, responsive design, business websites, Uxory Technologies, web development services">
-
+  <!-- Primary Meta Tags -->
   <meta charset="utf-8" />
-
-  <!-- index  -->
-  <meta name="robots" content="index,follow">
-
-  <!-- Mobile responsive meta -->
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-
-  <!-- Stylesheets -->
-  <link href="assets/css/main.css?v=<?= filemtime('assets/css/main.css') ?>" rel="stylesheet" />
-
-  <!--========================>
-  Favicon
-  ==========================-->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  
+  <title>Website Development Services | Uxory</title>
+  <meta name="description" content="Get a professional, modern website built with performance and design in mind. Custom UI/UX design, responsive layouts, and scalable solutions tailored for businesses of all sizes." />
+  <meta name="author" content="Uxory" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <meta name="googlebot" content="index, follow" />
+  
+  <!-- Theme & Mobile Optimization -->
+  <meta name="theme-color" content="#000000" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="format-detection" content="telephone=no" />
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://uxory.com/website-dev.php" />
+  
+  <!-- Performance Hints -->
+  <link rel="preconnect" href="https://www.google.com" crossorigin />
+  <link rel="dns-prefetch" href="https://www.google.com" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+  
+  <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="/images/favicon.svg" />
   <link rel="icon" type="image/png" href="/images/favicon.png" sizes="96x96" />
   <link rel="shortcut icon" href="/images/favicon.ico" />
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png" />
-
-  <!-- Canonical -->
-  <link rel="canonical" href="https://uxory.com/website-dev.php" />
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="Website Development Services | Uxory" />
-  <meta property="og:description" content="Discover modern, mobile-optimized website development solutions from Uxory tailored to elevate your business's online presence." />
-  <meta property="og:image" content="https://uxory.com/images/logo.png" />
-  <meta property="og:url" content="https://uxory.com/website-dev.php" />
+  
+  <!-- Stylesheets -->
+  <link href="assets/css/main.css?v=<?= filemtime('assets/css/main.css') ?>" rel="stylesheet" />
+  
+  <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website" />
-
+  <meta property="og:url" content="https://uxory.com/website-dev.php" />
+  <meta property="og:title" content="Website Development Services | Uxory" />
+  <meta property="og:description" content="Discover modern, mobile-optimized website development solutions from Uxory tailored to elevate your business's online presence. Custom UI/UX design and scalable solutions." />
+  <meta property="og:image" content="https://uxory.com/images/logo.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Uxory Website Development Services" />
+  <meta property="og:site_name" content="Uxory" />
+  <meta property="og:locale" content="en_US" />
+  
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://uxory.com/website-dev.php" />
   <meta name="twitter:title" content="Website Development Services | Uxory" />
   <meta name="twitter:description" content="Professional website development for startups and local businesses. Built with UX, speed, and scalability in mind." />
   <meta name="twitter:image" content="https://uxory.com/images/logo.png" />
-
-  <!-- JSON-LD Structured Data -->
+  <meta name="twitter:image:alt" content="Uxory Website Development Services" />
+  
+  <!-- Structured Data -->
   <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Service",
-      "name": "Website Development",
-      "provider": {
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
         "@type": "Organization",
+        "@id": "https://uxory.com/#organization",
         "name": "Uxory",
         "url": "https://uxory.com",
-        "logo": "https://uxory.com/images/logo.png"
+        "logo": {
+          "@type": "ImageObject",
+          "@id": "https://uxory.com/#logo",
+          "url": "https://uxory.com/images/logo.png",
+          "contentUrl": "https://uxory.com/images/logo.png",
+          "width": 512,
+          "height": 512
+        },
+        "sameAs": [
+          "https://www.linkedin.com/company/uxory/",
+          "https://www.instagram.com/uxoryllc/"
+        ]
       },
-      "url": "https://uxory.com/website-dev.php",
-      "description": "Website development services for startups and local businesses. Built with design, performance, and SEO in mind."
-    }
+      {
+        "@type": "Service",
+        "@id": "https://uxory.com/website-dev.php#service",
+        "name": "Website Development Services",
+        "description": "Professional website development services for businesses of all sizes. Custom UI/UX design, responsive layouts, CMS-based and fully custom solutions built with performance, SEO, and scalability in mind.",
+        "provider": {
+          "@id": "https://uxory.com/#organization"
+        },
+        "url": "https://uxory.com/website-dev.php",
+        "serviceType": "Website Development, Web Design, Custom Web Solutions",
+        "areaServed": [
+          {
+            "@type": "Country",
+            "name": "United States"
+          },
+          {
+            "@type": "Country",
+            "name": "India"
+          }
+        ],
+        "offers": {
+          "@type": "Offer",
+          "description": "Custom website development services tailored to your brand and business needs"
+        }
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://uxory.com/website-dev.php#webpage",
+        "url": "https://uxory.com/website-dev.php",
+        "name": "Website Development Services | Uxory",
+        "description": "Get a professional, modern website built with performance and design in mind. Explore our website development services tailored for businesses of all sizes.",
+        "isPartOf": {
+          "@id": "https://uxory.com/#website"
+        },
+        "about": {
+          "@id": "https://uxory.com/website-dev.php#service"
+        },
+        "primaryImageOfPage": {
+          "@id": "https://uxory.com/#logo"
+        }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://uxory.com/#website",
+        "url": "https://uxory.com",
+        "name": "Uxory",
+        "publisher": {
+          "@id": "https://uxory.com/#organization"
+        }
+      }
+    ]
+  }
   </script>
+  
+  <!-- reCAPTCHA -->
+  <script src="https://www.google.com/recaptcha/api.js" async defer crossorigin="anonymous"></script>
 
 </head>
 
 <body>
+  <!-- Skip to main content for accessibility -->
+  <a href="#main-content" class="sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[99999] focus:px-4 focus:py-2 focus:bg-primary focus:text-black focus:font-bold focus:rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary" style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border-width: 0;">
+    Skip to main content
+  </a>
+  <style>
+    .sr-only:focus {
+      position: fixed !important;
+      width: auto !important;
+      height: auto !important;
+      padding: 0.5rem 1rem !important;
+      margin: 0 !important;
+      overflow: visible !important;
+      clip: auto !important;
+      white-space: normal !important;
+    }
+  </style>
 
 <!-- header  -->
 <?php       
@@ -81,15 +174,12 @@ include 'components/nav.php';
   class="menu-overflow fixed z-[9999] bg-[rgba(10,10,10,0.95)] bg-opacity-60 backdrop-blur-[25px] w-full h-full pointer-events-none"
 ></div>
 
-<!-- Cursor Pointer -->
-<div class="pointer"></div>
-
 <!-- Dark Mode toggle -->
 <?php       
 include 'components/dark_mode.php';
 ?>
 
-<main class="lg:mb-[600px] relative z-10 bg-backgroundBody dark:bg-dark">
+<main id="main-content" class="lg:mb-[600px] relative z-10 bg-backgroundBody dark:bg-dark">
 
 <!--=====================================
    Hero Section
@@ -117,10 +207,10 @@ include 'components/dark_mode.php';
       
     </div>
 
-    <h2 class="font-semibold text-center reveal-me">
-      <i class="font-instrument">Websites</i> Built
-      for the <i class="font-instrument"> Future,</i>  <br>
-      <i class="font-instrument pr-2"> Designed </i> for <i class="font-instrument"> Today. </i>
+    <h2 class="font-medium text-center reveal-me">
+       Websites <i class="font-instrument">Built for the</i> 
+       Future,  <br>
+       Designed <i class="font-instrument pr-2">for</i> Today.
 
     </h2>
     <p class="max-w-3xl text-center mx-auto mt-3 text-appear">
@@ -192,7 +282,7 @@ include 'components/dark_mode.php';
     <p
       class="reveal-text-2 text-2xl lg:text-3xl text-secondary/90 dark:text-backgroundBody/70 text-left font-normal lg:leading-[1.2] lg:tracking-[0.72px]"
     >
-      Your website is how the world experiences your brand - instantly, visually, and permanently. At Uxory, we craft lightning-fast, beautifully designed websites that don’t just look great but also work great.
+      Your website is how the world experiences your brand - instantly, visually, and permanently. At Uxory, we craft lightning-fast, beautifully designed websites that don't just look great but also work great.
   </p>
   <br>
   <p
@@ -207,24 +297,26 @@ include 'components/dark_mode.php';
 <!--=====================================
    Our Website Development Services Details Section
 ======================================-->
-<section class="pt-14 md:pt-16 lg:pt-[88px] xl:pt-[100px]">
+<section
+  class="pt-14 md:pt-16 lg:pt-[88px] xl:pt-[100px] md:pb-16 lg:pb-[88px] xl:pb-[100px] relative overflow-hidden"
+>
   <div class="container">
     <div class="flex flex-col gap-8 lg:flex-row">
       <!-- Main Content -->
       <article class="project-details-body w-full">
-        <figure
-          class="reveal-me flex justify-center items-center"
-        >
-          <img
-            src="images/services/web_dev.jpg"
-            alt="Services Big Img"
-            class="max-w-[588px] w-full h-auto"
-          />
-        </figure>
+        <div class="video-parents reveal-me-2 relative overflow-hidden">
+          <div class="w-full h-fit video-wrapper scale-50 origin-top">
+            <img
+              src="images/hero-img/website-hero.jpg"
+              alt="Services Big Img"
+              class="w-full h-auto"
+            />
+          </div>
+        </div>
         <div class="pt-6 md:pt-8 lg:pt-10 xl:pt-12">
-          <h3 class="font-instrument italic text-center mb-8 md:mb-16 reveal-me" style="letter-spacing: 0.75px;">
-            Every Uxory Website Comes With...
-          </h3>
+          <!-- <h3 class="font-medium text-center mb-8 md:mb-16 reveal-me">
+          <i class="font-instrument">Every Uxory Website Comes With...</i> 
+          </h3> -->
 
           <div
             class="[&>*:not(:first-child)]:border-t dark:[&>*:not(:first-child)]:border-dark"
@@ -1000,11 +1092,11 @@ include 'components/dark_mode.php';
 
 
 <!-- ================================
-Our Work Heading Section
+Our Work Section
 ================================ -->
-  <section
-    class="pt-14 md:pt-16 lg:pt-[88px] xl:pt-[100px]"
-  >
+<section
+  class="pt-14 md:pt-16 lg:pt-[88px] xl:pt-[100px] md:pb-16 lg:pb-[88px] xl:pb-[100px] relative overflow-hidden"
+>
     <div class="container">
       <!-- Section Header -->
       <div
@@ -1021,7 +1113,7 @@ Our Work Heading Section
         <!-- Description -->
         <div class="w-full md:max-w-72 lg:max-w-[470px] md:self-end">
           <p class="text-appear max-w-lg md:text-right md:place-self-end">
-           Discover the websites, stores, and campaigns we’ve brought to life.
+           Discover the websites, stores, and campaigns we've brought to life.
           </p>
           <ul class="justify-self-end max-md:w-full mt-5 md:mt-10 reveal-me">
             <li
@@ -1043,17 +1135,10 @@ Our Work Heading Section
         </div>
       </div>
     </div>
-  </section>
 
-<!-- ================================
-Our Projects-Slider Section 
-================================ -->
- <section
-  class="pt-14 md:pt-16 lg:pt-[88px] xl:pt-[100px]"
->
-  <div class="container relative">
-  
-  <div class="swiper overflow-hidden reveal-me" id="reviewer">
+  <!-- Projects Slider -->
+  <div class="container relative mt-10 md:mt-14">
+    <div class="swiper overflow-hidden reveal-me" id="reviewer">
       <div class="swiper-wrapper">
 
          <!-- Slide 01 Project TrimHR -->
@@ -1333,12 +1418,11 @@ Our Projects-Slider Section
   </div>
 </section>
 
-
 <!-- ================================
-$299 website
+$299 website 
 ================================ -->
 <section
-  class="pt-10 md:pt-12 lg:pt-16 xl:pt-20 mt-14 md:mt-16 lg:mt-[88px] xl:pt-[100px] pb-10 md:pb-12 lg:pb-16 xl:pb-20 overflow-hidden bg-[#CBE8DF] service-section"
+  class="pt-10 md:pt-12 lg:pt-16 xl:pt-20 mt-14 md:mt-16 lg:mt-[88px] xl:pt-[100px] md:pb-16 lg:pb-[88px] xl:pb-[100px] overflow-hidden bg-[#CBE8DF] service-section"
 >
   <!--  section header -->
   <div class="container">
@@ -1351,7 +1435,7 @@ $299 website
       </div>
       <div class="col-span-12 lg:col-span-5 lg:text-right">
         <p class="text-appear text-secondary/70 dark:text-secondary/70">
-          	Everything you need to make your mark online—done for you, beautifully.
+          	Everything you need to make your mark online - done for you, beautifully.
         </p>
         <ul class="mt-7 md:mt-14 reveal-me">
           <li
@@ -2414,11 +2498,13 @@ $299 website
 <!--=====================================
    100% moneyback Section
 ======================================-->
-<section class="mt-14 md:mt-16 lg:mt-[88px] xl:mt-[100px] relative">
+<section
+  class="pt-14 md:pt-16 lg:pt-[88px] xl:pt-[100px] md:pb-16 lg:pb-[88px] xl:pb-[100px] relative overflow-hidden"
+>
 
   <div
     id="hero-gradient-wrapper"
-    class="absolute w-full h-fw-full top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 -z-10 blur-[60px] scale-90"
+    class="absolute w-full h-fw-full top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 -z-10 blur-[60px] scale-50"
   >
     <img
       src="images/hero-gradient-background-02.png"
@@ -2441,7 +2527,7 @@ $299 website
     </h2>
 
     <p class="max-w-3xl text-center mx-auto mt-5 text-appear">
-      	If you’re not happy, you don’t pay—simple as that. We offer a full refund if you’re not satisfied.
+      	If you're not happy, you don't pay - simple as that. We offer a full refund if you're not satisfied.
     </p>
 
 
