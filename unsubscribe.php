@@ -1,41 +1,40 @@
 <!DOCTYPE html>
-<html lang="zxx">
+<html lang="en">
 
 <head>
-  <!-- Title -->
-  <title>Unsubscribe from Our Emails | Uxory Digital Solutions LLC</title>
-  <meta name="description" content="Enter your email to unsubscribe from Uxory's marketing and newsletter communications. We respect your inbox." />
-
+  <!-- Primary Meta Tags -->
   <meta charset="utf-8" />
-
-  <!-- Mobile Responsive Meta -->
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-  <meta name="robots" content="noindex, Nofollow, Noimageindex">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  
+  <title>Unsubscribe | Uxory</title>
+  <meta name="description" content="Unsubscribe from Uxory email communications." />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+  
+  <!-- Robots: No indexing for unsubscribe pages -->
+  <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex" />
+  <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet, noimageindex" />
+  
+  <!-- Theme & Mobile Optimization -->
+  <meta name="theme-color" content="#000000" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="format-detection" content="telephone=no" />
 
   <!-- Stylesheets -->
   <link href="assets/css/main.css?v=<?= filemtime('assets/css/main.css') ?>" rel="stylesheet" />
 
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="./images/favicon.png" sizes="96x96" />
-  <link rel="icon" type="image/svg+xml" href="./images/favicon.svg" />
-  <link rel="shortcut icon" href="images/favicon.png" />
-  <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png" />
+  <link rel="icon" type="image/svg+xml" href="/images/favicon.svg" />
+  <link rel="icon" type="image/png" href="/images/favicon.png" sizes="96x96" />
+  <link rel="shortcut icon" href="/images/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png" />
 
-  <!-- Canonical -->
-  <link rel="canonical" href="https://uxory.com/unsubscribe.php" />
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="Unsubscribe from Emails | Uxory" />
-  <meta property="og:description" content="Submit your email to stop receiving Uxory’s marketing updates." />
-  <meta property="og:image" content="https://uxory.com/images/logo.png" />
-  <meta property="og:url" content="https://uxory.com/unsubscribe.php" />
-  <meta property="og:type" content="website" />
+  <meta  content="Submit your email to stop receiving Uxory's marketing updates." />
 
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Unsubscribe from Emails | Uxory" />
-  <meta name="twitter:description" content="Submit your email to stop receiving Uxory’s marketing updates." />
-  <meta name="twitter:image" content="https://uxory.com/images/logo.png" />
+  <meta  content="Submit your email to stop receiving Uxory's marketing updates." />
 </head>
 
 <!-- header  -->
@@ -54,17 +53,31 @@ include 'components/nav.php';
   class="menu-overflow fixed z-[9999] bg-[rgba(10,10,10,0.95)] bg-opacity-60 backdrop-blur-[25px] w-full h-full pointer-events-none"
 ></div>
 
-<!-- Cursor Pointer -->
-<div class="pointer"></div>
 
 <!-- Dark Mode toggle -->
 <?php       
 include 'components/dark_mode.php';
 ?>
 
-<body >
+<body>
+  <!-- Skip to main content for accessibility -->
+  <a href="#main-content" class="sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[99999] focus:px-4 focus:py-2 focus:bg-primary focus:text-black focus:font-bold focus:rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary" style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border-width: 0;">
+    Skip to main content
+  </a>
+  <style>
+    .sr-only:focus {
+      position: fixed !important;
+      width: auto !important;
+      height: auto !important;
+      padding: 0.5rem 1rem !important;
+      margin: 0 !important;
+      overflow: visible !important;
+      clip: auto !important;
+      white-space: normal !important;
+    }
+  </style>
 
-<main class="lg:mb-[600px] relative z-10 bg-backgroundBody dark:bg-dark">
+<main id="main-content" class="lg:mb-[600px] relative z-10 bg-backgroundBody dark:bg-dark">
 <!--=========================
     Coming Soon Page Section
 ==========================-->
@@ -88,11 +101,11 @@ include 'components/dark_mode.php';
     <!-- Main Content -->
     <div class="flex flex-col justify-center items-center reveal-me">
       <!-- Coming Soon Title -->
-      <h1
+      <h2
         class="mt-20 md:leading-[1.05] "
       >
         Unsubscribe
-      </h1>
+      </h2>
 
       <!--  Message -->
       <h5

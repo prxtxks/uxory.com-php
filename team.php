@@ -1,44 +1,53 @@
 <!DOCTYPE html>
-<html lang="zxx">
+<html lang="en">
 
 <head>
-  <!-- Title -->
-  <title>Meet the Team | Uxory – Designers, Developers & Growth Experts</title>
-  <meta name="description" content="Get to know the Uxory team – a collective of designers, developers, and strategists building impactful digital solutions." />
+  <!-- Primary Meta Tags -->
+  <title>Our Team | Uxory</title>
+  <meta name="description" content="Meet the Uxory team members who build software, websites, automation, and AI solutions." />
 
   <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-  <!-- Mobile Responsive Meta -->
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-  <meta name="robots" content="index, follow" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+  <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex" />
+  <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet, noimageindex" />
+  
+  <!-- Theme & Mobile Optimization -->
+  <meta name="theme-color" content="#000000" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="format-detection" content="telephone=no" />
 
   <!-- Stylesheets -->
   <link href="assets/css/main.css?v=<?= filemtime('assets/css/main.css') ?>" rel="stylesheet" />
 
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="./images/favicon.png" sizes="96x96" />
-  <link rel="icon" type="image/svg+xml" href="./images/favicon.svg" />
-  <link rel="shortcut icon" href="images/favicon.png" />
-  <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png" />
-
-  <!-- Canonical -->
-  <link rel="canonical" href="https://uxory.com/team.php" />
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="Meet the Team | Uxory – Designers, Developers & Growth Experts" />
-  <meta property="og:description" content="Get to know the Uxory team – a collective of designers, developers, and strategists building impactful digital solutions." />
-  <meta property="og:image" content="https://uxory.com/images/logo.png" />
-  <meta property="og:url" content="https://uxory.com/team.php" />
-  <meta property="og:type" content="website" />
-
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Meet the Team | Uxory – Designers, Developers & Growth Experts" />
-  <meta name="twitter:description" content="Get to know the Uxory team – a collective of designers, developers, and strategists building impactful digital solutions." />
-  <meta name="twitter:image" content="https://uxory.com/images/logo.png" />
+  <link rel="icon" type="image/svg+xml" href="/images/favicon.svg" />
+  <link rel="icon" type="image/png" href="/images/favicon.png" sizes="96x96" />
+  <link rel="shortcut icon" href="/images/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png" />
 </head>
 
-<body >
+<body>
+  <!-- Skip to main content for accessibility -->
+  <a href="#main-content" class="sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[99999] focus:px-4 focus:py-2 focus:bg-primary focus:text-black focus:font-bold focus:rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary" style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border-width: 0;">
+    Skip to main content
+  </a>
+  <style>
+    .sr-only:focus {
+      position: fixed !important;
+      width: auto !important;
+      height: auto !important;
+      padding: 0.5rem 1rem !important;
+      margin: 0 !important;
+      overflow: visible !important;
+      clip: auto !important;
+      white-space: normal !important;
+    }
+  </style>
 
 <!-- header  -->
 <?php       
@@ -56,15 +65,12 @@ include 'components/nav.php';
   class="menu-overflow fixed z-[9999] bg-[rgba(10,10,10,0.95)] bg-opacity-60 backdrop-blur-[25px] w-full h-full pointer-events-none"
 ></div>
 
-<!-- Cursor Pointer -->
-<div class="pointer"></div>
-
 <!-- Dark Mode toggle -->
 <?php       
 include 'components/dark_mode.php';
 ?>
 
-<main class="lg:mb-[600px] relative z-10 bg-backgroundBody dark:bg-dark">
+<main id="main-content" class="lg:mb-[600px] relative z-10 bg-backgroundBody dark:bg-dark">
 <!--=====================================
    Terms and Conditions Section
 ======================================-->
@@ -88,10 +94,7 @@ include 'components/dark_mode.php';
   <!-- Container for page content with reveal animation -->
   <div class="container reveal-me">
     <div class="text-center">
-      <!-- Badge to provide additional context or categorization -->
-      <div class="rv-badge mb-4 md:mb-8">
-        <span class="rv-badge-text"> Team</span>
-      </div>
+      
 
       <!-- Main page heading with dark mode support -->
       <h2 class="dark:text-white">Our Creative Team</h2>
@@ -239,122 +242,7 @@ include 'components/dark_mode.php';
         </div>
         <div class="max-w-[730px] border-t dark:border-dark pt-5 lg:pt-10">
           <p>
-            Software Development graduate from the University of Cincinnati with 6+ years of experience across a wide range of technologies. Passionate and innovative, with a strong foundation in software development, problem-solving, and leadership — committed to delivering impactful solutions.          </p>
-        </div>
-      </div>
-    </div>
-
-    <div
-      class="our-team-details flex flex-col lg:flex-row gap-10 gap-x-[30px] max-md:justify-center max-md:items-center border dark:border-dark p-5 lg:p-10 bg-backgroundBody dark:bg-dark"
-    >
-      <figure class="max-lg:w-full lg:max-w-[290px] lg:max-h-[305px]">
-        <img
-          src="images/home-ai/team/ai-team-female.jpg"
-          alt="Team Leader"
-          class="w-full object-cover"
-        />
-      </figure>
-
-      <!-- Profile Details Container -->
-      <div>
-        <div
-          class="flex flex-col gap-y-10 md:flex-row justify-between mb-5 lg:mb-10"
-        >
-          <div>
-            <h2 class="lg:text-4xl lg:leading-[1.2] lg:-tracking-[1.08px] mb-3">
-              Jahnavi Ammineni
-            </h2>
-
-            <p class="text-lg font-light leading-[20px]">Principal Engineer </p>
-          </div>
-          <ul class="flex gap-5 md:self-end">
-            <!-- <li>
-              <a href="https://x.com/" target="_blank">
-                <img
-                  src="images\icons\x-twitter.svg"
-                  alt="Twitter"
-                  class="inline dark:hidden"
-                />
-                <img
-                  src="images\icons\x-twitter-dark.svg"
-                  alt="Twitter"
-                  class="hidden dark:inline"
-                />
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://www.linkedin.com/"
-                target="_blank"
-              >
-                <img
-                  src="images\icons\LinkedinLogo.svg"
-                  alt="linkedin"
-                  class="inline dark:hidden"
-                />
-                <img
-                  src="images\icons\LinkedinLogo-dark.svg"
-                  alt="linkedin"
-                  class="hidden dark:inline"
-                />
-              </a>
-            </li> -->
-          </ul>
-        </div>
-        <div class="max-w-[730px] border-t dark:border-dark pt-5 lg:pt-10">
-          <p>
-            With an engineering degree from a top U.S. university, Jahnavi leads Uxory’s core architecture design. She mentors engineers, drives innovation, and ensures scalable, secure, and high-quality tech solutions.
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <div
-      class="our-team-details flex flex-col lg:flex-row gap-10 gap-x-[30px] max-md:justify-center max-md:items-center border dark:border-dark p-5 lg:p-10 bg-backgroundBody dark:bg-dark"
-    >
-      <figure class="max-lg:w-full lg:max-w-[290px] lg:max-h-[305px]">
-        <img
-          src="images/home-ai/team/ai-team.png"
-          alt="Team Leader"
-          class="w-full object-cover"
-        />
-      </figure>
-
-      <!-- Profile Details Container -->
-      <div>
-        <div
-          class="flex flex-col gap-y-10 md:flex-row justify-between mb-5 lg:mb-10"
-        >
-          <div>
-            <h2 class="lg:text-4xl lg:leading-[1.2] lg:-tracking-[1.08px] mb-3">
-              Lakesh Kahnal
-            </h2>
-
-            <p class="text-lg font-light leading-[20px]">Business Development Head </p>
-          </div>
-          <ul class="flex gap-5 md:self-end">
-            <!-- <li>
-              <a
-                href="https://www.linkedin.com/"
-                target="_blank"
-              >
-                <img
-                  src="images\icons\LinkedinLogo.svg"
-                  alt="linkedin"
-                  class="inline dark:hidden"
-                />
-                <img
-                  src="images\icons\LinkedinLogo-dark.svg"
-                  alt="linkedin"
-                  class="hidden dark:inline"
-                />
-              </a>
-            </li> -->
-          </ul>
-        </div>
-        <div class="max-w-[730px] border-t dark:border-dark pt-5 lg:pt-10">
-          <p>
-            With a finance degree from the U.S. and strong experience in corporate finance, Lakesh drives Uxory’s growth by spotting new opportunities and building key client relationships. His passion for digital innovation helps create lasting impact and success.          </p>
+            Software Development graduate from the University of Cincinnati with 6+ years of experience across a wide range of technologies. Passionate and innovative, with a strong foundation in software development, problem-solving, and leadership - committed to delivering impactful solutions.          </p>
         </div>
       </div>
     </div>

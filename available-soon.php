@@ -1,55 +1,54 @@
 <!DOCTYPE html>
-<html lang="zxx">
+<html lang="en">
 
 <head>
-  <!-- Title -->
-  <title>Service Coming Soon | Uxory Digital Solutions</title>
-  <meta name="description" content="This service is currently unavailable. Uxory is working on something great — check back soon or explore our other digital solutions." />
-
+  <!-- Primary Meta Tags -->
   <meta charset="utf-8" />
-
-  <!-- Mobile Responsive Meta -->
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="robots" content="noindex, follow" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  
+  <title>Available Soon | Uxory</title>
+  <meta name="description" content="This service is currently unavailable. Please check back soon." />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+  
+  <!-- Robots: No indexing for coming soon pages -->
+  <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex" />
+  <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet, noimageindex" />
+  
+  <!-- Theme & Mobile Optimization -->
+  <meta name="theme-color" content="#000000" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="format-detection" content="telephone=no" />
 
 <!-- Stylesheets -->
 <link href="assets/css/main.css?v=<?= filemtime('assets/css/main.css') ?>" rel="stylesheet" />
 
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="./images/favicon.png" sizes="96x96" />
-  <link rel="icon" type="image/svg+xml" href="./images/favicon.svg" />
-  <link rel="shortcut icon" href="images/favicon.png" />
-  <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png" />
-
-  <!-- Canonical -->
-  <link rel="canonical" href="https://uxory.com/available-soon/" />
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="Service Coming Soon | Uxory Digital Solutions" />
-  <meta property="og:description" content="This service is temporarily unavailable. Stay tuned for what’s next from Uxory." />
-  <meta property="og:image" content="https://www.uxory.com/images/social-preview.png" />
-  <meta property="og:url" content="https://uxory.com/available-soon/" />
-  <meta property="og:type" content="website" />
-
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Service Coming Soon | Uxory Digital Solutions" />
-  <meta name="twitter:description" content="We’re working on something new. Check back soon." />
-  <meta name="twitter:image" content="https://www.uxory.com/images/logo.png" />
-
-  <!-- JSON-LD Structured Data -->
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebPage",
-      "name": "Service Coming Soon",
-      "url": "https://uxory.com/available-soon/",
-      "description": "This service is temporarily unavailable. Uxory is preparing something new."
-    }
-  </script>
+  <link rel="icon" type="image/svg+xml" href="/images/favicon.svg" />
+  <link rel="icon" type="image/png" href="/images/favicon.png" sizes="96x96" />
+  <link rel="shortcut icon" href="/images/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png" />
 </head>
 
 <body>
+  <!-- Skip to main content for accessibility -->
+  <a href="#main-content" class="sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[99999] focus:px-4 focus:py-2 focus:bg-primary focus:text-black focus:font-bold focus:rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary" style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border-width: 0;">
+    Skip to main content
+  </a>
+  <style>
+    .sr-only:focus {
+      position: fixed !important;
+      width: auto !important;
+      height: auto !important;
+      padding: 0.5rem 1rem !important;
+      margin: 0 !important;
+      overflow: visible !important;
+      clip: auto !important;
+      white-space: normal !important;
+    }
+  </style>
 
 <!-- header  -->
 <?php       
@@ -65,15 +64,13 @@ include 'components/nav.php';
   class="menu-overflow fixed z-[9999] bg-[rgba(10,10,10,0.95)] bg-opacity-60 backdrop-blur-[25px] w-full h-full pointer-events-none"
 ></div>
 
-<!-- Cursor Pointer -->
-<div class="pointer"></div>
 
 <!-- Dark Mode toggle -->
 <?php       
 include 'components/dark_mode.php';
 ?>
 
-<main class="lg:mb-[600px] relative z-10 bg-backgroundBody dark:bg-dark">
+<main id="main-content" class="lg:mb-[600px] relative z-10 bg-backgroundBody dark:bg-dark">
 
 <!--=====================================
    Hero Section
@@ -148,15 +145,8 @@ include 'components/dark_mode.php';
               class="bg-primary w-[44px] h-[44px] cursor-pointer relative overflow-hidden"
             >
               <img
-                src="images/icons/arrow-Icon.svg"
-                alt="Arrow Icon"
-                class="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 group-hover:-translate-y-12 group-hover:translate-x-8 transition-all duration-500 opacity-100 group-hover:opacity-0"
-              />
-              <img
-                src="images/icons/arrow-Icon.svg"
-                alt="Arrow Icon"
-                class="absolute translate-y-12 -translate-x-4 transition-all duration-500 opacity-0 group-hover:opacity-100 group-hover:translate-x-[19px] group-hover:translate-y-5"
-              />
+                src="images/icons/hyper-arrow-new.svg"
+                alt="Arrow Icon"              />
             </figure>
           </a>
       </div>
@@ -169,15 +159,17 @@ include 'components/dark_mode.php';
     <div
       class="max-w-4xl mx-auto grid max-md:grid-cols-2 md:grid-cols-4 reveal-me border-t border-x [&>*]:border-r max-md:[&>*:nth-child(2)]:border-r-0 max-md:[&>*:nth-child(6)]:border-r-0 [&>*:nth-child(4)]:border-r-0 [&>*:nth-child(8)]:border-r-0 [&>*]:border-b dark:[&>*]:border-dark dark:border-dark"
     >
+      <!-- Instagram-->
       <figure class="flex items-center justify-center px-4 py-4">
         <a href="https://www.instagram.com/uxoryllc/" target="_blank" rel="noopener noreferrer">
           <img class="h-12 w-12" src="/images/marquee-img/1.svg" alt="IG" />
         </a>
       </figure>
 
+      <!-- Linkedin Contact -->
       <figure class="flex items-center justify-center px-4 py-4">
-        <a href="#" target="_blank" rel="noopener noreferrer">
-          <img class="h-12 w-12" src="/images/marquee-img/3.svg" alt="X" />
+        <a href="https://www.linkedin.com/company/uxory/" target="_blank" rel="noopener noreferrer">
+          <img class="h-12 w-12" src="/images/marquee-img/5.svg" alt="Linkedin" />
         </a>
       </figure>
 
@@ -190,7 +182,7 @@ include 'components/dark_mode.php';
 
       <!-- WhatsApp Chat -->
       <figure class="flex items-center justify-center px-4 py-4">
-        <a href="https://wa.me/15134137427" target="_blank" rel="noopener noreferrer">
+        <a href="https://wa.me/917350677916" target="_blank" rel="noopener noreferrer">
           <img class="h-12 w-12" src="/images/marquee-img/2.svg" alt="WHATSAPP" />
         </a>
       </figure>

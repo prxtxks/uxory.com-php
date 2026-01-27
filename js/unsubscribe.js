@@ -6,7 +6,9 @@ document.getElementById('unsubscribeForm').addEventListener('submit', async func
   const formData = new FormData(this);
 
   try {
-    const res = await fetch(this.action, { method: 'POST', body: formData });
+    // Use absolute path to avoid server redirect that converts POST to GET
+    // The server redirects .php to extensionless, losing POST data
+    const res = await fetch('/php/unsubscribe-script', { method: 'POST', body: formData });
     const json = await res.json();
     statusEl.textContent = json.message;
     statusEl.className = json.success

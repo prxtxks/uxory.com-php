@@ -2,12 +2,12 @@
 
 <nav
   data-lenis-prevent="true"
-  class="menu fixed right-6 top-0 w-full min-h-screen overflow-y-auto z-[99999] before:content-none md:before:content-[''] before:absolute before:w-[1px] before:h-[calc(100vh-94px)] before:left-[45%] before:top-0 before:bg-backgroundBody before:bg-opacity-10 opacity-0"
+  class="menu fixed right-0 top-0 w-full min-h-screen overflow-y-auto z-[99999] before:content-none md:before:content-[''] before:absolute before:w-[1px] before:h-[calc(100vh-94px)] before:left-[45%] before:top-0 before:bg-backgroundBody before:bg-opacity-10 opacity-0"
 >
 
 <!-- Cross Icon  -->
   <div
-    class="menu-close cursor-pointer sticky top-8 mt-8 left-[89%] sm:left-[90%] md:left-[93%] lg:left-[94.7%] xl:left-[96.5%] 2xl:left-[96%] h-[40px] w-[40px] text-white"
+    class="menu-close cursor-pointer sticky top-8 mt-8 ml-auto mr-4 sm:mr-6 md:mr-8 lg:mr-12 xl:mr-16 h-[40px] w-[40px] text-white"
   >
     <svg
       xmlns="https://www.w3.org/2000/svg"
@@ -26,7 +26,7 @@
 
   <!-- menu list  -->
   <div
-    class="menu-wrapper relative max-w-[300px] sm:max-w-[400px] md:max-w-[600px] lg:max-w-[900px] xl:max-w-[1130px] mx-auto pb-4 flex flex-col gap-8 md:gap-16 md:top-20 z-[99999]"
+    class="menu-wrapper relative w-[calc(100%-32px)] max-w-[300px] sm:max-w-[400px] md:max-w-[600px] lg:max-w-[900px] xl:max-w-[1130px] mx-auto pb-4 flex flex-col gap-8 md:gap-16 md:top-20 z-[99999]"
   >
     <ul class="menu-list">
 
@@ -44,79 +44,16 @@
             <a
               href="/"
               class="text-white inline-block pb-1 pl-3 menu-list-item-dropdown-list text-base md:text-lg leading-8 md:leading-[50px] <?= ($currentPage ?? '') === 'index' ? 'active' : '' ?>"
-              >Uxory - Homepage
+              >Homepage
             </a>
           </li>
 
-          <li>
-            <a
-              href="/website-dev.php"
-              class="text-white inline-block pb-1 pl-3 menu-list-item-dropdown-list text-base md:text-lg leading-8 md:leading-[50px] <?= ($currentPage ?? '') === 'website_dev' ? 'active' : '' ?>"
-              >Website Development
-            </a>
-          </li>
-
-          <li>
-            <a
-              href="/available-soon.php"
-              class="text-white inline-block pb-1 pl-3 menu-list-item-dropdown-list text-base md:text-lg leading-8 md:leading-[50px] <?= ($currentPage ?? '') === 'web-app-solutions' ? 'active' : '' ?>"
-              >Web & Mobile App Devemopment
-            </a>
-          </li>
-
-           <li>
-            <a
-              href="/ecommerce-solutions.php"
-              class="text-white inline-block pb-1 pl-3 menu-list-item-dropdown-list text-base md:text-lg leading-8 md:leading-[50px] <?= ($currentPage ?? '') === 'ecommerce-solutions' ? 'active' : '' ?>"
-              >E-commerce Solutions
-            </a>
-          </li>
-
-          <li>
-            <a
-              href="/seo.php"
-              class="text-white inline-block pb-1 pl-3 menu-list-item-dropdown-list text-base md:text-lg leading-8 md:leading-[50px] <?= ($currentPage ?? '') === 'seo' ? 'active' : '' ?>"
-              >Search Engine Optimization
-            </a>
-          </li>
-
-          <li>
-            <a
-              href="/email-marketing-and-automation.php"
-              class="text-white inline-block pb-1 pl-3 menu-list-item-dropdown-list text-base md:text-lg leading-8 md:leading-[50px] <?= ($currentPage ?? '') === 'email-makreting-and-automation' ? 'active' : '' ?>"
-              >Email & CRM Automation
-            </a>
-          </li>
 
           <li>
             <a
               href="/coming-soon.php"
-              class="text-white inline-block pb-1 pl-3 menu-list-item-dropdown-list text-base md:text-lg leading-8 md:leading-[50px] <?= ($currentPage ?? '') === 'digital-ads' ? 'active' : '' ?>"
-              >Paid Advertising (PPC)
-            </a>
-          </li>
-
-          <li>
-            <a
-              href="/social-media.php"
-              class="text-white inline-block pb-1 pl-3 menu-list-item-dropdown-list text-base md:text-lg leading-8 md:leading-[50px] <?= ($currentPage ?? '') === 'social_media' ? 'active' : '' ?>"
-              >Social Media Marketing
-            </a>
-          </li>
-
-          <li>
-            <a
-              href="/branding.php"
-              class="text-white inline-block pb-1 pl-3 menu-list-item-dropdown-list text-base md:text-lg leading-8 md:leading-[50px] <?= ($currentPage ?? '') === 'branding' ? 'active' : '' ?>"
-              >Branding & Identity Design
-            </a>
-          </li>
-
-          <li>
-            <a
-              href="/custom-package.php"
-              class="text-white inline-block pb-1 pl-3 menu-list-item-dropdown-list text-base md:text-lg leading-8 md:leading-[50px] <?= ($currentPage ?? '') === 'custom' ? 'active' : '' ?>"
-              >Custom Packages
+              class="text-white inline-block pb-1 pl-3 menu-list-item-dropdown-list text-base md:text-lg leading-8 md:leading-[50px] <?= ($currentPage ?? '') === 'shop' ? 'active' : '' ?>"
+              >The Uxory Store
             </a>
           </li>
 
@@ -135,39 +72,23 @@
 
           <li>
             <a
-              href="/coming-soon.php"
-              class="text-white inline-block pb-1 pl-3 menu-list-item-dropdown-list text-base md:text-lg leading-8 md:leading-[50px] <?= ($currentPage ?? '') === 'about' ? 'active' : '' ?>"
-              >About Uxory</a
+              href="about-us.php"
+              class="text-white inline-block pb-1 pl-3 menu-list-item-dropdown-list text-base md:text-lg leading-8 md:leading-[50px] <?= ($currentPage ?? '') === 'about-us' ? 'active' : '' ?>"
+              >About Us</a
             >
           </li>
-
-          <!-- <li>
-            <a
-              href="/coming-soon.php"
-              class="text-white inline-block pb-1 pl-3 menu-list-item-dropdown-list text-base md:text-lg leading-8 md:leading-[50px] <?= ($currentPage ?? '') === 'why_uxory' ? 'active' : '' ?>"
-              >Why Uxory
-            </a>
-          </li> -->
-
-          <!-- <li>
-            <a
-              href="/coming-soon.php"
-              class="text-white inline-block pb-1 pl-3 menu-list-item-dropdown-list text-base md:text-lg leading-8 md:leading-[50px] <?= ($currentPage ?? '') === 'portfolio' ? 'active' : '' ?>"
-              >Case Studies
-            </a>
-          </li> -->
 
           <li>
             <a
               href="/blog-listings.php"
               class="text-white inline-block pb-1 pl-3 menu-list-item-dropdown-list text-base md:text-lg leading-8 md:leading-[50px] <?= ($currentPage ?? '') === 'blog' ? 'active' : '' ?>"
-              >Blog
+              >Blogs & Insights
             </a>
           </li>
           
           <li>
             <a
-              href="/coming-soon.php"
+              href="/faq.php"
               class="text-white inline-block pb-1 pl-3 menu-list-item-dropdown-list text-base md:text-lg leading-8 md:leading-[50px] <?= ($currentPage ?? '') === 'faqs' ? 'active' : '' ?>"
               >FAQs
             </a>
@@ -177,7 +98,7 @@
             <a
               href="/team.php"
               class="text-white inline-block pb-1 pl-3 menu-list-item-dropdown-list text-base md:text-lg leading-8 md:leading-[50px] <?= ($currentPage ?? '') === 'team' ? 'active' : '' ?>"
-              >Team Uxory
+              >Our Team
             </a>
           </li>
 
@@ -197,6 +118,14 @@
             </a>
           </li>
 
+          <li>
+            <a
+              href="/terms.php"
+              class="text-white inline-block pb-1 pl-3 menu-list-item-dropdown-list text-base md:text-lg leading-8 md:leading-[50px] <?= ($currentPage ?? '') === 'terms' ? 'active' : '' ?>"
+              >Terms & Conditions
+            </a>
+          </li>
+
         </ul>
       </li>
 
@@ -209,11 +138,29 @@
         <ul
           class="menu-list-item-dropdown relative md:absolute top-0 w-full md:w-auto h-fit left-0 md:left-[48%]"
         >
+          
+
           <li>
             <a
-              href="/services.php"
-              class="text-white inline-block pb-1 pl-3 menu-list-item-dropdown-list text-base md:text-lg leading-8 md:leading-[50px] <?= ($currentPage ?? '') === 'all_services' ? 'active' : '' ?>"
-              >All Services
+              href="/available-soon.php"
+              class="text-white inline-block pb-1 pl-3 menu-list-item-dropdown-list text-base md:text-lg leading-8 md:leading-[50px] <?= ($currentPage ?? '') === 'empty' ? 'active' : '' ?>"
+              >AI Systems & Agents
+            </a>
+          </li>
+
+          <li>
+            <a
+              href="/process-automation.php"
+              class="text-white inline-block pb-1 pl-3 menu-list-item-dropdown-list text-base md:text-lg leading-8 md:leading-[50px] <?= ($currentPage ?? '') === 'process_automation' ? 'active' : '' ?>"
+              >Business Process Automation
+            </a>
+          </li>
+
+          <li>
+            <a
+              href="/software-dev.php"
+              class="text-white inline-block pb-1 pl-3 menu-list-item-dropdown-list text-base md:text-lg leading-8 md:leading-[50px] <?= ($currentPage ?? '') === 'software-dev' ? 'active' : '' ?>"
+              >Software Development
             </a>
           </li>
 
@@ -221,71 +168,23 @@
             <a
               href="/website-dev.php"
               class="text-white inline-block pb-1 pl-3 menu-list-item-dropdown-list text-base md:text-lg leading-8 md:leading-[50px] <?= ($currentPage ?? '') === 'website_dev' ? 'active' : '' ?>"
-              >Website Development
+              >High-Performance Websites
+            </a>
+          </li>
+
+          <li>
+            <a
+              href="/web-and-app-solutions.php"
+              class="text-white inline-block pb-1 pl-3 menu-list-item-dropdown-list text-base md:text-lg leading-8 md:leading-[50px] <?= ($currentPage ?? '') === 'web-app-solutions' ? 'active' : '' ?>"
+              >Web & Mobile Apps
             </a>
           </li>
 
           <li>
             <a
               href="/available-soon.php"
-              class="text-white inline-block pb-1 pl-3 menu-list-item-dropdown-list text-base md:text-lg leading-8 md:leading-[50px] <?= ($currentPage ?? '') === 'web-app-solutions' ? 'active' : '' ?>"
-              >Web & Mobile App Devemopment
-            </a>
-          </li>
-
-          <li>
-            <a
-              href="/ecommerce-solutions.php"
-              class="text-white inline-block pb-1 pl-3 menu-list-item-dropdown-list text-base md:text-lg leading-8 md:leading-[50px] <?= ($currentPage ?? '') === 'ecommerce-solutions' ? 'active' : '' ?>"
-              >E-commerce Solutions
-            </a>
-          </li>
-
-          <li>
-            <a
-              href="/seo.php"
-              class="text-white inline-block pb-1 pl-3 menu-list-item-dropdown-list text-base md:text-lg leading-8 md:leading-[50px] <?= ($currentPage ?? '') === 'seo' ? 'active' : '' ?>"
-              >Search Engine Optimization
-            </a>
-          </li>
-
-          <li>
-            <a
-              href="/email-marketing-and-automation.php"
-              class="text-white inline-block pb-1 pl-3 menu-list-item-dropdown-list text-base md:text-lg leading-8 md:leading-[50px] <?= ($currentPage ?? '') === 'email-makreting-and-automation' ? 'active' : '' ?>"
-              >Email & CRM Automation
-            </a>
-          </li>
-
-          <li>
-            <a
-              href="/coming-soon.php"
-              class="text-white inline-block pb-1 pl-3 menu-list-item-dropdown-list text-base md:text-lg leading-8 md:leading-[50px] <?= ($currentPage ?? '') === 'digital_ads' ? 'active' : '' ?>"
-              >Paid Advertising (PPC)
-            </a>
-          </li>
-
-           <li>
-            <a
-              href="/social-media.php"
-              class="text-white inline-block pb-1 pl-3 menu-list-item-dropdown-list text-base md:text-lg leading-8 md:leading-[50px] <?= ($currentPage ?? '') === 'social_media' ? 'active' : '' ?>"
-              >Social Media Marketing
-            </a>
-          </li>
-
-          <li>
-            <a
-              href="/branding.php"
-              class="text-white inline-block pb-1 pl-3 menu-list-item-dropdown-list text-base md:text-lg leading-8 md:leading-[50px] <?= ($currentPage ?? '') === 'branding' ? 'active' : '' ?>"
-              >Branding & Identity Design
-            </a>
-          </li>
-
-          <li>
-            <a
-              href="/custom-package.php"
-              class="text-white inline-block pb-1 pl-3 menu-list-item-dropdown-list text-base md:text-lg leading-8 md:leading-[50px] <?= ($currentPage ?? '') === 'custom' ? 'active' : '' ?>"
-              >Custom Packages
+              class="text-white inline-block pb-1 pl-3 menu-list-item-dropdown-list text-base md:text-lg leading-8 md:leading-[50px] <?= ($currentPage ?? '') === 'empty' ? 'active' : '' ?>"
+              >Special Projects 
             </a>
           </li>
           
@@ -306,6 +205,13 @@
               href="/pricing.php"
               class="text-white inline-block pb-1 pl-3 menu-list-item-dropdown-list text-base md:text-lg leading-8 md:leading-[50px] <?= ($currentPage ?? '') === 'pricing' ? 'active' : '' ?>"
               >Explore Pricing
+            </a>
+          </li>
+          <li>
+            <a
+              href="/smb-hosting.php"
+              class="text-white inline-block pb-1 pl-3 menu-list-item-dropdown-list text-base md:text-lg leading-8 md:leading-[50px] <?= ($currentPage ?? '') === 'smb-hosting' ? 'active' : '' ?>"
+              >SMB Hosting Plans
             </a>
           </li>
           
@@ -349,7 +255,7 @@
     class="menu-footer max-lg:hidden lg:block fixed bottom-0 w-full border-t border-white border-opacity-10"
   >
     <div
-      class="menu-footer-content max-w-[300px] sm:max-w-[400px] md:max-w-[600px] lg:max-w-[900px] xl:max-w-[1130px] flex justify-between mx-auto py-8 flex-col md:flex-row"
+      class="menu-footer-content w-[calc(100%-32px)] max-w-[300px] sm:max-w-[400px] md:max-w-[600px] lg:max-w-[900px] xl:max-w-[1130px] flex justify-between mx-auto py-8 flex-col md:flex-row"
     >
       <p class="text-sm text-white w-full md:w-auto mb-4 md:mb-0">
         <a href="mailto:contact@uxory.com" class="text-white hover:text-primary transition-colors duration-300">

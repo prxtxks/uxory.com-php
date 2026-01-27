@@ -1,77 +1,159 @@
 <!DOCTYPE html>
-<html lang="zxx">
+<html lang="en">
 
 <head>
-  <!-- Title -->
-  <title>Custom Web & App Development Services | Uxory Digital Solutions LLC</title>
-  <meta name="description" content="We build fast, scalable, and modern websites and apps tailored to your business needs. Partner with Uxory to bring your digital product to life." />
-
+  <!-- Primary Meta Tags -->
   <meta charset="utf-8" />
-
-  <!-- Mobile Responsive Meta -->
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-  <meta name="robots" content="noindex, Nofollow, Noimageindex">
-
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  
+  <title>Web & App Development Services | Uxory</title>
+  <meta name="description" content="We build fast, scalable, and modern websites and apps tailored to your business needs. Custom web and mobile applications built for performance, security, and growth." />
+  <meta name="author" content="Uxory" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <meta name="googlebot" content="index, follow" />
+  
+  <!-- Theme & Mobile Optimization -->
+  <meta name="theme-color" content="#000000" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="format-detection" content="telephone=no" />
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://uxory.com/web-and-app-solutions.php" />
+  
+  <!-- Performance Hints -->
+  <link rel="preconnect" href="https://www.google.com" crossorigin />
+  <link rel="dns-prefetch" href="https://www.google.com" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/images/favicon.svg" />
+  <link rel="icon" type="image/png" href="/images/favicon.png" sizes="96x96" />
+  <link rel="shortcut icon" href="/images/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png" />
+  
   <!-- Stylesheets -->
   <link href="assets/css/main.css?v=<?= filemtime('assets/css/main.css') ?>" rel="stylesheet" />
-
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="./images/favicon.png" sizes="96x96" />
-  <link rel="icon" type="image/svg+xml" href="./images/favicon.svg" />
-  <link rel="shortcut icon" href="images/favicon.png" />
-  <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png" />
-
-  <!-- Canonical -->
-  <link rel="canonical" href="https://uxory.com/web-and-app-solutions.php" />
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="Custom Web & App Development Services | Uxory" />
-  <meta property="og:description" content="From idea to launch, Uxory builds powerful websites and apps that deliver performance, design, and results." />
-  <meta property="og:image" content="https://uxory.com/images/logo.png" />
-  <meta property="og:url" content="https://uxory.com/web-and-app-solutions.php" />
+  
+  <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website" />
-
+  <meta property="og:url" content="https://uxory.com/web-and-app-solutions.php" />
+  <meta property="og:title" content="Web & App Development Services | Uxory" />
+  <meta property="og:description" content="From idea to launch, Uxory builds powerful websites and apps that deliver performance, design, and results. Custom web and mobile applications built for growth." />
+  <meta property="og:image" content="https://uxory.com/images/logo.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Uxory Web & App Development Services" />
+  <meta property="og:site_name" content="Uxory" />
+  <meta property="og:locale" content="en_US" />
+  
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Custom Web & App Development Services | Uxory" />
-  <meta name="twitter:description" content="Uxory creates high-performance websites and apps tailored to your business goals." />
+  <meta name="twitter:url" content="https://uxory.com/web-and-app-solutions.php" />
+  <meta name="twitter:title" content="Web & App Development Services | Uxory" />
+  <meta name="twitter:description" content="Uxory creates high-performance websites and apps tailored to your business goals. Custom web and mobile applications built for performance, security, and growth." />
   <meta name="twitter:image" content="https://uxory.com/images/logo.png" />
+  <meta name="twitter:image:alt" content="Uxory Web & App Development Services" />
+  
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://uxory.com/#organization",
+        "name": "Uxory",
+        "url": "https://uxory.com",
+        "logo": {
+          "@type": "ImageObject",
+          "@id": "https://uxory.com/#logo",
+          "url": "https://uxory.com/images/logo.png",
+          "contentUrl": "https://uxory.com/images/logo.png",
+          "width": 512,
+          "height": 512
+        },
+        "sameAs": [
+          "https://www.linkedin.com/company/uxory/",
+          "https://www.instagram.com/uxoryllc/"
+        ]
+      },
+      {
+        "@type": "Service",
+        "@id": "https://uxory.com/web-and-app-solutions.php#service",
+        "name": "Web & App Development Services",
+        "description": "Custom web and mobile app development services tailored for businesses seeking fast, scalable, and modern digital solutions. We build web applications, mobile apps, and cross-platform solutions with scalable architecture, production-ready code, and seamless UI/UX.",
+        "provider": {
+          "@id": "https://uxory.com/#organization"
+        },
+        "url": "https://uxory.com/web-and-app-solutions.php",
+        "serviceType": "Web Development, Mobile App Development, Custom Software Solutions, Prototyping, MVPs",
+        "areaServed": [
+          {
+            "@type": "Country",
+            "name": "United States"
+          },
+          {
+            "@type": "Country",
+            "name": "India"
+          }
+        ],
+        "offers": {
+          "@type": "Offer",
+          "description": "Custom web and mobile app development services tailored to your business needs"
+        }
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://uxory.com/web-and-app-solutions.php#webpage",
+        "url": "https://uxory.com/web-and-app-solutions.php",
+        "name": "Web & App Development Services | Uxory",
+        "description": "We build fast, scalable, and modern websites and apps tailored to your business needs. Partner with Uxory to bring your digital product to life.",
+        "isPartOf": {
+          "@id": "https://uxory.com/#website"
+        },
+        "about": {
+          "@id": "https://uxory.com/web-and-app-solutions.php#service"
+        },
+        "primaryImageOfPage": {
+          "@id": "https://uxory.com/#logo"
+        }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://uxory.com/#website",
+        "url": "https://uxory.com",
+        "name": "Uxory",
+        "publisher": {
+          "@id": "https://uxory.com/#organization"
+        }
+      }
+    ]
+  }
+  </script>
+
 </head>
 
-<!-- <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Service",
-  "name": "Web and App Development Services",
-  "description": "Uxory provides custom web and mobile app development services tailored for businesses seeking fast, scalable, and modern digital solutions.",
-  "provider": {
-    "@type": "Organization",
-    "name": "Uxory Digital Solutions LLC",
-    "url": "https://uxory.com",
-    "logo": "https://uxory.com/images/logo.png",
-    "sameAs": [
-      "https://www.linkedin.com/company/uxory",
-      "https://www.instagram.com/uxoryagency"
-    ]
-  },
-  "areaServed": {
-    "@type": "Country",
-    "name": "United States"
-  },
-  "url": "https://uxory.com/web-and-app-solutions.php",
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://uxory.com/web-and-app-solutions.php"
-  },
-  "serviceType": "Web Development, Mobile App Development, Custom Software Solutions",
-  "audience": {
-    "@type": "Audience",
-    "audienceType": "Businesses, Startups, Entrepreneurs"
-  }
-}
-</script> -->
-
 <body>
+  <!-- Skip to main content for accessibility -->
+  <a href="#main-content" class="sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[99999] focus:px-4 focus:py-2 focus:bg-primary focus:text-black focus:font-bold focus:rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary" style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border-width: 0;">
+    Skip to main content
+  </a>
+  <style>
+    .sr-only:focus {
+      position: fixed !important;
+      width: auto !important;
+      height: auto !important;
+      padding: 0.5rem 1rem !important;
+      margin: 0 !important;
+      overflow: visible !important;
+      clip: auto !important;
+      white-space: normal !important;
+    }
+  </style>
 
 <!-- header  -->
 <?php       
@@ -89,9 +171,6 @@ include 'components/nav.php';
   class="menu-overflow fixed z-[9999] bg-[rgba(10,10,10,0.95)] bg-opacity-60 backdrop-blur-[25px] w-full h-full pointer-events-none"
 ></div>
 
-<!-- Cursor Pointer -->
-<div class="pointer"></div>
-
 
 <!-- Dark Mode toggle -->
 <?php       
@@ -99,7 +178,7 @@ include 'components/dark_mode.php';
 ?>
 
 
-<main class="lg:mb-[600px] relative z-10 bg-backgroundBody dark:bg-dark">
+<main id="main-content" class="lg:mb-[600px] relative z-10 bg-backgroundBody dark:bg-dark">
 
 <!--=====================================
    Hero Section with Gradient
@@ -123,40 +202,43 @@ include 'components/dark_mode.php';
   <!-- Main Content Container -->
   <div class="container reveal-me">
     <div class="text-center">
-      <!-- Status Badge -->
-      <div class="rv-badge mb-3">
-        <span class="rv-badge-text">Open for new work</span>
-      </div>
+      
 
       <!-- Hero Heading -->
-      <h1 class="mb-3 lg:leading-[1.08]">
-        Turn your vision into <br />
-        a high- <i class="inline font-instrument">performing mobile</i> app.
-      </h1>
+      <h2 class="font-medium mb-3 lg:leading-[1.08]">
+        Turn your vision into <br class="hidden lg:block" />
+        a high <i class="font-instrument">performing</i> app.
+      </h2>
 
       <!-- Hero Description -->
       <p class="mb-8 md:mb-14 xl:mb-[76px] max-w-xl lg:max-w-[750px] mx-auto">
-        At Uxory, we specialize in AI-driven, user-centric, scalable app
-        solutions designed to transform businesses.
+        We specialize in AI-driven, user-centric, scalable we and mobile app
+        solutions designed to solve real business problems.
       </p>
 
       <!-- CTA Buttons -->
-      <ul class="flex justify-center items-center gap-4 md:gap-6 list-none">
-        <!-- Primary CTA Button -->
-        <li class="block md:inline-block w-[90%] mx-auto md:w-auto">
-          <a
-            href="/contact.html"
-            class="rv-button rv-button-primary block md:inline-block"
-          >
-            <div class="rv-button-top">
-              <span>Get a Free Consultation</span>
-            </div>
-            <div class="rv-button-bottom">
-              <span class="text-nowrap">Get a Free Consultation</span>
-            </div>
+      <ul class="flex justify-center list-none mt-14">
+      <div
+        class="flex w-full md:w-auto p-3 group bg-primary bg-opacity-30 gap-3 justify-between items-center backdrop-blur-2xl max-w-[320px] md:max-w-[320px]"
+      >
+        <div>
+          <h6 class="text-sm font-satoshi font-bold text-black dark:text-white">
+            Schedule a Free Meeting
+          </h6>
+          <p class="text-sm text-black dark:text-white">Few spots left this month</p>
+        </div>
+          <a href="calendly.php">
+            <figure
+              class="bg-primary w-[44px] h-[44px] cursor-pointer relative overflow-hidden"
+            >
+              <img
+                src="images/icons/hyper-arrow-new.svg"
+                alt="Arrow Icon"              />
+            </figure>
           </a>
-        </li>
-      </ul>
+      </div>
+    </ul>
+
     </div>
   </div>
 </section>
@@ -171,12 +253,12 @@ social-proof
     <div class="relative reveal-me-2">
       <div class="z-50 flex items-center justify-center">
         <img
-          src="images/path-images/social-proof.png"
+          src="images/app-sample.webp"
           alt="social-proof"
           class="inline-block dark:hidden"
         />
         <img
-          src="images/path-images/social-proof-dark.png"
+          src="images/app-sample.webp"
           alt="social-proof"
           class="dark:inline-block hidden"
         />
@@ -186,201 +268,11 @@ social-proof
 </section>
 
 
-<!--=====================================
-   Company Logos Marquee_V4 Section
-======================================-->
-<section
-  class="-mt-[160px] sm:-mt-[250px] md:-mt-[350px] lg:-mt-[450px] z-[2000] relative pt-28 md:pt-32 lg:pt-44 xl:pt-[200px] pb-14 md:pb-16 lg:pb-[88px] xl:pb-[100px] bg-backgroundBody dark:bg-dark overflow-hidden"
->
-  <div>
-    <!-- Section Header -->
-    <p class="container text-center mb-8 lg:mb-16 reveal-me">
-      Our solutions power businesses worldwide.
-    </p>
-
-    <!-- Marquee Container -->
-    <div class="relative overflow-hidden">
-      <!-- Infinite Scroll Container -->
-      <div
-        class="z-50 flex gap-px w-fit flex-nowrap whitespace-nowrap will-change-transform marquee-inner reveal-me"
-      >
-        <!-- Marquee Items -->
-        <div
-          class="bg-backgroundBody dark:bg-dark border-r border-y border-secondary/10 dark:border-backgroundBody/10 w-48 h-24 flex items-center justify-center z-50 flex-shrink-0 marquee-part"
-        >
-          <!-- Light/Dark Mode Logo Variants -->
-          <img
-            src="images/marquee-img/invert.svg"
-            alt="Company Logo"
-            class="inline-block dark:hidden"
-          />
-          <img
-            src="images/marquee-img/invert-dark.svg"
-            alt="Company Logo"
-            class="dark:inline-block hidden"
-          />
-        </div>
-
-        <div
-          class="bg-backgroundBody dark:bg-dark border-r border-y border-secondary/10 dark:border-backgroundBody/10 w-48 h-24 flex items-center justify-center z-50 flex-shrink-0 marquee-part"
-        >
-          <img
-            src="images/marquee-img/greenish.svg"
-            alt="Company Logo"
-            class="inline-block dark:hidden"
-          />
-          <img
-            src="images/marquee-img/greenish-dark.svg"
-            alt="Company Logo"
-            class="dark:inline-block hidden"
-          />
-        </div>
-
-        <div
-          class="bg-backgroundBody dark:bg-dark border-r border-y border-secondary/10 dark:border-backgroundBody/10 w-48 h-24 flex items-center justify-center z-50 flex-shrink-0 marquee-part"
-        >
-          <img
-            src="images/marquee-img/invert.svg"
-            alt="Company Logo"
-            class="inline-block dark:hidden"
-          />
-          <img
-            src="images/marquee-img/invert-dark.svg"
-            alt="Company Logo"
-            class="dark:inline-block hidden"
-          />
-        </div>
-
-        <div
-          class="bg-backgroundBody dark:bg-dark border-r border-y border-secondary/10 dark:border-backgroundBody/10 w-48 h-24 flex items-center justify-center z-50 flex-shrink-0 marquee-part"
-        >
-          <img
-            src="images/marquee-img/greenish.svg"
-            alt="Company Logo"
-            class="inline-block dark:hidden"
-          />
-          <img
-            src="images/marquee-img/greenish-dark.svg"
-            alt="Company Logo"
-            class="dark:inline-block hidden"
-          />
-        </div>
-
-        <div
-          class="bg-backgroundBody dark:bg-dark border-r border-y border-secondary/10 dark:border-backgroundBody/10 w-48 h-24 flex items-center justify-center z-50 flex-shrink-0 marquee-part"
-        >
-          <img
-            src="images/marquee-img/invert.svg"
-            alt="Company Logo"
-            class="inline-block dark:hidden"
-          />
-          <img
-            src="images/marquee-img/invert-dark.svg"
-            alt="Company Logo"
-            class="dark:inline-block hidden"
-          />
-        </div>
-
-        <div
-          class="bg-backgroundBody dark:bg-dark border-r border-y border-secondary/10 dark:border-backgroundBody/10 w-48 h-24 flex items-center justify-center z-50 flex-shrink-0 marquee-part"
-        >
-          <img
-            src="images/marquee-img/greenish.svg"
-            alt="Company Logo"
-            class="inline-block dark:hidden"
-          />
-          <img
-            src="images/marquee-img/greenish-dark.svg"
-            alt="Company Logo"
-            class="dark:inline-block hidden"
-          />
-        </div>
-
-        <div
-          class="bg-backgroundBody dark:bg-dark border-r border-y border-secondary/10 dark:border-backgroundBody/10 w-48 h-24 flex items-center justify-center z-50 flex-shrink-0 marquee-part"
-        >
-          <img
-            src="images/marquee-img/invert.svg"
-            alt="Company Logo"
-            class="inline-block dark:hidden"
-          />
-          <img
-            src="images/marquee-img/invert-dark.svg"
-            alt="Company Logo"
-            class="dark:inline-block hidden"
-          />
-        </div>
-
-        <div
-          class="bg-backgroundBody dark:bg-dark border-r border-y border-secondary/10 dark:border-backgroundBody/10 w-48 h-24 flex items-center justify-center z-50 flex-shrink-0 marquee-part"
-        >
-          <img
-            src="images/marquee-img/greenish.svg"
-            alt="Company Logo"
-            class="inline-block dark:hidden"
-          />
-          <img
-            src="images/marquee-img/greenish-dark.svg"
-            alt="Company Logo"
-            class="dark:inline-block hidden"
-          />
-        </div>
-
-        <div
-          class="bg-backgroundBody dark:bg-dark border-r border-y border-secondary/10 dark:border-backgroundBody/10 w-48 h-24 flex items-center justify-center z-50 flex-shrink-0 marquee-part"
-        >
-          <img
-            src="images/marquee-img/invert.svg"
-            alt="Company Logo"
-            class="inline-block dark:hidden"
-          />
-          <img
-            src="images/marquee-img/invert-dark.svg"
-            alt="Company Logo"
-            class="dark:inline-block hidden"
-          />
-        </div>
-
-        <div
-          class="bg-backgroundBody dark:bg-dark border-r border-y border-secondary/10 dark:border-backgroundBody/10 w-48 h-24 flex items-center justify-center z-50 flex-shrink-0 marquee-part"
-        >
-          <img
-            src="images/marquee-img/greenish.svg"
-            alt="Company Logo"
-            class="inline-block dark:hidden"
-          />
-          <img
-            src="images/marquee-img/greenish-dark.svg"
-            alt="Company Logo"
-            class="dark:inline-block hidden"
-          />
-        </div>
-      </div>
-    </div>
-
-    <ul
-      class="justify-self-center grid max-md:w-full mt-7 md:mt-14 reveal-me container"
-    >
-      <li class="block md:inline-block w-full mx-auto md:w-auto text-center">
-        <a href="#" class="rv-button rv-button-white block md:inline-block">
-          <div class="rv-button-top">
-            <span>View Our Network</span>
-          </div>
-          <div class="rv-button-bottom">
-            <span>View Our Network</span>
-          </div>
-        </a>
-      </li>
-    </ul>
-  </div>
-</section>
-
-
 <!-- ==============================
 client-success-stories
 ============================== -->
 <section
-  class="pb-14 pt-14 md:pb-16 md:pt-16 lg:pb-[88px] lg:pt-[88px] xl:pb-[100px] xl:pt-[100px]"
+  class="-mt-[160px] sm:-mt-[250px] md:-mt-[350px] lg:-mt-[450px] z-[2000] relative pt-28 md:pt-32 lg:pt-44 xl:pt-[200px] pb-14 md:pb-16 lg:pb-[88px] xl:pb-[100px] bg-backgroundBody dark:bg-dark overflow-hidden"
 >
   <div class="container">
     <!-- Section Header -->
@@ -389,46 +281,29 @@ client-success-stories
     >
       <!-- Title Area -->
       <div class="flex-1 md:self-start">
-        <h2 class="text-appear lg:leading-[1.1]">
-          <i class="font-instrument">Proven success </i
+        <h3 class="text-appear lg:leading-[1.1]">
+          <i class="font-instrument">Proven results </i
           ><br class="hidden lg:block" />
-          satisfied clients
-        </h2>
+          trusted by clients
+        </h3>
       </div>
 
       <!-- Description -->
       <div class="w-full md:max-w-72 lg:max-w-[470px] self-start md:self-end">
         <p class="text-appear max-w-lg md:text-right md:place-self-end">
-          We create more than apps—we create digital experiences.
+        We enable businesses to launch faster, scale smarter, and operate better.
         </p>
-        <ul class="justify-self-end max-md:w-full mt-5 md:mt-10 reveal-me">
-          <li
-            class="block md:inline-block w-full mx-auto md:w-auto text-center"
-          >
-            <a
-              href="/services.html"
-              class="rv-button rv-button-white block md:inline-block"
-            >
-              <div class="rv-button-top">
-                <span>See Our Work</span>
-              </div>
-              <div class="rv-button-bottom">
-                <span>See Our Work</span>
-              </div>
-            </a>
-          </li>
-        </ul>
       </div>
     </div>
     <!-- Counter section -->
-    <div class="grid grid-cols-12 gap-8 justify-items-center mb-14 lg:mb-28">
+    <div class="grid grid-cols-12 gap-8 justify-items-center mb-14 lg:mb-20">
       <!-- 1 -->
       <div
         class="border-y dark:border-dark py-5 flex flex-col md:flex-row justify-center md:justify-between items-center md:items-start w-full sm:min-w-[355px] lg:min-w-[300px] xl:min-w-[355px] reveal-me col-span-12 md:col-span-6 lg:col-span-4"
         id="counter"
       >
         <h2 class="md:min-w-[170px] font-instrument">
-          <span class="counter" data-value="100"></span>+
+          <span class="counter" data-value="60"></span>+
         </h2>
         <p class="text-lg">Successful app launches</p>
       </div>
@@ -448,7 +323,7 @@ client-success-stories
         id="counter"
       >
         <h2 class="md:min-w-[170px] font-instrument">
-          <span class="counter" data-value="4.9"></span>
+          <span class="counter" data-value="4.8"></span>
           +
         </h2>
         <p class="text-lg">Star rating from global clients</p>
@@ -459,6 +334,7 @@ client-success-stories
     <div class="reveal-me">
       <div class="user-swiper-v2 swiper">
         <div class="swiper-wrapper">
+          <!-- Review 1 -->
           <div class="swiper-slide">
             <div class="border dark:border-dark p-10 flex gap-3">
               <div class="hidden md:block flex-grow-0">
@@ -484,22 +360,18 @@ client-success-stories
                 <p
                   class="text-base md:text-xl italic md:leading-[1.5] mb-[30px]"
                 >
-                  The skeleton plan of a website can be broken down into three
-                  components
+                  Scalable SaaS product build
                 </p>
                 <h3 class="text-xl md:text-[30px] md:leading-9 mb-10">
-                  Exceptional materials. The most durable glass ever in a <br />
-                  smartphone. A beautiful new gold finish, achieved with an
-                  atomic-level.
+                  Uxory helped us turn a rough idea into a production-ready SaaS platform. The architecture is clean, the app is fast and scalable.
                 </h3>
                 <div class="flex justify-between items-center">
                   <div class="flex items-center gap-3">
-                    <img src="images/avatar/review-5.png" alt="Avatar Img" />
                     <div>
                       <h4 class="text-lg md:text-2xl md:leading-[1.2]">
-                        Kathryn Murphy
+                        Jason Miller
                       </h4>
-                      <p class="text-sm leading-5 font-light">CEO at Vercel</p>
+                      <p class="text-sm leading-5 font-light">Founder, B2B SaaS Platform</p>
                     </div>
                   </div>
                   <div class="self-end max-xs:hidden">
@@ -525,6 +397,7 @@ client-success-stories
               </div>
             </div>
           </div>
+          <!-- Review 2 -->
           <div class="swiper-slide">
             <div class="border dark:border-dark p-10 flex gap-3">
               <div class="hidden md:block flex-grow-0">
@@ -550,23 +423,19 @@ client-success-stories
                 <p
                   class="text-base md:text-xl italic md:leading-[1.5] mb-[30px]"
                 >
-                  The skeleton plan of a website can be broken down into three
-                  components
+                  Marketplace app done right
                 </p>
                 <h3 class="text-xl md:text-[30px] md:leading-9 mb-10">
-                  Exceptional materials. The most durable glass ever in a <br />
-                  smartphone. A beautiful new gold finish, achieved with an
-                  atomic-level.
+                  We needed a two-sided marketplace with payments, dashboards, and automation. Uxory delivered exactly that without overengineering things.
                 </h3>
                 <div class="flex justify-between items-center">
                   <div class="flex items-center gap-3">
-                    <img src="images/avatar/review-2.png" alt="Avatar Img" />
                     <div>
                       <h4 class="text-lg md:text-2xl md:leading-[1.2]">
-                        John Deo
+                        Rohit Kulkarni
                       </h4>
-                      <p class="text-sm font-poppins leading-5 font-light">
-                        CEO at W3School
+                      <p class="text-sm leading-5 font-light">
+                        Product Lead, Service Marketplace App
                       </p>
                     </div>
                   </div>
@@ -593,6 +462,7 @@ client-success-stories
               </div>
             </div>
           </div>
+          <!-- Review 3 -->
           <div class="swiper-slide">
             <div class="border dark:border-dark p-10 flex gap-3">
               <div class="hidden md:block flex-grow-0">
@@ -618,23 +488,19 @@ client-success-stories
                 <p
                   class="text-base md:text-xl italic md:leading-[1.5] mb-[30px]"
                 >
-                  The skeleton plan of a website can be broken down into three
-                  components
+                  Internal operations automation app
                 </p>
                 <h3 class="text-xl md:text-[30px] md:leading-9 mb-10">
-                  Exceptional materials. The most durable glass ever in a <br />
-                  smartphone. A beautiful new gold finish, achieved with an
-                  atomic-level.
+                  Our internal workflows were completely manual before. Uxory built a custom internal app that reduced our admin work drastically.
                 </h3>
                 <div class="flex justify-between items-center">
                   <div class="flex items-center gap-3">
-                    <img src="images/avatar/review-8.png" alt="Avatar Img" />
                     <div>
                       <h4 class="text-lg md:text-2xl md:leading-[1.2]">
-                        Zaks Addison
+                        Emily Carter
                       </h4>
-                      <p class="text-sm font-poppins leading-5 font-light">
-                        Manager, Operations at Wacomm
+                      <p class="text-sm leading-5 font-light">
+                        Operations Manager, Logistics Tech Company
                       </p>
                     </div>
                   </div>
@@ -682,21 +548,18 @@ services
       class="flex flex-col md:flex-row gap-y-3 gap-x-10 justify-center lg:justify-start items-start md:items-center mb-16 md:mb-20"
     >
       <div class="md:w-[60%]">
-        <div class="rv-badge reveal-me mb-3 md:mb-4">
-          <span class="rv-badge-text">Services</span>
-        </div>
 
-        <h2 class="text-appear-2">
+        <h3 class="text-appear-2">
           Elevating Your
           <span class="font-instrument italic">Digital</span> <br />
           Presence
-        </h2>
+        </h3>
       </div>
       <div class="md:w-[40%] max-md:w-full">
         <p
           class="text-appear max-md:text-justify max-w-lg md:place-self-end md:text-right text-appear-2"
         >
-          We offer digital solutions to boost your brand and online presence.
+        Everything you need to build, launch, and scale your product - under one roof.
         </p>
 
         <ul class="justify-self-end max-md:w-full mt-5 md:mt-10 reveal-me">
@@ -721,279 +584,98 @@ services
   </div>
 
   <div
-    class="flex max-xl:flex-wrap max-xl:gap-5 justify-center [&>*:not(:last-child)]:border-l dark:[&>*:not(:last-child)]:border-l-dark [&>*:last-child]:border-l dark:[&>*:last-child]:border-l-dark [&>*:last-child]:border-r dark:[&>*:last-child]:border-r-dark [&>*]:border-y dark:[&>*]:border-y-dark max-xl:[&>*:first-child]:border-r dark:max-xl:[&>*:first-child]:border-dark max-xl:[&>*:nth-child(2)]:border-r dark:max-xl:[&>*:nth-child(2)]:border-dark max-2xl:[&>*:nth-child(3)]:border-r dark:max-2xl:[&>*:nth-child(3)]:border-dark xl:px-5"
+    class="flex items-stretch max-xl:flex-wrap max-xl:gap-5 justify-center [&>*:not(:last-child)]:border-l [&>*:not(:last-child)]:border-gray-300 dark:[&>*:not(:last-child)]:border-l-dark [&>*:last-child]:border-l [&>*:last-child]:border-gray-300 dark:[&>*:last-child]:border-l-dark [&>*:last-child]:border-r [&>*:last-child]:border-r-gray-300 dark:[&>*:last-child]:border-dark [&>*]:border-y [&>*]:border-y-gray-300 dark:[&>*]:border-y-dark max-xl:[&>*:first-child]:border-r max-xl:[&>*:first-child]:border-r-gray-300 dark:max-xl:[&>*:first-child]:border-dark max-xl:[&>*:nth-child(2)]:border-r max-xl:[&>*:nth-child(2)]:border-r-gray-300 dark:max-xl:[&>*:nth-child(2)]:border-dark max-2xl:[&>*:nth-child(3)]:border-r max-2xl:[&>*:nth-child(3)]:border-r-gray-300 dark:max-2xl:[&>*:nth-child(3)]:border-dark xl:px-5"
   >
     <!-- App Development Card -->
-    <div class="relative group overflow-hidden w-[360px] h-[500px] reveal-me">
-      <div
-        class="w-full h-full flex justify-start items-center absolute translate-y-0 group-hover:-translate-y-full transition-all opacity-100 group-hover:opacity-0 duration-700"
-      >
-        <h4 class="max-sm:text-3xl pl-7">App Development</h4>
+    <div class="w-[360px] reveal-me bg-backgroundBody dark:bg-secondary p-8">
+      <div class="mb-10">
+        <h5 class="max-sm:text-3xl text-dark dark:text-backgroundBody">
+        Web & App Development
+        </h5>
       </div>
-
-      <div
-        class="w-full h-full bg-secondary dark:bg-secondary p-8 absolute translate-y-full duration-700 transition-all group-hover:translate-y-0 group-hover:inset-0 z-10 border-t border-primary"
-      >
-        <a href="services-details.html">
-          <div class="mb-[55px] flex gap-1 items-center justify-between">
-            <h4
-              class="max-sm:text-3xl text-primary dark:text-backgroundBody opacity-0 translate-y-5 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-[800ms] delay-[240ms]"
-            >
-              App Development
-            </h4>
-            <span
-              class="transition-all duration-1000 translate-x-20 group-hover:translate-x-0"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="32"
-                height="32"
-                viewBox="0 0 32 32"
-                fill="none"
-              >
-                <path
-                  d="M5 16H27"
-                  class="stroke-primary dark:stroke-backgroundBody"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-                <path
-                  d="M18 7L27 16L18 25"
-                  class="stroke-primary dark:stroke-backgroundBody"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-            </span>
-          </div>
-          <p
-            class="text-backgroundBody/70 dark:text-backgroundBody/70 opacity-0 translate-y-5 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-[800ms] delay-[340ms]"
-          >
-            What specific research are you interested in? Research can range
-            across a variety of fields such as:
-          </p>
-          <ul
-            class="pl-4 mt-6 opacity-0 translate-y-5 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-[800ms] delay-[440ms]"
-          >
-            <li
-              class="text-backgroundBody/70 dark:text-backgroundBody/70 list-disc text-base leading-relexed"
-            >
-              Scientific research (e.g., medical, environmental, technological
-              studies)
-            </li>
-            <li
-              class="text-backgroundBody/70 dark:text-backgroundBody/70 list-disc text-base leading-relexed"
-            >
-              Market research (consumer trends, competitor analysis)
-            </li>
-          </ul>
-        </a>
-      </div>
+      <p class="text-dark/70 dark:text-backgroundBody/70">
+      Custom web and mobile applications built for performance, security, and growth.
+      </p>
+      <ul class="pl-4 mt-6">
+        <li class="card-list-item list-disc text-base leading-relaxed">
+        Scalable architecture
+        </li>
+        <li class="card-list-item list-disc text-base leading-relaxed">
+        Scalable architecture
+        </li>
+        <li class="card-list-item list-disc text-base leading-relaxed">
+        Production-ready code
+        </li>
+      </ul>
     </div>
 
     <!-- Prototyping Card -->
-    <div class="relative group overflow-hidden w-[360px] h-[500px] reveal-me">
-      <div
-        class="w-full h-full flex justify-start items-center absolute translate-y-0 group-hover:-translate-y-full transition-all opacity-100 group-hover:opacity-0 duration-700"
-      >
-        <h4 class="max-sm:text-3xl pl-7">Prototyping</h4>
+    <div class="w-[360px] reveal-me bg-backgroundBody dark:bg-secondary p-8">
+      <div class="mb-10">
+        <h5 class="max-sm:text-3xl text-dark dark:text-backgroundBody">
+        Prototyping & MVPs
+        </h5>
       </div>
-
-      <div
-        class="w-full h-full bg-secondary dark:bg-secondary p-8 absolute translate-y-full duration-700 transition-all group-hover:translate-y-0 group-hover:inset-0 z-10 border-t border-primary"
-      >
-        <a href="services-details.html">
-          <div class="mb-[55px] flex gap-1 items-center justify-between">
-            <h4
-              class="max-sm:text-3xl text-primary dark:text-backgroundBody opacity-0 translate-y-5 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-[800ms] delay-[240ms]"
-            >
-              Prototyping
-            </h4>
-            <span
-              class="transition-all duration-1000 translate-x-20 group-hover:translate-x-0"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="32"
-                height="32"
-                viewBox="0 0 32 32"
-                fill="none"
-              >
-                <path
-                  d="M5 16H27"
-                  class="stroke-primary dark:stroke-backgroundBody"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-                <path
-                  d="M18 7L27 16L18 25"
-                  class="stroke-primary dark:stroke-backgroundBody"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-            </span>
-          </div>
-          <p
-            class="text-backgroundBody/70 dark:text-backgroundBody/70 opacity-0 translate-y-5 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-[800ms] delay-[340ms]"
-          >
-            What specific research are you interested in? Research can range
-            across a variety of fields such as:
-          </p>
-          <ul
-            class="pl-4 mt-6 opacity-0 translate-y-5 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-[800ms] delay-[440ms]"
-          >
-            <li
-              class="text-backgroundBody/70 dark:text-backgroundBody/70 list-disc text-base leading-relexed"
-            >
-              Scientific research (e.g., medical, environmental, technological
-              studies)
-            </li>
-            <li
-              class="text-backgroundBody/70 dark:text-backgroundBody/70 list-disc text-base leading-relexed"
-            >
-              Market research (consumer trends, competitor analysis)
-            </li>
-          </ul>
-        </a>
-      </div>
+      <p class="text-dark/70 dark:text-backgroundBody/70">
+      Turn ideas into clickable prototypes or MVPs to validate fast and launch smart.
+      </p>
+      <ul class="pl-4 mt-6">
+        <li class="card-list-item list-disc text-base leading-relaxed">
+          UI/UX prototypes
+        </li>
+        <li class="card-list-item list-disc text-base leading-relaxed">
+        MVP development
+        </li>
+        <li class="card-list-item list-disc text-base leading-relaxed">
+        Faster time to market
+        </li>
+      </ul>
     </div>
 
     <!-- Chatbot Integration Card -->
-    <div class="relative group overflow-hidden w-[360px] h-[500px] reveal-me">
-      <div
-        class="w-full h-full flex justify-start items-center absolute translate-y-0 group-hover:-translate-y-full transition-all opacity-100 group-hover:opacity-0 duration-700"
-      >
-        <h4 class="max-sm:text-3xl pl-7">Chatbot Integration</h4>
+    <div class="w-[360px] reveal-me bg-backgroundBody dark:bg-secondary p-8">
+      <div class="mb-10">
+        <h5 class="max-sm:text-3xl text-dark dark:text-backgroundBody">
+        Chatbot & Automation
+        </h5>
       </div>
-
-      <div
-        class="w-full h-full bg-secondary dark:bg-secondary p-8 absolute translate-y-full duration-700 transition-all group-hover:translate-y-0 group-hover:inset-0 z-10 border-t border-primary"
-      >
-        <a href="services-details.html">
-          <div class="mb-[55px] flex gap-1 items-center justify-between">
-            <h4
-              class="max-sm:text-3xl text-primary dark:text-backgroundBody opacity-0 translate-y-5 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-[800ms] delay-[240ms]"
-            >
-              Chatbot Integration
-            </h4>
-            <span
-              class="transition-all duration-1000 translate-x-20 group-hover:translate-x-0"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="32"
-                height="32"
-                viewBox="0 0 32 32"
-                fill="none"
-              >
-                <path
-                  d="M5 16H27"
-                  class="stroke-primary dark:stroke-backgroundBody"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-                <path
-                  d="M18 7L27 16L18 25"
-                  class="stroke-primary dark:stroke-backgroundBody"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-            </span>
-          </div>
-          <p
-            class="text-backgroundBody/70 dark:text-backgroundBody/70 opacity-0 translate-y-5 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-[800ms] delay-[340ms]"
-          >
-            What specific research are you interested in? Research can range
-            across a variety of fields such as:
-          </p>
-          <ul
-            class="pl-4 mt-6 opacity-0 translate-y-5 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-[800ms] delay-[440ms]"
-          >
-            <li
-              class="text-backgroundBody/70 dark:text-backgroundBody/70 list-disc text-base leading-relexed"
-            >
-              Scientific research (e.g., medical, environmental, technological
-              studies)
-            </li>
-            <li
-              class="text-backgroundBody/70 dark:text-backgroundBody/70 list-disc text-base leading-relexed"
-            >
-              Market research (consumer trends, competitor analysis)
-            </li>
-          </ul>
-        </a>
-      </div>
+      <p class="text-dark/70 dark:text-backgroundBody/70">
+      Smart automations and chatbots that reduce manual work and improve response time.
+      </p>
+      <ul class="pl-4 mt-6">
+        <li class="card-list-item list-disc text-base leading-relaxed">
+        AI & rule-based bots
+        </li>
+        <li class="card-list-item list-disc text-base leading-relaxed">
+        Lead & support automation
+        </li>
+        <li class="card-list-item list-disc text-base leading-relaxed">
+        Tool integrations
+        </li>
+      </ul>
     </div>
 
-    <!-- Backend Development   Card -->
-
-    <div class="relative group overflow-hidden w-[360px] h-[500px] reveal-me">
-      <div
-        class="w-full h-full flex justify-start items-center absolute translate-y-0 group-hover:-translate-y-full transition-all opacity-100 group-hover:opacity-0 duration-700"
-      >
-        <h4 class="max-sm:text-3xl pl-7">Backend Development</h4>
+    <!-- Backend Development Card -->
+    <div class="w-[360px] reveal-me bg-backgroundBody dark:bg-secondary p-8">
+      <div class="mb-10">
+        <h5 class="max-sm:text-3xl text-dark dark:text-backgroundBody">
+        Backend & APIs
+        </h5>
       </div>
-
-      <div
-        class="w-full h-full bg-secondary dark:bg-secondary p-8 absolute translate-y-full duration-700 transition-all group-hover:translate-y-0 group-hover:inset-0 z-10 border-t border-primary"
-      >
-        <a href="services-details.html">
-          <div class="mb-[55px] flex gap-1 items-center justify-between">
-            <h4
-              class="max-sm:text-3xl text-primary dark:text-backgroundBody opacity-0 translate-y-5 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-[800ms] delay-[240ms]"
-            >
-              Backend Development
-            </h4>
-            <span
-              class="transition-all duration-1000 translate-x-20 group-hover:translate-x-0"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="32"
-                height="32"
-                viewBox="0 0 32 32"
-                fill="none"
-              >
-                <path
-                  d="M5 16H27"
-                  class="stroke-primary dark:stroke-backgroundBody"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-                <path
-                  d="M18 7L27 16L18 25"
-                  class="stroke-primary dark:stroke-backgroundBody"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-            </span>
-          </div>
-          <p
-            class="text-backgroundBody/70 dark:text-backgroundBody/70 opacity-0 translate-y-5 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-[800ms] delay-[340ms]"
-          >
-            What specific research are you interested in? Research can range
-            across a variety of fields such as:
-          </p>
-          <ul
-            class="pl-4 mt-6 opacity-0 translate-y-5 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-[800ms] delay-[440ms]"
-          >
-            <li
-              class="text-backgroundBody/70 dark:text-backgroundBody/70 list-disc text-base leading-relexed"
-            >
-              Scientific research (e.g., medical, environmental, technological
-              studies)
-            </li>
-            <li
-              class="text-backgroundBody/70 dark:text-backgroundBody/70 list-disc text-base leading-relexed"
-            >
-              Market research (consumer trends, competitor analysis)
-            </li>
-          </ul>
-        </a>
-      </div>
+      <p class="text-dark/70 dark:text-backgroundBody/70">
+      Robust backend systems that power reliable, secure applications.
+      </p>
+      <ul class="pl-4 mt-6">
+        <li class="card-list-item list-disc text-base leading-relaxed">
+        APIs & databases
+        </li>
+        <li class="card-list-item list-disc text-base leading-relaxed">
+        Authentication & security
+        </li>
+        <li class="card-list-item list-disc text-base leading-relaxed">
+        Cloud-ready systems
+        </li>
+      </ul>
     </div>
   </div>
 </section>
@@ -1011,17 +693,19 @@ download-our-apps
     >
       <figure class="flex-1 reveal-me">
         <img
-          src="images/download-app-thumbnail.png"
+          src="images/download-app.png"
           alt="download-app-thumbnail"
+          width="462"
+          height="492"
         />
       </figure>
 
       <div class="flex-1">
-        <h2 class="text-appear md:text-right text-backgroundBody">
+        <h3 class="text-appear md:text-right text-backgroundBody">
           <span class="font-instrument italic">Download our</span>
           <br class="hidden md:block" />
           latest Apps
-        </h2>
+        </h3>
         <p
           class="text-appear md:text-right text-backgroundBody/70 mt-5 md:mt-10"
         >
@@ -1030,13 +714,13 @@ download-our-apps
         <ul
           class="justify-self-end max-md:w-full flex flex-col lg:flex-row gap-6 mt-5 md:mt-10 reveal-me"
         >
-          <!-- Primary CTA Button -->
+          <!-- Primary CTA Button (Disabled) -->
           <li
             class="block md:inline-block w-[90%] mx-auto md:ml-auto md:mr-0 md:w-auto"
           >
-            <a
-              href="#"
-              class="rv-button rv-button-primary block md:inline-block"
+            <span
+              class="rv-button rv-button-primary block md:inline-block opacity-50 cursor-pointer"
+              onclick="showUnavailableMessage()"
             >
               <div class="rv-button-top text-nowrap text-center">
                 <span> Google Play</span>
@@ -1044,25 +728,38 @@ download-our-apps
               <div class="rv-button-bottom text-nowrap">
                 <span class="text-nowrap"> Google Play</span>
               </div>
-            </a>
+            </span>
           </li>
-          <!-- Secondary CTA Button -->
+          <!-- Secondary CTA Button (Disabled) -->
           <li
             class="block md:inline-block w-[90%] mx-auto md:mr-auto md:ml-0 md:w-auto"
           >
-            <a href="#" class="rv-button rv-button-white block md:inline-block">
+            <span 
+              class="rv-button rv-button-white block md:inline-block opacity-50 cursor-pointer"
+              onclick="showUnavailableMessage()"
+            >
               <div class="rv-button-top text-center">
                 <span>App Store</span>
               </div>
               <div class="rv-button-bottom text-center">
                 <span>App Store</span>
               </div>
-            </a>
+            </span>
           </li>
         </ul>
+        <p id="app-unavailable-msg" class="text-primary mt-4 md:text-right text-sm hidden">Service currently unavailable</p>
       </div>
     </div>
   </div>
+  <script>
+    function showUnavailableMessage() {
+      const msg = document.getElementById('app-unavailable-msg');
+      msg.classList.remove('hidden');
+      setTimeout(() => {
+        msg.classList.add('hidden');
+      }, 3000);
+    }
+  </script>
 </section>
 
 
@@ -1080,22 +777,18 @@ our-expertise-v4 Section
     >
       <!-- Title Area -->
       <div class="md:w-[60%] md:self-start">
-        <div class="rv-badge mb-2">
-          <span class="rv-badge-text">Why Choose Uxory</span>
-        </div>
-        <h2 class="text-appear lg:leading-[1.1]">
+        <h3 class="text-appear lg:leading-[1.1]">
           Smart, scalable &
 
           <i class="font-instrument"> secure </i>
           <i class="font-instrument"> solutions </i>
-        </h2>
+        </h3>
       </div>
 
       <!-- Description -->
       <div class="w-full md:w-[40%] md:max-w-72 lg:max-w-[470px] md:self-end">
         <p class="text-appear max-w-lg md:text-right md:place-self-end">
-          We provide smart, secure solutions tailored to your business for
-          smooth digital transformation.
+        The details that matter when choosing a development partner.
         </p>
         <ul class="justify-self-end max-md:w-full mt-5 md:mt-10 reveal-me">
           <li
@@ -1153,9 +846,9 @@ our-expertise-v4 Section
               />
             </svg>
           </span>
-          <h5 class="mb-2.5 mt-5 lg:text-[35px]">AI-Driven Innovation</h5>
+          <h5 class="mb-2.5 mt-5 lg:text-[35px]">AI-Powered Intelligence</h5>
           <p class="text-base leading-[1.6]">
-            Harness cutting-edge AI to enhance automation & user engagement.
+          Intelligent features that enhance performance, automation, and insights where they matter.
           </p>
         </div>
         <!--  -->
@@ -1180,9 +873,9 @@ our-expertise-v4 Section
               />
             </svg>
           </span>
-          <h5 class="mb-2.5 mt-5 lg:text-[35px]">App Development</h5>
+          <h5 class="mb-2.5 mt-5 lg:text-[35px]">Reliable Backend Systems</h5>
           <p class="text-base leading-[1.6]">
-            Tailor-made solutions for startups, SMEs, and enterprises.
+          Clean, stable backends that power your product without crashes or slowdowns.
           </p>
         </div>
         <!--  -->
@@ -1212,9 +905,9 @@ our-expertise-v4 Section
               />
             </svg>
           </span>
-          <h5 class="mb-2.5 mt-5 lg:text-[35px]">Scalable & Secure</h5>
+          <h5 class="mb-2.5 mt-5 lg:text-[35px]">Security by Design</h5>
           <p class="text-base leading-[1.6]">
-            Apps built for growth, high performance & security.y
+          Data protection, access control, and best practices built in from day one.
           </p>
         </div>
       </div>
@@ -1244,7 +937,7 @@ our-expertise-v4 Section
           </span>
           <h5 class="mb-2.5 mt-5 lg:text-[35px]">Seamless UI/UX</h5>
           <p class="text-base leading-[1.6]">
-            Engaging, intuitive, and conversion-focused interfaces.
+          Simple, intuitive interfaces that users understand without training.
           </p>
         </div>
         <!--  -->
@@ -1296,9 +989,9 @@ our-expertise-v4 Section
               />
             </svg>
           </span>
-          <h5 class="mb-2.5 mt-5 lg:text-[35px]">Cross-Platform Development</h5>
+          <h5 class="mb-2.5 mt-5 lg:text-[35px]">Cross-Platform Compatibility</h5>
           <p class="text-base leading-[1.6]">
-            Web, iOS, and Android compatibility.
+          Your product runs smoothly on web, mobile, and across modern devices.
           </p>
         </div>
       </div>
@@ -1320,10 +1013,10 @@ our-expertise-v4 Section
     >
       <!-- Section Heading -->
       <div class="flex-1">
-        <h2 class="text-appear block md:hidden">
+        <h3 class="text-appear block md:hidden">
           <span class="font-instrument italic">Frequently asked </span>
           questions
-        </h2>
+        </h3>
         <h2 class="text-appear md:block hidden">
           <span class="font-instrument lg:text-[70px] italic"
             >Frequently asked
@@ -1335,8 +1028,7 @@ our-expertise-v4 Section
       <!-- Section Description -->
       <div class="md:self-end md:justify-self-end flex-1">
         <p class="text-appear max-w-lg md:text-right">
-          When detailing testimonials, it's important to include key elements
-          that provide context and authenticity
+        uick answers to common questions about working with us, our process, and what to expect.
         </p>
       </div>
     </div>
@@ -1360,9 +1052,7 @@ our-expertise-v4 Section
               <div class="accordion-header-iconV4 dark:border-dark"></div>
             </div>
             <p class="accordion-bodyV4 duration-300 h-0 overflow-hidden">
-              If you need to exchange a product, please contact us within 14
-              days of receiving your order. determine the best course of action
-              and guide you through the exchange process.
+              We focus on clarity, speed, and real outcomes. No overengineering, no vague promises - just solid execution.
             </p>
           </div>
         </div>
@@ -1380,9 +1070,7 @@ our-expertise-v4 Section
               <div class="accordion-header-iconV4 dark:border-dark"></div>
             </div>
             <p class="accordion-bodyV4 duration-300 h-0 overflow-hidden">
-              If you need to exchange a product, please contact us within 14
-              days of receiving your order. determine the best course of action
-              and guide you through the exchange process.
+              Yes. We provide maintenance, updates, and ongoing improvements after launch.
             </p>
           </div>
         </div>
@@ -1403,9 +1091,7 @@ our-expertise-v4 Section
               <div class="accordion-header-iconV4 dark:border-dark"></div>
             </div>
             <p class="accordion-bodyV4 duration-300 h-0 overflow-hidden">
-              If you need to exchange a product, please contact us within 14
-              days of receiving your order. determine the best course of action
-              and guide you through the exchange process.
+              Startups, SaaS, e-commerce, education, healthcare, and service-based businesses.
             </p>
           </div>
         </div>
@@ -1418,14 +1104,12 @@ our-expertise-v4 Section
               <h3
                 class="text-[23px] md:text-[25px] tracking-normal font-normal md:leading-[25.2px]"
               >
-                Do I have to pay customs fees or duty on my package?
+                How long does development take?
               </h3>
               <div class="accordion-header-iconV4 dark:border-dark"></div>
             </div>
             <p class="accordion-bodyV4 duration-300 h-0 overflow-hidden">
-              If you need to exchange a product, please contact us within 14
-              days of receiving your order. determine the best course of action
-              and guide you through the exchange process.
+              It depends on scope. MVPs usually take 4-8 weeks. Larger apps take longer.
             </p>
           </div>
         </div>
@@ -1446,9 +1130,7 @@ our-expertise-v4 Section
               <div class="accordion-header-iconV4 dark:border-dark"></div>
             </div>
             <p class="accordion-bodyV4 duration-300 h-0 overflow-hidden">
-              If you need to exchange a product, please contact us within 14
-              days of receiving your order. determine the best course of action
-              and guide you through the exchange process.
+              Pricing depends on features and complexity. We provide clear quotes after a quick discussion.
             </p>
           </div>
         </div>
@@ -1461,14 +1143,12 @@ our-expertise-v4 Section
               <h3
                 class="text-[23px] md:text-[25px] tracking-normal font-normal md:leading-[25.2px]"
               >
-                Where can I change or cancel my order?
+                Can you work with an existing product?
               </h3>
               <div class="accordion-header-iconV4 dark:border-dark"></div>
             </div>
             <p class="accordion-bodyV4 duration-300 h-0 overflow-hidden">
-              If you need to exchange a product, please contact us within 14
-              days of receiving your order. determine the best course of action
-              and guide you through the exchange process.
+              Yes. We improve, scale, or rebuild existing apps based on your needs.
             </p>
           </div>
         </div>
@@ -1477,59 +1157,26 @@ our-expertise-v4 Section
   </div>
 </section>
 
+<!--=====================================
+   CTA Section
+======================================-->
+<?php       
+include 'components/cta.php';
+?>
+
+<!-- ================================
+ Socials Section
+================================ -->
+<?php       
+include 'components/socials.php';
+?>
 
 <!--=====================================
-   CTA v15 Section
+   Blog Section
 ======================================-->
-<section class="pt-14 md:pt-16 lg:pt-[88px] xl:pt-[100px] relative">
-  <div class="container">
-    <!-- CTA Heading -->
-    <h2
-      class="text-center xl:text-[96px] font-normal xl:leading-[1.1] xl:tracking-[-2.88px]"
-    >
-      Let’s Build
-      <div
-        class="cta-slider-container max-sm:block sm:inline-block max-sm:mb-5 translate-y-2 sm:translate-y-[20px] max-sm:mt-2.5"
-      >
-        <div class="cta-inline-slider">
-          <div class="slide">
-            <img src="images/agent/13.png" alt="Slide 3" />
-          </div>
-          <div class="slide">
-            <img src="images/agent/02.jpg" alt="Slide 2" />
-          </div>
-          <div class="slide">
-            <img src="images/agent/12.png" alt="Slide 1" />
-          </div>
-        </div>
-      </div>
-      Next
-
-      <span
-        class="font-instrument font-medium sm:mt-10 italic block max-md:inline-block"
-        >App Together</span
-      >
-    </h2>
-
-    <!-- CTA Buttons -->
-    <ul class="flex justify-center items-center mt-14 list-none">
-      <!-- Primary CTA Button -->
-      <li class="block md:inline-block w-full mx-auto md:w-auto text-center">
-        <a
-          href="/contact.html"
-          class="rv-button rv-button-primary block md:inline-block"
-        >
-          <div class="rv-button-top">
-            <span>Book a Free Consultation</span>
-          </div>
-          <div class="rv-button-bottom">
-            <span class="text-nowrap">Book a Free Consultation</span>
-          </div>
-        </a>
-      </li>
-    </ul>
-  </div>
-</section>
+<?php       
+include 'components/blog.php';
+?>
 
 </main>
 

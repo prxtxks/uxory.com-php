@@ -1,63 +1,144 @@
 <!DOCTYPE html>
-<html lang="zxx">
+<html lang="en">
 
 <head>
-  <!-- Title -->
-  <title>Insights & Resources | Uxory Blog</title>
-  <meta name="description" content="Stay updated with Uxory's insights, resources, and expert tips on design, development, marketing, and digital innovation." />
-
+  <!-- Primary Meta Tags -->
   <meta charset="utf-8" />
-
-  <!-- Mobile Responsive Meta -->
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-  <meta name="robots" content="index, follow" />
-
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  
+  <title>Insights & Resources | Uxory Blog</title>
+  <meta name="description" content="Stay updated with Uxory's insights, resources, and expert tips on software development, web development, design, automation, and AI solutions." />
+  <meta name="author" content="Uxory" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <meta name="googlebot" content="index, follow" />
+  
+  <!-- Theme & Mobile Optimization -->
+  <meta name="theme-color" content="#000000" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="format-detection" content="telephone=no" />
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://uxory.com/blog-listings.php" />
+  
+  <!-- Performance Hints -->
+  <link rel="preconnect" href="https://www.google.com" crossorigin />
+  <link rel="dns-prefetch" href="https://www.google.com" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/images/favicon.svg" />
+  <link rel="icon" type="image/png" href="/images/favicon.png" sizes="96x96" />
+  <link rel="shortcut icon" href="/images/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png" />
+  
   <!-- Stylesheets -->
   <link href="assets/css/main.css?v=<?= filemtime('assets/css/main.css') ?>" rel="stylesheet" />
-
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="./images/favicon.png" sizes="96x96" />
-  <link rel="icon" type="image/svg+xml" href="./images/favicon.svg" />
-  <link rel="shortcut icon" href="images/favicon.png" />
-  <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png" />
-
-  <!-- Canonical -->
-  <link rel="canonical" href="https://uxory.com/blog-listings.php" />
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="Insights & Resources | Uxory Blog" />
-  <meta property="og:description" content="Stay updated with Uxory's insights, resources, and expert tips on design, development, marketing, and digital innovation." />
-  <meta property="og:image" content="https://uxory.com/images/logo.png" />
-  <meta property="og:url" content="https://uxory.com/blog-listings.php" />
+  
+  <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website" />
-
+  <meta property="og:url" content="https://uxory.com/blog-listings.php" />
+  <meta property="og:title" content="Insights & Resources | Uxory Blog" />
+  <meta property="og:description" content="Stay updated with Uxory's insights, resources, and expert tips on software development, web development, design, automation, and AI solutions." />
+  <meta property="og:image" content="https://uxory.com/images/logo.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Uxory Blog - Insights & Resources" />
+  <meta property="og:site_name" content="Uxory" />
+  <meta property="og:locale" content="en_US" />
+  
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://uxory.com/blog-listings.php" />
   <meta name="twitter:title" content="Insights & Resources | Uxory Blog" />
-  <meta name="twitter:description" content="Stay updated with Uxory's insights, resources, and expert tips on design, development, marketing, and digital innovation." />
+  <meta name="twitter:description" content="Stay updated with Uxory's insights, resources, and expert tips on software development, web development, design, automation, and AI solutions." />
   <meta name="twitter:image" content="https://uxory.com/images/logo.png" />
-
-  <!-- JSON-LD Structured Data -->
+  <meta name="twitter:image:alt" content="Uxory Blog - Insights & Resources" />
+  
+  <!-- Structured Data -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Blog",
-    "name": "Uxory Blog",
-    "url": "https://uxory.com/blog-listings.php",
-    "description": "Design, development, and marketing insights from Uxory Digital Solutions LLC.",
-    "publisher": {
-      "@type": "Organization",
-      "name": "Uxory",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://uxory.com/images/logo.png"
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://uxory.com/#organization",
+        "name": "Uxory",
+        "url": "https://uxory.com",
+        "logo": {
+          "@type": "ImageObject",
+          "@id": "https://uxory.com/#logo",
+          "url": "https://uxory.com/images/logo.png",
+          "contentUrl": "https://uxory.com/images/logo.png",
+          "width": 512,
+          "height": 512
+        },
+        "sameAs": [
+          "https://www.linkedin.com/company/uxory/",
+          "https://www.instagram.com/uxoryllc/"
+        ]
+      },
+      {
+        "@type": "Blog",
+        "@id": "https://uxory.com/blog-listings.php#blog",
+        "name": "Uxory Blog",
+        "url": "https://uxory.com/blog-listings.php",
+        "description": "Insights, resources, and expert tips on software development, web development, design, automation, and AI solutions.",
+        "publisher": {
+          "@id": "https://uxory.com/#organization"
+        }
+      },
+      {
+        "@type": "CollectionPage",
+        "@id": "https://uxory.com/blog-listings.php#webpage",
+        "url": "https://uxory.com/blog-listings.php",
+        "name": "Insights & Resources | Uxory Blog",
+        "description": "Stay updated with Uxory's insights, resources, and expert tips on software development, web development, design, automation, and AI solutions.",
+        "isPartOf": {
+          "@id": "https://uxory.com/#website"
+        },
+        "about": {
+          "@id": "https://uxory.com/blog-listings.php#blog"
+        },
+        "primaryImageOfPage": {
+          "@id": "https://uxory.com/#logo"
+        }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://uxory.com/#website",
+        "url": "https://uxory.com",
+        "name": "Uxory",
+        "publisher": {
+          "@id": "https://uxory.com/#organization"
+        }
       }
-    }
+    ]
   }
   </script>
+
 </head>
 
 <body>
+  <!-- Skip to main content for accessibility -->
+  <a href="#main-content" class="sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[99999] focus:px-4 focus:py-2 focus:bg-primary focus:text-black focus:font-bold focus:rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary" style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border-width: 0;">
+    Skip to main content
+  </a>
+  <style>
+    .sr-only:focus {
+      position: fixed !important;
+      width: auto !important;
+      height: auto !important;
+      padding: 0.5rem 1rem !important;
+      margin: 0 !important;
+      overflow: visible !important;
+      clip: auto !important;
+      white-space: normal !important;
+    }
+  </style>
 
 <!-- header  -->
 <?php       
@@ -75,17 +156,16 @@ include 'components/nav.php';
   class="menu-overflow fixed z-[9999] bg-[rgba(10,10,10,0.95)] bg-opacity-60 backdrop-blur-[25px] w-full h-full pointer-events-none"
 ></div>
 
-<!-- Cursor Pointer -->
-<div class="pointer"></div>
 
 <!-- Dark Mode toggle -->
 <?php       
 include 'components/dark_mode.php';
 ?>
 
-<!-- DB connection Use 'uxory_pratikesh_2025' for hostinger or 'newpassword' for mac -->
 <?php
-$conn = new mysqli("localhost", "root", "uxory_pratikesh_2025", "uxory_db");
+// Load secrets from config file (outside web root)
+$config = require __DIR__ . '/../../config/secrets.php';
+$conn = new mysqli($config['db_host'], $config['db_user'], $config['db_pass'], $config['db_name']);
 
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
@@ -107,7 +187,7 @@ $total_rows = $total_result->fetch_row()[0];
 $total_pages = ceil($total_rows / $limit);
 ?>
 
-<main class="lg:mb-[600px] relative z-10 bg-backgroundBody dark:bg-dark">
+<main id="main-content" class="lg:mb-[600px] relative z-10 bg-backgroundBody dark:bg-dark">
 <!--=====================================
    Page Header v3
 ======================================-->

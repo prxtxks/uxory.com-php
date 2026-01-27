@@ -7,4 +7,11 @@ Disallow: /php/submit_application.php
 Disallow: /*.php$
 Allow: /
 
+User-agent: Googlebot-Image
+Disallow: /images/services-icons/
+Disallow: /images/agent/
+Disallow: /images/icons/
+Disallow: /images/marquee-img/
+
+
 Sitemap: https://uxory.com/sitemap.xml

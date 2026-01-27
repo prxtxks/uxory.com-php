@@ -2,13 +2,28 @@
 <html lang="en">
 
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Rajesh Chaudhari- Uxory
-  </title>
-  <link rel="preconnect" href="https://fonts.googleapis.com/">
-  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="anonymous">
-  <link rel="icon" type="image/png" href="./images/F3.png">
+  <!-- Primary Meta Tags -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  
+  <title>Rajesh Chaudhari | Uxory</title>
+  <meta name="description" content="Personal profile page for Rajesh Chaudhari." />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+  
+  <!-- Robots: No indexing for personal profile pages -->
+  <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex" />
+  <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet, noimageindex" />
+  
+  <!-- Theme & Mobile Optimization -->
+  <meta name="theme-color" content="#000000" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="format-detection" content="telephone=no" />
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="/images/F3.png" />
 
   <style>
     a,
@@ -9668,14 +9683,7 @@
     })();
   </script>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Contact Rajesh Chaudhari, Director of Uxory Technologies Pvt. Ltd.">
-
-<!-- Prevent Search Engines from Indexing -->
-<meta name="robots" content="noindex, nofollow">
-
-<title>Rajesh Chaudhari</title>
+<!-- Additional meta tags removed - already set in main head section -->
   <style type="text/css">
     .vc-checkerboard {
       background-size: contain;
@@ -12962,8 +12970,24 @@
 </head>
 
 <body class="hydrated">
+  <!-- Skip to main content for accessibility -->
+  <a href="#main-content" class="sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[99999] focus:px-4 focus:py-2 focus:bg-primary focus:text-black focus:font-bold focus:rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary" style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border-width: 0;">
+    Skip to main content
+  </a>
+  <style>
+    .sr-only:focus {
+      position: fixed !important;
+      width: auto !important;
+      height: auto !important;
+      padding: 0.5rem 1rem !important;
+      margin: 0 !important;
+      overflow: visible !important;
+      clip: auto !important;
+      white-space: normal !important;
+    }
+  </style>
   <div id="__nuxt">
-    <div><!--[--><!--[-->
+    <div id="main-content"><!--[--><!--[-->
       <div class="brand-page-root-background"
         style="background:rgba(255,255,255, 1);background-size:cover;background-repeat:no-repeat;background-position:center center;position:fixed;top:0;left:0;width:100vw;height:100vh;"
         data-v-7e71fc85=""></div>
@@ -13090,7 +13114,7 @@
                   <section class="tw-relative" brand-page-token="6669682e-647b-4c1c-82cd-17fe87e63b36"
                     container-client-height="0" container-client-width="0" data-v-fbee2bb3="" data-v-7e71fc85="">
                     <div class="bp-button tw-mb-4 tw-min-h-14" data-v-fbee2bb3=""><!----><a title="Add to Contacts"
-                        href="https://www.uxory.com/rajesh-chaudhari.vcf" target="_blank"
+                        href="./rajesh-chaudhari.vcf" download
                         class="c-button tw-py-4 tw-items-center tw-px-5"
                         style="color:#ffffff;box-shadow:;border-color:#ffffff;border-style:solid;border-width:2px;border-radius:8px;background-color:#63e6dd;overflow-wrap:anywhere;word-break:normal;"
                         rel="noopener" data-v-fbee2bb3=""><span class="c-button__icon"
