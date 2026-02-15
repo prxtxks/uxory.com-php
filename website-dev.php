@@ -1187,52 +1187,51 @@ Our Work Section
           </div>
         </div>
 
-         <!-- Slide 02 Project Trezure -->
+        <!-- Slide Project 04 JadeRock Capital -->
         <div class="swiper-slide">
           <div
             class="flex flex-col md:flex-row items-start gap-y-5 md:space-x-10 content-between"
           >
             <img
-              src="/images/home-ai/trezure.webp"
-              alt="User Image"
+              src="/images/home-ai/jaderock.png"
+              alt="JadeRock Capital Website"
               class="max-md:w-full object-cover md:max-w-[300px] md:max-h-[260px]"
             />
             <div class="flex flex-col md:max-w-[650px]">
               
               <div class="flex items-center gap-x-6 mt-5 mb-[34px]">
-                <p class="text-2xl font-medium leading-[1.1]">TREZURE LIFESTYLE PRIVATE LIMITED</p>
+                <p class="text-2xl font-medium leading-[1.1]">JADEROCK CAPITAL</p>
               </div>
 
               <p class="text-lg leading-[1.6] tracking-[0.36px]">
-                A responsive website (concept design) for a Mumbai-based furniture brand to showcase custom designs and attract design-conscious buyers. 
-                Designed with a clean layout and easy navigation for a smooth browsing experience.
+                A professional website for a U.S. based commercial real estate and SBA financing advisory firm.
+                Designed to establish credibility, clearly communicate financing services, and support client acquisition
+                through a clean structure and conversion-focused layout.
               </p>
 
               <div class="flex items-center justify-between mt-12">
-                
-                  <a
-                    href="https://projects.uxory.com/trezure/"
-                    class="border dark:border-dark p-1.5 md:p-3 hover:bg-primary duration-300"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <img
-                      src="/images/icons/top-arrow.svg"
-                      alt="icon"
-                      class="block dark:hidden mt-[2px]"
-                    />
-                    <img
-                      src="/images/icons/top-arrow-dark.svg"
-                      alt="icon"
-                      class="hidden dark:block mt-[2px]"
-                    />
-                  </a>
-                
+                <a
+                  href="https://www.jaderockcap.com/"
+                  class="border dark:border-dark p-1.5 md:p-3 hover:bg-primary duration-300"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img
+                    src="/images/icons/top-arrow.svg"
+                    alt="icon"
+                    class="block dark:hidden mt-[2px]"
+                  />
+                  <img
+                    src="/images/icons/top-arrow-dark.svg"
+                    alt="icon"
+                    class="hidden dark:block mt-[2px]"
+                  />
+                </a>
               </div>
 
             </div>
           </div>
-        </div>       
+        </div>      
 
          <!-- Slide 03 Project Avics -->
         <div class="swiper-slide">
@@ -1280,98 +1279,54 @@ Our Work Section
             </div>
           </div>
         </div>
-        
-        <!-- Slide Project 04 JadeRock Capital -->
+
+        <!-- Slide 02 Project Trezure -->
         <div class="swiper-slide">
           <div
             class="flex flex-col md:flex-row items-start gap-y-5 md:space-x-10 content-between"
           >
             <img
-              src="/images/home-ai/jaderock.png"
-              alt="JadeRock Capital Website"
+              src="/images/home-ai/trezure.webp"
+              alt="User Image"
               class="max-md:w-full object-cover md:max-w-[300px] md:max-h-[260px]"
             />
             <div class="flex flex-col md:max-w-[650px]">
               
               <div class="flex items-center gap-x-6 mt-5 mb-[34px]">
-                <p class="text-2xl font-medium leading-[1.1]">JADEROCK CAPITAL</p>
+                <p class="text-2xl font-medium leading-[1.1]">TREZURE LIFESTYLE PRIVATE LIMITED</p>
               </div>
 
               <p class="text-lg leading-[1.6] tracking-[0.36px]">
-                A professional website for a U.S.-based commercial real estate and SBA financing advisory firm.
-                Designed to establish credibility, clearly communicate financing services, and support client acquisition
-                through a clean structure and conversion-focused layout.
-              </p>
-
-              <div class="flex items-center justify-between mt-12">
-                <a
-                  href="https://projects.uxory.com/jaderockcap/"
-                  class="border dark:border-dark p-1.5 md:p-3 hover:bg-primary duration-300"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <img
-                    src="/images/icons/top-arrow.svg"
-                    alt="icon"
-                    class="block dark:hidden mt-[2px]"
-                  />
-                  <img
-                    src="/images/icons/top-arrow-dark.svg"
-                    alt="icon"
-                    class="hidden dark:block mt-[2px]"
-                  />
-                </a>
-              </div>
-
-            </div>
-          </div>
-        </div>
-
-        <!-- Slide Project: Jahnavi Ammineni Portfolio -->
-        <!-- <div class="swiper-slide">
-          <div
-            class="flex flex-col md:flex-row items-start gap-y-5 md:space-x-10 content-between"
-          >
-            <img
-              src="/images/home-ai/jahnavi.png"
-              alt="Jahnavi Ammineni Portfolio"
-              class="max-md:w-full object-cover md:max-w-[300px] md:max-h-[260px]"
-            />
-            <div class="flex flex-col md:max-w-[650px]">
-              
-              <div class="flex items-center gap-x-6 mt-5 mb-[34px]">
-                <p class="text-2xl font-medium leading-[1.1]">JAHNAVI AMMINENI CV</p>
-              </div>
-
-              <p class="text-lg leading-[1.6] tracking-[0.36px]">
-                  Designed a modern, responsive portfolio website for our US-based client Jahnavi Ammineni, highlighting her projects, CV, and professional achievements.
+                A responsive website (concept design) for a Mumbai-based furniture brand to showcase custom designs and attract design-conscious buyers. 
+                Designed with a clean layout and easy navigation for a smooth browsing experience.
               </p>
 
               <div class="flex items-center justify-between mt-12">
                 
-                <a
-                  href="https://www.jahnaviammineni.com"
-                  class="border dark:border-dark p-1.5 md:p-3 hover:bg-primary duration-300"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <img
-                    src="/images/icons/top-arrow.svg"
-                    alt="View Project"
-                    class="block dark:hidden mt-[2px]"
-                  />
-                  <img
-                    src="/images/icons/top-arrow-dark.svg"
-                    alt="View Project"
-                    class="hidden dark:block mt-[2px]"
-                  />
-                </a>
-              
+                  <a
+                    href="https://projects.uxory.com/trezure/"
+                    class="border dark:border-dark p-1.5 md:p-3 hover:bg-primary duration-300"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <img
+                      src="/images/icons/top-arrow.svg"
+                      alt="icon"
+                      class="block dark:hidden mt-[2px]"
+                    />
+                    <img
+                      src="/images/icons/top-arrow-dark.svg"
+                      alt="icon"
+                      class="hidden dark:block mt-[2px]"
+                    />
+                  </a>
+                
               </div>
 
             </div>
           </div>
-        </div> -->
+        </div> 
+        
         
       </div>
       
@@ -1422,7 +1377,7 @@ Our Work Section
 $299 website 
 ================================ -->
 <section
-  class="pt-10 md:pt-12 lg:pt-16 xl:pt-20 mt-14 md:mt-16 lg:mt-[88px] xl:pt-[100px] md:pb-16 lg:pb-[88px] xl:pb-[100px] overflow-hidden bg-[#CBE8DF] service-section"
+  class="pt-10 md:pt-12 lg:pt-16 xl:pt-20 mt-14 md:mt-16 lg:mt-[88px] xl:pt-[100px] pb-14 md:pb-16 lg:pb-[88px] xl:pb-[100px] overflow-hidden bg-[#CBE8DF] service-section"
 >
   <!--  section header -->
   <div class="container">

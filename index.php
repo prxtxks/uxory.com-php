@@ -700,7 +700,7 @@ include 'components/dark_mode.php';
           </figure>
           <div class="flex-1">
             <h3 class="text-2xl leading-[1.2] tracking-[-0.72px] mb-3 mr-2">
-              Special Propjects
+              Special Projects
             </h3>
           </div>
           <span class="absolute top-3 right-3">
