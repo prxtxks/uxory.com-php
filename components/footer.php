@@ -116,13 +116,6 @@
           </li>
           <li class="mb-4">
             <a
-              href="/services.php"
-              class="block text-white transition-colors duration-300 font-semibold hover:text-primary"
-              >Services</a
-            >
-          </li>
-          <li class="mb-4">
-            <a
               href="/career.php"
               class="block text-white transition-colors duration-300 font-semibold hover:text-primary"
               >Career</a

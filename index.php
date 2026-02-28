@@ -944,11 +944,11 @@ What we build and why it works Section
         >
           
           <figcaption class="absolute top-8">
-            <h6 class="text-[22px] leading-[1.2] mb-[2px] pr-2">Automated Lead Generationg</h6>
+            <h6 class="text-[22px] leading-[1.2] mb-[2px] pr-2">Automated Lead Generation</h6>
           </figcaption>
 
           <p class="text-lg leading-[1.6] mt-20">
-            We set up systems that can consistently attract and qualify potential customers for you.
+            We set up systems that can consistently attract (scrape the internet) and qualify potential customers for you.
           </p>
         </div>
       </div>
