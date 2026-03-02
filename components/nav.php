@@ -80,6 +80,14 @@
 
           <li>
             <a
+              href="/reviews.php"
+              class="text-white inline-block pb-1 pl-3 menu-list-item-dropdown-list text-base md:text-lg leading-8 md:leading-[50px] <?= ($currentPage ?? '') === 'reviews' ? 'active' : '' ?>"
+              >Client Reviews
+            </a>
+          </li>
+
+          <li>
+            <a
               href="/blog-listings.php"
               class="text-white inline-block pb-1 pl-3 menu-list-item-dropdown-list text-base md:text-lg leading-8 md:leading-[50px] <?= ($currentPage ?? '') === 'blog' ? 'active' : '' ?>"
               >Blogs & Insights
@@ -142,25 +150,17 @@
 
           <li>
             <a
-              href="/available-soon.php"
-              class="text-white inline-block pb-1 pl-3 menu-list-item-dropdown-list text-base md:text-lg leading-8 md:leading-[50px] <?= ($currentPage ?? '') === 'empty' ? 'active' : '' ?>"
-              >AI Systems & Agents
-            </a>
-          </li>
-
-          <li>
-            <a
               href="/process-automation.php"
               class="text-white inline-block pb-1 pl-3 menu-list-item-dropdown-list text-base md:text-lg leading-8 md:leading-[50px] <?= ($currentPage ?? '') === 'process_automation' ? 'active' : '' ?>"
-              >Business Process Automation
+              >AI Agents & Automation
             </a>
           </li>
 
           <li>
             <a
-              href="/software-dev.php"
-              class="text-white inline-block pb-1 pl-3 menu-list-item-dropdown-list text-base md:text-lg leading-8 md:leading-[50px] <?= ($currentPage ?? '') === 'software-dev' ? 'active' : '' ?>"
-              >Software Development
+              href="/web-app-and-saas-dev.php"
+              class="text-white inline-block pb-1 pl-3 menu-list-item-dropdown-list text-base md:text-lg leading-8 md:leading-[50px] <?= ($currentPage ?? '') === 'web-app-saas-dev' ? 'active' : '' ?>"
+              >Web App & SaaS Development
             </a>
           </li>
 
@@ -174,17 +174,9 @@
 
           <li>
             <a
-              href="/web-and-app-solutions.php"
-              class="text-white inline-block pb-1 pl-3 menu-list-item-dropdown-list text-base md:text-lg leading-8 md:leading-[50px] <?= ($currentPage ?? '') === 'web-app-solutions' ? 'active' : '' ?>"
-              >Web & Mobile Apps
-            </a>
-          </li>
-
-          <li>
-            <a
-              href="/available-soon.php"
-              class="text-white inline-block pb-1 pl-3 menu-list-item-dropdown-list text-base md:text-lg leading-8 md:leading-[50px] <?= ($currentPage ?? '') === 'empty' ? 'active' : '' ?>"
-              >Special Projects 
+              href="/mobile-app-development.php"
+              class="text-white inline-block pb-1 pl-3 menu-list-item-dropdown-list text-base md:text-lg leading-8 md:leading-[50px] <?= ($currentPage ?? '') === 'mobile-app-dev' ? 'active' : '' ?>"
+              >Mobile App Development
             </a>
           </li>
           

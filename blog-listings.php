@@ -163,28 +163,51 @@ include 'components/dark_mode.php';
 ?>
 
 <?php
-// Load secrets from config file (outside web root)
 $config = require __DIR__ . '/../../config/secrets.php';
-$conn = new mysqli($config['db_host'], $config['db_user'], $config['db_pass'], $config['db_name']);
+$supabaseUrl = $config['supabase_url'];
+$supabaseKey = $config['supabase_service_key'];
 
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-?>
-
-<!-- pagination -->
-<?php
 $limit = 9;
-$page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
-$start_from = ($page - 1) * $limit;
+$page = isset($_GET['page']) ? max(1, (int)$_GET['page']) : 1;
+$offset = ($page - 1) * $limit;
 
-$sql = "SELECT * FROM blogs ORDER BY created_at DESC LIMIT $start_from, $limit";
-$result = $conn->query($sql);
+// Fetch paginated blogs
+$ch = curl_init($supabaseUrl . '/rest/v1/blogs?select=*&order=created_at.desc&limit=' . $limit . '&offset=' . $offset);
+curl_setopt_array($ch, [
+    CURLOPT_RETURNTRANSFER => true,
+    CURLOPT_HTTPHEADER => [
+        'apikey: ' . $supabaseKey,
+        'Authorization: Bearer ' . $supabaseKey,
+        'Content-Type: application/json',
+        'Prefer: count=exact',
+    ],
+]);
+$response = curl_exec($ch);
+$headerSize = curl_getinfo($ch, CURLINFO_HEADER_SIZE);
+curl_close($ch);
 
-$total_sql = "SELECT COUNT(*) FROM blogs";
-$total_result = $conn->query($total_sql);
-$total_rows = $total_result->fetch_row()[0];
-$total_pages = ceil($total_rows / $limit);
+$blogs = json_decode($response, true) ?: [];
+
+// Get total count for pagination
+$ch = curl_init($supabaseUrl . '/rest/v1/blogs?select=id');
+curl_setopt_array($ch, [
+    CURLOPT_RETURNTRANSFER => true,
+    CURLOPT_HEADER => true,
+    CURLOPT_HTTPHEADER => [
+        'apikey: ' . $supabaseKey,
+        'Authorization: Bearer ' . $supabaseKey,
+        'Prefer: count=exact',
+    ],
+]);
+$countResponse = curl_exec($ch);
+$countHeaders = substr($countResponse, 0, curl_getinfo($ch, CURLINFO_HEADER_SIZE));
+curl_close($ch);
+
+$total_rows = 0;
+if (preg_match('/content-range:\s*\d+-\d+\/(\d+)/i', $countHeaders, $m)) {
+    $total_rows = (int)$m[1];
+}
+$total_pages = max(1, ceil($total_rows / $limit));
 ?>
 
 <main id="main-content" class="lg:mb-[600px] relative z-10 bg-backgroundBody dark:bg-dark">
@@ -289,31 +312,34 @@ $total_pages = ceil($total_rows / $limit);
         </a>
       </div> -->
 
-      <?php while($row = $result->fetch_assoc()): ?>
+      <?php foreach ($blogs as $row): ?>
         <div class="max-w-[370px] reveal-me group">
           <figure class="overflow-hidden">
-            <img src="<?= $row['image'] ?>" alt="<?= $row['title'] ?>" class="w-full h-full transition-all duration-500 group-hover:scale-125 group-hover:rotate-3" />
+            <img src="<?= htmlspecialchars($row['image']) ?>" alt="<?= htmlspecialchars($row['title']) ?>" class="w-full h-full transition-all duration-500 group-hover:scale-125 group-hover:rotate-3" />
           </figure>
-          <a href="blog-details.php?slug=<?= $row['slug'] ?>">
+          <a href="<?= htmlspecialchars($row['link']) ?>">
             <div class="blog-title mt-[30px] mb-5">
               <h3 class="text[25px] md:text-3xl lg:text-4xl lg:leading-[1.2] lg:tracking-[-0.72px]">
-                <?= $row['title'] ?>
+                <?= htmlspecialchars($row['title']) ?>
               </h3>
             </div>
           </a>
           <p class="mb-7 md:mb-10">
-            <?= substr($row['content'], 0, 120) ?>...
+            <?= htmlspecialchars($row['excerpt']) ?>
           </p>
-          <a href="<?= $row['link'] ?>" class="rv-button rv-button-primary2">
-            <div class="rv-button-top flex items-center">
-              <span class="pr-1">Read More</span>
+          <a href="<?= htmlspecialchars($row['link']) ?>" class="rv-button rv-button-primary2">
+            <div class="rv-button-top !text-center flex items-center">
+              <span class="pr-1"><?= (int)$row['read_time'] ?> minute read</span>
+              <img class="inline dark:hidden" src="images/icons/top-arrow.svg" alt="Arrow Icon" />
+              <img class="hidden dark:inline" src="images/icons/top-arrow-dark.svg" alt="Arrow Icon" />
             </div>
-            <div class="rv-button-bottom flex items-center">
-              <span class="pr-1">Read More</span>
+            <div class="rv-button-bottom !text-center flex items-center">
+              <span class="pr-1"><?= (int)$row['read_time'] ?> minute read</span>
+              <img class="inline" src="images/icons/top-arrow.svg" alt="Arrow Icon" />
             </div>
           </a>
         </div>
-      <?php endwhile; ?>
+      <?php endforeach; ?>
 
      
     </div>

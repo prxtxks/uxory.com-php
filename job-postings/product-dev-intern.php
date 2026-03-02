@@ -125,16 +125,16 @@ include '../components/dark_mode.php';
   <div class="max-w-[1440px] mx-auto px-10 md:px-20">
     <div>
       <!-- Tab Navigation -->
-      <div class="flex flex-col sm:flex-row justify-center mb-12 lg:mb-14 reveal-me">
+      <div class="tab-nav-wrap mb-12 lg:mb-14 reveal-me">
         <button
           onclick="switchTab('Overview')"
-          class="tab-button active text-base uppercase leading-[1.1] tracking-[1.12px] max-md:py-5 md:py-8 max-md:px-10 md:px-16 font-medium border-y border-l dark:border-transparent dark:bg-backgroundBody dark:text-secondary"
+          class="tab-button active text-base uppercase leading-[1.1] tracking-[1.12px] max-md:py-5 md:py-8 max-md:px-10 md:px-16 font-medium"
         >
           Overview
         </button>
         <button
           onclick="switchTab('Apply')"
-          class="tab-button text-base uppercase leading-[1.1] tracking-[1.12px] max-md:py-5 max-md:px-14 md:py-8 md:px-20 font-medium border-y border-r dark:border-transparent dark:bg-backgroundBody dark:text-secondary"
+          class="tab-button text-base uppercase leading-[1.1] tracking-[1.12px] max-md:py-5 max-md:px-14 md:py-8 md:px-20 font-medium"
         >
           Apply
         </button>

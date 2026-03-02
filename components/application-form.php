@@ -5,38 +5,42 @@ $positionTitle = $positionTitle ?? 'General Application';
 ?>
 
 <div class="tab-content hidden" id="Apply">
-  <form id="applicationForm" class="space-y-[30px] max-w-[770px] mx-auto">
+  <div class="review-form-card p-8 md:p-12 max-w-[860px] mx-auto">
+  <form id="applicationForm" class="space-y-[30px]">
     <!-- Hidden position field -->
     <input type="hidden" name="position" value="<?= htmlspecialchars($positionTitle) ?>" />
+    <input type="text" name="website" style="display:none !important" tabindex="-1" autocomplete="off" aria-hidden="true" />
 
     <div class="w-full">
-      <label for="name" class="text-2xl leading-[1.2] tracking-[-0.48px] text-[#000000b3] dark:text-dark-100">Full Name*</label>
+      <label for="name" class="text-2xl leading-[1.2] tracking-[-0.48px] text-secondary dark:text-backgroundBody">Full Name*</label>
       <input 
         type="text" 
         name="name" 
-        placeholder="Enter Your Name" 
+        placeholder="Enter your full name" 
         required 
-        class="py-4 pl-5 bg-backgroundBody dark:bg-dark focus:outline-none focus:border-primary border dark:border-dark w-full text-colorText dark:text-backgroundBody/70 placeholder:text-secondary/30 placeholder:dark:text-backgroundBody/30 text-xl leading-[1.4] tracking-[0.4px] mt-3" 
+        class="py-4 pl-5 bg-backgroundBody dark:bg-dark focus:outline-none focus:border-primary border dark:border-dark w-full text-colorText dark:text-backgroundBody/70 text-xl leading-[1.4] tracking-[0.4px] mt-3" 
+        style="border-radius: 10px;"
       />
     </div>
 
     <div class="w-full">
-      <label for="email" class="text-2xl leading-[1.2] tracking-[-0.48px] text-[#000000b3] dark:text-dark-100">Email*</label>
+      <label for="email" class="text-2xl leading-[1.2] tracking-[-0.48px] text-secondary dark:text-backgroundBody">Email*</label>
       <input 
         type="email" 
         name="email" 
         placeholder="you@example.com" 
         required 
-        class="py-4 pl-5 bg-backgroundBody dark:bg-dark focus:outline-none focus:border-primary border dark:border-dark w-full text-colorText dark:text-backgroundBody/70 placeholder:text-secondary/30 placeholder:dark:text-backgroundBody/30 text-xl leading-[1.4] tracking-[0.4px] mt-3" 
+        class="py-4 pl-5 bg-backgroundBody dark:bg-dark focus:outline-none focus:border-primary border dark:border-dark w-full text-colorText dark:text-backgroundBody/70 text-xl leading-[1.4] tracking-[0.4px] mt-3" 
+        style="border-radius: 10px;"
       />
     </div>
 
     <div class="w-full">
-      <label for="resume" class="text-2xl leading-[1.2] tracking-[-0.48px] text-[#000000b3] dark:text-dark-100">Resume*</label>
-      <div class="border border-secondary/10 dark:border-dark p-4 mt-3">
+      <label for="resume" class="text-2xl leading-[1.2] tracking-[-0.48px] text-secondary dark:text-backgroundBody">Resume*</label>
+      <div class="border dark:border-dark p-6 mt-3" style="border-radius: 12px;">
         <div class="flex justify-between items-center">
           <div class="flex flex-wrap items-center mx-auto gap-5">
-            <label class="relative">
+            <label class="relative cursor-pointer">
               <input 
                 type="file" 
                 name="resume" 
@@ -45,31 +49,53 @@ $positionTitle = $positionTitle ?? 'General Application';
                 class="hidden" 
                 onchange="document.getElementById('file-name').textContent = this.files[0] ? 'Selected: ' + this.files[0].name : ''" 
               />
-              <figure class="inline-flex gap-2 px-6 py-3 rounded-full dark:bg-dark/10 border border-secondary/30 dark:border-backgroundBody/30 text-base text-secondary/70 dark:text-backgroundBody/70 hover:bg-gray-100 dark:hover:bg-dark-300 cursor-pointer transition-colors">
-                <img src="/images/icons/file-upload.svg" class="inline-flex left-0 dark:hidden" alt="Upload" />
-                <img src="/images/icons/file-upload-dark.svg" class="left-0 dark:inline hidden" alt="Upload" />
+              <figure class="inline-flex gap-2 px-6 py-3 rounded-full border border-secondary/30 dark:border-backgroundBody/30 text-base text-secondary/70 dark:text-backgroundBody/70 hover:bg-gray-100 dark:hover:bg-dark/30 transition-colors">
+                <img src="/images/icons/file-upload.svg" class="inline-flex dark:hidden" alt="Upload" />
+                <img src="/images/icons/file-upload-dark.svg" class="dark:inline hidden" alt="Upload" />
                 <span>Upload File</span>
               </figure>
             </label>
-            <h3 class="text-[21px] text-secondary/70 dark:text-backgroundBody/70 leading-7 tracking-[0.4px] mb-2">Or drag and drop here</h3>
+            <p class="text-lg text-secondary/60 dark:text-backgroundBody/60">Or drag and drop here</p>
           </div>
         </div>
-        <div id="file-name" class="mt-2 text-sm text-primary dark:text-primary"></div>
+        <div id="file-name" class="mt-2 text-sm text-primary"></div>
         <p class="mt-2 text-sm text-secondary/50 dark:text-backgroundBody/50">Accepted: PDF, DOC, DOCX, PNG, JPG (Max 5MB)</p>
       </div>
     </div>
 
-    <!-- reCAPTCHA -->
-    <div id="application-recaptcha" class="g-recaptcha mt-4" data-sitekey="6LeSajcsAAAAALS4VDz_NUpt7ZxXziL1q-GZuklX"></div>
+    <div id="application-recaptcha-wrapper" class="hidden mt-4">
+      <div id="application-recaptcha"></div>
+    </div>
 
     <!-- Status Message -->
     <div id="applicationStatusMsg" class="text-base lg:text-lg font-medium"></div>
 
     <!-- Submit Button -->
-    <div class="w-full">
-      <button type="submit" class="bg-primary dark:bg-backgroundBody hover:bg-primary/30 cursor-pointer duration-300 dark:hover:bg-backgroundBody/90 text-secondary p-8 uppercase w-full font-medium">
-        Submit Application
+    <div class="w-full flex justify-center pt-2">
+      <button type="submit" class="rv-button rv-button-primary">
+        <div class="rv-button-top"><span>Submit Application</span></div>
+        <div class="rv-button-bottom"><span>Submit Application</span></div>
       </button>
     </div>
   </form>
+
+  <!-- Success Screen -->
+  <div id="applicationSuccess" class="hidden text-center py-8 md:py-12 px-4">
+    <div class="mx-auto mb-6">
+      <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-20 h-20 mx-auto">
+        <circle class="success-circle" cx="40" cy="40" r="36" stroke="rgb(18 216 204)" stroke-width="3" fill="none"/>
+        <polyline class="success-check" points="24,41 35,52 56,30" stroke="rgb(18 216 204)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      </svg>
+    </div>
+    <h3 class="text-2xl md:text-3xl font-medium mb-3">Application submitted!</h3>
+    <p class="text-colorText dark:text-backgroundBody/70 text-lg leading-relaxed mb-8 max-w-sm mx-auto">
+      We've received your application and will be in touch if there's a match. Thank you for your interest in joining Uxory.
+    </p>
+    <button id="applicationResetBtn" class="rv-button rv-button-primary mx-auto">
+      <div class="rv-button-top"><span>Apply Again</span></div>
+      <div class="rv-button-bottom"><span>Apply Again</span></div>
+    </button>
+  </div>
+
+  </div>
 </div>

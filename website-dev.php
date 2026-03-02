@@ -304,8 +304,8 @@ include 'components/dark_mode.php';
     <div class="flex flex-col gap-8 lg:flex-row">
       <!-- Main Content -->
       <article class="project-details-body w-full">
-        <div class="video-parents reveal-me-2 relative overflow-hidden">
-          <div class="w-full h-fit video-wrapper scale-50 origin-top">
+        <div class="video-parents reveal-me-2 relative">
+          <div class="w-full h-fit video-wrapper scale-50 origin-top" style="border-radius: 24px; overflow: hidden;">
             <img
               src="images/hero-img/website-hero.jpg"
               alt="Services Big Img"
@@ -1150,6 +1150,7 @@ Our Work Section
               src="/images/home-ai/trimhr.webp"
               alt="TrimHR"
               class="max-md:w-full object-cover md:max-w-[300px] md:max-h-[260px]"
+              style="border-radius: 16px;"
             />
             <div class="flex flex-col md:max-w-[650px]">
               
@@ -1165,7 +1166,7 @@ Our Work Section
                 
                   <a
                     href="https://www.trimhr.com"
-                    class="border dark:border-dark p-1.5 md:p-3 hover:bg-primary duration-300"
+                    class="border dark:border-dark p-1.5 md:p-3 hover:bg-primary duration-300" style="border-radius: 10px;"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -1196,6 +1197,7 @@ Our Work Section
               src="/images/home-ai/jaderock.png"
               alt="JadeRock Capital Website"
               class="max-md:w-full object-cover md:max-w-[300px] md:max-h-[260px]"
+              style="border-radius: 16px;"
             />
             <div class="flex flex-col md:max-w-[650px]">
               
@@ -1212,7 +1214,7 @@ Our Work Section
               <div class="flex items-center justify-between mt-12">
                 <a
                   href="https://www.jaderockcap.com/"
-                  class="border dark:border-dark p-1.5 md:p-3 hover:bg-primary duration-300"
+                  class="border dark:border-dark p-1.5 md:p-3 hover:bg-primary duration-300" style="border-radius: 10px;"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -1242,6 +1244,7 @@ Our Work Section
               src="/images/home-ai/avics.webp"
               alt="User Image"
               class="max-md:w-full object-cover md:max-w-[300px] md:max-h-[260px]"
+              style="border-radius: 16px;"
             />
             <div class="flex flex-col md:max-w-[650px]">
               
@@ -1258,7 +1261,7 @@ Our Work Section
                 
                   <a
                     href="https://projects.uxory.com/avics/"
-                    class="border dark:border-dark p-1.5 md:p-3 hover:bg-primary duration-300"
+                    class="border dark:border-dark p-1.5 md:p-3 hover:bg-primary duration-300" style="border-radius: 10px;"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -1289,6 +1292,7 @@ Our Work Section
               src="/images/home-ai/trezure.webp"
               alt="User Image"
               class="max-md:w-full object-cover md:max-w-[300px] md:max-h-[260px]"
+              style="border-radius: 16px;"
             />
             <div class="flex flex-col md:max-w-[650px]">
               
@@ -1305,7 +1309,7 @@ Our Work Section
                 
                   <a
                     href="https://projects.uxory.com/trezure/"
-                    class="border dark:border-dark p-1.5 md:p-3 hover:bg-primary duration-300"
+                    class="border dark:border-dark p-1.5 md:p-3 hover:bg-primary duration-300" style="border-radius: 10px;"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -1419,7 +1423,7 @@ $299 website
   >
     <!-- card 1 -->
         <div
-          class="bg-backgroundBody dark:bg-dark border dark:border-dark p-[30px] reveal-me w-full"
+          class="sets-apart-card p-[30px] reveal-me w-full"
         >
           <div class="rv-badge mb-3">
             <span class="rv-badge-text">Starter Spark</span>
@@ -1427,11 +1431,11 @@ $299 website
 
           <h5 id="sparkPrice" class="pt-2 pb-4">&nbsp;</h5>
 
-          <a href="./contact.php" class="rv-button rv-button-white !w-full mb-10" >
-            <div class="rv-button-top !w-full !text-center">
+          <a href="./contact.php" class="rv-button rv-button-white mb-10" >
+            <div class="rv-button-top">
               <span class="!font-normal"> Get Started</span>
             </div>
-            <div class="rv-button-bottom !w-full !text-center">
+            <div class="rv-button-bottom">
               <span class="!font-normal"> Get Started</span>
             </div>
           </a>
@@ -1818,7 +1822,7 @@ $299 website
 
     <!-- card 2 -->
         <div
-          class="bg-backgroundBody dark:bg-dark border dark:border-dark p-[30px] reveal-me w-full"
+          class="sets-apart-card p-[30px] reveal-me w-full"
         >
           <div class="rv-badge mb-3">
             <span class="rv-badge-text">Commerce Catalyst</span>
@@ -1826,11 +1830,11 @@ $299 website
 
           <h5 id="catalystPrice" class="pt-2 pb-4">&nbsp;</h5>
 
-          <a href="./contact.php" class="rv-button rv-button-white !w-full mb-10">
-            <div class="rv-button-top !w-full !text-center">
+          <a href="./contact.php" class="rv-button rv-button-white mb-10">
+            <div class="rv-button-top">
               <span class="!font-normal"> Get Started</span>
             </div>
-            <div class="rv-button-bottom !w-full !text-center">
+            <div class="rv-button-bottom">
               <span class="!font-normal"> Get Started</span>
             </div>
           </a>
@@ -2218,7 +2222,7 @@ $299 website
     
     <!-- card 3 -->
         <div
-          class="bg-backgroundBody dark:bg-dark border dark:border-dark p-[30px] reveal-me w-full"
+          class="sets-apart-card p-[30px] reveal-me w-full"
         >
           <div class="rv-badge mb-3">
             <span class="rv-badge-text">Infinite Impact</span>
@@ -2227,11 +2231,11 @@ $299 website
           <h5 class="pt-2 pb-4">Ask Us</h5>
           
 
-          <a href="./contact.php" class="rv-button rv-button-white !w-full mb-10 mt-auto">
-            <div class="rv-button-top !w-full !text-center">
+          <a href="./contact.php" class="rv-button rv-button-white mb-10 mt-auto">
+            <div class="rv-button-top">
               <span class="!font-normal"> Get Started</span>
             </div>
-            <div class="rv-button-bottom !w-full !text-center">
+            <div class="rv-button-bottom">
               <span class="!font-normal"> Get Started</span>
             </div>
           </a>

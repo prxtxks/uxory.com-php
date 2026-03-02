@@ -1,15 +1,11 @@
 <?php
 header('Content-Type: application/json');
 
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
-
-require 'src/PHPMailer-master/src/Exception.php';
-require 'src/PHPMailer-master/src/PHPMailer.php';
-require 'src/PHPMailer-master/src/SMTP.php';
+require __DIR__ . '/resend.php';
 
 // Load secrets from config file (outside web root)
 $config = require __DIR__ . '/../../../config/secrets.php';
+$resendKey = $config['resend_api_key'];
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     echo json_encode(['status' => 'error', 'message' => 'Invalid request method.']);
@@ -17,34 +13,17 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 }
 
 /* ===============================
-   RECAPTCHA VALIDATION
+   HONEYPOT
    =============================== */
 
-$recaptchaSecret = $config['recaptcha_secret'];
-$recaptchaResponse = $_POST['g-recaptcha-response'] ?? '';
-
-$ch = curl_init('https://www.google.com/recaptcha/api/siteverify');
-curl_setopt_array($ch, [
-    CURLOPT_POST => true,
-    CURLOPT_POSTFIELDS => http_build_query([
-        'secret' => $recaptchaSecret,
-        'response' => $recaptchaResponse
-    ]),
-    CURLOPT_RETURNTRANSFER => true
-]);
-
-$response = curl_exec($ch);
-curl_close($ch);
-
-$captchaData = json_decode($response);
-
-if (!$captchaData || !$captchaData->success) {
-    echo json_encode(['status' => 'error', 'message' => 'CAPTCHA verification failed.']);
+$honeypot = trim($_POST['website'] ?? '');
+if ($honeypot !== '') {
+    echo json_encode(['status' => 'success', 'message' => 'Application submitted successfully!']);
     exit;
 }
 
 /* ===============================
-   RATE LIMITING
+   RATE LIMITING + CONDITIONAL CAPTCHA
    =============================== */
 
 $ip = $_SERVER['REMOTE_ADDR'];
@@ -56,7 +35,7 @@ if (!is_dir($rateDir)) {
     mkdir($rateDir, 0755, true);
 }
 
-$file = $rateDir . '/' . md5($ip . '_application');
+$file = $rateDir . '/app_' . md5($ip);
 $data = ['count' => 0, 'time' => time()];
 
 if (file_exists($file)) {
@@ -64,11 +43,34 @@ if (file_exists($file)) {
 
     if (time() - $data['time'] < $window) {
         if ($data['count'] >= $limit) {
-            echo json_encode([
-                'status' => 'error',
-                'message' => 'Too many applications submitted. Please try again later.'
+            $recaptchaResponse = $_POST['g-recaptcha-response'] ?? '';
+
+            if (!$recaptchaResponse) {
+                echo json_encode([
+                    'status'  => 'captcha_required',
+                    'message' => 'Please complete the CAPTCHA to continue.',
+                ]);
+                exit;
+            }
+
+            $recaptchaSecret = $config['recaptcha_secret'];
+            $ch = curl_init('https://www.google.com/recaptcha/api/siteverify');
+            curl_setopt_array($ch, [
+                CURLOPT_POST           => true,
+                CURLOPT_POSTFIELDS     => http_build_query([
+                    'secret'   => $recaptchaSecret,
+                    'response' => $recaptchaResponse,
+                ]),
+                CURLOPT_RETURNTRANSFER => true,
             ]);
-            exit;
+            $captchaResult = curl_exec($ch);
+            curl_close($ch);
+
+            $captchaData = json_decode($captchaResult);
+            if (!$captchaData || !$captchaData->success) {
+                echo json_encode(['status' => 'error', 'message' => 'CAPTCHA verification failed.']);
+                exit;
+            }
         }
         $data['count']++;
     } else {
@@ -128,77 +130,60 @@ if ($resume['size'] > $maxSize) {
 }
 
 /* ===============================
-   EMAIL LOGIC
+   EMAIL LOGIC (Resend API)
    =============================== */
 
-try {
-    // Admin notification email
-    $mail = new PHPMailer(true);
-    $mail->isSMTP();
-    $mail->Host = 'smtp.gmail.com';
-    $mail->SMTPAuth = true;
-    $mail->Username = 'noreply.uxory@gmail.com';
-    $mail->Password = $config['gmail_smtp_password'];
-    $mail->SMTPSecure = 'tls';
-    $mail->Port = 587;
+$adminHtml = "
+    <h2>New Job Application Received</h2>
+    <p><strong>Position:</strong> {$position}</p>
+    <p><strong>Name:</strong> {$name}</p>
+    <p><strong>Email:</strong> {$email}</p>
+    <p><strong>Resume:</strong> Attached</p>
+";
 
-    $mail->setFrom('noreply.uxory@gmail.com', 'Uxory Careers');
-    $mail->addAddress('uxoryllc@gmail.com');
+// Base64-encode the uploaded resume for the Resend attachment
+$resumeAttachment = [
+    [
+        'filename' => $resume['name'],
+        'content'  => base64_encode(file_get_contents($resume['tmp_name'])),
+    ]
+];
 
-    // Attach resume
-    $mail->addAttachment($resume['tmp_name'], $resume['name']);
+$adminResult = sendResendEmail(
+    $resendKey,
+    'Uxory Careers <noreply@uxory.com>',
+    'uxoryllc@gmail.com',
+    "New Job Application: {$position}",
+    $adminHtml,
+    $resumeAttachment
+);
 
-    $mail->isHTML(true);
-    $mail->Subject = "New Job Application: {$position}";
-    $mail->Body = "
-        <h2>New Job Application Received</h2>
-        <p><strong>Position:</strong> {$position}</p>
-        <p><strong>Name:</strong> {$name}</p>
-        <p><strong>Email:</strong> {$email}</p>
-        <p><strong>Resume:</strong> Attached</p>
-    ";
-
-    $mail->send();
-
-} catch (Exception $e) {
+if (!$adminResult['success']) {
     echo json_encode(['status' => 'error', 'message' => 'Failed to send application. Please try again later.']);
     exit;
 }
 
-// Auto-reply to applicant (separate try-catch, silent fail)
-try {
-    $autoReply = new PHPMailer(true);
-    $autoReply->isSMTP();
-    $autoReply->Host = 'smtp.hostinger.com';
-    $autoReply->SMTPAuth = true;
-    $autoReply->Username = 'contact@uxory.com';
-    $autoReply->Password = $config['hostinger_email_password'];
-    $autoReply->SMTPSecure = 'tls';
-    $autoReply->Port = 587;
-
-    $autoReply->setFrom('contact@uxory.com', 'Uxory Careers');
-    $autoReply->addAddress($email);
-    $autoReply->isHTML(true);
-    $autoReply->Subject = 'Application Received - Uxory';
-
-    $tplPath = __DIR__ . '/email-templates/application.html';
-    if (file_exists($tplPath)) {
-        $autoReply->Body = str_replace(['{NAME}', '{POSITION}'], [$name, $position], file_get_contents($tplPath));
-    } else {
-        $autoReply->Body = "
-            <h2>Thank You for Your Application, {$name}!</h2>
-            <p>We have received your application for the <strong>{$position}</strong> position.</p>
-            <p>Our team will review your application and get back to you soon.</p>
-            <br>
-            <p>Best regards,<br>Uxory Team</p>
-        ";
-    }
-
-    $autoReply->send();
-
-} catch (Exception $e) {
-    // Silent fail - user still sees success since admin received the application
+// Auto-reply to applicant (silent fail)
+$tplPath = __DIR__ . '/email-templates/application.html';
+if (file_exists($tplPath)) {
+    $autoReplyHtml = str_replace(['{NAME}', '{POSITION}'], [$name, $position], file_get_contents($tplPath));
+} else {
+    $autoReplyHtml = "
+        <h2>Thank You for Your Application, {$name}!</h2>
+        <p>We have received your application for the <strong>{$position}</strong> position.</p>
+        <p>Our team will review your application and get back to you soon.</p>
+        <br>
+        <p>Best regards,<br>Uxory Team</p>
+    ";
 }
+
+sendResendEmail(
+    $resendKey,
+    'Uxory Careers <contact@uxory.com>',
+    $email,
+    'Application Received - Uxory',
+    $autoReplyHtml
+);
 
 echo json_encode([
     'status' => 'success',

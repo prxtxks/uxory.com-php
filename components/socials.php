@@ -6,37 +6,33 @@
 >
   <div class="container">
     <div
-      class="max-w-4xl mx-auto grid max-md:grid-cols-2 md:grid-cols-4 reveal-me border-t border-x [&>*]:border-r max-md:[&>*:nth-child(2)]:border-r-0 max-md:[&>*:nth-child(6)]:border-r-0 [&>*:nth-child(4)]:border-r-0 [&>*:nth-child(8)]:border-r-0 [&>*]:border-b dark:[&>*]:border-dark dark:border-dark"
+      class="social-cards-wrap mx-auto flex flex-wrap justify-center gap-4 md:gap-6 reveal-me"
     >
 
-    <!-- Instagram-->
-      <figure class="flex items-center justify-center px-4 py-4">
-        <a href="https://www.instagram.com/uxoryllc/" target="_blank" rel="noopener noreferrer">
-          <img class="h-12 w-12" src="/images/marquee-img/1.svg" alt="IG" />
-        </a>
-      </figure>
+      <!-- Instagram -->
+      <a href="https://www.instagram.com/uxoryllc/" target="_blank" rel="noopener noreferrer"
+        class="social-card group flex items-center justify-center">
+        <img src="/images/marquee-img/1.svg" alt="Instagram" />
+      </a>
 
-      <!-- Linkedin Contact -->
-      <figure class="flex items-center justify-center px-4 py-4">
-        <a href="https://www.linkedin.com/company/uxory/" target="_blank" rel="noopener noreferrer">
-          <img class="h-12 w-12" src="/images/marquee-img/5.svg" alt="Linkedin" />
-        </a>
-      </figure>
+      <!-- LinkedIn -->
+      <a href="https://www.linkedin.com/company/uxory/" target="_blank" rel="noopener noreferrer"
+        class="social-card group flex items-center justify-center">
+        <img src="/images/marquee-img/5.svg" alt="LinkedIn" />
+      </a>
 
-      <!-- Email Contact -->
-      <figure class="flex items-center justify-center px-4 py-4">
-        <a href="mailto:contact@uxory.com" target="_blank" rel="noopener noreferrer">
-          <img class="h-12 w-12" src="/images/marquee-img/4.svg" alt="MAIL" />
-        </a>
-      </figure>
+      <!-- Email -->
+      <a href="mailto:contact@uxory.com"
+        class="social-card group flex items-center justify-center">
+        <img src="/images/marquee-img/4.svg" alt="Email" />
+      </a>
 
-      <!-- WhatsApp Chat -->
-      <figure class="flex items-center justify-center px-4 py-4">
-        <a href="https://wa.me/917350677916" target="_blank" rel="noopener noreferrer">
-          <img class="h-12 w-12" src="/images/marquee-img/2.svg" alt="WHATSAPP" />
-        </a>
-      </figure>
-     
+      <!-- WhatsApp -->
+      <a href="https://wa.me/917350677916" target="_blank" rel="noopener noreferrer"
+        class="social-card group flex items-center justify-center">
+        <img src="/images/marquee-img/2.svg" alt="WhatsApp" />
+      </a>
+
     </div>
   </div>
 </section>

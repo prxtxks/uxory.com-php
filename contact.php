@@ -84,7 +84,7 @@
           },
           {
             "@type": "PostalAddress",
-            "streetAddress": "B-401, VTP Belair",
+            "streetAddress": "Belair Street",
             "addressLocality": "Pune",
             "addressRegion": "MH",
             "postalCode": "411045",
@@ -143,8 +143,8 @@
   }
   </script>
   
-  <!-- reCAPTCHA -->
-  <script src="https://www.google.com/recaptcha/api.js" async defer crossorigin="anonymous"></script>
+  <!-- reCAPTCHA (explicit render – widget shown only when needed) -->
+  <script src="https://www.google.com/recaptcha/api.js?render=explicit" async defer crossorigin="anonymous"></script>
 
 </head>
 
@@ -233,11 +233,14 @@ include 'components/dark_mode.php';
     <div class="container">
 
         <!-- ./contact Form -->
+        <div class="review-form-card p-8 md:p-12 max-w-[860px] mx-auto reveal-me">
         <form
           id="contactForm"
           method="POST"
-          class="grid grid-cols-1 md:grid-cols-2 gap-[20px] max-w-[800px] mx-auto reveal-me"
+          class="grid grid-cols-1 md:grid-cols-2 gap-[20px]"
         >
+          <input type="text" name="website" style="display:none !important" tabindex="-1" autocomplete="off" aria-hidden="true" />
+
           <!-- Full Name Field -->
           <div class="md:col-span-full">
             <label
@@ -322,7 +325,9 @@ include 'components/dark_mode.php';
             ></textarea>
           </div>
 
-          <div id="recaptcha-widget" class="g-recaptcha mt-4" data-sitekey="6LeSajcsAAAAALS4VDz_NUpt7ZxXziL1q-GZuklX"></div>
+          <div id="contact-recaptcha-wrapper" class="hidden mt-4">
+            <div id="contact-recaptcha"></div>
+          </div>
 
           <div id="statusMsg" class="mt-3 text-base lg:text-lg font-medium"></div>
 
@@ -338,43 +343,54 @@ include 'components/dark_mode.php';
             </button>
           </div>
         </form>
+
+        <!-- Success Screen -->
+        <div id="formSuccess" class="hidden text-center py-8 md:py-12 px-4">
+          <div class="form-success-icon mx-auto mb-6">
+            <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-20 h-20 mx-auto">
+              <circle class="success-circle" cx="40" cy="40" r="36" stroke="rgb(18 216 204)" stroke-width="3" fill="none"/>
+              <polyline class="success-check" points="24,41 35,52 56,30" stroke="rgb(18 216 204)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            </svg>
+          </div>
+          <h3 class="text-2xl md:text-3xl font-medium mb-3">Message received!</h3>
+          <p class="text-colorText dark:text-backgroundBody/70 text-lg leading-relaxed mb-8 max-w-sm mx-auto">
+            Thank you for reaching out. We'll review your message and get back to you shortly.
+          </p>
+          <button id="formResetBtn" class="rv-button rv-button-primary mx-auto">
+            <div class="rv-button-top"><span>Send Another</span></div>
+            <div class="rv-button-bottom"><span>Send Another</span></div>
+          </button>
+        </div>
+
+        </div>
     </div>
 
     <!-- Socials -->
     <div class="container pt-14 md:pt-16 lg:pt-[88px] xl:pt-[100px]">
-    <div
-      class="max-w-4xl mx-auto grid max-md:grid-cols-2 md:grid-cols-4 reveal-me border-t border-x [&>*]:border-r max-md:[&>*:nth-child(2)]:border-r-0 max-md:[&>*:nth-child(6)]:border-r-0 [&>*:nth-child(4)]:border-r-0 [&>*:nth-child(8)]:border-r-0 [&>*]:border-b dark:[&>*]:border-dark dark:border-dark"
-    >
-      <!-- Instagram-->
-      <figure class="flex items-center justify-center px-4 py-4">
-        <a href="https://www.instagram.com/uxoryllc/" target="_blank" rel="noopener noreferrer">
-          <img class="h-12 w-12" src="/images/marquee-img/1.svg" alt="IG" />
-        </a>
-      </figure>
+      <div class="social-cards-wrap mx-auto flex flex-wrap justify-center gap-4 md:gap-6 reveal-me">
 
-      <!-- Linkedin Contact -->
-      <figure class="flex items-center justify-center px-4 py-4">
-        <a href="https://www.linkedin.com/company/uxory/" target="_blank" rel="noopener noreferrer">
-          <img class="h-12 w-12" src="/images/marquee-img/5.svg" alt="Linkedin" />
+        <a href="https://www.instagram.com/uxoryllc/" target="_blank" rel="noopener noreferrer"
+          class="social-card group flex items-center justify-center">
+          <img src="/images/marquee-img/1.svg" alt="Instagram" />
         </a>
-      </figure>
 
-      <!-- Email Contact -->
-      <figure class="flex items-center justify-center px-4 py-4">
-        <a href="mailto:contact@uxory.com" target="_blank" rel="noopener noreferrer">
-          <img class="h-12 w-12" src="/images/marquee-img/4.svg" alt="MAIL" />
+        <a href="https://www.linkedin.com/company/uxory/" target="_blank" rel="noopener noreferrer"
+          class="social-card group flex items-center justify-center">
+          <img src="/images/marquee-img/5.svg" alt="LinkedIn" />
         </a>
-      </figure>
 
-      <!-- WhatsApp Chat -->
-      <figure class="flex items-center justify-center px-4 py-4">
-        <a href="https://wa.me/917350677916" target="_blank" rel="noopener noreferrer">
-          <img class="h-12 w-12" src="/images/marquee-img/2.svg" alt="WHATSAPP" />
+        <a href="mailto:contact@uxory.com"
+          class="social-card group flex items-center justify-center">
+          <img src="/images/marquee-img/4.svg" alt="Email" />
         </a>
-      </figure>
-     
+
+        <a href="https://wa.me/917350677916" target="_blank" rel="noopener noreferrer"
+          class="social-card group flex items-center justify-center">
+          <img src="/images/marquee-img/2.svg" alt="WhatsApp" />
+        </a>
+
+      </div>
     </div>
-  </div>
     
   </div>
 

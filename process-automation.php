@@ -264,8 +264,8 @@ include 'components/dark_mode.php';
 ======================================-->
 <section class="relative overflow-hidden">
   <div class="container">
-    <div class="video-parents reveal-me-2 relative overflow-hidden">
-      <div class="w-full h-fit video-wrapper scale-50 origin-top">
+    <div class="video-parents reveal-me-2 relative">
+      <div class="w-full h-fit video-wrapper scale-50 origin-top" style="border-radius: 16px; overflow: hidden;">
         <img src="images/hero-img/automation-hero.webp" alt="Business Process Automation Dashboard" class="w-full h-auto" />
       </div>
     </div>
@@ -347,7 +347,7 @@ Solutions Section
   >
     <!-- CARD 1 -->
     <div
-      class="md:px-[25px] px-5 py-10 border-t border-t-secondary dark:border-t-primary rounded-none flex-1 bg-backgroundBody md:w-[370px] w-full flex md:flex-row flex-col md:gap-[22px] gap-4 dark:bg-black"
+      class="service-card md:px-[25px] px-5 py-10 border-t border-t-secondary dark:border-t-primary flex-1 bg-backgroundBody md:w-[370px] w-full flex md:flex-row flex-col md:gap-[22px] gap-4 dark:bg-black"
     >
       <div aria-hidden="true">
         <p
@@ -372,7 +372,7 @@ Solutions Section
 
     <!-- CARD 2 -->
     <div
-      class="md:px-[25px] px-5 py-10 border-t border-t-secondary dark:border-t-primary rounded-none flex-1 bg-backgroundBody md:w-[370px] w-full flex md:flex-row flex-col md:gap-[22px] gap-4 dark:bg-black"
+      class="service-card md:px-[25px] px-5 py-10 border-t border-t-secondary dark:border-t-primary flex-1 bg-backgroundBody md:w-[370px] w-full flex md:flex-row flex-col md:gap-[22px] gap-4 dark:bg-black"
     >
       <div aria-hidden="true">
         <p
@@ -397,7 +397,7 @@ Solutions Section
 
     <!-- CARD 3 -->
     <div
-      class="md:px-[25px] px-5 py-10 border-t border-t-secondary dark:border-t-primary rounded-none flex-1 bg-backgroundBody md:w-[370px] w-full flex md:flex-row flex-col md:gap-[22px] gap-4 dark:bg-black"
+      class="service-card md:px-[25px] px-5 py-10 border-t border-t-secondary dark:border-t-primary flex-1 bg-backgroundBody md:w-[370px] w-full flex md:flex-row flex-col md:gap-[22px] gap-4 dark:bg-black"
     >
       <div aria-hidden="true">
         <p
@@ -422,7 +422,7 @@ Solutions Section
 
     <!-- CARD 4 -->
     <div
-      class="md:px-[25px] px-5 py-10 border-t border-t-secondary dark:border-t-primary rounded-none flex-1 bg-backgroundBody md:w-[370px] w-full flex md:flex-row flex-col md:gap-[22px] gap-4 dark:bg-black"
+      class="service-card md:px-[25px] px-5 py-10 border-t border-t-secondary dark:border-t-primary flex-1 bg-backgroundBody md:w-[370px] w-full flex md:flex-row flex-col md:gap-[22px] gap-4 dark:bg-black"
     >
       <div aria-hidden="true">
         <p
@@ -447,7 +447,7 @@ Solutions Section
 
     <!-- CARD 5 -->
     <div
-      class="md:px-[25px] px-5 py-10 border-t border-t-secondary dark:border-t-primary rounded-none flex-1 bg-backgroundBody md:w-[370px] w-full flex md:flex-row flex-col md:gap-[22px] gap-4 dark:bg-black"
+      class="service-card md:px-[25px] px-5 py-10 border-t border-t-secondary dark:border-t-primary flex-1 bg-backgroundBody md:w-[370px] w-full flex md:flex-row flex-col md:gap-[22px] gap-4 dark:bg-black"
     >
       <div aria-hidden="true">
         <p
@@ -472,7 +472,7 @@ Solutions Section
 
     <!-- CARD 6 -->
     <div
-      class="md:px-[25px] px-5 py-10 border-t border-t-secondary dark:border-t-primary rounded-none flex-1 bg-backgroundBody md:w-[370px] w-full flex md:flex-row flex-col md:gap-[22px] gap-4 dark:bg-black"
+      class="service-card md:px-[25px] px-5 py-10 border-t border-t-secondary dark:border-t-primary flex-1 bg-backgroundBody md:w-[370px] w-full flex md:flex-row flex-col md:gap-[22px] gap-4 dark:bg-black"
     >
       <div aria-hidden="true">
         <p

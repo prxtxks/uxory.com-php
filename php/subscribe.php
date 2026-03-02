@@ -1,74 +1,85 @@
 <?php
-// Ensure no whitespace exists before the opening <?php tag
 header('Content-Type: application/json');
 
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
-
-require 'src/PHPMailer-master/src/Exception.php';
-require 'src/PHPMailer-master/src/PHPMailer.php';
-require 'src/PHPMailer-master/src/SMTP.php';
+require __DIR__ . '/resend.php';
 
 // Load secrets from config file (outside web root)
 $config = require __DIR__ . '/../../../config/secrets.php';
+$resendKey = $config['resend_api_key'];
 
 // Supabase configuration
 $supabaseUrl = $config['supabase_url'];
 $supabaseKey = $config['supabase_service_key']; 
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $recaptchaSecret = $config['recaptcha_secret'];
-    $recaptchaResponse = $_POST['g-recaptcha-response'] ?? '';
 
-    // Verify reCAPTCHA
-    $ch = curl_init();
-    curl_setopt($ch, CURLOPT_URL, "https://www.google.com/recaptcha/api/siteverify");
-    curl_setopt($ch, CURLOPT_POST, 1);
-    curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query(['secret' => $recaptchaSecret, 'response' => $recaptchaResponse]));
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    $verify = curl_exec($ch);
-    curl_close($ch);
-    $captchaData = json_decode($verify);
-
-    if (!$captchaData || !$captchaData->success) {
-        echo json_encode(['status' => 'error', 'message' => 'CAPTCHA failed. Are you a robot?']);
+    /* ===============================
+       HONEYPOT
+       =============================== */
+    $honeypot = trim($_POST['website'] ?? '');
+    if ($honeypot !== '') {
+        echo json_encode(['status' => 'success', 'message' => 'Subscription successful!']);
         exit;
     }
 
-    // Rate limiting
+    /* ===============================
+       RATE LIMITING + CONDITIONAL CAPTCHA
+       =============================== */
     $ip = $_SERVER['REMOTE_ADDR'];
-        $limit = 5;           // max attempts
-        $window = 3600;       // 1 hour in seconds
-        $rateDir = __DIR__ . '/rate-limit';
+    $limit = 5;
+    $window = 3600;
+    $rateDir = __DIR__ . '/rate-limit';
 
-        if (!is_dir($rateDir)) {
-            mkdir($rateDir, 0755, true);
-        }
+    if (!is_dir($rateDir)) {
+        mkdir($rateDir, 0755, true);
+    }
 
-        $file = $rateDir . '/' . md5($ip);
+    $file = $rateDir . '/sub_' . md5($ip);
+    $data = ['count' => 0, 'time' => time()];
 
-        $data = ['count' => 0, 'time' => time()];
+    if (file_exists($file)) {
+        $data = json_decode(file_get_contents($file), true) ?: $data;
 
-        if (file_exists($file)) {
-            $data = json_decode(file_get_contents($file), true) ?: $data;
+        if (time() - $data['time'] < $window) {
+            if ($data['count'] >= $limit) {
+                $recaptchaResponse = $_POST['g-recaptcha-response'] ?? '';
 
-            if (time() - $data['time'] < $window) {
-                if ($data['count'] >= $limit) {
+                if (!$recaptchaResponse) {
                     echo json_encode([
-                        'status' => 'error',
-                        'message' => 'Too many attempts. Please try again later.'
+                        'status'  => 'captcha_required',
+                        'message' => 'Please complete the CAPTCHA to continue.',
                     ]);
                     exit;
                 }
-                $data['count']++;
-            } else {
-                $data = ['count' => 1, 'time' => time()];
+
+                $recaptchaSecret = $config['recaptcha_secret'];
+                $ch = curl_init('https://www.google.com/recaptcha/api/siteverify');
+                curl_setopt_array($ch, [
+                    CURLOPT_POST           => true,
+                    CURLOPT_POSTFIELDS     => http_build_query([
+                        'secret'   => $recaptchaSecret,
+                        'response' => $recaptchaResponse,
+                    ]),
+                    CURLOPT_RETURNTRANSFER => true,
+                ]);
+                $captchaResult = curl_exec($ch);
+                curl_close($ch);
+
+                $captchaData = json_decode($captchaResult);
+                if (!$captchaData || !$captchaData->success) {
+                    echo json_encode(['status' => 'error', 'message' => 'CAPTCHA verification failed.']);
+                    exit;
+                }
             }
+            $data['count']++;
         } else {
             $data = ['count' => 1, 'time' => time()];
         }
+    } else {
+        $data = ['count' => 1, 'time' => time()];
+    }
 
-        file_put_contents($file, json_encode($data));
+    file_put_contents($file, json_encode($data));
 
     $email = filter_var(trim($_POST['email'] ?? ''), FILTER_SANITIZE_EMAIL);
 
@@ -260,48 +271,35 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     exit;
 }
 
-// Function stays outside the logic block
 function sendEmails($email, $config) {
+    $resendKey = $config['resend_api_key'];
+
     // Admin Notification
-    try {
-        $mail = new PHPMailer(true);
-        $mail->isSMTP();
-        $mail->Host = 'smtp.gmail.com';
-        $mail->SMTPAuth = true;
-        $mail->Username = 'noreply.uxory@gmail.com';
-        $mail->Password = $config['gmail_smtp_password']; 
-        $mail->SMTPSecure = 'tls';
-        $mail->Port = 587;
-        $mail->setFrom('noreply.uxory@gmail.com', 'Uxory Subscriptions');
-        $mail->addAddress('uxoryllc@gmail.com');
-        $mail->isHTML(true);
-        $mail->Subject = 'New Subscriber';
-        $mail->Body = "<h1>New Uxory Subscription</h1><p>Email: {$email}</p>";
-        $mail->send();
-    } catch (Exception $e) {
-        return false; // Admin email failed
+    $adminResult = sendResendEmail(
+        $resendKey,
+        'Uxory Subscriptions <noreply@uxory.com>',
+        'uxoryllc@gmail.com',
+        'New Subscriber',
+        "<h1>New Uxory Subscription</h1><p>Email: {$email}</p>"
+    );
+
+    if (!$adminResult['success']) {
+        return false;
     }
 
-    // User Confirmation (separate try-catch, silent fail)
-    try {
-        $autoReply = new PHPMailer(true);
-        $autoReply->isSMTP();
-        $autoReply->Host = 'smtp.hostinger.com';
-        $autoReply->SMTPAuth = true;
-        $autoReply->Username = 'contact@uxory.com';
-        $autoReply->Password = $config['hostinger_email_password'];
-        $autoReply->SMTPSecure = 'tls';
-        $autoReply->Port = 587;
-        $autoReply->setFrom('contact@uxory.com', 'Uxory Team');
-        $autoReply->addAddress($email);
-        $autoReply->isHTML(true);
-        $autoReply->Subject = 'Thank You for Subscribing to Uxory';
-        $tplPath = __DIR__ . '/email-templates/subscribe.html';
-        $autoReply->Body = file_exists($tplPath) ? str_replace(['{EMAIL}'], [$email], file_get_contents($tplPath)) : "Thank you for subscribing!";
-        $autoReply->send();
-    } catch (Exception $e) {
-        // Silent fail - user still sees success since admin received the notification
-    }
+    // User Confirmation (silent fail)
+    $tplPath = __DIR__ . '/email-templates/subscribe.html';
+    $confirmHtml = file_exists($tplPath)
+        ? str_replace(['{EMAIL}'], [$email], file_get_contents($tplPath))
+        : 'Thank you for subscribing!';
+
+    sendResendEmail(
+        $resendKey,
+        'Uxory Team <contact@uxory.com>',
+        $email,
+        'Thank You for Subscribing to Uxory',
+        $confirmHtml
+    );
 
     return true;
 }

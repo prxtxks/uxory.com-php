@@ -83,7 +83,7 @@
 
         <address class="text-white font-semibold break-words">
           Uxory Technologies <br> PVT. LTD. <br />
-          B-401, VTP Belair <br />
+          Belair Street <br />
           <!-- Blue Waters Township<br /> -->
           Pune, MH 411045<br />
           India<br />
@@ -141,7 +141,7 @@
     <h5
       class="w-full bottom-0 absolute footer-text text-center font-satoshi font-extrabold text-4xl xs:text-5xl sm:text-6xl md:text-[88px] lg:text-[120px] xl:text-[150px] 2xl:text-[170px] tracking-widest text-nowrap translate-y-[30%] left-1/2 -translate-x-1/2"
     >
-      UXORY AGENCY
+      UXORY LLC
     </h5>
   </div>
 </footer>

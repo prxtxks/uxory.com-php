@@ -1,44 +1,65 @@
-const form = document.getElementById('subscribeForm');
-const statusMsg = document.getElementById('statusMsg');
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.getElementById('subscribeForm');
+  const statusMsg = document.getElementById('statusMsg');
 
-form.addEventListener('submit', function (e) {
-  e.preventDefault();
-  statusMsg.innerHTML = 'Processing...'; // Feedback for user
+  if (!form || !statusMsg) return;
 
-  const emailInput = form.querySelector('input[name="email"]').value;
-  const recaptchaResponse = grecaptcha.getResponse();
+  let captchaRequired = false;
+  let captchaWidgetId = null;
 
-  if (!recaptchaResponse) {
-    statusMsg.innerHTML = '<span class="text-red-500">Please complete the CAPTCHA.</span>';
-    return;
-  }
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    statusMsg.innerHTML = 'Processing...';
 
-  const formData = new FormData(form);
-  // No need to manually append if the widget is inside or captured correctly, 
-  // but this ensures it is sent.
-  formData.append('g-recaptcha-response', recaptchaResponse);
+    const formData = new FormData(form);
 
-  fetch('/php/subscribe', {
-    method: 'POST',
-    body: formData
-  })
-  .then(res => {
-    if (!res.ok) throw new Error('Network response was not ok');
-    return res.json();
-  })
-  .then(data => {
-    if (data.status === 'success') {
-      statusMsg.innerHTML = `<span class="text-green-500">${data.message}</span>`;
-      form.reset();
-      grecaptcha.reset();
-    } else {
-      statusMsg.innerHTML = `<span class="text-red-500">${data.message}</span>`;
-      // Don't reset CAPTCHA here so user can try again immediately if email was wrong
+    if (captchaRequired && captchaWidgetId !== null && typeof grecaptcha !== 'undefined') {
+      const captchaResponse = grecaptcha.getResponse(captchaWidgetId);
+      if (!captchaResponse) {
+        statusMsg.innerHTML = '<span class="text-red-500">Please complete the CAPTCHA.</span>';
+        return;
+      }
+      formData.append('g-recaptcha-response', captchaResponse);
     }
-  })
-  .catch(err => {
-    console.error(err);
-    statusMsg.innerHTML = '<span class="text-red-500">Service unavailable. Please try again later.</span>';
-    grecaptcha.reset();
+
+    fetch('/php/subscribe', {
+      method: 'POST',
+      body: formData
+    })
+    .then(res => {
+      if (!res.ok) throw new Error('Network response was not ok');
+      return res.json();
+    })
+    .then(data => {
+      if (data.status === 'captcha_required') {
+        captchaRequired = true;
+        const wrapper = document.getElementById('subscribe-recaptcha-wrapper');
+        wrapper.classList.remove('hidden');
+        if (captchaWidgetId === null && typeof grecaptcha !== 'undefined' && grecaptcha.render) {
+          captchaWidgetId = grecaptcha.render('subscribe-recaptcha', {
+            sitekey: '6LeSajcsAAAAALS4VDz_NUpt7ZxXziL1q-GZuklX',
+          });
+        }
+        statusMsg.innerHTML = '<span class="text-primary">Please complete the CAPTCHA, then submit again.</span>';
+        return;
+      }
+
+      if (data.status === 'success') {
+        statusMsg.innerHTML = '<span class="text-green-500">' + data.message + '</span>';
+        form.reset();
+        if (captchaRequired && captchaWidgetId !== null && typeof grecaptcha !== 'undefined') {
+          grecaptcha.reset(captchaWidgetId);
+        }
+      } else {
+        statusMsg.innerHTML = '<span class="text-red-500">' + data.message + '</span>';
+      }
+    })
+    .catch(err => {
+      console.error(err);
+      statusMsg.innerHTML = '<span class="text-red-500">Service unavailable. Please try again later.</span>';
+      if (captchaRequired && captchaWidgetId !== null && typeof grecaptcha !== 'undefined') {
+        grecaptcha.reset(captchaWidgetId);
+      }
+    });
   });
 });

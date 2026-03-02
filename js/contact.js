@@ -1,29 +1,61 @@
 document.addEventListener('DOMContentLoaded', () => {
   const contactForm = document.getElementById('contactForm');
   const statusMsg = document.getElementById('statusMsg');
+  const formSuccess = document.getElementById('formSuccess');
+  const formResetBtn = document.getElementById('formResetBtn');
+  const formCard = contactForm ? contactForm.closest('.review-form-card') : null;
 
-  // Safety check
-  if (!contactForm || !statusMsg) {
-    console.error('Contact form or status message not found');
-    return;
+  if (!contactForm) return;
+
+  let captchaRequired = false;
+  let captchaWidgetId = null;
+
+  function showSuccess() {
+    contactForm.classList.add('hidden');
+    if (statusMsg) statusMsg.classList.add('hidden');
+    if (formSuccess) {
+      formSuccess.classList.remove('hidden');
+      // Re-trigger SVG animations by cloning and reinserting
+      const svg = formSuccess.querySelector('svg');
+      if (svg) {
+        const clone = svg.cloneNode(true);
+        svg.parentNode.replaceChild(clone, svg);
+      }
+    }
+  }
+
+  function resetForm() {
+    contactForm.reset();
+    contactForm.classList.remove('hidden');
+    if (statusMsg) {
+      statusMsg.innerHTML = '';
+      statusMsg.classList.remove('hidden');
+    }
+    if (formSuccess) formSuccess.classList.add('hidden');
+    captchaRequired = false;
+    captchaWidgetId = null;
+    const wrapper = document.getElementById('contact-recaptcha-wrapper');
+    if (wrapper) wrapper.classList.add('hidden');
+  }
+
+  if (formResetBtn) {
+    formResetBtn.addEventListener('click', resetForm);
   }
 
   contactForm.addEventListener('submit', function (e) {
-    e.preventDefault(); // 🔒 hard stop browser submit
-
-    statusMsg.innerHTML = 'Processing...';
-
-    // Get captcha response
-    const recaptchaResponse = grecaptcha.getResponse();
-
-    if (!recaptchaResponse) {
-      statusMsg.innerHTML =
-        '<span class="text-red-500">Please complete the CAPTCHA.</span>';
-      return;
-    }
+    e.preventDefault();
+    if (statusMsg) statusMsg.innerHTML = 'Processing...';
 
     const formData = new FormData(contactForm);
-    formData.append('g-recaptcha-response', recaptchaResponse);
+
+    if (captchaRequired && captchaWidgetId !== null && typeof grecaptcha !== 'undefined') {
+      const captchaResponse = grecaptcha.getResponse(captchaWidgetId);
+      if (!captchaResponse) {
+        if (statusMsg) statusMsg.innerHTML = '<span class="text-red-500">Please complete the CAPTCHA.</span>';
+        return;
+      }
+      formData.append('g-recaptcha-response', captchaResponse);
+    }
 
     fetch('/php/contact', {
       method: 'POST',
@@ -34,22 +66,35 @@ document.addEventListener('DOMContentLoaded', () => {
         return res.json();
       })
       .then(data => {
-        if (data.status === 'success') {
-          statusMsg.innerHTML =
-            `<span class="text-green-500">${data.message}</span>`;
-          contactForm.reset();
-        } else {
-          statusMsg.innerHTML =
-            `<span class="text-red-500">${data.message}</span>`;
+        if (data.status === 'captcha_required') {
+          captchaRequired = true;
+          const wrapper = document.getElementById('contact-recaptcha-wrapper');
+          if (wrapper) wrapper.classList.remove('hidden');
+          if (captchaWidgetId === null && typeof grecaptcha !== 'undefined' && grecaptcha.render) {
+            captchaWidgetId = grecaptcha.render('contact-recaptcha', {
+              sitekey: '6LeSajcsAAAAALS4VDz_NUpt7ZxXziL1q-GZuklX',
+            });
+          }
+          if (statusMsg) statusMsg.innerHTML = '<span class="text-primary">Please complete the CAPTCHA, then submit again.</span>';
+          return;
         }
 
-        grecaptcha.reset();
+        if (data.status === 'success') {
+          showSuccess();
+        } else {
+          if (statusMsg) statusMsg.innerHTML = '<span class="text-red-500">' + data.message + '</span>';
+        }
+
+        if (captchaRequired && captchaWidgetId !== null && typeof grecaptcha !== 'undefined') {
+          grecaptcha.reset(captchaWidgetId);
+        }
       })
       .catch(err => {
         console.error(err);
-        statusMsg.innerHTML =
-          '<span class="text-red-500">Service unavailable. Please try again later.</span>';
-        grecaptcha.reset();
+        if (statusMsg) statusMsg.innerHTML = '<span class="text-red-500">Service unavailable. Please try again later.</span>';
+        if (captchaRequired && captchaWidgetId !== null && typeof grecaptcha !== 'undefined') {
+          grecaptcha.reset(captchaWidgetId);
+        }
       });
   });
 });

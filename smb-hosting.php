@@ -291,7 +291,7 @@ include 'components/dark_mode.php';
           </p>
         </div>
       </div>
-      <figure class="md:w-1/2 reveal-me">
+      <figure class="md:w-1/2 reveal-me" style="border-radius: 16px; overflow: hidden;">
         <!-- Replace with your image path -->
         <img
           src="images/services/why-us-hosting.jpg"
@@ -378,7 +378,7 @@ Pricing Section
         class="grid lg:grid-cols-2 justify-center gap-x-10 mt-10 md:mt-20 gap-y-10 reveal-me"
       >
         <div
-          class="border border-secondary dark:border-backgroundBody px-[30px] pt-8 md:pt-20 pb-[30px] relative"
+          class="sets-apart-card px-[30px] pt-8 md:pt-20 pb-[30px] relative overflow-hidden"
         >
           <img
             src="/images/pricing-gradient-bg-1.png"
@@ -407,11 +407,11 @@ Pricing Section
               </p>
             </div>
 
-            <a href="./calendly.php" class="rv-button rv-button-secondary !w-full">
-              <div class="rv-button-top !w-full !text-center">
+            <a href="./calendly.php" class="rv-button rv-button-secondary">
+              <div class="rv-button-top">
                 <span class="!font-normal"> BOOK INTRO CALL</span>
               </div>
-              <div class="rv-button-bottom !w-full !text-center">
+              <div class="rv-button-bottom">
                 <span class="!font-normal"> BOOK INTRO CALL</span>
               </div>
             </a>
@@ -590,7 +590,7 @@ Pricing Section
         </div>
 
         <div
-          class="border dark:border-dark px-[30px] pt-8 md:pt-20 pb-[30px] relative"
+          class="sets-apart-card px-[30px] pt-8 md:pt-20 pb-[30px] relative overflow-hidden"
         >
           <img
             src="/images/pricing-gradient-bg-2.png"
@@ -634,11 +634,11 @@ Pricing Section
               </div>
             </div>
 
-            <a href="https://pages.razorpay.com/uxory-essentials-hosting" target="_blank" class="rv-button rv-button-white !w-full">
-              <div class="rv-button-top !w-full !text-center">
+            <a href="https://pages.razorpay.com/uxory-essentials-hosting" target="_blank" class="rv-button rv-button-white">
+              <div class="rv-button-top">
                 <span class="!font-normal"> Get Started</span>
               </div>
-              <div class="rv-button-bottom !w-full !text-center">
+              <div class="rv-button-bottom">
                 <span class="!font-normal"> Get Started</span>
               </div>
             </a>

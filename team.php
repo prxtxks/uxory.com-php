@@ -116,11 +116,11 @@ include 'components/dark_mode.php';
 >
   <div class="container reveal-me">
     <!-- Main Profile Card -->
-    
+    <div class="flex flex-col gap-6">
     <div
-      class="our-team-details flex flex-col lg:flex-row gap-10 gap-x-[30px] max-md:justify-center max-md:items-center border dark:border-dark p-5 lg:p-10 bg-backgroundBody dark:bg-dark"
+      class="our-team-details sets-apart-card flex flex-col lg:flex-row gap-10 gap-x-[30px] max-md:justify-center max-md:items-center p-5 lg:p-10"
     >
-      <figure class="max-lg:w-full lg:max-w-[290px] lg:max-h-[305px]">
+      <figure class="max-lg:w-full lg:max-w-[290px] lg:max-h-[305px]" style="border-radius: 16px; overflow: hidden;">
         <img
           src="images/home-ai/team/ai-team.png"
           alt="Team Leader"
@@ -183,9 +183,9 @@ include 'components/dark_mode.php';
     </div>
 
     <div
-      class="our-team-details flex flex-col lg:flex-row gap-10 gap-x-[30px] max-md:justify-center max-md:items-center border dark:border-dark p-5 lg:p-10 bg-backgroundBody dark:bg-dark"
+      class="our-team-details sets-apart-card flex flex-col lg:flex-row gap-10 gap-x-[30px] max-md:justify-center max-md:items-center p-5 lg:p-10"
     >
-      <figure class="max-lg:w-full lg:max-w-[290px] lg:max-h-[305px]">
+      <figure class="max-lg:w-full lg:max-w-[290px] lg:max-h-[305px]" style="border-radius: 16px; overflow: hidden;">
         <img
           src="images/home-ai/team/ai-team-1.png"
           alt="Team Leader"
@@ -246,6 +246,7 @@ include 'components/dark_mode.php';
         </div>
       </div>
     </div>
+    </div><!-- end founders gap wrapper -->
 
     <!-- Team Member Selection Tabs -->
 

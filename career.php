@@ -216,7 +216,7 @@ include 'components/dark_mode.php';
   <div class="mt-10 md:mt-[60px] [&>*:not(last-child)]:mb-6 max-lg:px-5">
     <!-- Software Developer Position -->
     <article
-      class="max-w-[1170px] mx-auto border dark:border-dark bg-backgroundBody dark:bg-dark p-6 lg:p-10 flex flex-col md:flex-row gap-y-7 justify-center md:justify-between items-center reveal-me"
+      class="max-w-[1170px] mx-auto sets-apart-card p-6 lg:p-10 flex flex-col md:flex-row gap-y-7 justify-center md:justify-between items-center reveal-me"
     >
       <div
         class="flex flex-col flex-wrap justify-center md:justify-normal max-md:items-center"
@@ -261,7 +261,7 @@ include 'components/dark_mode.php';
 
     <!-- Accountant Position -->
     <article
-      class="max-w-[1170px] mx-auto border dark:border-dark bg-backgroundBody dark:bg-dark p-6 lg:p-10 flex flex-col md:flex-row gap-y-7 justify-center md:justify-between items-center reveal-me"
+      class="max-w-[1170px] mx-auto sets-apart-card p-6 lg:p-10 flex flex-col md:flex-row gap-y-7 justify-center md:justify-between items-center reveal-me"
     >
       <div
         class="flex flex-col flex-wrap justify-center md:justify-normal max-md:items-center"
@@ -306,7 +306,7 @@ include 'components/dark_mode.php';
 
     <!-- Web Designer Position -->
     <article
-      class="max-w-[1170px] mx-auto border dark:border-dark bg-backgroundBody dark:bg-dark p-6 lg:p-10 flex flex-col md:flex-row gap-y-7 justify-center md:justify-between items-center reveal-me"
+      class="max-w-[1170px] mx-auto sets-apart-card p-6 lg:p-10 flex flex-col md:flex-row gap-y-7 justify-center md:justify-between items-center reveal-me"
     >
       <div
         class="flex flex-col flex-wrap justify-center md:justify-normal max-md:items-center"
@@ -351,7 +351,7 @@ include 'components/dark_mode.php';
 
     <!-- Product Designer Position -->
     <article
-      class="max-w-[1170px] mx-auto border dark:border-dark bg-backgroundBody dark:bg-dark p-6 lg:p-10 flex flex-col md:flex-row gap-y-7 justify-center md:justify-between items-center reveal-me"
+      class="max-w-[1170px] mx-auto sets-apart-card p-6 lg:p-10 flex flex-col md:flex-row gap-y-7 justify-center md:justify-between items-center reveal-me"
     >
       <div
         class="flex flex-col flex-wrap justify-center md:justify-normal max-md:items-center"
@@ -392,7 +392,7 @@ include 'components/dark_mode.php';
     </article>
 
     <article
-    class="max-w-[1170px] mx-auto border dark:border-dark bg-backgroundBody dark:bg-dark p-6 lg:p-10 flex flex-col md:flex-row gap-y-7 justify-center md:justify-between items-center reveal-me"
+    class="max-w-[1170px] mx-auto sets-apart-card p-6 lg:p-10 flex flex-col md:flex-row gap-y-7 justify-center md:justify-between items-center reveal-me"
   >
     <div
       class="flex flex-col flex-wrap justify-center md:justify-normal max-md:items-center"
@@ -436,7 +436,7 @@ include 'components/dark_mode.php';
   </article>
 
   <article
-  class="max-w-[1170px] mx-auto border dark:border-dark bg-backgroundBody dark:bg-dark p-6 lg:p-10 flex flex-col md:flex-row gap-y-7 justify-center md:justify-between items-center reveal-me"
+  class="max-w-[1170px] mx-auto sets-apart-card p-6 lg:p-10 flex flex-col md:flex-row gap-y-7 justify-center md:justify-between items-center reveal-me"
 >
   <div
     class="flex flex-col flex-wrap justify-center md:justify-normal max-md:items-center"

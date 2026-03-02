@@ -92,7 +92,7 @@
           },
           {
             "@type": "PostalAddress",
-            "streetAddress": "B-401, VTP Belair",
+            "streetAddress": "Belair Street",
             "addressLocality": "Pune",
             "addressRegion": "MH",
             "postalCode": "411045",
@@ -271,9 +271,9 @@ include 'components/dark_mode.php';
 <!--=====================================
   Promo Video Section
 ======================================-->
-<section class="video-parents reveal-me-2 relative overflow-hidden">
+<section class="video-parents reveal-me-2 relative">
   <!-- Video Wrapper -->
-  <div class="w-full h-fit video-wrapper scale-50 origin-top">
+  <div class="w-full h-fit video-wrapper scale-50 origin-top" style="border-radius: 24px; overflow: hidden;">
     <!-- PNG Image -->
     <img src="images/hero-img/index-hero.webp" alt="Hero Image" class="w-full h-full" />
     
@@ -532,19 +532,19 @@ include 'components/dark_mode.php';
 
     <!-- Accordion Container -->
     
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-[1170px] w-full mx-auto pt-2 reveal-me">
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-[800px] w-full mx-auto pt-2 reveal-me">
 
-        <a href="./available-soon.php" class="fab-member max-w-[370px] border dark:border-dark p-5 flex items-center gap-5 transitionTimingFunction relative overflow-visible">
+        <a href="/process-automation.php" class="fab-member border dark:border-dark p-5 flex items-center gap-5 transitionTimingFunction relative overflow-visible">
           <figure class="flex-none w-[100px] h-[100px]">
             <img
               src="images/services-icons/agent.webp"
-              alt="SEO"
+              alt="AI and Automation"
               class="w-full h-full object-contain"
             />
           </figure>
           <div class="flex-1">
             <h3 class="text-2xl leading-[1.2] tracking-[-0.72px] mb-3 mr-2">
-              AI Systems & Agents
+              AI Agents & Automation
             </h3>
           </div>
           <span class="absolute top-3 right-3">
@@ -565,48 +565,17 @@ include 'components/dark_mode.php';
           </span>
         </a>
 
-        <a href="/process-automation.php" class="fab-member max-w-[370px] border dark:border-dark p-5 flex items-center gap-5 transitionTimingFunction relative overflow-visible">
-          <figure class="flex-none w-[100px] h-[100px]">
-            <img
-              src="/images/services-icons/auto.webp"
-              alt="Email"
-              class="w-full h-full object-contain"
-            />
-          </figure>
-          <div class="flex-1">
-            <h3 class="text-2xl leading-[1.2] tracking-[-0.72px] mb-3 mr-2">
-              Business Process Automation
-            </h3>
-          </div>
-          <span class="absolute top-3 right-3">
-              <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-4 w-4 text-gray-500 dark:text-gray-400"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  stroke-width="2"
-              >
-                  <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="M7 17L17 7m0 0H7m10 0v10"
-                  />
-              </svg>
-          </span>
-        </a>
-
-        <a href="./software-dev.php" class="fab-member max-w-[370px] border dark:border-dark p-5 flex items-center gap-5 transitionTimingFunction relative overflow-visible">
+        <a href="/web-app-and-saas-dev.php" class="fab-member border dark:border-dark p-5 flex items-center gap-5 transitionTimingFunction relative overflow-visible">
           <figure class="flex-none w-[100px] h-[100px]">
             <img
               src="images/services-icons/saas.webp"
-              alt="Paid Ads"
+              alt="Web App and SaaS Development"
               class="w-full h-full object-contain"
             />
           </figure>
           <div class="flex-1">
             <h3 class="text-2xl leading-[1.2] tracking-[-0.72px] mb-3 mr-2">
-              Software Development
+              Web App & SaaS Development
             </h3>
           </div>
           <span class="absolute top-3 right-3">
@@ -625,54 +594,22 @@ include 'components/dark_mode.php';
                   />
               </svg>
           </span>
-        </a>   
-
-         <a href="./website-dev.php" class="fab-member max-w-[370px] border dark:border-dark p-5 flex items-center gap-5 transitionTimingFunction relative overflow-visible">
-              <figure class="flex-none w-[100px] h-[100px]">
-                <img
-                  src="images/services-icons/website.webp"
-                  alt="Website Development"
-                  class="w-full h-full object-contain"
-                />
-              </figure>
-              <div class="flex-1">
-                <h3 class="text-2xl leading-[1.2] tracking-[-0.72px] mb-3 mr-2">
-                  High-Performance Websites
-                </h3>
-              </div>
-              <span class="absolute top-3 right-3">
-              <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-4 w-4 text-gray-500 dark:text-gray-400"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  stroke-width="2"
-              >
-                  <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="M7 17L17 7m0 0H7m10 0v10"
-                  />
-              </svg>
-          </span>
         </a>
 
-        <a href="./web-and-app-solutions.php" class="fab-member max-w-[370px] border dark:border-dark p-5 flex items-center gap-5 transitionTimingFunction relative overflow-visible">
+        <a href="/mobile-app-development.php" class="fab-member border dark:border-dark p-5 flex items-center gap-5 transitionTimingFunction relative overflow-visible">
           <figure class="flex-none w-[100px] h-[100px]">
             <img
               src="images/services-icons/apps.webp"
-              alt="Web-Application-Development"
+              alt="Mobile App Development"
               class="w-full h-full object-contain"
             />
           </figure>
           <div class="flex-1">
             <h3 class="text-2xl leading-[1.2] tracking-[-0.72px] mb-3 mr-2">
-             Web & Mobile Apps
+              Mobile App Development
             </h3>
           </div>
-          
-            <span class="absolute top-3 right-3">
+          <span class="absolute top-3 right-3">
               <svg
                   xmlns="http://www.w3.org/2000/svg"
                   class="h-4 w-4 text-gray-500 dark:text-gray-400"
@@ -690,17 +627,17 @@ include 'components/dark_mode.php';
           </span>
         </a>
 
-        <a href="./contact.php" class="fab-member max-w-[370px] border dark:border-dark p-5 flex items-center gap-5 transitionTimingFunction relative overflow-visible">
+        <a href="/website-dev.php" class="fab-member border dark:border-dark p-5 flex items-center gap-5 transitionTimingFunction relative overflow-visible">
           <figure class="flex-none w-[100px] h-[100px]">
             <img
-              src="images/services-icons/custom.webp"
-              alt="SEO"
+              src="images/services-icons/website.webp"
+              alt="High-Performance Websites"
               class="w-full h-full object-contain"
             />
           </figure>
           <div class="flex-1">
             <h3 class="text-2xl leading-[1.2] tracking-[-0.72px] mb-3 mr-2">
-              Special Projects
+              High-Performance Websites
             </h3>
           </div>
           <span class="absolute top-3 right-3">

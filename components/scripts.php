@@ -19,6 +19,6 @@
 <script src="/js/contact.js"></script>
 <script src="/js/application.js"></script>
 
-<!-- Google Captcha  -->
-<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+<!-- Google Captcha (explicit render – widgets shown only when needed) -->
+<script src="https://www.google.com/recaptcha/api.js?render=explicit" async defer></script>
 

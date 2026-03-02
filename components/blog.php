@@ -48,168 +48,123 @@
     <div
       class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-10 gap-6 justify-items-center items-stretch reveal-me"
     >
-      <!-- Blog Card - Embodiment -->
+      <!-- Blog Card - Automation -->
       <div class="flex flex-col w-full max-w-[370px] mx-auto group">
-        <a href="/blogs/blog-ai-driven-marketing.php" class="flex flex-col">
-          <!-- Blog Image with Hover Effect -->
+        <a href="/blogs/blog-operations-you-should-automate.php" class="flex flex-col flex-1">
           <figure class="aspect-[370/399] overflow-hidden mb-6">
             <img
               src="/images/blog-img/blog-img-1.webp"
-              alt="Blog Images"
+              alt="Business Operations Automation"
               class="w-full h-full object-cover transition-all duration-500 group-hover:scale-125 group-hover:rotate-3"
             />
           </figure>
 
-          <!-- Blog Content -->
-          <div>
+          <div class="flex flex-col flex-1">
             <div class="blog-title">
               <h3
                 class="text-[27px] md:text-3xl lg:text-4xl leading-tight tracking-tight"
               >
-                AI-Driven Marketing
+                Operations You Should Automate
               </h3>
             </div>
 
             <p
-              class="text-lg leading-[1.4] tracking-[0.4px] font-poppins font-normal mt-3 md:mt-5 mb-5 md:mb-10"
+              class="text-lg leading-[1.4] tracking-[0.4px] font-poppins font-normal mt-3 md:mt-5 mb-5 md:mb-10 flex-1"
             >
-              Unlock smarter strategies and faster results using the power of artificial intelligence in your campaigns.
+              Your competitors already automated these five workflows. Here's what you're leaving on the table.
             </p>
 
-            <!-- Read More Button -->
-            <a href="/blogs/blog-ai-driven-marketing.php" class="rv-button rv-button-primary2">
+            <a href="/blogs/blog-operations-you-should-automate.php" class="rv-button rv-button-white mt-auto">
               <div class="rv-button-top !text-center">
-                <span class="mr-1">3 minute read</span>
-                <img
-                  class="inline dark:hidden"
-                  src="/images/icons/top-arrow.svg"
-                  alt="Arrow Icon"
-                />
-                <img
-                  class="hidden dark:inline"
-                  src="/images/icons/top-arrow-dark.svg"
-                  alt="Arrow Icon"
-                />
+                <span class="mr-1">6 minute read</span>
+                <img class="inline" src="/images/icons/top-arrow.svg" alt="Arrow Icon" />
               </div>
               <div class="rv-button-bottom !text-center">
-                <span class="mr-1">3 minute read</span>
-                <img
-                  class="inline"
-                  src="/images/icons/top-arrow.svg"
-                  alt="Arrow Icon"
-                />
+                <span class="mr-1">6 minute read</span>
+                <img class="inline dark:hidden" src="/images/icons/top-arrow-dark.svg" alt="Arrow Icon" />
+                <img class="hidden dark:inline" src="/images/icons/top-arrow.svg" alt="Arrow Icon" />
               </div>
             </a>
           </div>
         </a>
       </div>
 
-      <!-- Blog Card - Solutions & Skills -->
+      <!-- Blog Card - Custom vs Off-the-Shelf -->
       <div class="flex flex-col w-full max-w-[370px] mx-auto group">
-        <a href="/blogs/blog-favorite-seo-tools.php" class="flex flex-col">
-          <!-- Blog Image with Hover Effect -->
+        <a href="/blogs/blog-custom-software-vs-off-the-shelf.php" class="flex flex-col flex-1">
           <figure class="aspect-[370/399] overflow-hidden mb-6">
             <img
               src="/images/blog-img/blog-img-2.webp"
-              alt="Blog Images"
+              alt="Custom Software vs Off-the-Shelf"
               class="w-full h-full object-cover transition-all duration-500 group-hover:scale-125 group-hover:rotate-3"
             />
           </figure>
 
-          <!-- Blog Content -->
-          <div>
+          <div class="flex flex-col flex-1">
             <div class="blog-title">
               <h3
                 class="text-[27px] md:text-3xl lg:text-4xl leading-tight tracking-tight"
               >
-                Our Favorite SEO Tools
+                Custom Software vs. Off-the-Shelf
               </h3>
             </div>
 
             <p
-              class="text-lg leading-[1.4] tracking-[0.4px] font-poppins font-normal mt-3 md:mt-5 mb-5 md:mb-10"
+              class="text-lg leading-[1.4] tracking-[0.4px] font-poppins font-normal mt-3 md:mt-5 mb-5 md:mb-10 flex-1"
             >
-              Discover the essential tools we use daily to boost rankings, track performance, and optimize content.
+              Paying for 10 SaaS tools that don't talk to each other? The real cost of "good enough" is bigger than you think.
             </p>
 
-            <!-- Read More Button -->
-            <a href="/blogs/blog-favorite-seo-tools.php" class="rv-button rv-button-primary2">
+            <a href="/blogs/blog-custom-software-vs-off-the-shelf.php" class="rv-button rv-button-white mt-auto">
               <div class="rv-button-top !text-center">
-                <span class="mr-1">5 minute read</span>
-                <img
-                  class="inline dark:hidden"
-                  src="/images/icons/top-arrow.svg"
-                  alt="Arrow Icon"
-                />
-                <img
-                  class="hidden dark:inline"
-                  src="/images/icons/top-arrow-dark.svg"
-                  alt="Arrow Icon"
-                />
+                <span class="mr-1">7 minute read</span>
+                <img class="inline" src="/images/icons/top-arrow.svg" alt="Arrow Icon" />
               </div>
               <div class="rv-button-bottom !text-center">
-                <span class="mr-1">5 minute read</span>
-                <img
-                  class="inline"
-                  src="/images/icons/top-arrow.svg"
-                  alt="Arrow Icon"
-                />
+                <span class="mr-1">7 minute read</span>
+                <img class="inline dark:hidden" src="/images/icons/top-arrow-dark.svg" alt="Arrow Icon" />
+                <img class="hidden dark:inline" src="/images/icons/top-arrow.svg" alt="Arrow Icon" />
               </div>
             </a>
           </div>
         </a>
       </div>
 
-      <!-- Blog Card - Our Expertise -->
+      <!-- Blog Card - AI for Small Businesses -->
       <div class="flex flex-col w-full max-w-[370px] mx-auto group">
-        <a href="/blogs/blog-think-global.php" class="flex flex-col">
-          <!-- Blog Image with Hover Effect -->
+        <a href="/blogs/blog-ai-for-small-businesses.php" class="flex flex-col flex-1">
           <figure class="aspect-[370/399] overflow-hidden mb-6">
             <img
               src="/images/blog-img/blog-img-3.webp"
-              alt="Blog Images"
+              alt="AI for Small Businesses"
               class="w-full h-full object-cover transition-all duration-500 group-hover:scale-125 group-hover:rotate-3"
             />
           </figure>
 
-          <!-- Blog Content -->
-          <div>
+          <div class="flex flex-col flex-1">
             <div class="blog-title">
               <h3
                 class="text-[27px] md:text-3xl lg:text-4xl leading-tight tracking-tight"
               >
-                Think Global with Uxory
+                AI for Small Businesses
               </h3>
             </div>
 
             <p
-              class="text-lg leading-[1.4] tracking-[0.4px] font-poppins font-normal mt-3 md:mt-5 mb-5 md:mb-10"
+              class="text-lg leading-[1.4] tracking-[0.4px] font-poppins font-normal mt-3 md:mt-5 mb-5 md:mb-10 flex-1"
             >
-              See how our international team helps brands grow across borders with digital solutions that scale.
+              AI isn't just for billion-dollar companies. See how SMBs are using it to punch above their weight.
             </p>
 
-            <!-- Read More Button -->
-            <a href="/blogs/blog-think-global.php" class="rv-button rv-button-primary2">
+            <a href="/blogs/blog-ai-for-small-businesses.php" class="rv-button rv-button-white mt-auto">
               <div class="rv-button-top !text-center">
-                <span class="mr-1">4 minute read</span>
-                <img
-                  class="inline dark:hidden"
-                  src="/images/icons/top-arrow.svg"
-                  alt="Arrow Icon"
-                />
-                <img
-                  class="hidden dark:inline"
-                  src="/images/icons/top-arrow-dark.svg"
-                  alt="Arrow Icon"
-                />
+                <span class="mr-1">6 minute read</span>
+                <img class="inline" src="/images/icons/top-arrow.svg" alt="Arrow Icon" />
               </div>
               <div class="rv-button-bottom !text-center">
-                <span class="mr-1">4 minute read</span>
-                <img
-                  class="inline"
-                  src="/images/icons/top-arrow.svg"
-                  alt="Arrow Icon"
-                />
+                <span class="mr-1">6 minute read</span>
+                <img class="inline dark:hidden" src="/images/icons/top-arrow-dark.svg" alt="Arrow Icon" />
+                <img class="hidden dark:inline" src="/images/icons/top-arrow.svg" alt="Arrow Icon" />
               </div>
             </a>
           </div>
@@ -234,14 +189,13 @@
 
           <!-- Email Subscription Form -->
 
-          <div id="recaptcha-widget" class="g-recaptcha mt-4" data-sitekey="6LeSajcsAAAAALS4VDz_NUpt7ZxXziL1q-GZuklX"></div>
-
           <form
             class="max-md:max-w-sm max-w-[588px] mt-8 md:mt-10 flex border w-full relative subscribe-form-light"
             id="subscribeForm"
             
             method="POST"
           >
+            <input type="text" name="website" style="display:none !important" tabindex="-1" autocomplete="off" aria-hidden="true" />
             <input
               type="email"
               name="email"
@@ -257,7 +211,10 @@
             </button>
           </form>
 
-          <!-- this will hold the PHP response -->
+          <div id="subscribe-recaptcha-wrapper" class="hidden mt-4">
+            <div id="subscribe-recaptcha"></div>
+          </div>
+
           <div id="statusMsg" class="mt-4 text-black dark:text-white"></div>
           
         </div>

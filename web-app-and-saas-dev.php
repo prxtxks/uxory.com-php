@@ -1,0 +1,1119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Primary Meta Tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  
+  <title>Web App & SaaS Development Services | Uxory</title>
+  <meta name="description" content="Custom web app and SaaS development by Uxory. We build secure, scalable, and AI-enabled systems that automate work, power products, and grow with your business." />
+  <meta name="author" content="Uxory" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <meta name="googlebot" content="index, follow" />
+  
+  <!-- Theme & Mobile Optimization -->
+  <meta name="theme-color" content="#000000" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="format-detection" content="telephone=no" />
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://uxory.com/web-app-and-saas-dev.php" />
+  
+  <!-- Performance Hints -->
+  <link rel="preconnect" href="https://www.google.com" crossorigin />
+  <link rel="dns-prefetch" href="https://www.google.com" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/images/favicon.svg" />
+  <link rel="icon" type="image/png" href="/images/favicon.png" sizes="96x96" />
+  <link rel="shortcut icon" href="/images/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png" />
+  
+  <!-- Stylesheets -->
+  <link href="assets/css/main.css?v=<?= filemtime('assets/css/main.css') ?>" rel="stylesheet" />
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://uxory.com/web-app-and-saas-dev.php" />
+  <meta property="og:title" content="Web App & SaaS Development Services | Uxory" />
+  <meta property="og:description" content="Custom web app and SaaS development by Uxory. We build secure, scalable, and AI-enabled systems that automate work, power products, and grow with your business." />
+  <meta property="og:image" content="https://uxory.com/images/logo.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Uxory Web App & SaaS Development Services" />
+  <meta property="og:site_name" content="Uxory" />
+  <meta property="og:locale" content="en_US" />
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://uxory.com/web-app-and-saas-dev.php" />
+  <meta name="twitter:title" content="Web App & SaaS Development Services | Uxory" />
+  <meta name="twitter:description" content="Custom web app and SaaS development by Uxory. We build secure, scalable, and AI-enabled systems that automate work, power products, and grow with your business." />
+  <meta name="twitter:image" content="https://uxory.com/images/logo.png" />
+  <meta name="twitter:image:alt" content="Uxory Web App & SaaS Development Services" />
+  
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://uxory.com/#organization",
+        "name": "Uxory",
+        "url": "https://uxory.com",
+        "logo": {
+          "@type": "ImageObject",
+          "@id": "https://uxory.com/#logo",
+          "url": "https://uxory.com/images/logo.png",
+          "contentUrl": "https://uxory.com/images/logo.png",
+          "width": 512,
+          "height": 512
+        },
+        "sameAs": [
+          "https://www.linkedin.com/company/uxory/",
+          "https://www.instagram.com/uxoryllc/"
+        ]
+      },
+      {
+        "@type": "Service",
+        "@id": "https://uxory.com/web-app-and-saas-dev.php#service",
+        "name": "Web App & SaaS Development Services",
+        "description": "Custom web app and SaaS development services including custom business software, SaaS product development, and AI-powered software systems. We build secure, scalable systems that automate work, power products, and grow with your business.",
+        "provider": {
+          "@id": "https://uxory.com/#organization"
+        },
+        "url": "https://uxory.com/web-app-and-saas-dev.php",
+        "serviceType": "Web App Development, SaaS Development, Custom Software, AI-Powered Software",
+        "areaServed": [
+          {
+            "@type": "Country",
+            "name": "United States"
+          },
+          {
+            "@type": "Country",
+            "name": "India"
+          }
+        ],
+        "offers": {
+          "@type": "Offer",
+          "description": "Custom software development services tailored to your business workflows and growth plans"
+        }
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://uxory.com/web-app-and-saas-dev.php#webpage",
+        "url": "https://uxory.com/web-app-and-saas-dev.php",
+        "name": "Web App & SaaS Development Services | Uxory",
+        "description": "Custom web app and SaaS development by Uxory. We build secure, scalable, and AI-enabled systems that automate work, power products, and grow with your business.",
+        "isPartOf": {
+          "@id": "https://uxory.com/#website"
+        },
+        "about": {
+          "@id": "https://uxory.com/web-app-and-saas-dev.php#service"
+        },
+        "primaryImageOfPage": {
+          "@id": "https://uxory.com/#logo"
+        }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://uxory.com/#website",
+        "url": "https://uxory.com",
+        "name": "Uxory",
+        "publisher": {
+          "@id": "https://uxory.com/#organization"
+        }
+      }
+    ]
+  }
+  </script>
+
+</head>
+
+<body>
+  <!-- Skip to main content for accessibility -->
+  <a href="#main-content" class="sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[99999] focus:px-4 focus:py-2 focus:bg-primary focus:text-black focus:font-bold focus:rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary" style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border-width: 0;">
+    Skip to main content
+  </a>
+  <style>
+    .sr-only:focus {
+      position: fixed !important;
+      width: auto !important;
+      height: auto !important;
+      padding: 0.5rem 1rem !important;
+      margin: 0 !important;
+      overflow: visible !important;
+      clip: auto !important;
+      white-space: normal !important;
+    }
+  </style>
+
+<!-- header  -->
+<?php       
+include 'components/header.php';
+?>
+
+<!-- nav  -->
+<?php
+$currentPage = 'web-app-saas-dev';
+$currentParent = 'services';
+include 'components/nav.php';
+?>
+
+<div
+  class="menu-overflow fixed z-[9999] bg-[rgba(10,10,10,0.95)] bg-opacity-60 backdrop-blur-[25px] w-full h-full pointer-events-none"
+></div>
+
+<!-- Dark Mode toggle -->
+<?php       
+include 'components/dark_mode.php';
+?>
+
+<main id="main-content" class="lg:mb-[600px] relative z-10 bg-backgroundBody dark:bg-dark">
+<!--=====================================
+   Hero Section
+======================================-->
+<section
+  class="pt-[120px] sm:pt-[135px] md:pt-[150px] lg:pt-44 xl:pt-[200px] relative overflow-hidden"
+>
+  <!-- Gradient Background Effect -->
+  <div
+    id="hero-gradient-wrapper"
+    class="absolute w-full h-fw-full top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 -z-10 blur-[60px] scale-90"
+  >
+    <img
+      src="images/hero-gradient-background-02.png"
+      alt="hero-gradient-background"
+      id="hero-gradient"
+      class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
+    />
+  </div>
+
+  <!-- Hero Content -->
+  <div class="container">
+
+    <h2 class="font-medium text-center reveal-me">
+    We build serious software that runs businesses
+    </h2>
+    <p class="max-w-3xl text-center mx-auto mt-3 text-appear">
+    From internal tools to customer-facing platforms, we build software that improves efficiency, reduces manual work, and supports long-term growth.
+
+    </p>
+
+      <!-- Hero Buttons -->
+    <div class="flex flex-col md:flex-row justify-center items-center mt-14 gap-6 px-4 reveal-me">
+
+      <!-- Button 1 -->
+      <div
+        class="flex w-full md:w-auto p-3 group bg-primary bg-opacity-30 gap-3 justify-between items-center backdrop-blur-2xl max-w-[320px] md:max-w-[320px]"
+      >
+        <div>
+          <h6 class="text-sm font-satoshi font-bold text-black dark:text-white">
+            Get a Proposal
+          </h6>
+        </div>
+          <a href="/contact.php">
+            <figure
+              class="bg-primary w-[44px] h-[44px] cursor-pointer relative overflow-hidden"
+            >
+              <img
+                src="images/icons/hyper-arrow-new.svg"
+                alt="Arrow Icon"              />
+            </figure>
+          </a>
+      </div>
+
+      <!-- Button 2 -->
+      <div
+        class="flex w-full md:w-auto p-3 group bg-primary bg-opacity-30 gap-3 justify-between items-center backdrop-blur-2xl max-w-[320px] md:max-w-[320px]"
+      >
+        <div>
+          <h6 class="text-sm font-satoshi font-bold text-black dark:text-white">
+            Schedule a Free Meeting
+          </h6>
+          <p class="text-sm text-black dark:text-white">Few spots left this month</p>
+        </div>
+          <a href="calendly.php">
+            <figure
+              class="bg-primary w-[44px] h-[44px] cursor-pointer relative overflow-hidden"
+            >
+              <img
+                src="images/icons/hyper-arrow-new.svg"
+                alt="Arrow Icon"              />
+            </figure>
+          </a>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+ <!--==================================
+   About Description Section Area
+===================================-->
+<section
+  class="pt-14 md:pt-16 lg:pt-[88px] xl:pt-[100px] md:pb-16 lg:pb-[88px] xl:pb-[100px] relative overflow-hidden"
+>
+  <div class="container">
+    <p
+      class="reveal-text-2 text-2xl lg:text-3xl text-secondary/90 dark:text-backgroundBody/70 text-left font-normal lg:leading-[1.2] lg:tracking-[0.72px]"
+    >
+    We design and build custom software systems tailored to how your business actually works. From internal tools to customer-facing platforms and AI-enabled products, our software is built for performance, security, and long-term scale. No unnecessary features - just systems that solve real problems and grow with you.
+  </p>
+
+  </div>
+</section>
+
+<!--=====================================
+  Promo Image Section
+======================================-->
+<section class="pt-14 md:pt-16 lg:pt-[88px] xl:pt-[100px] relative overflow-hidden">
+  <div class="container">
+    <div class="video-parents reveal-me-2 relative">
+      <div class="w-full h-fit video-wrapper scale-50 origin-top" style="border-radius: 24px; overflow: hidden;">
+        <img src="images/hero-img/software-hero.webp" alt="Software Dashboard" class="w-full h-auto" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!--=====================================
+  Custom Software Services
+======================================-->
+<section
+  class="pt-14 md:pt-16 lg:pt-[88px] xl:pt-[100px] md:pb-16 lg:pb-[88px] xl:pb-[100px] relative overflow-hidden"
+>
+  <div
+    class="absolute scale-y-[3.8] sm:scale-y-[3.3] md:scale-y-[3.2] lg:scale-y-[2.4] xl:scale-y-[1.2] scale-x-[2.7] xl:scale-x-[2.4] left-1/2 top-[47%] lg:top-[45%] -translate-y-[45%] -translate-x-1/2"
+  >
+    <img src="images/services-gradient-bg-2.png" alt="gradient-bg" />
+  </div>
+  <div class="container">
+    <!-- Section Header -->
+    <div
+      class="flex flex-col md:flex-row gap-y-2 gap-x-10 justify-center lg:justify-between items-start mb-10 md:mb-20"
+    >
+      <div class="flex-1">
+        <h3 class="text-appear max-lg:leading-[1.33]">
+          <span class="font-instrument lg:text-[65px] italic">Custom</span>
+
+          Software Services
+        </h3>
+      </div>
+      <div class="md:self-end max-md:w-full flex-1">
+        <p class="text-appear md:justify-self-end max-w-lg md:text-right">
+        Every business works differently. We build software that fits your workflows, users, and growth plans.
+        </p>
+
+      </div>
+    </div>
+
+    <!-- Accordion Container -->
+    <div
+      class="max-w-[1170px] w-full mx-auto [&>*:not(:last-child)]:mb-6 reveal-me"
+    >
+
+    <!-- Service 1 -->
+      <div class="accordion-item overflow-hidden bg-secondary duration-300">
+        <div
+          class="accordion-header relative cursor-pointer py-[35px] flex justify-between px-5 md:px-10 group"
+        >
+          <h3
+            class="flex flex-col md:flex-row md:items-center gap-x-10 gap-y-3 text-[25px] lg:text-4xl md:font-medium font-normal leading-[25.2px] md:leading-[1.2] text-white"
+          >
+            <span class="text-inherit">Custom Business Software</span>
+            <span
+              class="text-base md:text-xl md:leading-[1.4] md:tracking-[0.4px] text-[#ffffff99] mt-2 pr-[2px]"
+            >
+            Companies replacing manual work with reliable internal systems.
+            </span>
+          </h3>
+          <div class="ml-2 accordion-header-iconV3 w-8 h-8 relative flex-shrink-0">
+            <span class="block w-full h-full relative">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="32"
+                height="32"
+                viewBox="0 0 32 32"
+                fill="none"
+                class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 active-arrow group-hover:rotate-90 ease-faq-body-transition duration-300"
+              >
+                <path
+                  d="M5 16H27"
+                  stroke="black"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M18 7L27 16L18 25"
+                  stroke="black"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </span>
+          </div>
+        </div>
+        <div
+          class="accordion-body px-10 duration-300 h-0 flex flex-col justify-start gap-7 md:gap-14 md:ml-5"
+        >
+          <ul class="[&>*:not(:last-child)]:mb-1">
+            <li
+              class="list-disc text-backgroundBody/70 text-[17px] leading-[1.5] tracking-[0.36px]"
+            >
+            Internal tools built around your exact workflows so your team works faster without adapting to generic software
+            </li>
+            <li
+              class="list-disc text-backgroundBody/70 text-[17px] leading-[1.5] tracking-[0.36px]"
+            >
+            Role-based access that limits visibility, reduces errors, and keeps sensitive data secure
+            </li>
+            <li
+              class="list-disc text-backgroundBody/70 text-[17px] leading-[1.5] tracking-[0.36px]"
+            >
+            Automated approvals, task flows, and handoffs that remove delays and manual follow-ups
+            </li>
+            <li
+              class="list-disc text-backgroundBody/70 text-[17px] leading-[1.5] tracking-[0.36px]"
+            >
+            Reliable data storage with backups and recovery to keep everything safe and audit-ready
+            </li>
+            <li
+              class="list-disc text-backgroundBody/70 text-[17px] leading-[1.5] tracking-[0.36px]"
+            >
+            Scalable architecture that supports growth without rebuilds or shortcuts
+            </li>
+          </ul>
+
+        </div>
+
+      </div>
+    <!-- Service 1 Ends -->
+
+    <!-- Service 2 -->
+      <div class="accordion-item overflow-hidden bg-secondary duration-300">
+        <div
+          class="accordion-header relative cursor-pointer py-[35px] flex justify-between px-5 md:px-10 group"
+        >
+          <h3
+            class="flex flex-col md:flex-row md:items-center gap-x-10 gap-y-3 text-[25px] lg:text-4xl md:font-medium font-normal leading-[25.2px] md:leading-[1.2] text-white"
+          >
+            <span class="text-inherit">SaaS Product Development</span>
+            <span
+              class="text-base md:text-xl md:leading-[1.4] md:tracking-[0.4px] text-[#ffffff99] mt-2 pr-[2px]"
+            >
+            Turn your idea into a real, scalable product.
+            </span>
+          </h3>
+
+          <div class="ml-2 accordion-header-iconV3 w-8 h-8 relative flex-shrink-0">
+            <span class="block w-full h-full relative">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="32"
+                height="32"
+                viewBox="0 0 32 32"
+                fill="none"
+                class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 active-arrow group-hover:rotate-90 ease-faq-body-transition duration-300"
+              >
+                <path
+                  d="M5 16H27"
+                  stroke="black"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M18 7L27 16L18 25"
+                  stroke="black"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </span>
+          </div>
+
+        </div>
+        <div
+          class="accordion-body px-10 duration-300 h-0 flex flex-col justify-start gap-7 md:gap-14 md:ml-5"
+        >
+          <ul class="[&>*:not(:last-child)]:mb-1">
+            <li
+              class="list-disc text-backgroundBody/70 text-[17px] leading-[1.5] tracking-[0.36px]"
+            >
+            Production-ready SaaS architecture designed to support growth from day one
+            </li>
+            <li
+              class="list-disc text-backgroundBody/70 text-[17px] leading-[1.5] tracking-[0.36px]"
+            >
+            Secure user accounts, payments, subscriptions, and trials built cleanly into the system
+            </li>
+            <li
+              class="list-disc text-backgroundBody/70 text-[17px] leading-[1.5] tracking-[0.36px]"
+            >
+            Access control and usage limits that make feature-based monetization simple
+            </li>
+            <li
+              class="list-disc text-backgroundBody/70 text-[17px] leading-[1.5] tracking-[0.36px]"
+            >
+            Scalable APIs ready for integrations, mobile apps, and enterprise clients
+            </li>
+            <li
+              class="list-disc text-backgroundBody/70 text-[17px] leading-[1.5] tracking-[0.36px]"
+            >
+            Launch-ready builds with clean structure that investors and partners trust
+            </li>
+          </ul>
+
+        </div>
+
+      </div>
+    <!-- Service 2 -->
+
+        <!--Service 3  Card -->
+      <div class="accordion-item overflow-hidden bg-secondary duration-300">
+        <div
+          class="accordion-header relative cursor-pointer py-[35px] flex justify-between px-5 md:px-10 group"
+        >
+          <h3
+            class="flex flex-col md:flex-row md:items-center gap-x-10 gap-y-3 text-[25px] lg:text-4xl md:font-medium font-normal leading-[25.2px] md:leading-[1.2] text-white"
+          >
+            <span class="text-inherit">AI-Powered Software Systems</span>
+            <span
+              class="text-base md:text-xl md:leading-[1.4] md:tracking-[0.4px] text-[#ffffff99] mt-2 pr-[2px]"
+            >
+            Software that thinks, analyzes, and reduces manual effort.
+            </span>
+          </h3>
+          <div class="ml-2 accordion-header-iconV3 w-8 h-8 relative flex-shrink-0">
+            <span class="block w-full h-full relative">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="32"
+                height="32"
+                viewBox="0 0 32 32"
+                fill="none"
+                class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 active-arrow group-hover:rotate-90 ease-faq-body-transition duration-300"
+              >
+                <path
+                  d="M5 16H27"
+                  stroke="black"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M18 7L27 16L18 25"
+                  stroke="black"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </span>
+          </div>
+        </div>
+        <div
+          class="accordion-body px-10 duration-300 h-0 flex flex-col justify-start gap-7 md:gap-14 md:ml-5"
+        >
+          <ul class="[&>*:not(:last-child)]:mb-1">
+            <li
+              class="list-disc text-backgroundBody/70 text-[17px] leading-[1.5] tracking-[0.36px]"
+            >
+            Automated document and data processing that eliminates repetitive human work
+            </li>
+            <li
+              class="list-disc text-backgroundBody/70 text-[17px] leading-[1.5] tracking-[0.36px]"
+            >
+            Intelligent workflows that adapt decisions based on real data inputs
+            </li>
+            <li
+              class="list-disc text-backgroundBody/70 text-[17px] leading-[1.5] tracking-[0.36px]"
+            >
+            Smart search, recommendations, and matching inside complex systems
+            </li>
+            <li
+              class="list-disc text-backgroundBody/70 text-[17px] leading-[1.5] tracking-[0.36px]"
+            >
+            Insight dashboards that highlight patterns, risks, and opportunities clearly
+            </li>
+            <li
+              class="list-disc text-backgroundBody/70 text-[17px] leading-[1.5] tracking-[0.36px]"
+            >
+            Secure AI features embedded into your software without experimental risk
+            </li>
+          </ul>
+
+        </div>
+
+      </div>
+    <!--Service 3 -->
+
+
+    </div>
+  </div>
+</section>
+
+<!--=====================================
+  What Sets Us Apart
+======================================-->
+<section
+  class="pt-14 md:pt-16 lg:pt-[88px] xl:pt-[100px] service-section relative overflow-hidden"
+>
+  <div class="container">
+    <h3>What Sets Us Apart</h3>
+  </div>
+  <article
+    class="mt-16 flex flex-col md:flex-row md:flex-nowrap md:w-fit gap-6 md:pl-[20%] max-md:px-5 md:pr-10 service-wrapper overflow-x-hidden reveal-me"
+  >
+    <div class="w-[332px] grid content-between max-h-[404px]">
+      <div>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="97"
+          height="96"
+          viewBox="0 0 97 96"
+          fill="none"
+        >
+          <path
+            d="M60.5 48L78.5 66M78.5 66L60.5 84M78.5 66H24.5V12"
+            class="stroke-secondary dark:stroke-backgroundBody"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </div>
+    </div>
+
+     <!-- Card-01 -->
+     <div
+      class="sets-apart-card group p-5 md:p-[30px] md:w-[740px]"
+    >
+      <a href="/services-details.html">
+        <div class="flex flex-col md:flex-row gap-y-7 md:gap-x-12 items-start">
+          <!-- Image -->
+          <figure class="w-[150px] h-[150px] shrink-0 max-md:w-full max-md:aspect-square max-md:h-auto">
+            <img
+              src="./images/home-5/precision-keyword-strategy.webp"
+              alt="Keyword Research"
+              class="w-full h-full object-cover"
+            />
+          </figure>
+
+          <!-- Icon and Description -->
+          <div class="flex flex-col justify-between">
+            <!-- Icon Figure -->
+
+            <!-- Description -->
+            <p class="text-base lg:text-lg">
+            We design software around your real workflows, not assumptions. The system fits how your team already operates, so adoption is easy and day-to-day work actually gets faster.
+            </p>
+          </div>
+        </div>
+
+        <!-- Title and Number -->
+        <div class="pt-6 md:pt-8 sm:mt-2 flex justify-between items-end">
+          <h5
+            class="lg:leading-[1.1] lg:tracking-[-1.44px]"
+          >
+          Workflow-First Design
+          </h5>
+          <span
+            class="text-black/10 dark:text-backgroundBody/10 text-5xl sm:text-[55px] md:text-[67px] lg:text-[84px] xl:text-8xl font-normal leading-[1.1] tracking-[-2px] xl:tracking-[-2.88px]"
+          >
+            01
+          </span>
+        </div>
+      </a>
+    </div>
+
+    <!-- Card-02 -->
+    <div
+      class="sets-apart-card group p-5 md:p-[30px] md:w-[740px]"
+    >
+      <a href="/services-details.html">
+        <div class="flex flex-col md:flex-row gap-y-7 md:gap-x-12 items-start">
+          <!-- Image -->
+          <figure class="w-[150px] h-[150px] shrink-0 max-md:w-full max-md:aspect-square max-md:h-auto">
+            <img
+              src="./images/home-5/Analytics-and-reporting.webp"
+              alt="Keyword Research"
+              class="w-full h-full object-cover"
+            />
+          </figure>
+
+          <!-- Icon and Description -->
+          <div class="flex flex-col justify-between">
+            <!-- Icon Figure -->
+
+            <!-- Description -->
+            <p class="text-base lg:text-lg">
+            The software is structured to handle more users, more data, and more features as you grow - without messy rewrites or performance issues later.
+            </p>
+          </div>
+        </div>
+
+        <!-- Title and Number -->
+        <div class="pt-6 md:pt-8 sm:mt-2 flex justify-between items-end">
+          <h5
+            class="lg:leading-[1.1] lg:tracking-[-1.44px]"
+          >
+          Scalable Architecture
+          </h5>
+          <span
+            class="text-black/10 dark:text-backgroundBody/10 text-5xl sm:text-[55px] md:text-[67px] lg:text-[84px] xl:text-8xl font-normal leading-[1.1] tracking-[-2px] xl:tracking-[-2.88px]"
+          >
+            02
+          </span>
+        </div>
+      </a>
+    </div>
+
+    <!-- Card-03 -->
+    <div
+      class="sets-apart-card group p-5 md:p-[30px] md:w-[740px]"
+    >
+      <a href="/services-details.html">
+        <div class="flex flex-col md:flex-row gap-y-7 md:gap-x-12 items-start">
+          <!-- Image -->
+          <figure class="w-[150px] h-[150px] shrink-0 max-md:w-full max-md:aspect-square max-md:h-auto">
+            <img
+              src="./images/home-5/local-seo-domination.webp"
+              alt="Keyword Research"
+              class="w-full h-full object-cover"
+            />
+          </figure>
+
+          <!-- Icon and Description -->
+          <div class="flex flex-col justify-between">
+            <!-- Icon Figure -->
+
+            <!-- Description -->
+            <p class="text-base lg:text-lg">
+            AI-powered systems that help modern organizations work faster, reduce manual effort, and improve team productivity.
+            </p>
+          </div>
+        </div>
+
+        <!-- Title and Number -->
+        <div class="pt-6 md:pt-8 sm:mt-2 flex justify-between items-end">
+          <h5
+            class="lg:leading-[1.1] lg:tracking-[-1.44px]"
+          >
+          AI-Powered Intelligence
+          </h5>
+          <span
+            class="text-black/10 dark:text-backgroundBody/10 text-5xl sm:text-[55px] md:text-[67px] lg:text-[84px] xl:text-8xl font-normal leading-[1.1] tracking-[-2px] xl:tracking-[-2.88px]"
+          >
+            03
+          </span>
+        </div>
+      </a>
+    </div>
+
+    <!-- Card-04 -->
+    <div
+      class="sets-apart-card group p-5 md:p-[30px] md:w-[740px]"
+    >
+      <a href="./services-details.html">
+        <div class="flex flex-col md:flex-row gap-y-7 md:gap-x-12 items-start">
+          <!-- Image -->
+          <figure class="w-[150px] h-[150px] shrink-0 max-md:w-full max-md:aspect-square max-md:h-auto">
+            <img
+              src="./images/home-5/content-that-connects.webp"
+              alt="Keyword Research"
+              class="w-full h-full object-cover"
+            />
+          </figure>
+
+          <!-- Icon and Description -->
+          <div class="flex flex-col justify-between">
+            
+
+            <!-- Description -->
+            <p class="text-base lg:text-lg">
+              You know what's being built, how it's progressing, and what decisions are being made - without chasing updates or guessing what's happening behind the scenes.
+            </p>
+          </div>
+        </div>
+
+        <!-- Title and Number -->
+        <div class="pt-6 md:pt-8 sm:mt-2 flex justify-between items-end">
+          <h5
+            class="lg:leading-[1.1] lg:tracking-[-1.44px]"
+          >
+          Transparent Process
+          </h5>
+          <span
+            class="text-black/10 dark:text-backgroundBody/10 text-5xl sm:text-[55px] md:text-[67px] lg:text-[84px] xl:text-8xl font-normal leading-[1.1] tracking-[-2px] xl:tracking-[-2.88px]"
+          >
+            04
+          </span>
+        </div>
+      </a>
+    </div>
+
+
+  </article>
+</section>
+
+<!-- ================================
+Our Projects Section
+================================ -->
+<section
+  class="pt-10 md:pt-12 lg:pt-16 xl:pt-20 mt-14 md:mt-16 lg:mt-[88px] xl:mt-[100px] pb-10 md:pb-12 lg:pb-16 xl:pb-20 overflow-hidden bg-[#CBE8DF]"
+>
+  <div class="container">
+    <!-- Section Header -->
+    <div
+      class="flex flex-col md:flex-row gap-x-10 gap-y-4 justify-center lg:justify-between items-start mb-10 md:mb-16"
+    >
+      <!-- Title Area -->
+      <div class="flex-1 md:self-start">
+        <h3 class="text-appear lg:leading-[1.1] text-secondary">
+          Explore Our Work
+        </h3>
+      </div>
+    </div>
+  </div>
+
+  <div class="container relative">
+  
+  <div class="swiper overflow-hidden reveal-me" id="reviewer">
+      <div class="swiper-wrapper pb-16">
+
+
+        <!-- Slide 02 Project StyleHatch -->
+        <div class="swiper-slide">
+          <div
+            class="flex flex-col md:flex-row items-start gap-y-5 md:space-x-10 content-between"
+          >
+            <img
+              src="/images/home-ai/revops.webp"
+              alt="User Image"
+              class="max-md:w-full object-cover md:max-w-[300px] md:max-h-[260px]"
+              style="border-radius: 16px;"
+            />
+            <div class="flex flex-col md:max-w-[650px]">
+              
+              <div class="flex items-center gap-x-6 mt-5 mb-[34px]">
+                <p class="text-2xl leading-[1.1] text-secondary">RevOps Control Suite</p>
+              </div>
+
+              <p class="text-lg leading-[1.6] tracking-[0.36px] text-secondary/70">
+              A centralized revenue operations system for a growing B2B company. The platform unified sales data, pipeline stages, contracts, and payouts into one reliable source of truth. Automated revenue forecasts, flagged stalled deals, and generated leadership-ready reports. Reduced manual reporting and improved forecast accuracy across teams.
+              </p>
+
+              <div class="flex items-center justify-between mt-12">
+                <a
+                  href="/coming-soon.php"
+                  class="border dark:border-dark p-1.5 md:p-3 hover:bg-primary duration-300"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style="border-radius: 10px;"
+                >
+                  <img src="/images/icons/top-arrow.svg" alt="Open project" class="block dark:hidden mt-[2px]" />
+                  <img src="/images/icons/top-arrow-dark.svg" alt="Open project" class="hidden dark:block mt-[2px]" />
+                </a>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 03 Project UrbanNest -->
+        <div class="swiper-slide">
+          <div
+            class="flex flex-col md:flex-row items-start gap-y-5 md:space-x-10 content-between"
+          >
+            <img
+              src="/images/home-ai/secureops.webp"
+              alt="User Image"
+              class="max-md:w-full object-cover md:max-w-[300px] md:max-h-[260px]"
+              style="border-radius: 16px;"
+            />
+            <div class="flex flex-col md:max-w-[650px]">
+              
+              <div class="flex items-center gap-x-6 mt-5 mb-[34px]">
+                <p class="text-2xl leading-[1.1] text-secondary">SecureOps Compliance Manager</p>
+              </div>
+
+              <p class="text-lg leading-[1.6] tracking-[0.36px] text-secondary/70">
+              A compliance and risk management system for a regulated organization. The software tracked policies, approvals, audits, and access logs in one secure environment. Automated reminders, audit trails, and reporting reduced compliance overhead and eliminated manual follow-ups across departments.
+            </p>
+
+              <div class="flex items-center justify-between mt-12">
+                <a
+                  href="/coming-soon.php"
+                  class="border dark:border-dark p-1.5 md:p-3 hover:bg-primary duration-300"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style="border-radius: 10px;"
+                >
+                  <img src="/images/icons/top-arrow.svg" alt="Open project" class="block dark:hidden mt-[2px]" />
+                  <img src="/images/icons/top-arrow-dark.svg" alt="Open project" class="hidden dark:block mt-[2px]" />
+                </a>
+              </div>
+
+            </div>
+          </div>
+        </div>
+        
+      </div>
+      
+      <!-- buttons:  -->
+
+      <div class="absolute right-[15%] bottom-[0px] z-50">
+        <div class="flex items-center space-x-2">
+          <button
+            class="swiper-button-prev p-1.5 md:p-2.5 bg-secondary active:bg-primary hover:bg-primary duration-300"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="21"
+              viewBox="0 0 20 21"
+              fill="none"
+            >
+              <path
+                d="M12.9417 16.5621C12.9998 16.6201 13.0458 16.6891 13.0773 16.7649C13.1087 16.8408 13.1249 16.9221 13.1249 17.0043C13.1249 17.0864 13.1087 17.1677 13.0773 17.2436C13.0458 17.3194 12.9998 17.3884 12.9417 17.4464C12.8836 17.5045 12.8147 17.5506 12.7388 17.582C12.663 17.6134 12.5816 17.6296 12.4995 17.6296C12.4174 17.6296 12.3361 17.6134 12.2602 17.582C12.1843 17.5506 12.1154 17.5045 12.0573 17.4464L5.80733 11.1964C5.74922 11.1384 5.70312 11.0695 5.67167 10.9936C5.64021 10.9177 5.62402 10.8364 5.62402 10.7543C5.62402 10.6721 5.64021 10.5908 5.67167 10.5149C5.70312 10.439 5.74922 10.3701 5.80733 10.3121L12.0573 4.06207C12.1746 3.94479 12.3337 3.87891 12.4995 3.87891C12.6654 3.87891 12.8244 3.94479 12.9417 4.06207C13.059 4.17934 13.1249 4.3384 13.1249 4.50425C13.1249 4.67011 13.059 4.82917 12.9417 4.94644L7.13311 10.7543L12.9417 16.5621Z"
+                class="fill-backgroundBody"
+              />
+            </svg>
+          </button>
+          <button
+            class="swiper-button-next p-1.5 md:p-2.5 bg-secondary active:bg-primary hover:bg-primary duration-300"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="21"
+              viewBox="0 0 20 21"
+              fill="none"
+            >
+              <path
+                d="M14.1925 11.1964L7.94254 17.4464C7.88447 17.5045 7.81553 17.5506 7.73966 17.582C7.66379 17.6134 7.58247 17.6296 7.50035 17.6296C7.41823 17.6296 7.33691 17.6134 7.26104 17.582C7.18517 17.5506 7.11623 17.5045 7.05816 17.4464C7.00009 17.3884 6.95403 17.3194 6.9226 17.2436C6.89117 17.1677 6.875 17.0864 6.875 17.0043C6.875 16.9221 6.89117 16.8408 6.9226 16.7649C6.95403 16.6891 7.00009 16.6201 7.05816 16.5621L12.8668 10.7543L7.05816 4.94644C6.94088 4.82917 6.875 4.67011 6.875 4.50425C6.875 4.3384 6.94088 4.17934 7.05816 4.06207C7.17544 3.94479 7.3345 3.87891 7.50035 3.87891C7.6662 3.87891 7.82526 3.94479 7.94254 4.06207L14.1925 10.3121C14.2506 10.3701 14.2967 10.439 14.3282 10.5149C14.3597 10.5908 14.3758 10.6721 14.3758 10.7543C14.3758 10.8364 14.3597 10.9177 14.3282 10.9936C14.2967 11.0695 14.2506 11.1384 14.1925 11.1964Z"
+                class="fill-backgroundBody"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!--=====================================
+   Testimonials Section
+======================================-->
+<?php       
+include 'components/testimonials.php';
+?>
+
+<!--=====================================
+   FAQ Section
+======================================-->
+<section
+  class="pt-14 md:pt-16 lg:pt-[88px] xl:pt-[100px] md:pb-16 lg:pb-[88px] xl:pb-[100px] relative overflow-hidden"
+>
+  <div class="container">
+    
+    <div
+      class="flex flex-col md:flex-row gap-x-10 gap-y-5 justify-center lg:justify-between max-md:items-start md:items-end mb-10 lg:mb-20"
+    >
+     
+      <div class="flex-1">
+        <h2 class="text-appear block md:hidden">
+          <span class="font-instrument italic">People</span>
+          <br />
+          Asked Us
+        </h2>
+        <h2 class="text-appear md:block hidden">
+          <span class="font-instrument lg:text-[70px] italic">People</span>
+          <br />
+          Asked Us
+        </h2>
+      </div>
+      
+    </div>
+
+    
+    <div
+      class="w-full mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[30px] items-start"
+    >       
+        <div class="reveal-me">
+          <div
+            class="accordion-itemV4 overflow-hidden relative w-full lg:max-w-[370px] bg-backgroundBody dark:bg-dark border data-[active=true]:border-black data-[active=false]:border-black/10 dark:data-[active=false]:border-white/10 dark:data-[active=true]:border-white/10 duration-300 px-4 md:px-[30px] pt-4 md:pt-[30px] pb-8 md:pb-[60px] space-y-6"
+          >
+            <div class="accordion-headerV4 cursor-pointer">
+              <h3
+                class="text-[23px] md:text-[25px] tracking-normal font-normal "
+              >
+              What kind of software do you build?
+              </h3>
+              <div class="accordion-header-iconV4 dark:border-dark"></div>
+            </div>
+            <p class="accordion-bodyV4 duration-300 h-0 overflow-hidden">
+              We build custom business software, internal systems, SaaS platforms, automation tools, and AI-powered systems tailored to how your operations actually work. If it replaces manual effort, handles data, or runs a core process, we can build it.
+            </p>
+          </div>
+        </div>
+        
+       
+        <div class="reveal-me">
+          <div
+            class="accordion-itemV4 overflow-hidden relative w-full lg:max-w-[370px] bg-backgroundBody dark:bg-dark border data-[active=true]:border-black data-[active=false]:border-black/10 dark:data-[active=false]:border-white/10 dark:data-[active=true]:border-white/10 duration-300 px-4 md:px-[30px] pt-4 md:pt-[30px] pb-8 md:pb-[60px] space-y-6"
+          >
+            <div class="accordion-headerV4 cursor-pointer">
+              <h3
+                class="text-[23px] md:text-[25px] tracking-normal font-normal"
+              >
+              What does the development timeline look like?
+              </h3>
+              <div class="accordion-header-iconV4 dark:border-dark"></div>
+            </div>
+            <p class="accordion-bodyV4 duration-300 h-0 overflow-hidden">
+              Most projects take 4-12 weeks depending on scope, complexity, and integrations. Larger systems are delivered in clear phases, so you start seeing value early instead of waiting months for everything at once.
+            </p>
+          </div>
+        </div>
+        
+        <div class="reveal-me">
+          <div
+            class="accordion-itemV4 overflow-hidden relative w-full lg:max-w-[370px] bg-backgroundBody dark:bg-dark border data-[active=true]:border-black data-[active=false]:border-black/10 dark:data-[active=false]:border-white/10 dark:data-[active=true]:border-white/10 duration-300 px-4 md:px-[30px] pt-4 md:pt-[30px] pb-8 md:pb-[60px] space-y-6"
+          >
+            <div class="accordion-headerV4 cursor-pointer">
+              <h3
+                class="text-[23px] md:text-[25px] tracking-normal font-normal"
+              >
+              Can you integrate with our existing tools and systems?
+              </h3>
+              <div class="accordion-header-iconV4 dark:border-dark"></div>
+            </div>
+            <p class="accordion-bodyV4 duration-300 h-0 overflow-hidden">
+              Yes. We regularly integrate CRMs, accounting tools, payment systems, internal databases, third-party APIs, and custom platforms so your software fits cleanly into your existing setup.
+            </p>
+          </div>
+        </div>
+        
+        <div class="reveal-me">
+          <div
+            class="accordion-itemV4 overflow-hidden relative w-full lg:max-w-[370px] bg-backgroundBody dark:bg-dark border data-[active=true]:border-black data-[active=false]:border-black/10 dark:data-[active=false]:border-white/10 dark:data-[active=true]:border-white/10 duration-300 px-4 md:px-[30px] pt-4 md:pt-[30px] pb-8 md:pb-[60px] space-y-6"
+          >
+            <div class="accordion-headerV4 cursor-pointer">
+              <h3
+                class="text-[23px] md:text-[25px] tracking-normal font-normal"
+              >
+              Do you work with global clients and US-based invoicing?
+              </h3>
+              <div class="accordion-header-iconV4 dark:border-dark"></div>
+            </div>
+            <p class="accordion-bodyV4 duration-300 h-0 overflow-hidden">
+              Yes. We work with clients worldwide and provide US-compliant invoices. Communication, documentation, and delivery are structured for international teams and stakeholders.
+            </p>
+          </div>
+        </div>
+      
+        
+        <div class="reveal-me">
+          <div
+            class="accordion-itemV4 overflow-hidden relative w-full lg:max-w-[370px] bg-backgroundBody dark:bg-dark border data-[active=true]:border-black data-[active=false]:border-black/10 dark:data-[active=false]:border-white/10 dark:data-[active=true]:border-white/10 duration-300 px-4 md:px-[30px] pt-4 md:pt-[30px] pb-8 md:pb-[60px] space-y-6"
+          >
+            <div class="accordion-headerV4 cursor-pointer">
+              <h3
+                class="text-[23px] md:text-[25px] tracking-normal font-normal"
+              >
+              Do you provide support after the software is delivered?
+              </h3>
+              <div class="accordion-header-iconV4 dark:border-dark"></div>
+            </div>
+            <p class="accordion-bodyV4 duration-300 h-0 overflow-hidden">
+              Yes. We offer optional ongoing support, maintenance, and feature improvements to keep your system secure, reliable, and aligned with how your business evolves.
+            </p>
+          </div>
+        </div>
+
+        <div class="reveal-me">
+          <div
+            class="accordion-itemV4 overflow-hidden relative w-full lg:max-w-[370px] bg-backgroundBody dark:bg-dark border data-[active=true]:border-black data-[active=false]:border-black/10 dark:data-[active=false]:border-white/10 dark:data-[active=true]:border-white/10 duration-300 px-4 md:px-[30px] pt-4 md:pt-[30px] pb-8 md:pb-[60px] space-y-6"
+          >
+            <div class="accordion-headerV4 cursor-pointer">
+              <h3
+                class="text-[23px] md:text-[25px] tracking-normal font-normal"
+              >
+              How do you handle requirements if we don't have everything figured out?
+              </h3>
+              <div class="accordion-header-iconV4 dark:border-dark"></div>
+            </div>
+            <p class="accordion-bodyV4 duration-300 h-0 overflow-hidden">
+              That's completely normal. We help you clarify workflows, priorities, and edge cases through short discovery sessions before development starts. You don't need a perfect spec - we guide you to one.
+            </p>
+          </div>
+        </div>
+
+
+    </div>
+  </div>
+</section>
+
+
+<!--=====================================
+   CTA Section
+======================================-->
+<?php       
+include 'components/cta.php';
+?>
+
+<!-- ================================
+ Socials Section
+================================ -->
+<?php       
+include 'components/socials.php';
+?>
+
+<!--=====================================
+   Blog Section
+======================================-->
+<?php       
+include 'components/blog.php';
+?>
+ 
+</main>
+
+<!--=====================================
+   Footer Section
+======================================-->
+<?php       
+include 'components/footer.php';
+?>
+
+<!--=====================================
+   Chatsimple Section (Chatbot)
+======================================-->
+<?php       
+include 'components/chatsimple.php';
+?>
+
+<!--=====================================
+   Scripts
+======================================-->
+<?php       
+include 'components/scripts.php';
+?>
+
+</body>
+
+</html>
