@@ -5,38 +5,38 @@ $positionTitle = $positionTitle ?? 'General Application';
 ?>
 
 <div class="tab-content hidden" id="Apply">
-  <div class="review-form-card p-8 md:p-12 max-w-[860px] mx-auto">
+  <div class="review-form-card p-4 sm:p-6 md:p-12 max-w-[860px] mx-auto">
   <form id="applicationForm" class="space-y-[30px]">
     <!-- Hidden position field -->
     <input type="hidden" name="position" value="<?= htmlspecialchars($positionTitle) ?>" />
     <input type="text" name="website" style="display:none !important" tabindex="-1" autocomplete="off" aria-hidden="true" />
 
     <div class="w-full">
-      <label for="name" class="text-2xl leading-[1.2] tracking-[-0.48px] text-secondary dark:text-backgroundBody">Full Name*</label>
+      <label for="name" class="text-lg sm:text-2xl leading-[1.2] tracking-[-0.48px] text-secondary dark:text-backgroundBody">Full Name*</label>
       <input 
         type="text" 
         name="name" 
         placeholder="Enter your full name" 
         required 
-        class="py-4 pl-5 bg-backgroundBody dark:bg-dark focus:outline-none focus:border-primary border dark:border-dark w-full text-colorText dark:text-backgroundBody/70 text-xl leading-[1.4] tracking-[0.4px] mt-3" 
+        class="py-3 pl-3 sm:py-4 sm:pl-5 bg-backgroundBody dark:bg-dark focus:outline-none focus:border-primary border dark:border-dark w-full text-colorText dark:text-backgroundBody/70 text-base sm:text-xl leading-[1.4] tracking-[0.4px] mt-2 sm:mt-3" 
         style="border-radius: 10px;"
       />
     </div>
 
     <div class="w-full">
-      <label for="email" class="text-2xl leading-[1.2] tracking-[-0.48px] text-secondary dark:text-backgroundBody">Email*</label>
+      <label for="email" class="text-lg sm:text-2xl leading-[1.2] tracking-[-0.48px] text-secondary dark:text-backgroundBody">Email*</label>
       <input 
         type="email" 
         name="email" 
         placeholder="you@example.com" 
         required 
-        class="py-4 pl-5 bg-backgroundBody dark:bg-dark focus:outline-none focus:border-primary border dark:border-dark w-full text-colorText dark:text-backgroundBody/70 text-xl leading-[1.4] tracking-[0.4px] mt-3" 
+        class="py-3 pl-3 sm:py-4 sm:pl-5 bg-backgroundBody dark:bg-dark focus:outline-none focus:border-primary border dark:border-dark w-full text-colorText dark:text-backgroundBody/70 text-base sm:text-xl leading-[1.4] tracking-[0.4px] mt-2 sm:mt-3" 
         style="border-radius: 10px;"
       />
     </div>
 
     <div class="w-full">
-      <label for="resume" class="text-2xl leading-[1.2] tracking-[-0.48px] text-secondary dark:text-backgroundBody">Resume*</label>
+      <label for="resume" class="text-lg sm:text-2xl leading-[1.2] tracking-[-0.48px] text-secondary dark:text-backgroundBody">Resume*</label>
       <div class="border dark:border-dark p-6 mt-3" style="border-radius: 12px;">
         <div class="flex justify-between items-center">
           <div class="flex flex-wrap items-center mx-auto gap-5">

@@ -233,7 +233,7 @@ include 'components/dark_mode.php';
     <div class="container">
 
         <!-- ./contact Form -->
-        <div class="review-form-card p-8 md:p-12 max-w-[860px] mx-auto reveal-me">
+        <div class="review-form-card p-4 sm:p-6 md:p-12 max-w-[860px] mx-auto reveal-me">
         <form
           id="contactForm"
           method="POST"
@@ -245,7 +245,7 @@ include 'components/dark_mode.php';
           <div class="md:col-span-full">
             <label
               for="name"
-              class="text-2xl leading-[1.2] tracking-[-0.48px] text-secondary dark:text-backgroundBody"
+              class="text-lg sm:text-2xl leading-[1.2] tracking-[-0.48px] text-secondary dark:text-backgroundBody"
             >
               Full Name
             </label>
@@ -254,7 +254,7 @@ include 'components/dark_mode.php';
               type="text"
               name="name"
               placeholder="Enter your full name"
-              class="py-4 pl-5 bg-backgroundBody dark:bg-dark focus:outline-none focus:border-primary border dark:border-dark w-full text-colorText dark:text-backgroundBody/70 text-xl leading-[1.4] tracking-[0.4px] mt-3"
+              class="py-3 pl-3 sm:py-4 sm:pl-5 bg-backgroundBody dark:bg-dark focus:outline-none focus:border-primary border dark:border-dark w-full text-colorText dark:text-backgroundBody/70 text-base sm:text-xl leading-[1.4] tracking-[0.4px] mt-2 sm:mt-3"
             />
           </div>
 
@@ -262,7 +262,7 @@ include 'components/dark_mode.php';
           <div>
             <label
               for="phone"
-              class="text-2xl leading-[1.2] tracking-[-0.48px] text-secondary dark:text-backgroundBody"
+              class="text-lg sm:text-2xl leading-[1.2] tracking-[-0.48px] text-secondary dark:text-backgroundBody"
             >
               Phone Number
             </label>
@@ -272,7 +272,7 @@ include 'components/dark_mode.php';
               name="phone"
               id="phone"
               placeholder="+00 PHONE-NUMBER"
-              class="py-4 pl-5 bg-backgroundBody dark:bg-dark focus:outline-none focus:border-primary border dark:border-dark w-full text-colorText dark:text-backgroundBody/70 text-xl leading-[1.4] tracking-[0.4px] mt-3"
+              class="py-3 pl-3 sm:py-4 sm:pl-5 bg-backgroundBody dark:bg-dark focus:outline-none focus:border-primary border dark:border-dark w-full text-colorText dark:text-backgroundBody/70 text-base sm:text-xl leading-[1.4] tracking-[0.4px] mt-2 sm:mt-3"
               required
             />
           </div>
@@ -281,7 +281,7 @@ include 'components/dark_mode.php';
           <div>
             <label
               for="email"
-              class="text-2xl leading-[1.2] tracking-[-0.48px] text-secondary dark:text-backgroundBody"
+              class="text-lg sm:text-2xl leading-[1.2] tracking-[-0.48px] text-secondary dark:text-backgroundBody"
             >
               Email
             </label>
@@ -290,7 +290,7 @@ include 'components/dark_mode.php';
               type="email"
               name="email"
               placeholder="name@company.com"
-              class="py-4 pl-5 bg-backgroundBody dark:bg-dark focus:outline-none focus:border-primary border dark:border-dark w-full text-colorText dark:text-backgroundBody/70 text-xl leading-[1.4] tracking-[0.4px] mt-3"
+              class="py-3 pl-3 sm:py-4 sm:pl-5 bg-backgroundBody dark:bg-dark focus:outline-none focus:border-primary border dark:border-dark w-full text-colorText dark:text-backgroundBody/70 text-base sm:text-xl leading-[1.4] tracking-[0.4px] mt-2 sm:mt-3"
             />
           </div>
 
@@ -298,7 +298,7 @@ include 'components/dark_mode.php';
           <div class="md:col-span-full">
             <label
               for="company"
-              class="text-2xl leading-[1.2] tracking-[-0.48px] text-secondary dark:text-backgroundBody"
+              class="text-lg sm:text-2xl leading-[1.2] tracking-[-0.48px] text-secondary dark:text-backgroundBody"
             >
               Company Name
             </label>
@@ -306,7 +306,7 @@ include 'components/dark_mode.php';
               type="text"
               name="company"
               placeholder="Your company name"
-              class="py-4 pl-5 bg-backgroundBody dark:bg-dark focus:outline-none focus:border-primary border dark:border-dark w-full text-colorText dark:text-backgroundBody/70 text-xl leading-[1.4] tracking-[0.4px] mt-3"
+              class="py-3 pl-3 sm:py-4 sm:pl-5 bg-backgroundBody dark:bg-dark focus:outline-none focus:border-primary border dark:border-dark w-full text-colorText dark:text-backgroundBody/70 text-base sm:text-xl leading-[1.4] tracking-[0.4px] mt-2 sm:mt-3"
             />
           </div>
 
@@ -314,14 +314,14 @@ include 'components/dark_mode.php';
           <div class="md:col-span-full">
             <label
               for="Message"
-              class="text-2xl leading-[1.2] tracking-[-0.48px] text-secondary dark:text-backgroundBody"
+              class="text-lg sm:text-2xl leading-[1.2] tracking-[-0.48px] text-secondary dark:text-backgroundBody"
             >
               Project Brief
             </label>
             <textarea
               name="Message"
               placeholder="Tell us about your project goals and timeline"
-              class="py-4 pl-5 bg-backgroundBody dark:bg-dark focus:outline-none focus:border-primary border dark:border-dark w-full text-colorText dark:text-backgroundBody/70 text-xl leading-[1.4] tracking-[0.4px] mt-3"
+              class="py-3 pl-3 sm:py-4 sm:pl-5 bg-backgroundBody dark:bg-dark focus:outline-none focus:border-primary border dark:border-dark w-full text-colorText dark:text-backgroundBody/70 text-base sm:text-xl leading-[1.4] tracking-[0.4px] mt-2 sm:mt-3"
             ></textarea>
           </div>
 

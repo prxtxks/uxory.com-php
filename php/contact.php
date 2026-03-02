@@ -114,7 +114,7 @@ $adminHtml = "
 
 $adminResult = sendResendEmail(
     $resendKey,
-    'Uxory Contact <noreply@uxory.com>',
+    'Uxory Contact <onboarding@resend.dev>',
     'uxoryllc@gmail.com',
     'New Contact Form Submission',
     $adminHtml
@@ -155,7 +155,7 @@ $autoReplyHtml = file_exists($tplPath)
 
 sendResendEmail(
     $resendKey,
-    'Uxory Team <contact@uxory.com>',
+    'Uxory Team <onboarding@resend.dev>',
     $email,
     'Thank You for Contacting Uxory',
     $autoReplyHtml

@@ -35,10 +35,10 @@
     <!-- CTA Buttons -->
     <ul class="flex justify-center items-center mt-14 list-none">
       <!-- Primary CTA Button -->
-      <li class="block md:inline-block w-full mx-auto md:w-auto text-center">
+      <li class="text-center">
         <a
           href="/contact.php"
-          class="rv-button rv-button-primary block md:inline-block"
+          class="rv-button rv-button-primary inline-block"
         >
           <div class="rv-button-top">
             <span>Contact Us</span>

@@ -277,7 +277,7 @@ function sendEmails($email, $config) {
     // Admin Notification
     $adminResult = sendResendEmail(
         $resendKey,
-        'Uxory Subscriptions <noreply@uxory.com>',
+        'Uxory Subscriptions <onboarding@resend.dev>',
         'uxoryllc@gmail.com',
         'New Subscriber',
         "<h1>New Uxory Subscription</h1><p>Email: {$email}</p>"
@@ -295,7 +295,7 @@ function sendEmails($email, $config) {
 
     sendResendEmail(
         $resendKey,
-        'Uxory Team <contact@uxory.com>',
+        'Uxory Team <onboarding@resend.dev>',
         $email,
         'Thank You for Subscribing to Uxory',
         $confirmHtml

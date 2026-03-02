@@ -208,10 +208,10 @@ include 'components/dark_mode.php';
 
     <!-- Hero Buttons -->
     <ul class="flex justify-center list-none mt-14 reveal-me">
-      <li class="text-center w-full">
+      <li class="text-center">
         <a
           href="#section-pricing"
-          class="rv-button rv-button-primary block md:inline-block cursor-pointer"
+          class="rv-button rv-button-primary inline-block cursor-pointer"
           id="hero-button-02"
         >
           <div class="rv-button-top">

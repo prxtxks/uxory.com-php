@@ -153,6 +153,28 @@
       clip: auto !important;
       white-space: normal !important;
     }
+    /* Equal-height testimonial slides */
+    .user-swiper-v2 .swiper-wrapper {
+      align-items: stretch;
+    }
+    .user-swiper-v2 .swiper-slide {
+      height: auto;
+    }
+    .user-swiper-v2 .swiper-slide > .sets-apart-card {
+      height: 100%;
+    }
+    /* Download section: equal-size buttons, always-white hover */
+    #download-apps-section .rv-button .rv-button-top,
+    #download-apps-section .rv-button .rv-button-bottom {
+      min-width: 160px;
+    }
+    #download-apps-section .rv-button .rv-button-bottom {
+      background-color: rgb(237 240 245) !important;
+      border-color: rgb(237 240 245) !important;
+    }
+    #download-apps-section .rv-button .rv-button-bottom span {
+      color: rgb(24 24 24) !important;
+    }
   </style>
 
 <!-- header  -->
@@ -584,7 +606,7 @@ services
   </div>
 
   <div class="container">
-    <div class="grid grid-cols-2 gap-5">
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
       <!-- App Development Card -->
       <div class="sets-apart-card reveal-me p-8">
         <div class="mb-10">
@@ -685,6 +707,7 @@ services
 download-our-apps 
 ========================= -->
 <section
+  id="download-apps-section"
   class="mb-14 pt-14 max-sm:pb-5 md:mb-16 md:pt-16 lg:mb-[88px] lg:pt-[88px] xl:mb-[100px] xl:pt-[100px] mt-14 md:mt-16 lg:mt-[88px] xl:mt-[100px] bg-secondary"
 >
   <div class="container">

@@ -4,7 +4,8 @@
     aria-label="Toggle dark/light theme"
     id="theme-toggle"
     type="button"
-    class="text-secondary bg-black/90 dark:bg-backgroundBody/90 rounded-[1px] backdrop-blur-xl dark:text-white focus:outline-none focus:ring-0 focus:ring-gray-200 w-[44px] h-[44px] flex justify-center items-center"
+    class="text-secondary bg-black/90 dark:bg-backgroundBody/90 backdrop-blur-xl dark:text-white focus:outline-none focus:ring-0 focus:ring-gray-200 w-[44px] h-[44px] flex justify-center items-center"
+    style="border-radius: 10px;"
   >
     <svg
       data-testid="geist-icon"

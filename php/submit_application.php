@@ -151,7 +151,7 @@ $resumeAttachment = [
 
 $adminResult = sendResendEmail(
     $resendKey,
-    'Uxory Careers <noreply@uxory.com>',
+    'Uxory Careers <onboarding@resend.dev>',
     'uxoryllc@gmail.com',
     "New Job Application: {$position}",
     $adminHtml,
@@ -179,7 +179,7 @@ if (file_exists($tplPath)) {
 
 sendResendEmail(
     $resendKey,
-    'Uxory Careers <contact@uxory.com>',
+    'Uxory Careers <onboarding@resend.dev>',
     $email,
     'Application Received - Uxory',
     $autoReplyHtml

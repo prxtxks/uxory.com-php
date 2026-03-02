@@ -331,7 +331,7 @@ document.addEventListener('DOMContentLoaded', () => {
         formData.append('delete_token', deleteToken);
 
         try {
-          const res = await fetch('/php/delete-review.php', { method: 'POST', body: formData });
+          const res = await fetch('/php/delete-review', { method: 'POST', body: formData });
           const data = await res.json();
 
           if (data.status === 'success') {
@@ -383,7 +383,7 @@ document.addEventListener('DOMContentLoaded', () => {
         formData.append('review_id', reviewId);
 
         try {
-          const res = await fetch('/php/post-reply.php', { method: 'POST', body: formData });
+          const res = await fetch('/php/post-reply', { method: 'POST', body: formData });
           const data = await res.json();
 
           if (data.status === 'captcha_required') {
@@ -509,7 +509,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       try {
-        const res = await fetch('/php/post-review.php', { method: 'POST', body: formData });
+        const res = await fetch('/php/post-review', { method: 'POST', body: formData });
         const data = await res.json();
 
         if (data.status === 'captcha_required') {
@@ -578,7 +578,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   async function loadReviews() {
     try {
-      const res = await fetch('/php/get-reviews.php');
+      const res = await fetch('/php/get-reviews');
       const data = await res.json();
 
       if (data.status === 'success') {
