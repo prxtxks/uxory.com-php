@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
       formData.append('g-recaptcha-response', captchaResponse);
     }
 
-    fetch('/php/contact', {
+    fetch('/api/contact', {
       method: 'POST',
       body: formData
     })

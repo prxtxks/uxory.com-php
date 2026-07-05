@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
       formData.append('g-recaptcha-response', captchaResponse);
     }
 
-    fetch('/php/subscribe', {
+    fetch('/api/subscribe', {
       method: 'POST',
       body: formData
     })
