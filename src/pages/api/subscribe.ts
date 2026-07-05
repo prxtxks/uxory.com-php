@@ -93,7 +93,7 @@ export const POST: APIRoute = async ({ request }) => {
       html: adminHtml,
     });
 
-    const unsubscribeLink = \`https://uxory.com/unsubscribe?email=\${encodeURIComponent(email)}\`;
+    const unsubscribeLink = `https://uxory.com/unsubscribe?email=${encodeURIComponent(email)}`;
     let userHtml = subscribeTemplate ? subscribeTemplate : 'Thanks for subscribing!';
     userHtml = userHtml.replace('{UNSUBSCRIBE_LINK}', unsubscribeLink);
 

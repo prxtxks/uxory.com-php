@@ -97,7 +97,7 @@ export const POST: APIRoute = async ({ request }) => {
       html: autoReplyHtml,
     });
 
-    return new Response(JSON.stringify({ status: 'success', message: 'Message sent successfully! We\\'ll get back to you shortly.' }), {
+    return new Response(JSON.stringify({ status: 'success', message: "Message sent successfully! We'll get back to you shortly." }), {
       status: 200,
       headers: { 'Content-Type': 'application/json' }
     });
