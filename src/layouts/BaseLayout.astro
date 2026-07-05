@@ -1,0 +1,152 @@
+---
+import Header from '../components/Header.astro';
+import Nav from '../components/Nav.astro';
+import DarkMode from '../components/DarkMode.astro';
+import Footer from '../components/Footer.astro';
+import ChatWidget from '../components/ChatWidget.astro';
+import Scripts from '../components/Scripts.astro';
+
+interface Props {
+  title: string;
+  description?: string;
+  canonical?: string;
+  currentPage?: string;
+  currentParent?: string;
+  ogImage?: string;
+  structuredData?: string;
+  noFooter?: boolean;
+  noMainWrapper?: boolean;
+  extraHead?: string;
+}
+
+const {
+  title,
+  description = 'We build AI-powered systems that automate operations, increase revenue, and eliminate inefficiencies. Custom software, automation, and AI solutions for modern businesses.',
+  canonical = 'https://uxory.com/',
+  currentPage = '',
+  currentParent = '',
+  ogImage = 'https://uxory.com/images/logo.png',
+  structuredData,
+  noFooter = false,
+  noMainWrapper = false,
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Primary Meta Tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <meta name="author" content="Uxory" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <meta name="googlebot" content="index, follow" />
+  
+  <!-- Theme & Mobile Optimization -->
+  <meta name="theme-color" content="#000000" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="format-detection" content="telephone=no" />
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href={canonical} />
+  
+  <!-- Performance Hints -->
+  <link rel="preconnect" href="https://www.google.com" crossorigin />
+  <link rel="dns-prefetch" href="https://www.google.com" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/images/favicon.svg" />
+  <link rel="icon" type="image/png" href="/images/favicon.png" sizes="96x96" />
+  <link rel="shortcut icon" href="/images/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png" />
+  
+  <!-- Stylesheets -->
+  <link href="/assets/css/main.css" rel="stylesheet" />
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content={canonical} />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image" content={ogImage} />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content={title} />
+  <meta property="og:site_name" content="Uxory" />
+  <meta property="og:locale" content="en_US" />
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content={canonical} />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={ogImage} />
+  <meta name="twitter:image:alt" content={title} />
+
+  <!-- Structured Data -->
+  {structuredData && <script type="application/ld+json" set:html={structuredData} />}
+  
+  <!-- reCAPTCHA -->
+  <script src="https://www.google.com/recaptcha/api.js" async defer crossorigin="anonymous"></script>
+
+  <slot name="head" />
+</head>
+
+<body>
+  <!-- Skip to main content for accessibility -->
+  <a href="#main-content" class="sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[99999] focus:px-4 focus:py-2 focus:bg-primary focus:text-black focus:font-bold focus:rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary" style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border-width: 0;">
+    Skip to main content
+  </a>
+  <style>
+    .sr-only:focus {
+      position: fixed !important;
+      width: auto !important;
+      height: auto !important;
+      padding: 0.5rem 1rem !important;
+      margin: 0 !important;
+      overflow: visible !important;
+      clip: auto !important;
+      white-space: normal !important;
+    }
+  </style>
+
+  <!-- Header -->
+  <Header />
+
+  <!-- Nav -->
+  <Nav currentPage={currentPage} currentParent={currentParent} />
+
+  <div
+    class="menu-overflow fixed z-[9999] bg-[rgba(10,10,10,0.95)] bg-opacity-60 backdrop-blur-[25px] w-full h-full pointer-events-none"
+  ></div>
+
+  <!-- Dark Mode toggle -->
+  <DarkMode />
+
+  {noMainWrapper ? (
+    <slot />
+  ) : (
+    <main id="main-content" class="lg:mb-[600px] relative z-10 bg-backgroundBody dark:bg-dark">
+      <slot />
+    </main>
+  )}
+
+  <!-- Footer -->
+  {!noFooter && <Footer />}
+
+  <!-- Chat Widget (WhatsApp) -->
+  <ChatWidget />
+
+  <!-- Scripts -->
+  <Scripts />
+</body>
+</html>

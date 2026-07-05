@@ -1,0 +1,87 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Unsubscribe | Uxory"
+  description="Unsubscribe from Uxory email communications."
+  currentPage=""
+  currentParent="home"
+>
+
+<!--=========================
+    Coming Soon Page Section
+==========================-->
+<section
+  class="pt-36 md:pt-12 lg:pt-0 2xl:pt-12 min-h-screen relative overflow-hidden" 
+>
+  <div class="container">
+    <!-- Gradient Background Wrapper -->
+    <div
+      id="hero-gradient-wrapper"
+      class="absolute w-[80%] lg:w-full h-[80%] lg:h-full top-[35%] left-1/2 -translate-y-[35%] -translate-x-1/2 -z-10 blur-[60px]"
+    >
+      <img
+        src="images/hero-gradient-background.png"
+        alt="hero-gradient-background"
+        id="hero-gradient"
+        class="absolute left-1/2 top-0 -translate-x-1/2 -translate-y-0"
+      />
+    </div>
+
+    <!-- Main Content -->
+    <div class="flex flex-col justify-center items-center reveal-me">
+      <!-- Coming Soon Title -->
+      <h2
+        class="mt-20 md:leading-[1.05] "
+      >
+        Unsubscribe
+      </h2>
+
+      <!--  Message -->
+      <h5
+        class="mt-8 mb-8 md:mb-[50px] text-center  max-lg:leading-[1.33] font-normal leading-[1.1] "
+      >
+        We are sorry to see you go
+      </h5>
+
+      <!-- Back to Homepage Button -->
+      <div class="container mt-4 ">
+        
+        <div class="flex justify-center items-center">
+          <!-- Email Unsubscribe Form -->
+          <form
+            class="max-md:max-w-sm max-w-[588px] mt-8 md:mt-10 flex bg-secondary border dark:border-dark text-white w-full relative"
+            id="unsubscribeForm"
+            action="php/unsubscribe-script"
+            method="POST"
+          >
+            <input
+              type="email"
+              name="email"
+              placeholder="Your email here"
+              
+              class="border-none focus:outline-none bg-transparent text-backgroundBody text-base block w-full p-5 md:p-[30px]"
+              required
+            />
+            <button
+              type="submit"
+              class="inline-block max-md:text-xs bg-primary p-3 md:p-[26px] uppercase text-secondary font-poppins leading-[15.4px] tracking-[1.12px] absolute top-3 md:top-2 cursor-pointer right-2"
+            >
+              Unubscribe
+            </button>
+          </form>   
+        </div>
+
+      </div>
+      
+      <!-- this will hold the PHP response -->
+      <div id="unsubscribeStatus" class="mt-4  text-black dark:text-white"></div>
+
+    </div>
+
+  </div>
+</section>
+
+
+</BaseLayout>

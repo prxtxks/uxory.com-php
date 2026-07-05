@@ -1,0 +1,1 @@
+{"cleanUrls":true,"redirects":[{"source":"/(.*)\\.php","destination":"/$1","permanent":true}]}

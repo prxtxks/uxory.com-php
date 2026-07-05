@@ -1,0 +1,349 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CTA from '../components/CTA.astro';
+
+// In the future, this will be replaced with a fetch to Supabase using import.meta.env
+// For the initial frontend migration, we are using mock data based on existing blog posts.
+const blogs = [
+  {
+    title: "Operations You Should Automate",
+    image: "/images/blog-img/blog-img-1.webp",
+    link: "/blogs/blog-operations-you-should-automate",
+    excerpt: "Your competitors already automated these five workflows. Here's what you're leaving on the table.",
+    read_time: 6
+  },
+  {
+    title: "Custom Software vs. Off-the-Shelf",
+    image: "/images/blog-img/blog-img-2.webp",
+    link: "/blogs/blog-custom-software-vs-off-the-shelf",
+    excerpt: "Paying for 10 SaaS tools that don't talk to each other? The real cost of \"good enough\" is bigger than you think.",
+    read_time: 7
+  },
+  {
+    title: "AI for Small Businesses",
+    image: "/images/blog-img/blog-img-3.webp",
+    link: "/blogs/blog-ai-for-small-businesses",
+    excerpt: "AI isn't just for billion-dollar companies. See how SMBs are using it to punch above their weight.",
+    read_time: 6
+  }
+];
+
+const total_pages = 1;
+const page = 1;
+
+const structuredData = `
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://uxory.com/#organization",
+      "name": "Uxory",
+      "url": "https://uxory.com",
+      "logo": {
+        "@type": "ImageObject",
+        "@id": "https://uxory.com/#logo",
+        "url": "https://uxory.com/images/logo.png",
+        "contentUrl": "https://uxory.com/images/logo.png",
+        "width": 512,
+        "height": 512
+      },
+      "sameAs": [
+        "https://www.linkedin.com/company/uxory/",
+        "https://www.instagram.com/uxoryllc/"
+      ]
+    },
+    {
+      "@type": "Blog",
+      "@id": "https://uxory.com/blog-listings#blog",
+      "name": "Uxory Blog",
+      "url": "https://uxory.com/blog-listings",
+      "description": "Insights, resources, and expert tips on software development, web development, design, automation, and AI solutions.",
+      "publisher": {
+        "@id": "https://uxory.com/#organization"
+      }
+    },
+    {
+      "@type": "CollectionPage",
+      "@id": "https://uxory.com/blog-listings#webpage",
+      "url": "https://uxory.com/blog-listings",
+      "name": "Insights & Resources | Uxory Blog",
+      "description": "Stay updated with Uxory's insights, resources, and expert tips on software development, web development, design, automation, and AI solutions.",
+      "isPartOf": {
+        "@id": "https://uxory.com/#website"
+      },
+      "about": {
+        "@id": "https://uxory.com/blog-listings#blog"
+      },
+      "primaryImageOfPage": {
+        "@id": "https://uxory.com/#logo"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://uxory.com/#website",
+      "url": "https://uxory.com",
+      "name": "Uxory",
+      "publisher": {
+        "@id": "https://uxory.com/#organization"
+      }
+    }
+  ]
+}
+`;
+---
+
+<BaseLayout
+  title="Insights & Resources | Uxory Blog"
+  description="Stay updated with Uxory's insights, resources, and expert tips on software development, web development, design, automation, and AI solutions."
+  currentPage="blog"
+  currentParent="about"
+  structuredData={structuredData}
+>
+
+<!--=====================================
+   Page Header v3
+======================================-->
+<section class="pt-36 lg:pt-[240px] pb-10 lg:pb-20 relative overflow-hidden">
+  <!-- Gradient Background Wrapper -->
+  <div
+    id="hero-gradient-wrapper"
+    class="absolute w-full md:w-[40%] h-full md:h-[40%] max-md:top-1/2 max-lg:-translate-y-1/2 lg:top-0 -z-10 blur-[60px] scale-90"
+  >
+    <img
+      src="/images/hero-gradient-background.png"
+      alt="hero-gradient-background"
+      id="hero-gradient"
+      class="absolute lg:left-[78%] xl:left-full max-md:top-20 md:top-[45%] lg:-translate-x-[78%]"
+    />
+  </div>
+
+  <!-- Content Container -->
+  <div class="container">
+    <!-- Header Content Flex Container -->
+    <div
+      class="flex flex-col md:flex-row gap-x-10 gap-y-4 justify-center lg:justify-between mb-20"
+    >
+      <!-- Title Section -->
+      <div class="max-sm:self-start">
+        <h1
+          class="text-appear text-[46px] lg:text-7xl xl:text-[80px] lg:leading-[1.11] font-normal"
+        >
+          <span class="font-instrument lg:text-[90px] italic"> Insights </span>
+          <br class="hidden md:block" />
+          we share
+        </h1>
+      </div>
+
+      <!-- Description Section -->
+      <div class="md:max-w-[470px] self-center md:self-end">
+        <p class="text-appear">
+          We champion athletes, storytellers, and brands that shape culture and
+          inspire the world with their unique perspectives.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!--=====================================
+    Blog Posts Grid Section
+======================================-->
+<section class=" bg-transparent">
+  <div class="container">
+    <div
+      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-items-center items-center md:items-start gap-x-6 gap-y-[60px]"
+    >
+      
+      {blogs.map((row) => (
+        <div class="max-w-[370px] reveal-me group">
+          <figure class="overflow-hidden aspect-[370/399]">
+            <img src={row.image} alt={row.title} class="w-full h-full object-cover transition-all duration-500 group-hover:scale-125 group-hover:rotate-3" />
+          </figure>
+          <a href={row.link}>
+            <div class="blog-title mt-[30px] mb-5">
+              <h3 class="text-[25px] md:text-3xl lg:text-4xl lg:leading-[1.2] lg:tracking-[-0.72px]">
+                {row.title}
+              </h3>
+            </div>
+          </a>
+          <p class="mb-7 md:mb-10">
+            {row.excerpt}
+          </p>
+          <a href={row.link} class="rv-button rv-button-primary2">
+            <div class="rv-button-top !text-center flex items-center">
+              <span class="pr-1">{row.read_time} minute read</span>
+              <img class="inline dark:hidden" src="/images/icons/top-arrow.svg" alt="Arrow Icon" />
+              <img class="hidden dark:inline" src="/images/icons/top-arrow-dark.svg" alt="Arrow Icon" />
+            </div>
+            <div class="rv-button-bottom !text-center flex items-center">
+              <span class="pr-1">{row.read_time} minute read</span>
+              <img class="inline" src="/images/icons/top-arrow.svg" alt="Arrow Icon" />
+            </div>
+          </a>
+        </div>
+      ))}
+     
+    </div>
+    
+    <div class="mt-16 md:mt-24">
+      <ul class="flex items-center justify-center gap-3">
+        {page > 1 && (
+          <li><a href={`?page=${page - 1}`} class="pagination-button">←</a></li>
+        )}
+
+        {Array.from({ length: total_pages }).map((_, i) => (
+          <li class={i + 1 === page ? 'page-active' : ''}>
+            <a href={`?page=${i + 1}`} class="pagination-button">{i + 1}</a>
+          </li>
+        ))}
+
+        {page < total_pages && (
+          <li><a href={`?page=${page + 1}`} class="pagination-button">→</a></li>
+        )}
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!--=====================================
+  Subscribe Container
+======================================-->
+<div class="container mt-16 mb-16">
+  <!-- About Content and Subscription -->
+  <div>
+    <!-- About Text -->
+    <h5
+      class="reveal-text-2 lg:leading-[1.5] text-secondary dark:text-backgroundBody"
+    >
+      Subscribe and stay ahead with digital tips, trends, and marketing insights.
+    </h5>
+
+    <!-- Email Subscription Form -->
+
+    <form
+      class="max-md:max-w-sm max-w-[588px] mt-8 md:mt-10 flex border w-full relative subscribe-form-light"
+      id="subscribeForm"
+      method="POST"
+    >
+      <input type="text" name="website" style="display:none !important" tabindex="-1" autocomplete="off" aria-hidden="true" />
+      <input
+        type="email"
+        name="email"
+        placeholder="Your email here"
+        class="border-none focus:outline-none bg-transparent text-base block w-full p-5 md:p-[30px]"
+        required
+      />
+      <button
+        type="submit"
+        class="inline-block max-md:text-xs bg-primary p-3 md:p-[26px] uppercase text-secondary font-poppins leading-[15.4px] tracking-[1.12px] absolute top-3 md:top-2 cursor-pointer right-2"
+      >
+        Subscribe
+      </button>
+    </form>
+
+    <div id="subscribe-recaptcha-wrapper" class="hidden mt-4">
+      <div id="subscribe-recaptcha"></div>
+    </div>
+
+    <div id="statusMsg" class="mt-4 text-black dark:text-white"></div>
+    
+  </div>
+</div>
+
+<CTA />
+
+<!-- ================================
+ Socials Section
+================================ -->
+<section
+  class="pt-14 md:pt-16 lg:pt-20 xl:pt-[88px] pb-14 md:pb-16 lg:pb-[88px] xl:pb-[100px]"
+>
+  <div class="container">
+    <div
+      class="max-w-4xl mx-auto grid max-md:grid-cols-2 md:grid-cols-4 reveal-me border-t border-x [&>*]:border-r max-md:[&>*:nth-child(2)]:border-r-0 max-md:[&>*:nth-child(6)]:border-r-0 [&>*:nth-child(4)]:border-r-0 [&>*:nth-child(8)]:border-r-0 [&>*]:border-b dark:[&>*]:border-dark dark:border-dark"
+    >
+
+    <!-- Instagram-->
+      <figure class="flex items-center justify-center px-4 py-4">
+        <a href="https://www.instagram.com/uxoryllc/" target="_blank" rel="noopener noreferrer">
+          <img class="h-12 w-12" src="/images/marquee-img/1.svg" alt="IG" />
+        </a>
+      </figure>
+
+      <!-- Linkedin Contact -->
+      <figure class="flex items-center justify-center px-4 py-4">
+        <a href="https://www.linkedin.com/company/uxory/" target="_blank" rel="noopener noreferrer">
+          <img class="h-12 w-12" src="/images/marquee-img/5.svg" alt="Linkedin" />
+        </a>
+      </figure>
+
+      <!-- Email Contact -->
+      <figure class="flex items-center justify-center px-4 py-4">
+        <a href="mailto:contact@uxory.com" target="_blank" rel="noopener noreferrer">
+          <img class="h-12 w-12" src="/images/marquee-img/4.svg" alt="MAIL" />
+        </a>
+      </figure>
+
+      <!-- WhatsApp Chat -->
+      <figure class="flex items-center justify-center px-4 py-4">
+        <a href="https://wa.me/15134137427" target="_blank" rel="noopener noreferrer">
+          <img class="h-12 w-12" src="/images/marquee-img/2.svg" alt="WHATSAPP" />
+        </a>
+      </figure>
+     
+    </div>
+  </div>
+</section>
+
+<!---Modal -->
+<div
+  aria-hidden="false"
+  class="fixed z-[99999999990] hidden inset-0 top-6 items-start justify-center bg-metal-900 bg-dark-200/25"
+  onclick="javascript.void(0)"
+  id="modal"
+  role="dialog"
+>
+  <div class="relative w-full p-4 h-auto animate-keep-bounce max-w-xl">
+    <div class="relative bg-white dark:bg-dark p-2.5">
+      <div class="p-10 max-lg:p-5">
+        <div class="flex items-center justify-between pb-5">
+          <h5 class="text-secondary dark:text-backgroundBody">Search</h5>
+          <button class="text-secondary dark:text-backgroundBody" id="ok-btn">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              x="0px"
+              y="0px"
+              width="30"
+              height="30"
+              viewBox="0 0 50 50"
+            >
+              <path
+                d="M 7.71875 6.28125 L 6.28125 7.71875 L 23.5625 25 L 6.28125 42.28125 L 7.71875 43.71875 L 25 26.4375 L 42.28125 43.71875 L 43.71875 42.28125 L 26.4375 25 L 43.71875 7.71875 L 42.28125 6.28125 L 25 23.5625 Z"
+                class="fill-secondary dark:fill-backgroundBody"
+              ></path>
+            </svg>
+          </button>
+        </div>
+        <form class="mt-5">
+          <div>
+            <div class="flex">
+              <div class="relative w-full">
+                <input
+                  class="block w-full focus:outline-none focus:ring-0 text-secondary dark:text-backgroundBody border py-3.5 px-5 dark:border-dark bg-transparent placeholder:text-secondary/50 dark:placeholder:text-backgroundBody/50 outline-none focus:border-primary dark:focus:border-primary duration-300 transition-all"
+                  id="#id-10"
+                  placeholder="Search Uxory Component"
+                  type="text"
+                  value=""
+                />
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+</BaseLayout>

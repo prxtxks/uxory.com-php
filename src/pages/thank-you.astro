@@ -1,0 +1,58 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Thank You | Uxory"
+  description="Thank you for contacting Uxory. We'll be in touch shortly."
+  currentPage=""
+  currentParent="home"
+>
+
+<!--=========================
+    Thank You Page Section
+==========================-->
+<section
+  class="min-h-screen pt-28 md:pt-48 lg:pt-[200px] pb-14 md:pb-20 lg:pb-[100px]"
+>
+  <div class="container">
+    <!-- Gradient Background Wrapper -->
+    <div
+      id="hero-gradient-wrapper"
+      class="absolute w-[80%] lg:w-full h-[80%] lg:h-full top-[35%] left-1/2 -translate-y-[35%] -translate-x-1/2 -z-10 blur-[60px]"
+    >
+      <img
+        src="images/hero-gradient-background.png"
+        alt="hero-gradient-background"
+        id="hero-gradient"
+        class="absolute left-1/2 top-0 -translate-x-1/2 -translate-y-0"
+      />
+    </div>
+
+    <!-- Main Content -->
+    <div class="flex flex-col justify-center items-center reveal-me text-center px-4">
+      <!-- Thank You Title -->
+      <h1 class="text-[64px] md:text-[96px] lg:text-[120px] font-instrument leading-tight">
+        Thank You!
+      </h1>
+    
+      <!-- Confirmation Message -->
+      <h2 class="mt-6 mb-10 text-[20px] md:text-[28px] lg:text-[36px] font-normal leading-snug max-w-3xl">
+        Our associate will reach out to you shortly.
+      </h2>
+    
+      <!-- Back to Homepage Button -->
+      <a href="/" class="rv-button rv-button-primary">
+        <div class="rv-button-top !text-center">
+          <span>Back to Homepage</span>
+        </div>
+        <div class="rv-button-bottom !text-center">
+          <span>Back to Homepage</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+
+</BaseLayout>
