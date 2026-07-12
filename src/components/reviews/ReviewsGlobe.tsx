@@ -4,6 +4,7 @@ import createGlobe from 'cobe';
 export interface GlobeReview {
   id: string;
   author_name: string;
+  company_name?: string | null;
   rating: number;
   review_text: string;
   city?: string | null;
@@ -16,6 +17,7 @@ interface Marker {
   id: string;
   location: [number, number];
   name: string;
+  label: string; // company name, falling back to author name (mobile pin label)
   rating: number;
   text: string;
   place: string;
@@ -49,6 +51,7 @@ export default function ReviewsGlobe({ reviews }: { reviews: GlobeReview[] }) {
           id: `rev-${r.id}`,
           location: [r.lat as number, r.lng as number],
           name: r.author_name,
+          label: r.company_name || r.author_name,
           rating: r.rating,
           text: r.review_text.length > 110 ? r.review_text.slice(0, 107).trimEnd() + '…' : r.review_text,
           place: [r.city, r.country].filter(Boolean).join(', '),
@@ -114,11 +117,6 @@ export default function ReviewsGlobe({ reviews }: { reviews: GlobeReview[] }) {
       const width = canvas.offsetWidth;
       if (width === 0 || globe) return;
 
-      // On phones the globe is small, so the polaroid cards overwhelm it and
-      // overlap. There we hide the cards and show larger marker dots (pinpoints)
-      // instead. Desktop keeps the polaroids.
-      const isMobile = () => window.matchMedia('(max-width: 639px)').matches;
-
       globe = createGlobe(canvas, {
         devicePixelRatio: Math.min(window.devicePixelRatio || 1, 2),
         width,
@@ -133,11 +131,7 @@ export default function ReviewsGlobe({ reviews }: { reviews: GlobeReview[] }) {
         markerColor: [0.07, 0.85, 0.8], // uxory teal
         glowColor: dark ? [0.08, 0.25, 0.24] : [0.94, 0.93, 0.91],
         markerElevation: 0,
-        markers: markers.map((m) => ({
-          location: m.location,
-          size: isMobile() ? 0.05 : 0.025,
-          id: m.id,
-        })),
+        markers: markers.map((m) => ({ location: m.location, size: 0.025, id: m.id })),
         arcs: [],
         opacity: 0.85,
       } as any);
@@ -163,22 +157,16 @@ export default function ReviewsGlobe({ reviews }: { reviews: GlobeReview[] }) {
         const wrap = wrapRef.current;
         const sync = () => {
           const rootCS = getComputedStyle(document.documentElement);
-          const mobile = isMobile();
           for (const m of markers) {
             const card = wrap.querySelector<HTMLElement>(`[data-card="${m.id}"]`);
             if (!card) continue;
-            // On mobile, never show the polaroid cards — the enlarged marker
-            // dots serve as the pinpoints instead.
-            if (mobile) {
-              card.style.opacity = '0';
-              card.style.visibility = 'hidden';
-              continue;
-            }
             const anchor = wrap.querySelector<HTMLElement>(`[style*="--cobe-${m.id}"]`);
             if (anchor && anchor.style.left) {
               card.style.left = anchor.style.left;
               card.style.top = anchor.style.top;
-              card.style.transform = `translate(-50%, calc(-100% - 10px)) rotate(${m.rotate}deg)`;
+              // Rotation lives on the desktop polaroid itself so the mobile
+              // name label stays upright.
+              card.style.transform = 'translate(-50%, calc(-100% - 10px))';
             }
             // cobe sets --cobe-visible-<id> (to a flag) only while the marker
             // faces the camera, and removes it otherwise. Present = show.
@@ -230,51 +218,58 @@ export default function ReviewsGlobe({ reviews }: { reviews: GlobeReview[] }) {
         <div
           key={m.id}
           data-card={m.id}
-          className="w-[130px] sm:w-[150px] bg-white text-left"
           style={{
             position: 'absolute',
             left: '50%',
             top: '50%',
-            transformOrigin: 'bottom center',
-            transform: `translate(-50%, calc(-100% - 10px)) rotate(${m.rotate}deg)`,
-            padding: '10px 10px 8px',
-            boxShadow: '0 2px 8px rgba(0,0,0,0.18), 0 1px 2px rgba(0,0,0,0.1)',
-            borderRadius: 4,
+            transform: 'translate(-50%, calc(-100% - 10px))',
             pointerEvents: 'none' as const,
             opacity: 0,
             visibility: 'hidden',
-            transition: 'opacity 0.25s ease, filter 0.25s ease',
+            transition: 'opacity 0.25s ease',
             zIndex: 10,
           }}
         >
-          <div style={{ color: '#f5b50a', fontSize: '0.6rem', letterSpacing: 1 }}>
-            {'★'.repeat(m.rating)}
-            <span style={{ color: '#d5d5d5' }}>{'★'.repeat(5 - m.rating)}</span>
+          {/* Desktop / tablet: full review polaroid */}
+          <div
+            className="hidden sm:block w-[150px] bg-white text-left"
+            style={{
+              padding: '10px 10px 8px',
+              boxShadow: '0 2px 8px rgba(0,0,0,0.18), 0 1px 2px rgba(0,0,0,0.1)',
+              borderRadius: 4,
+              transformOrigin: 'bottom center',
+              transform: `rotate(${m.rotate}deg)`,
+            }}
+          >
+            <div style={{ color: '#f5b50a', fontSize: '0.6rem', letterSpacing: 1 }}>
+              {'★'.repeat(m.rating)}
+              <span style={{ color: '#d5d5d5' }}>{'★'.repeat(5 - m.rating)}</span>
+            </div>
+            <p style={{ margin: '4px 0 6px', fontSize: '0.62rem', lineHeight: 1.45, color: '#333', fontStyle: 'italic' }}>
+              “{m.text}”
+            </p>
+            <span
+              style={{
+                display: 'block',
+                fontSize: '0.55rem',
+                color: '#777',
+                letterSpacing: '0.02em',
+                borderTop: '1px solid #eee',
+                paddingTop: 5,
+              }}
+            >
+              <strong style={{ color: '#333' }}>{m.name}</strong>
+              {m.place ? ` · ${m.place}` : ''}
+            </span>
           </div>
-          <p
-            style={{
-              margin: '4px 0 6px',
-              fontSize: '0.62rem',
-              lineHeight: 1.45,
-              color: '#333',
-              fontStyle: 'italic',
-            }}
+
+          {/* Mobile: compact name pin (company name, or author name) */}
+          <div
+            className="sm:hidden inline-block whitespace-nowrap rounded-full bg-white/95 text-secondary shadow-md"
+            style={{ padding: '3px 9px', fontSize: '0.6rem', fontWeight: 600, letterSpacing: '0.01em' }}
           >
-            “{m.text}”
-          </p>
-          <span
-            style={{
-              display: 'block',
-              fontSize: '0.55rem',
-              color: '#777',
-              letterSpacing: '0.02em',
-              borderTop: '1px solid #eee',
-              paddingTop: 5,
-            }}
-          >
-            <strong style={{ color: '#333' }}>{m.name}</strong>
-            {m.place ? ` · ${m.place}` : ''}
-          </span>
+            {m.label}
+          </div>
         </div>
       ))}
     </div>
