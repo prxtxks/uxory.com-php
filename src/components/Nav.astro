@@ -58,12 +58,19 @@ const { currentPage = '', currentParent = '' } = Astro.props;
             </a>
           </li>
 
+          <li>
+            <a
+              href="/ai"
+              class={`text-white inline-block pb-1 pl-3 menu-list-item-dropdown-list text-base md:text-lg leading-8 md:leading-[50px] ${currentPage === 'ai' ? 'active' : ''}`}
+              >Uxory AI
+            </a>
+          </li>
 
           <li>
             <a
-              href="/coming-soon"
-              class={`text-white inline-block pb-1 pl-3 menu-list-item-dropdown-list text-base md:text-lg leading-8 md:leading-[50px] ${currentPage === 'shop' ? 'active' : ''}`}
-              >The Uxory Store
+              href="https://portal.uxory.in"
+              class="text-white inline-block pb-1 pl-3 menu-list-item-dropdown-list text-base md:text-lg leading-8 md:leading-[50px]"
+              >Client Portal
             </a>
           </li>
 
@@ -212,16 +219,9 @@ const { currentPage = '', currentParent = '' } = Astro.props;
         >
           <li>
             <a
-              href="/ai"
-              class={`text-white inline-block pb-1 pl-3 menu-list-item-dropdown-list text-base md:text-lg leading-8 md:leading-[50px] ${currentPage === 'ai' ? 'active' : ''}`}
-              >Uxory AI
-            </a>
-          </li>
-          <li>
-            <a
               href="/tools/image-optimizer"
               class={`text-white inline-block pb-1 pl-3 menu-list-item-dropdown-list text-base md:text-lg leading-8 md:leading-[50px] ${currentPage === "image-optimizer" ? 'active' : ''}`}
-              >Image Optimizer
+              >Image Compression
             </a>
           </li>
         </ul>

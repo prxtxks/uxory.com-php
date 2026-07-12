@@ -10,3 +10,34 @@
  */
 @tailwind components;
 @tailwind utilities;
+
+/*
+ * Slimmer primary buttons. The compiled main.css ships .rv-button at
+ * 25px/39px padding, which reads oversized — especially on mobile. This sheet
+ * loads after main.css, so these win on equal specificity.
+ */
+.rv-button .rv-button-top,
+.rv-button .rv-button-bottom {
+  padding-top: 13px;
+  padding-bottom: 13px;
+  padding-left: 24px;
+  padding-right: 24px;
+  min-width: 0;
+}
+.rv-button .rv-button-top span,
+.rv-button .rv-button-bottom span {
+  font-size: 0.875rem; /* 14px on mobile */
+}
+@media (min-width: 768px) {
+  .rv-button .rv-button-top,
+  .rv-button .rv-button-bottom {
+    padding-top: 17px;
+    padding-bottom: 17px;
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+  .rv-button .rv-button-top span,
+  .rv-button .rv-button-bottom span {
+    font-size: 1rem; /* 16px on tablet+ */
+  }
+}
