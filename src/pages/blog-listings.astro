@@ -2,6 +2,7 @@
 export const prerender = false;
 import BaseLayout from '../layouts/BaseLayout.astro';
 import CTA from '../components/CTA.astro';
+import BlogGrid from '../components/blog/BlogGrid.tsx';
 import { fetchPublishedBlogs } from '../lib/blog';
 
 // DB-driven (auto-generated + seeded posts). Falls back to the static 3 when
@@ -131,41 +132,8 @@ const structuredData = `
 ======================================-->
 <section class=" bg-transparent">
   <div class="container">
-    <div
-      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-items-center items-center md:items-start gap-x-6 gap-y-[60px]"
-    >
-      
-      {blogs.map((row) => (
-        <div class="max-w-[300px] reveal-me group">
-          <figure class="overflow-hidden aspect-[370/399]">
-            <img src={row.image} alt={row.title} class="w-full h-full object-cover transition-all duration-500 group-hover:scale-125 group-hover:rotate-3" />
-          </figure>
-          <a href={row.link}>
-            <div class="blog-title mt-[30px] mb-5">
-              <h3 class="text-[25px] md:text-3xl lg:text-4xl lg:leading-[1.2] lg:tracking-[-0.72px]">
-                {row.title}
-              </h3>
-            </div>
-          </a>
-          <p class="mb-7 md:mb-10">
-            {row.excerpt}
-          </p>
-          <a href={row.link} class="rv-button rv-button-primary2">
-            <div class="rv-button-top !text-center flex items-center">
-              <span class="pr-1">{row.read_time} minute read</span>
-              <img class="inline dark:hidden" src="/images/icons/top-arrow.svg" alt="Arrow Icon" />
-              <img class="hidden dark:inline" src="/images/icons/top-arrow-dark.svg" alt="Arrow Icon" />
-            </div>
-            <div class="rv-button-bottom !text-center flex items-center">
-              <span class="pr-1">{row.read_time} minute read</span>
-              <img class="inline" src="/images/icons/top-arrow.svg" alt="Arrow Icon" />
-            </div>
-          </a>
-        </div>
-      ))}
-     
-    </div>
-    
+    <BlogGrid posts={blogs} client:visible />
+
     <div class="mt-16 md:mt-24">
       <ul class="flex items-center justify-center gap-3">
         {page > 1 && (

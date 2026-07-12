@@ -1,6 +1,35 @@
 ---
 // Blog section component - converted from components/blog.php
-// All .php links removed
+import BlogGrid from './blog/BlogGrid.tsx';
+
+// Featured posts for the homepage teaser (kept static to avoid making every
+// page that uses this component SSR). The /blog-listings page is DB-driven.
+const posts = [
+  {
+    title: 'Operations You Should Automate',
+    excerpt: "Your competitors already automated these five workflows. Here's what you're leaving on the table.",
+    image: '/images/blog-img/blog-img-1.webp',
+    link: '/blogs/blog-operations-you-should-automate',
+    read_time: 6,
+    category: 'ai-agents',
+  },
+  {
+    title: 'Custom Software vs. Off-the-Shelf',
+    excerpt: 'Paying for 10 SaaS tools that don’t talk to each other? The real cost of “good enough” is bigger than you think.',
+    image: '/images/blog-img/blog-img-2.webp',
+    link: '/blogs/blog-custom-software-vs-off-the-shelf',
+    read_time: 7,
+    category: 'sde',
+  },
+  {
+    title: 'AI for Small Businesses',
+    excerpt: "AI isn't just for billion-dollar companies. See how SMBs are using it to punch above their weight.",
+    image: '/images/blog-img/blog-img-3.webp',
+    link: '/blogs/blog-ai-for-small-businesses',
+    read_time: 6,
+    category: 'ai-agents',
+  },
+];
 ---
 
 <!--=====================================
@@ -50,131 +79,8 @@
     </div>
 
     <!-- Blog Cards Grid -->
-    <div
-      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-10 gap-6 justify-items-center items-stretch reveal-me"
-    >
-      <!-- Blog Card - Automation -->
-      <div class="flex flex-col w-full max-w-[300px] mx-auto group">
-        <a href="/blogs/blog-operations-you-should-automate" class="flex flex-col flex-1">
-          <figure class="aspect-[370/399] overflow-hidden mb-6">
-            <img
-              src="/images/blog-img/blog-img-1.webp"
-              alt="Business Operations Automation"
-              class="w-full h-full object-cover transition-all duration-500 group-hover:scale-125 group-hover:rotate-3"
-            />
-          </figure>
-
-          <div class="flex flex-col flex-1">
-            <div class="blog-title">
-              <h3
-                class="text-[27px] md:text-3xl lg:text-4xl leading-tight tracking-tight"
-              >
-                Operations You Should Automate
-              </h3>
-            </div>
-
-            <p
-              class="text-lg leading-[1.4] tracking-[0.4px] font-poppins font-normal mt-3 md:mt-5 mb-5 md:mb-10 flex-1"
-            >
-              Your competitors already automated these five workflows. Here's what you're leaving on the table.
-            </p>
-
-            <a href="/blogs/blog-operations-you-should-automate" class="rv-button rv-button-white mt-auto">
-              <div class="rv-button-top !text-center">
-                <span class="mr-1">6 minute read</span>
-                <img class="inline" src="/images/icons/top-arrow.svg" alt="Arrow Icon" />
-              </div>
-              <div class="rv-button-bottom !text-center">
-                <span class="mr-1">6 minute read</span>
-                <img class="inline dark:hidden" src="/images/icons/top-arrow-dark.svg" alt="Arrow Icon" />
-                <img class="hidden dark:inline" src="/images/icons/top-arrow.svg" alt="Arrow Icon" />
-              </div>
-            </a>
-          </div>
-        </a>
-      </div>
-
-      <!-- Blog Card - Custom vs Off-the-Shelf -->
-      <div class="flex flex-col w-full max-w-[300px] mx-auto group">
-        <a href="/blogs/blog-custom-software-vs-off-the-shelf" class="flex flex-col flex-1">
-          <figure class="aspect-[370/399] overflow-hidden mb-6">
-            <img
-              src="/images/blog-img/blog-img-2.webp"
-              alt="Custom Software vs Off-the-Shelf"
-              class="w-full h-full object-cover transition-all duration-500 group-hover:scale-125 group-hover:rotate-3"
-            />
-          </figure>
-
-          <div class="flex flex-col flex-1">
-            <div class="blog-title">
-              <h3
-                class="text-[27px] md:text-3xl lg:text-4xl leading-tight tracking-tight"
-              >
-                Custom Software vs. Off-the-Shelf
-              </h3>
-            </div>
-
-            <p
-              class="text-lg leading-[1.4] tracking-[0.4px] font-poppins font-normal mt-3 md:mt-5 mb-5 md:mb-10 flex-1"
-            >
-              Paying for 10 SaaS tools that don't talk to each other? The real cost of "good enough" is bigger than you think.
-            </p>
-
-            <a href="/blogs/blog-custom-software-vs-off-the-shelf" class="rv-button rv-button-white mt-auto">
-              <div class="rv-button-top !text-center">
-                <span class="mr-1">7 minute read</span>
-                <img class="inline" src="/images/icons/top-arrow.svg" alt="Arrow Icon" />
-              </div>
-              <div class="rv-button-bottom !text-center">
-                <span class="mr-1">7 minute read</span>
-                <img class="inline dark:hidden" src="/images/icons/top-arrow-dark.svg" alt="Arrow Icon" />
-                <img class="hidden dark:inline" src="/images/icons/top-arrow.svg" alt="Arrow Icon" />
-              </div>
-            </a>
-          </div>
-        </a>
-      </div>
-
-      <!-- Blog Card - AI for Small Businesses -->
-      <div class="flex flex-col w-full max-w-[300px] mx-auto group">
-        <a href="/blogs/blog-ai-for-small-businesses" class="flex flex-col flex-1">
-          <figure class="aspect-[370/399] overflow-hidden mb-6">
-            <img
-              src="/images/blog-img/blog-img-3.webp"
-              alt="AI for Small Businesses"
-              class="w-full h-full object-cover transition-all duration-500 group-hover:scale-125 group-hover:rotate-3"
-            />
-          </figure>
-
-          <div class="flex flex-col flex-1">
-            <div class="blog-title">
-              <h3
-                class="text-[27px] md:text-3xl lg:text-4xl leading-tight tracking-tight"
-              >
-                AI for Small Businesses
-              </h3>
-            </div>
-
-            <p
-              class="text-lg leading-[1.4] tracking-[0.4px] font-poppins font-normal mt-3 md:mt-5 mb-5 md:mb-10 flex-1"
-            >
-              AI isn't just for billion-dollar companies. See how SMBs are using it to punch above their weight.
-            </p>
-
-            <a href="/blogs/blog-ai-for-small-businesses" class="rv-button rv-button-white mt-auto">
-              <div class="rv-button-top !text-center">
-                <span class="mr-1">6 minute read</span>
-                <img class="inline" src="/images/icons/top-arrow.svg" alt="Arrow Icon" />
-              </div>
-              <div class="rv-button-bottom !text-center">
-                <span class="mr-1">6 minute read</span>
-                <img class="inline dark:hidden" src="/images/icons/top-arrow-dark.svg" alt="Arrow Icon" />
-                <img class="hidden dark:inline" src="/images/icons/top-arrow.svg" alt="Arrow Icon" />
-              </div>
-            </a>
-          </div>
-        </a>
-      </div>
+    <div class="reveal-me">
+      <BlogGrid posts={posts} client:visible />
     </div>
   </div>
 
