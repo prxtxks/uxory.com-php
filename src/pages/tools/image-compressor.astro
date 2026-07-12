@@ -1,0 +1,51 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ImageCompressor from '../../components/tools/ImageCompressor.tsx';
+import { SITE_URL } from '../../config';
+
+const structuredData = `
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Uxory Image Compressor",
+  "url": "${SITE_URL}/tools/image-compressor",
+  "applicationCategory": "MultimediaApplication",
+  "operatingSystem": "Any (web browser)",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "description": "Free online image compressor. Compress JPG, PNG and WebP images directly in your browser — no upload, no account, completely private."
+}
+`;
+---
+
+<BaseLayout
+  title="Free Image Compressor — Compress JPG, PNG & WebP | Uxory"
+  description="Compress and resize JPG, PNG and WebP images for free, right in your browser. No upload, no sign-up, no watermark — your images never leave your device."
+  canonical={`${SITE_URL}/tools/image-compressor`}
+  currentPage="image-compressor"
+  currentParent="tools"
+  structuredData={structuredData}
+>
+  <section class="pt-[120px] md:pt-[160px] pb-8 md:pb-10 relative overflow-hidden">
+    <div class="container">
+      <div class="reveal-me text-center max-w-2xl mx-auto">
+        <p class="font-satoshi text-sm font-normal leading-6 tracking-[3px] uppercase mb-4">
+          Free Tools
+        </p>
+        <h2 class="font-normal text-appear">
+          Image
+          <span class="font-instrument italic">Compressor</span>
+        </h2>
+        <p class="mt-5 text-secondary/70 dark:text-backgroundBody/70 text-lg">
+          Shrink JPG, PNG and WebP images without losing visible quality. Fast, free, and
+          100% private — everything runs in your browser.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="pb-14 md:pb-16 lg:pb-[88px] xl:pb-[100px] relative overflow-hidden">
+    <div class="container">
+      <ImageCompressor client:load />
+    </div>
+  </section>
+</BaseLayout>
