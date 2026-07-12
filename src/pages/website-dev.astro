@@ -1206,7 +1206,7 @@ $299 website
       <div class="col-span-12 lg:col-span-7">
         <h3 class=" text-appear-2 text-secondary dark:text-secondary text-left">
           Launch your vision - 
-          <span class="font-instrument italic">build a website for just </span><span id="titlePrice">&nbsp;.</span>
+          <span class="font-instrument italic">build a website starting at </span><span id="titlePrice">&nbsp;</span>
         </h3>
       </div>
       <div class="col-span-12 lg:col-span-5 lg:text-right">
@@ -1246,7 +1246,12 @@ $299 website
             <span class="rv-badge-text">Starter Spark</span>
           </div>
 
-          <h5 id="sparkPrice" class="pt-2 pb-4">&nbsp;</h5>
+          <p class="text-xs uppercase tracking-[2px] text-secondary/50 dark:text-backgroundBody/50 pt-2">Starts at</p>
+          <h5 class="pb-1 flex items-start gap-1">
+            <span id="sparkPrice">&nbsp;</span>
+            <a href="#pricing-disclaimer" class="text-primary text-lg leading-none" title="Not all features are included at the starter price">★</a>
+          </h5>
+          <p class="text-xs text-secondary/40 dark:text-backgroundBody/40 pb-4">Starting price — final quote depends on scope.</p>
 
           <a href="./contact" class="rv-button rv-button-white mb-10" >
             <div class="rv-button-top">
@@ -1645,7 +1650,9 @@ $299 website
             <span class="rv-badge-text">Commerce Catalyst</span>
           </div>
 
-          <h5 id="catalystPrice" class="pt-2 pb-4">&nbsp;</h5>
+          <p class="text-xs uppercase tracking-[2px] text-secondary/50 dark:text-backgroundBody/50 pt-2">Starts at</p>
+          <h5 class="pb-1"><span id="catalystPrice">&nbsp;</span></h5>
+          <p class="text-xs text-secondary/40 dark:text-backgroundBody/40 pb-4">Starting price — final quote depends on scope.</p>
 
           <a href="./contact" class="rv-button rv-button-white mb-10">
             <div class="rv-button-top">
@@ -2268,7 +2275,18 @@ $299 website
         </div>
 
   </div>
-  
+
+  <!-- Pricing disclaimer -->
+  <div class="container mt-10">
+    <p id="pricing-disclaimer" class="scroll-mt-28 max-w-3xl mx-auto text-center text-sm text-secondary/50 dark:text-backgroundBody/50">
+      <span class="text-primary">★</span> Prices shown are <span class="font-medium">starting points</span> for each package —
+      not all features are included at the starter tier. Your final quote depends on your scope,
+      integrations and design needs. Pricing is shown in <span class="font-medium">₹ (India)</span> or
+      <span class="font-medium">$ (global)</span> based on your location.
+      <a href="/contact" class="text-primary hover:underline">Get an exact quote →</a>
+    </p>
+  </div>
+
 </section>
 
 <!--=====================================
