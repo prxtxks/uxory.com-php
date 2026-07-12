@@ -1,125 +1,22 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import CTA from '../../components/CTA.astro';
-import Socials from '../../components/Socials.astro';
-import Blog from '../../components/Blog.astro';
+import BlogArticle from '../../layouts/BlogArticle.astro';
+import { SITE_URL } from '../../config';
 ---
 
-<BaseLayout
-  title="Custom Software vs. Off-the-Shelf"
-  description="Paying for 10 SaaS tools that don't talk to each other? The hidden costs of good enough are bigger than you think."
-  currentPage=""
-  currentParent="home"
+<BlogArticle
+  title={"Custom Software vs. Off-the-Shelf: The Real Cost of “Good Enough”"}
+  description={"Paying for 10 SaaS tools that don't talk to each other? The hidden costs of good enough are bigger than you think."}
+  excerpt={"Paying for 10 SaaS tools that don't talk to each other? The hidden costs of “good enough” are bigger than you think."}
+  category="sde"
+  date="2026-02-15"
+  readTime={7}
+  heroImage="/images/blog-img/blog-img-2.webp"
+  canonical={`${SITE_URL}/blogs/blog-custom-software-vs-off-the-shelf`}
 >
 
 <!--=====================================
    Page Header Details Section
 ======================================-->
-<section
-  class="pt-32 md:pt-44 lg:pt-[200px] pb-10 md:pb-16 lg:pb-[88px] xl:pb-[100px] relative overflow-hidden"
->
-  <div
-    id="hero-gradient-wrapper"
-    class="absolute w-full h-full top-0 left-0 -z-10 blur-[35px] md:blur-[60px] max-sm:scale-75 sm:scale-75"
-  >
-    <img
-      src="/images/hero-gradient-background.png"
-      alt="hero-gradient-background"
-      id="hero-gradient"
-      class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-[45%]"
-    />
-  </div>
-
-  <div class="container reveal-me">
-    <div class="text-center">
-      <div class="rv-badge mb-4 lg:mb-10">
-        <span class="rv-badge-text">Blog Details</span>
-      </div>
-      <h2 class="mb-5 lg:mb-8 max-sm:max-w-md max-sm:mx-auto font-medium">
-        Custom Software vs. Off-the-Shelf
-      </h2>
-    </div>
-  </div>
-</section>
-
-<section class="">
-  <div class="max-w-[1440px] mx-auto px-10 md:px-20">
-    <div
-      class="flex flex-col gap-10 lg:flex-row justify-start mt-12 md:mt-[60px] pb-14 md:pb-16 lg:pb-[88px] xl:pb-[100px]"
-    >
-      <!-- Sidebar -->
-      <aside class="min-w-[275px] flex-1">
-        <div class="sticky top-24 max-md:mb-7">
-          <div class="reveal-me">
-            <h3
-              class="max-sm:text-[35px] max-md:text-[40px] md:text-[32px] mt-2 mb-4 lg:mb-10"
-            >
-              Table of contents
-            </h3>
-            <ul
-              class="[&>*:not(:last-child)]:mb-2 md:[&>*:not(:last-child)]:mb-4"
-            >
-              <li>
-                <a
-                  href="#a"
-                  class="text-xl normal-case font-normal leading-7 dark:text-dark-100 hover:font-medium hover:text-secondary dark:hover:text-backgroundBody transition-all lenis-scroll-to"
-                >
-                  The Allure of Off-the-Shelf
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#b"
-                  class="text-xl normal-case font-normal leading-7 dark:text-dark-100 hover:font-medium hover:text-secondary dark:hover:text-backgroundBody transition-all lenis-scroll-to"
-                >
-                  The Hidden Costs of "Good Enough"
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#c"
-                  class="text-xl normal-case font-normal leading-7 dark:text-dark-100 hover:font-medium hover:text-secondary dark:hover:text-backgroundBody transition-all lenis-scroll-to"
-                >
-                  When Off-the-Shelf Starts Breaking
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#d"
-                  class="text-xl normal-case font-normal leading-7 dark:text-dark-100 hover:font-medium hover:text-secondary dark:hover:text-backgroundBody transition-all lenis-scroll-to"
-                >
-                  What Custom Software Actually Gets You
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#e"
-                  class="text-xl normal-case font-normal leading-7 dark:text-dark-100 hover:font-medium hover:text-secondary dark:hover:text-backgroundBody transition-all lenis-scroll-to"
-                >
-                  The Build vs. Buy Decision Framework
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#f"
-                  class="text-xl normal-case font-normal leading-7 dark:text-dark-100 hover:font-medium hover:text-secondary dark:hover:text-backgroundBody transition-all lenis-scroll-to"
-                >
-                  How Uxory Approaches Custom Builds
-                </a>
-              </li>
-            </ul>
-            <h3
-              class="max-sm:text-[35px] max-md:text-[40px] md:text-[32px] mt-5 sm:mt-7 md:mt-12 lg:mt-20 mb-7"
-            >
-              Share
-            </h3>
-            
-          </div>
-        </div>
-      </aside>
-
-      <!-- Main Article Content -->
-      <article class="blog-details-body">
 
         <div class="reveal-me">
           <h3 id="a">The Allure of Off-the-Shelf</h3>
@@ -245,19 +142,4 @@ import Blog from '../../components/Blog.astro';
           </p>
         </div>
 
-      </article>
-    </div>
-
-    <Blog />
-
-  </div>
-</section>
-
-<CTA />
-
-<Socials />
-
-<section class="pb-16"></section>
-
-
-</BaseLayout>
+      </BlogArticle>

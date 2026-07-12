@@ -1,5 +1,5 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
+import BlogArticle from '../../layouts/BlogArticle.astro';
 import { fetchBlogBySlug, renderMarkdown } from '../../lib/blog';
 import { SITE_URL } from '../../config';
 
@@ -8,7 +8,7 @@ export const prerender = false;
 const { slug } = Astro.params;
 const post = slug ? await fetchBlogBySlug(slug) : null;
 
-// If not a DB post (e.g. the 3 original static pages have their own files, and
+// If not a DB post (the 3 original static pages have their own files, and
 // unknown slugs), 404.
 if (!post || !post.content_md) {
   return new Response(null, { status: 404, statusText: 'Not Found' });
@@ -16,15 +16,17 @@ if (!post || !post.content_md) {
 
 const html = renderMarkdown(post.content_md);
 const hero = post.hero_image || post.image;
+const heroMobile = post.hero_image ? hero.replace('-wide.webp', '-tall.webp') : undefined;
 const canonical = `${SITE_URL}${post.link || `/blogs/${post.slug}`}`;
 const published = post.created_at || new Date().toISOString();
+const ogImage = hero?.startsWith('http') ? hero : `${SITE_URL}${hero}`;
 
 const structuredData = JSON.stringify({
   '@context': 'https://schema.org',
   '@type': 'BlogPosting',
   headline: post.title,
   description: post.excerpt,
-  image: hero?.startsWith('http') ? hero : `${SITE_URL}${hero}`,
+  image: ogImage,
   datePublished: published,
   author: { '@type': 'Organization', name: 'Uxory', url: SITE_URL },
   publisher: {
@@ -36,92 +38,18 @@ const structuredData = JSON.stringify({
 });
 ---
 
-<BaseLayout
-  title={`${post.title} | Uxory Blog`}
+<BlogArticle
+  title={post.title}
   description={post.excerpt}
+  excerpt={post.excerpt}
+  category={post.category || undefined}
+  date={published}
+  readTime={post.read_time}
+  heroImage={hero}
+  heroImageMobile={heroMobile}
   canonical={canonical}
-  ogImage={hero?.startsWith('http') ? hero : `${SITE_URL}${hero}`}
-  currentParent="about"
+  ogImage={ogImage}
   structuredData={structuredData}
->
-  <style is:global>
-    .blog-body { font-size: 1.075rem; line-height: 1.8; }
-    .blog-body h2 { font-size: 1.6rem; margin: 2rem 0 0.75rem; font-weight: 500; }
-    .blog-body h3 { font-size: 1.3rem; margin: 1.5rem 0 0.5rem; font-weight: 500; }
-    .blog-body p { margin: 0 0 1.15rem; }
-    .blog-body ul, .blog-body ol { margin: 0 0 1.15rem 1.25rem; }
-    .blog-body ul { list-style: disc; }
-    .blog-body ol { list-style: decimal; }
-    .blog-body li { margin: 0.35rem 0; }
-    .blog-body a { color: #12D8CC; text-decoration: underline; }
-    .blog-body blockquote {
-      border-left: 3px solid #12D8CC; padding-left: 1rem; margin: 1.25rem 0;
-      opacity: 0.85; font-style: italic;
-    }
-    .blog-body code { background: rgba(18,216,204,0.12); padding: 0.1rem 0.35rem; border-radius: 6px; font-size: 0.9em; }
-    .blog-body pre { background: rgba(0,0,0,0.4); padding: 1rem; border-radius: 12px; overflow-x: auto; margin: 1.25rem 0; }
-    .blog-body pre code { background: none; padding: 0; }
-  </style>
-
-  <article class="pt-[110px] md:pt-[150px] pb-16">
-    <div class="container">
-      <div class="max-w-3xl mx-auto">
-        <a href="/blog-listings" class="text-sm text-primary hover:underline">← All articles</a>
-
-        <div class="mt-5 flex items-center gap-3 text-sm">
-          {post.category && (
-            <span class="px-3 py-1 rounded-full bg-primary/15 text-primary capitalize">
-              {post.category.replace('-', ' ')}
-            </span>
-          )}
-          <span class="text-secondary/50 dark:text-backgroundBody/50">
-            {new Date(published).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
-            {post.read_time ? ` · ${post.read_time} min read` : ''}
-          </span>
-        </div>
-
-        <h1 class="mt-4 text-3xl md:text-5xl font-normal leading-tight">{post.title}</h1>
-        <p class="mt-4 text-lg text-secondary/70 dark:text-backgroundBody/70">{post.excerpt}</p>
-
-        {hero && (
-          <picture>
-            <source media="(max-width: 640px)" srcset={post.hero_image ? hero.replace('-wide.webp', '-tall.webp') : hero} />
-            <img
-              src={hero}
-              alt={post.title}
-              width="1200"
-              height="630"
-              class="mt-8 w-full rounded-2xl object-cover"
-              loading="eager"
-            />
-          </picture>
-        )}
-
-        <div class="blog-body mt-10 text-secondary/85 dark:text-backgroundBody/85" set:html={html} />
-
-        {post.source_urls && post.source_urls.length > 0 && (
-          <div class="mt-12 pt-6 border-t border-secondary/10 dark:border-backgroundBody/10">
-            <p class="text-sm uppercase tracking-[2px] text-secondary/40 dark:text-backgroundBody/40 mb-3">Sources</p>
-            <ul class="space-y-1.5 text-sm">
-              {post.source_urls.map((u) => (
-                <li>
-                  <a href={u} target="_blank" rel="noopener noreferrer" class="text-primary hover:underline break-all">{u}</a>
-                </li>
-              ))}
-            </ul>
-          </div>
-        )}
-
-        <div class="mt-12 rounded-2xl border border-primary/30 bg-primary/5 p-8 text-center">
-          <h3 class="text-2xl font-normal mb-2">Want this for your business?</h3>
-          <p class="text-secondary/70 dark:text-backgroundBody/70 mb-5">
-            Uxory builds AI, automation and software that turn ideas like these into working systems.
-          </p>
-          <a href="/contact" class="inline-block bg-primary text-black font-medium px-6 py-3 rounded-full hover:opacity-90 transition-opacity">
-            Talk to Uxory
-          </a>
-        </div>
-      </div>
-    </div>
-  </article>
-</BaseLayout>
+  sources={post.source_urls || undefined}
+  bodyHtml={html}
+/>

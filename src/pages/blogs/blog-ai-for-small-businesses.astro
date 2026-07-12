@@ -1,125 +1,18 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import CTA from '../../components/CTA.astro';
-import Socials from '../../components/Socials.astro';
-import Blog from '../../components/Blog.astro';
+import BlogArticle from '../../layouts/BlogArticle.astro';
+import { SITE_URL } from '../../config';
 ---
 
-<BaseLayout
-  title="How Small Businesses Are Using AI to Compete"
+<BlogArticle
+  title="How Small Businesses Are Using AI to Compete with Enterprise Companies"
   description="AI isn't just for billion-dollar companies. See how SMBs are using chatbots, predictive analytics, and automation to punch above their weight."
-  currentPage=""
-  currentParent="home"
+  excerpt="AI isn't just for billion-dollar companies. See how SMBs use chatbots, predictive analytics, and automation to punch above their weight."
+  category="ai-agents"
+  date="2026-02-01"
+  readTime={6}
+  heroImage="/images/blog-img/blog-img-3.webp"
+  canonical={`${SITE_URL}/blogs/blog-ai-for-small-businesses`}
 >
-
-<!--=====================================
-   Page Header Details Section
-======================================-->
-<section
-  class="pt-32 md:pt-44 lg:pt-[200px] pb-10 md:pb-16 lg:pb-[88px] xl:pb-[100px] relative overflow-hidden"
->
-  <div
-    id="hero-gradient-wrapper"
-    class="absolute w-full h-full top-0 left-0 -z-10 blur-[35px] md:blur-[60px] max-sm:scale-75 sm:scale-75"
-  >
-    <img
-      src="/images/hero-gradient-background.png"
-      alt="hero-gradient-background"
-      id="hero-gradient"
-      class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-[45%]"
-    />
-  </div>
-
-  <div class="container reveal-me">
-    <div class="text-center">
-      <div class="rv-badge mb-4 lg:mb-10">
-        <span class="rv-badge-text">Blog Details</span>
-      </div>
-      <h2 class="mb-5 lg:mb-8 max-sm:max-w-md max-sm:mx-auto font-medium">
-        How Small Businesses Are Using AI to Compete with Enterprise Companies
-      </h2>
-    </div>
-  </div>
-</section>
-
-<section class="">
-  <div class="max-w-[1440px] mx-auto px-10 md:px-20">
-    <div
-      class="flex flex-col gap-10 lg:flex-row justify-start mt-12 md:mt-[60px] pb-14 md:pb-16 lg:pb-[88px] xl:pb-[100px]"
-    >
-      <!-- Sidebar -->
-      <aside class="min-w-[275px] flex-1">
-        <div class="sticky top-24 max-md:mb-7">
-          <div class="reveal-me">
-            <h3
-              class="max-sm:text-[35px] max-md:text-[40px] md:text-[32px] mt-2 mb-4 lg:mb-10"
-            >
-              Table of contents
-            </h3>
-            <ul
-              class="[&>*:not(:last-child)]:mb-2 md:[&>*:not(:last-child)]:mb-4"
-            >
-              <li>
-                <a
-                  href="#a"
-                  class="text-xl normal-case font-normal leading-7 dark:text-dark-100 hover:font-medium hover:text-secondary dark:hover:text-backgroundBody transition-all lenis-scroll-to"
-                >
-                  The AI Playing Field Has Changed
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#b"
-                  class="text-xl normal-case font-normal leading-7 dark:text-dark-100 hover:font-medium hover:text-secondary dark:hover:text-backgroundBody transition-all lenis-scroll-to"
-                >
-                  AI Chatbots That Handle 80% of Support Tickets
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#c"
-                  class="text-xl normal-case font-normal leading-7 dark:text-dark-100 hover:font-medium hover:text-secondary dark:hover:text-backgroundBody transition-all lenis-scroll-to"
-                >
-                  Predictive Analytics for Smarter Decisions
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#d"
-                  class="text-xl normal-case font-normal leading-7 dark:text-dark-100 hover:font-medium hover:text-secondary dark:hover:text-backgroundBody transition-all lenis-scroll-to"
-                >
-                  Automated Lead Scoring and Sales Intelligence
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#e"
-                  class="text-xl normal-case font-normal leading-7 dark:text-dark-100 hover:font-medium hover:text-secondary dark:hover:text-backgroundBody transition-all lenis-scroll-to"
-                >
-                  Intelligent Document Processing
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#f"
-                  class="text-xl normal-case font-normal leading-7 dark:text-dark-100 hover:font-medium hover:text-secondary dark:hover:text-backgroundBody transition-all lenis-scroll-to"
-                >
-                  Getting Started: AI Without the Overwhelm
-                </a>
-              </li>
-            </ul>
-            <h3
-              class="max-sm:text-[35px] max-md:text-[40px] md:text-[32px] mt-5 sm:mt-7 md:mt-12 lg:mt-20 mb-7"
-            >
-              Share
-            </h3>
-            
-          </div>
-        </div>
-      </aside>
-
-      <!-- Main Article Content -->
-      <article class="blog-details-body">
 
         <div class="reveal-me">
           <h3 id="a">The AI Playing Field Has Changed</h3>
@@ -239,19 +132,4 @@ import Blog from '../../components/Blog.astro';
           </p>
         </div>
 
-      </article>
-    </div>
-
-    <Blog />
-
-  </div>
-</section>
-
-<CTA />
-
-<Socials />
-
-<section class="pb-16"></section>
-
-
-</BaseLayout>
+</BlogArticle>
