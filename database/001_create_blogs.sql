@@ -28,7 +28,7 @@ insert into blogs (title, slug, excerpt, image, link, read_time, created_at) val
   'operations-you-should-automate',
   'Your competitors already automated these five workflows. Here''s what you''re leaving on the table.',
   '/images/blog-img/blog-img-1.webp',
-  '/blogs/blog-operations-you-should-automate.php',
+  '/blogs/blog-operations-you-should-automate',
   6,
   '2026-03-01T10:00:00Z'
 ),
@@ -37,7 +37,7 @@ insert into blogs (title, slug, excerpt, image, link, read_time, created_at) val
   'custom-software-vs-off-the-shelf',
   'Paying for 10 SaaS tools that don''t talk to each other? The real cost of "good enough" is bigger than you think.',
   '/images/blog-img/blog-img-2.webp',
-  '/blogs/blog-custom-software-vs-off-the-shelf.php',
+  '/blogs/blog-custom-software-vs-off-the-shelf',
   7,
   '2026-02-15T10:00:00Z'
 ),
@@ -46,7 +46,7 @@ insert into blogs (title, slug, excerpt, image, link, read_time, created_at) val
   'ai-for-small-businesses',
   'AI isn''t just for billion-dollar companies. See how SMBs are using it to punch above their weight.',
   '/images/blog-img/blog-img-3.webp',
-  '/blogs/blog-ai-for-small-businesses.php',
+  '/blogs/blog-ai-for-small-businesses',
   6,
   '2026-02-01T10:00:00Z'
 );

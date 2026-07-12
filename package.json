@@ -9,9 +9,17 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/react": "^3.6.3",
+    "@astrojs/sitemap": "^3.2.1",
+    "@astrojs/tailwind": "^5.1.5",
     "@astrojs/vercel": "^7.8.2",
     "@supabase/supabase-js": "^2.109.0",
+    "@types/react": "^18.3.31",
+    "@types/react-dom": "^18.3.7",
     "astro": "^4.16.0",
-    "resend": "^6.17.1"
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "resend": "^6.17.1",
+    "tailwindcss": "^3.4.19"
   }
 }

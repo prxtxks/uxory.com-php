@@ -6,6 +6,9 @@ import Footer from '../components/Footer.astro';
 import ChatWidget from '../components/ChatWidget.astro';
 import Scripts from '../components/Scripts.astro';
 import { SITE_URL } from '../config';
+// Tailwind utilities for new islands. main.css is <link>ed below and wins on
+// any shared class, so existing pages render unchanged.
+import '../styles/tailwind.css';
 
 interface Props {
   title: string;

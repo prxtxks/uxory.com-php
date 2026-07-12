@@ -1,0 +1,12 @@
+/*
+ * Tailwind utilities for new components/islands (reviews, image compressor,
+ * Uxory AI, onboarding, blog).
+ *
+ * `@tailwind base` is intentionally omitted: the existing site already ships a
+ * full Tailwind preflight in public/assets/css/main.css, and a second reset
+ * would fight it. This sheet only adds component/utility classes. main.css is
+ * linked after this in BaseLayout, so on any shared class it wins and existing
+ * pages render unchanged.
+ */
+@tailwind components;
+@tailwind utilities;
