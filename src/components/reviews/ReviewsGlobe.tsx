@@ -263,12 +263,27 @@ export default function ReviewsGlobe({ reviews }: { reviews: GlobeReview[] }) {
             </span>
           </div>
 
-          {/* Mobile: compact name pin (company name, or author name) */}
-          <div
-            className="sm:hidden inline-block whitespace-nowrap rounded-full bg-white/95 text-secondary shadow-md"
-            style={{ padding: '3px 9px', fontSize: '0.6rem', fontWeight: 600, letterSpacing: '0.01em' }}
-          >
-            {m.label}
+          {/* Mobile: iMessage-style bubble anchored to the pin (company name,
+              or author name). The rotated square below is the bubble tail. */}
+          <div className="sm:hidden relative">
+            <div
+              className="inline-block whitespace-nowrap rounded-xl bg-primary text-[#0d0d0d] shadow-md"
+              style={{ padding: '4px 10px', fontSize: '0.62rem', fontWeight: 600, letterSpacing: '0.01em' }}
+            >
+              {m.label}
+            </div>
+            <div
+              className="bg-primary"
+              style={{
+                position: 'absolute',
+                left: '50%',
+                bottom: -3,
+                width: 8,
+                height: 8,
+                transform: 'translateX(-50%) rotate(45deg)',
+                borderRadius: 1,
+              }}
+            />
           </div>
         </div>
       ))}
