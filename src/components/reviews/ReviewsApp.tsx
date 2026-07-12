@@ -1,0 +1,599 @@
+import React, { useEffect, useMemo, useState } from 'react';
+import {
+  fetchReviews,
+  postReview,
+  postReply,
+  deleteReview,
+  rememberOwnedReview,
+  forgetOwnedReview,
+  getOwnedTokens,
+  initials,
+  avatarColor,
+  relativeTime,
+  type Review,
+} from './reviewsApi';
+import { Stars, StarInput, Avatar } from './Stars';
+import { useRecaptcha } from './useRecaptcha';
+
+type SortKey = 'newest' | 'highest' | 'lowest' | 'discussed';
+
+// ─────────────────────────────────────────────────────────────
+// Rating summary (Google-style: big average + 5-bar breakdown)
+// ─────────────────────────────────────────────────────────────
+function RatingSummary({ reviews }: { reviews: Review[] }) {
+  const total = reviews.length;
+  const avg = total ? reviews.reduce((s, r) => s + r.rating, 0) / total : 0;
+  const counts = [5, 4, 3, 2, 1].map((star) => ({
+    star,
+    n: reviews.filter((r) => r.rating === star).length,
+  }));
+
+  return (
+    <div className="review-card border dark:border-dark p-6 md:p-8 flex flex-col sm:flex-row gap-8 items-center sm:items-stretch">
+      <div className="flex flex-col items-center justify-center text-center sm:min-w-[160px]">
+        <div className="text-6xl font-medium text-primary leading-none">{total ? avg.toFixed(1) : '—'}</div>
+        <div className="mt-3">
+          <Stars value={avg} size={20} />
+        </div>
+        <p className="text-sm text-secondary/50 dark:text-backgroundBody/50 mt-2">
+          {total} review{total === 1 ? '' : 's'}
+        </p>
+      </div>
+
+      <div className="hidden sm:block w-px bg-secondary/10 dark:bg-backgroundBody/10" />
+
+      <div className="flex-1 w-full flex flex-col justify-center gap-2">
+        {counts.map(({ star, n }) => {
+          const pct = total ? (n / total) * 100 : 0;
+          return (
+            <div key={star} className="flex items-center gap-3">
+              <span className="text-sm w-3 text-secondary/60 dark:text-backgroundBody/60">{star}</span>
+              <div className="flex-1 h-2.5 rounded-full bg-secondary/10 dark:bg-backgroundBody/10 overflow-hidden">
+                <div
+                  className="h-full bg-primary rounded-full transition-[width] duration-700"
+                  style={{ width: `${pct}%` }}
+                />
+              </div>
+              <span className="text-sm w-8 text-right text-secondary/50 dark:text-backgroundBody/50">{n}</span>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
+// ─────────────────────────────────────────────────────────────
+// Sort + star filter chips
+// ─────────────────────────────────────────────────────────────
+function SortFilterBar({
+  sort,
+  onSort,
+  starFilter,
+  onStarFilter,
+}: {
+  sort: SortKey;
+  onSort: (s: SortKey) => void;
+  starFilter: number | null;
+  onStarFilter: (n: number | null) => void;
+}) {
+  const chip = (active: boolean) =>
+    `text-sm px-4 py-2 rounded-full border transition-colors duration-200 ${
+      active
+        ? 'bg-primary/15 text-primary border-primary'
+        : 'border-secondary/15 dark:border-backgroundBody/15 text-secondary/70 dark:text-backgroundBody/70 hover:border-primary/50'
+    }`;
+
+  const sorts: [SortKey, string][] = [
+    ['newest', 'Newest'],
+    ['highest', 'Highest'],
+    ['lowest', 'Lowest'],
+    ['discussed', 'Most discussed'],
+  ];
+
+  return (
+    <div className="flex flex-col gap-4 mb-8">
+      <div className="flex flex-wrap items-center gap-2">
+        <span className="text-xs text-secondary/50 dark:text-backgroundBody/50 uppercase tracking-[2px] mr-1">
+          Sort
+        </span>
+        {sorts.map(([k, label]) => (
+          <button key={k} className={chip(sort === k)} onClick={() => onSort(k)}>
+            {label}
+          </button>
+        ))}
+      </div>
+      <div className="flex flex-wrap items-center gap-2">
+        <span className="text-xs text-secondary/50 dark:text-backgroundBody/50 uppercase tracking-[2px] mr-1">
+          Filter
+        </span>
+        <button className={chip(starFilter === null)} onClick={() => onStarFilter(null)}>
+          All
+        </button>
+        {[5, 4, 3, 2, 1].map((s) => (
+          <button key={s} className={chip(starFilter === s)} onClick={() => onStarFilter(s)}>
+            {s} ★
+          </button>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+// ─────────────────────────────────────────────────────────────
+// Review form
+// ─────────────────────────────────────────────────────────────
+function ReviewForm({ onPosted }: { onPosted: (r: Review, token: string) => void }) {
+  const [open, setOpen] = useState(false);
+  const [rating, setRating] = useState(0);
+  const [text, setText] = useState('');
+  const [submitting, setSubmitting] = useState(false);
+  const [status, setStatus] = useState<{ type: 'error' | 'success'; msg: string } | null>(null);
+  const recaptcha = useRecaptcha(open);
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setStatus(null);
+    const form = e.currentTarget;
+    const fd = new FormData(form);
+    fd.set('rating', String(rating));
+    if (rating < 1) {
+      setStatus({ type: 'error', msg: 'Please select a star rating.' });
+      return;
+    }
+    const token = recaptcha.getToken();
+    if (token) fd.set('g-recaptcha-response', token);
+
+    setSubmitting(true);
+    try {
+      const data = await postReview(fd);
+      if (data.status === 'success' && data.review) {
+        onPosted(data.review, data.delete_token);
+        form.reset();
+        setRating(0);
+        setText('');
+        recaptcha.reset();
+        setStatus({ type: 'success', msg: 'Thanks! Your review is now live.' });
+        setTimeout(() => setOpen(false), 1200);
+      } else {
+        setStatus({ type: 'error', msg: data.message || 'Something went wrong.' });
+        recaptcha.reset();
+      }
+    } catch {
+      setStatus({ type: 'error', msg: 'Network error. Please try again.' });
+    } finally {
+      setSubmitting(false);
+    }
+  }
+
+  const inputCls =
+    'review-input py-3 px-4 focus:outline-none focus:border-primary border border-secondary/10 dark:border-backgroundBody/10 w-full text-base mt-2';
+
+  return (
+    <div className="max-w-[720px] mx-auto mb-12">
+      <div className="text-center">
+        <button
+          onClick={() => setOpen((o) => !o)}
+          className="inline-flex items-center gap-2 bg-primary text-black font-medium px-6 py-3 rounded-full hover:opacity-90 transition-opacity"
+        >
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931z" />
+          </svg>
+          {open ? 'Close' : 'Write a review'}
+        </button>
+      </div>
+
+      <div
+        className="overflow-hidden transition-all duration-500"
+        style={{ maxHeight: open ? 1200 : 0, opacity: open ? 1 : 0 }}
+      >
+        <form
+          onSubmit={handleSubmit}
+          className="review-form-card border dark:border-dark p-6 md:p-8 mt-6"
+        >
+          <h4 className="text-2xl mb-6">Share your experience</h4>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <div>
+              <label className="text-base text-secondary dark:text-backgroundBody">
+                Your name <span className="text-primary">*</span>
+              </label>
+              <input required name="author_name" maxLength={100} placeholder="John Doe" className={inputCls} />
+            </div>
+            <div>
+              <label className="text-base text-secondary dark:text-backgroundBody">Company</label>
+              <input name="company_name" maxLength={100} placeholder="Acme Inc. (optional)" className={inputCls} />
+            </div>
+            <div className="md:col-span-full">
+              <label className="text-base text-secondary dark:text-backgroundBody">
+                Email <span className="text-primary">*</span>
+              </label>
+              <input required type="email" name="email" maxLength={255} placeholder="you@company.com" className={inputCls} />
+              <p className="text-xs text-secondary/40 dark:text-backgroundBody/40 mt-1">
+                Never shown publicly.
+              </p>
+            </div>
+            <div className="md:col-span-full">
+              <label className="text-base text-secondary dark:text-backgroundBody">
+                Rating <span className="text-primary">*</span>
+              </label>
+              <div className="mt-2">
+                <StarInput value={rating} onChange={setRating} />
+              </div>
+            </div>
+            <div className="md:col-span-full">
+              <label className="text-base text-secondary dark:text-backgroundBody">
+                Your review <span className="text-primary">*</span>
+              </label>
+              <textarea
+                required
+                name="review_text"
+                maxLength={2000}
+                rows={4}
+                value={text}
+                onChange={(e) => setText(e.target.value)}
+                placeholder="Tell us about your experience working with Uxory..."
+                className={`${inputCls} resize-y`}
+              />
+              <p className="text-xs text-secondary/40 dark:text-backgroundBody/40 mt-1">{text.length}/2000</p>
+            </div>
+
+            {/* Honeypot */}
+            <div className="absolute -left-[9999px] opacity-0 h-0 w-0 overflow-hidden" aria-hidden="true">
+              <input type="text" name="website" tabIndex={-1} autoComplete="off" />
+            </div>
+
+            <div className="md:col-span-full" ref={recaptcha.containerRef} />
+
+            {status && (
+              <div
+                className={`md:col-span-full text-base font-medium ${
+                  status.type === 'error' ? 'text-red-500' : 'text-primary'
+                }`}
+              >
+                {status.msg}
+              </div>
+            )}
+
+            <div className="md:col-span-full">
+              <button
+                type="submit"
+                disabled={submitting}
+                className="bg-primary text-black font-medium px-6 py-3 rounded-full hover:opacity-90 transition-opacity disabled:opacity-60"
+              >
+                {submitting ? 'Posting…' : 'Post review'}
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  );
+}
+
+// ─────────────────────────────────────────────────────────────
+// Reply form (inline)
+// ─────────────────────────────────────────────────────────────
+function ReplyForm({ reviewId, onReplied }: { reviewId: string; onReplied: () => void }) {
+  const [submitting, setSubmitting] = useState(false);
+  const [err, setErr] = useState('');
+  const recaptcha = useRecaptcha(true);
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setErr('');
+    const form = e.currentTarget;
+    const fd = new FormData(form);
+    fd.set('review_id', reviewId);
+    const token = recaptcha.getToken();
+    if (token) fd.set('g-recaptcha-response', token);
+    setSubmitting(true);
+    try {
+      const data = await postReply(fd);
+      if (data.status === 'success') {
+        form.reset();
+        recaptcha.reset();
+        onReplied();
+      } else {
+        setErr(data.message || 'Failed to post reply.');
+        recaptcha.reset();
+      }
+    } catch {
+      setErr('Network error.');
+    } finally {
+      setSubmitting(false);
+    }
+  }
+
+  const inputCls =
+    'reply-input py-2 px-3 focus:outline-none focus:border-primary border border-secondary/10 dark:border-backgroundBody/10 w-full text-sm';
+
+  return (
+    <form onSubmit={handleSubmit} className="reply-form-card border dark:border-dark p-4 mt-3">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        <input required name="author_name" maxLength={100} placeholder="Your name" className={inputCls} />
+        <input name="company_name" maxLength={100} placeholder="Company (optional)" className={inputCls} />
+      </div>
+      <textarea
+        required
+        name="reply_text"
+        maxLength={1000}
+        rows={2}
+        placeholder="Write a reply…"
+        className={`${inputCls} mt-3 resize-y`}
+      />
+      <div className="absolute -left-[9999px] opacity-0 h-0 w-0 overflow-hidden" aria-hidden="true">
+        <input type="text" name="website" tabIndex={-1} autoComplete="off" />
+      </div>
+      <div ref={recaptcha.containerRef} className="mt-3" />
+      {err && <p className="text-red-500 text-sm mt-2">{err}</p>}
+      <button
+        type="submit"
+        disabled={submitting}
+        className="mt-3 text-sm bg-primary text-black font-medium px-4 py-2 rounded-full hover:opacity-90 disabled:opacity-60"
+      >
+        {submitting ? 'Posting…' : 'Post reply'}
+      </button>
+    </form>
+  );
+}
+
+// ─────────────────────────────────────────────────────────────
+// Review card
+// ─────────────────────────────────────────────────────────────
+function ReviewCard({
+  review,
+  ownedToken,
+  onChanged,
+}: {
+  review: Review;
+  ownedToken?: string;
+  onChanged: () => void;
+}) {
+  const [expanded, setExpanded] = useState(false);
+  const [showReplies, setShowReplies] = useState(false);
+  const [replying, setReplying] = useState(false);
+  const [deleting, setDeleting] = useState(false);
+  const replies = review.review_replies || [];
+  const long = review.review_text.length > 280;
+
+  async function handleDelete() {
+    if (!ownedToken) return;
+    if (!confirm('Delete your review? This cannot be undone.')) return;
+    setDeleting(true);
+    const data = await deleteReview(review.id, ownedToken);
+    if (data.status === 'success') {
+      forgetOwnedReview(review.id);
+      onChanged();
+    } else {
+      setDeleting(false);
+      alert(data.message || 'Failed to delete.');
+    }
+  }
+
+  return (
+    <div className="review-card border dark:border-dark p-6 md:p-7">
+      <div className="flex items-start gap-4">
+        <Avatar name={review.author_name} color={avatarColor(review.author_name)} initials={initials(review.author_name)} />
+        <div className="flex-1 min-w-0">
+          <div className="flex items-start justify-between gap-2">
+            <div>
+              <p className="font-medium text-secondary dark:text-backgroundBody leading-tight">
+                {review.author_name}
+              </p>
+              {review.company_name && (
+                <p className="text-sm text-secondary/50 dark:text-backgroundBody/50">{review.company_name}</p>
+              )}
+            </div>
+            {ownedToken && (
+              <button
+                onClick={handleDelete}
+                disabled={deleting}
+                className="text-xs text-secondary/40 dark:text-backgroundBody/40 hover:text-red-500 transition-colors shrink-0"
+                title="Delete my review"
+              >
+                {deleting ? 'Deleting…' : 'Delete'}
+              </button>
+            )}
+          </div>
+          <div className="flex items-center gap-2 mt-1.5">
+            <Stars value={review.rating} size={15} />
+            <span className="text-xs text-secondary/40 dark:text-backgroundBody/40">
+              {relativeTime(review.created_at)}
+            </span>
+          </div>
+
+          <p
+            className={`mt-3 text-secondary/80 dark:text-backgroundBody/80 leading-relaxed whitespace-pre-line ${
+              long && !expanded ? 'line-clamp-4' : ''
+            }`}
+          >
+            {review.review_text}
+          </p>
+          {long && (
+            <button
+              onClick={() => setExpanded((e) => !e)}
+              className="text-sm text-primary mt-1 hover:underline"
+            >
+              {expanded ? 'Show less' : 'Read more'}
+            </button>
+          )}
+
+          {/* Reply controls */}
+          <div className="flex items-center gap-4 mt-4">
+            <button
+              onClick={() => setReplying((r) => !r)}
+              className="text-sm text-secondary/60 dark:text-backgroundBody/60 hover:text-primary transition-colors inline-flex items-center gap-1.5"
+            >
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M7.5 8.25h9m-9 3H12m-9.75 1.51c0 1.6 1.123 2.994 2.707 3.227 1.129.166 2.27.293 3.423.379.35.026.67.21.865.501L12 21l2.755-4.133a1.14 1.14 0 01.865-.501 48.172 48.172 0 003.423-.379c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z" />
+              </svg>
+              Reply
+            </button>
+            {replies.length > 0 && (
+              <button
+                onClick={() => setShowReplies((s) => !s)}
+                className="text-sm text-secondary/60 dark:text-backgroundBody/60 hover:text-primary transition-colors"
+              >
+                {showReplies ? 'Hide' : 'Show'} {replies.length} repl{replies.length === 1 ? 'y' : 'ies'}
+              </button>
+            )}
+          </div>
+
+          {replying && (
+            <ReplyForm
+              reviewId={review.id}
+              onReplied={() => {
+                setReplying(false);
+                setShowReplies(true);
+                onChanged();
+              }}
+            />
+          )}
+
+          {showReplies && replies.length > 0 && (
+            <div className="mt-4 space-y-3 border-l-2 border-primary/20 pl-4">
+              {replies.map((rep) => (
+                <div key={rep.id} className="reply-card border dark:border-dark p-4">
+                  <div className="flex items-center gap-2">
+                    <Avatar
+                      name={rep.author_name}
+                      color={avatarColor(rep.author_name)}
+                      initials={initials(rep.author_name)}
+                      size={28}
+                    />
+                    <div>
+                      <p className="text-sm font-medium text-secondary dark:text-backgroundBody leading-tight">
+                        {rep.author_name}
+                        {rep.company_name && (
+                          <span className="text-secondary/40 dark:text-backgroundBody/40 font-normal">
+                            {' '}· {rep.company_name}
+                          </span>
+                        )}
+                      </p>
+                      <p className="text-xs text-secondary/40 dark:text-backgroundBody/40">
+                        {relativeTime(rep.created_at)}
+                      </p>
+                    </div>
+                  </div>
+                  <p className="text-sm text-secondary/80 dark:text-backgroundBody/80 mt-2 whitespace-pre-line">
+                    {rep.reply_text}
+                  </p>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ─────────────────────────────────────────────────────────────
+// Main app
+// ─────────────────────────────────────────────────────────────
+export default function ReviewsApp() {
+  const [reviews, setReviews] = useState<Review[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
+  const [sort, setSort] = useState<SortKey>('newest');
+  const [starFilter, setStarFilter] = useState<number | null>(null);
+  const [owned, setOwned] = useState<Record<string, string>>({});
+
+  async function load() {
+    try {
+      const data = await fetchReviews();
+      setReviews(data.reviews || []);
+      setError(false);
+    } catch {
+      setError(true);
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  useEffect(() => {
+    load();
+    setOwned(getOwnedTokens());
+  }, []);
+
+  const visible = useMemo(() => {
+    let list = [...reviews];
+    if (starFilter !== null) list = list.filter((r) => r.rating === starFilter);
+    switch (sort) {
+      case 'highest':
+        list.sort((a, b) => b.rating - a.rating || +new Date(b.created_at) - +new Date(a.created_at));
+        break;
+      case 'lowest':
+        list.sort((a, b) => a.rating - b.rating || +new Date(b.created_at) - +new Date(a.created_at));
+        break;
+      case 'discussed':
+        list.sort((a, b) => (b.review_replies?.length || 0) - (a.review_replies?.length || 0));
+        break;
+      default:
+        list.sort((a, b) => +new Date(b.created_at) - +new Date(a.created_at));
+    }
+    return list;
+  }, [reviews, sort, starFilter]);
+
+  function handlePosted(review: Review, token: string) {
+    rememberOwnedReview(review.id, token);
+    setOwned(getOwnedTokens());
+    setReviews((prev) => [review, ...prev]);
+  }
+
+  return (
+    <div className="max-w-[760px] mx-auto">
+      {loading ? (
+        <div className="space-y-6">
+          {[0, 1, 2].map((i) => (
+            <div key={i} className="review-card border dark:border-dark p-6 md:p-8 animate-pulse">
+              <div className="h-4 w-32 bg-secondary/10 dark:bg-backgroundBody/10 rounded mb-3" />
+              <div className="h-3 w-full bg-secondary/10 dark:bg-backgroundBody/10 rounded mb-2" />
+              <div className="h-3 w-2/3 bg-secondary/10 dark:bg-backgroundBody/10 rounded" />
+            </div>
+          ))}
+        </div>
+      ) : error ? (
+        <div className="text-center py-16">
+          <p className="text-secondary/60 dark:text-backgroundBody/60">Couldn’t load reviews right now.</p>
+          <button onClick={load} className="mt-4 text-primary hover:underline">
+            Try again
+          </button>
+        </div>
+      ) : (
+        <>
+          {reviews.length > 0 && (
+            <div className="mb-10">
+              <RatingSummary reviews={reviews} />
+            </div>
+          )}
+
+          <ReviewForm onPosted={handlePosted} />
+
+          {reviews.length > 0 && (
+            <SortFilterBar sort={sort} onSort={setSort} starFilter={starFilter} onStarFilter={setStarFilter} />
+          )}
+
+          {reviews.length === 0 ? (
+            <div className="text-center py-16">
+              <h4 className="text-xl font-medium mb-2">No reviews yet</h4>
+              <p className="text-secondary/50 dark:text-backgroundBody/50">
+                Be the first to share your experience with Uxory.
+              </p>
+            </div>
+          ) : visible.length === 0 ? (
+            <div className="text-center py-10 text-secondary/50 dark:text-backgroundBody/50">
+              No {starFilter}-star reviews yet.
+            </div>
+          ) : (
+            <div className="space-y-6">
+              {visible.map((r) => (
+                <ReviewCard key={r.id} review={r} ownedToken={owned[r.id]} onChanged={load} />
+              ))}
+            </div>
+          )}
+        </>
+      )}
+    </div>
+  );
+}
