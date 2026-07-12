@@ -68,9 +68,9 @@ export function getSupabaseAdmin() {
 
 /** Published posts, newest first. Falls back to the static 3 when DB is absent. */
 export async function fetchPublishedBlogs(): Promise<BlogRow[]> {
-  const supabase = getSupabaseAdmin();
-  if (!supabase) return STATIC_BLOGS;
   try {
+    const supabase = getSupabaseAdmin();
+    if (!supabase) return STATIC_BLOGS;
     const { data, error } = await supabase
       .from('blogs')
       .select('*')
@@ -85,9 +85,9 @@ export async function fetchPublishedBlogs(): Promise<BlogRow[]> {
 
 /** A single DB-backed post by slug (only ones with content_md render via [slug]). */
 export async function fetchBlogBySlug(slug: string): Promise<BlogRow | null> {
-  const supabase = getSupabaseAdmin();
-  if (!supabase) return null;
   try {
+    const supabase = getSupabaseAdmin();
+    if (!supabase) return null;
     const { data, error } = await supabase
       .from('blogs')
       .select('*')
