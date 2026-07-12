@@ -1,32 +1,12 @@
 ---
+export const prerender = false;
 import BaseLayout from '../layouts/BaseLayout.astro';
 import CTA from '../components/CTA.astro';
+import { fetchPublishedBlogs } from '../lib/blog';
 
-// In the future, this will be replaced with a fetch to Supabase using import.meta.env
-// For the initial frontend migration, we are using mock data based on existing blog posts.
-const blogs = [
-  {
-    title: "Operations You Should Automate",
-    image: "/images/blog-img/blog-img-1.webp",
-    link: "/blogs/blog-operations-you-should-automate",
-    excerpt: "Your competitors already automated these five workflows. Here's what you're leaving on the table.",
-    read_time: 6
-  },
-  {
-    title: "Custom Software vs. Off-the-Shelf",
-    image: "/images/blog-img/blog-img-2.webp",
-    link: "/blogs/blog-custom-software-vs-off-the-shelf",
-    excerpt: "Paying for 10 SaaS tools that don't talk to each other? The real cost of \"good enough\" is bigger than you think.",
-    read_time: 7
-  },
-  {
-    title: "AI for Small Businesses",
-    image: "/images/blog-img/blog-img-3.webp",
-    link: "/blogs/blog-ai-for-small-businesses",
-    excerpt: "AI isn't just for billion-dollar companies. See how SMBs are using it to punch above their weight.",
-    read_time: 6
-  }
-];
+// DB-driven (auto-generated + seeded posts). Falls back to the static 3 when
+// Supabase is unavailable, so the page never breaks.
+const blogs = await fetchPublishedBlogs();
 
 const total_pages = 1;
 const page = 1;

@@ -1,0 +1,132 @@
+{
+  "web-dev": [
+    {
+      "wide": "/images/blog-lib/web-dev/web-dev-1-wide.webp",
+      "tall": "/images/blog-lib/web-dev/web-dev-1-tall.webp"
+    },
+    {
+      "wide": "/images/blog-lib/web-dev/web-dev-2-wide.webp",
+      "tall": "/images/blog-lib/web-dev/web-dev-2-tall.webp"
+    },
+    {
+      "wide": "/images/blog-lib/web-dev/web-dev-3-wide.webp",
+      "tall": "/images/blog-lib/web-dev/web-dev-3-tall.webp"
+    },
+    {
+      "wide": "/images/blog-lib/web-dev/web-dev-4-wide.webp",
+      "tall": "/images/blog-lib/web-dev/web-dev-4-tall.webp"
+    },
+    {
+      "wide": "/images/blog-lib/web-dev/web-dev-5-wide.webp",
+      "tall": "/images/blog-lib/web-dev/web-dev-5-tall.webp"
+    },
+    {
+      "wide": "/images/blog-lib/web-dev/web-dev-6-wide.webp",
+      "tall": "/images/blog-lib/web-dev/web-dev-6-tall.webp"
+    }
+  ],
+  "ai-agents": [
+    {
+      "wide": "/images/blog-lib/ai-agents/ai-agents-1-wide.webp",
+      "tall": "/images/blog-lib/ai-agents/ai-agents-1-tall.webp"
+    },
+    {
+      "wide": "/images/blog-lib/ai-agents/ai-agents-2-wide.webp",
+      "tall": "/images/blog-lib/ai-agents/ai-agents-2-tall.webp"
+    },
+    {
+      "wide": "/images/blog-lib/ai-agents/ai-agents-3-wide.webp",
+      "tall": "/images/blog-lib/ai-agents/ai-agents-3-tall.webp"
+    },
+    {
+      "wide": "/images/blog-lib/ai-agents/ai-agents-4-wide.webp",
+      "tall": "/images/blog-lib/ai-agents/ai-agents-4-tall.webp"
+    },
+    {
+      "wide": "/images/blog-lib/ai-agents/ai-agents-5-wide.webp",
+      "tall": "/images/blog-lib/ai-agents/ai-agents-5-tall.webp"
+    },
+    {
+      "wide": "/images/blog-lib/ai-agents/ai-agents-6-wide.webp",
+      "tall": "/images/blog-lib/ai-agents/ai-agents-6-tall.webp"
+    }
+  ],
+  "marketing": [
+    {
+      "wide": "/images/blog-lib/marketing/marketing-1-wide.webp",
+      "tall": "/images/blog-lib/marketing/marketing-1-tall.webp"
+    },
+    {
+      "wide": "/images/blog-lib/marketing/marketing-2-wide.webp",
+      "tall": "/images/blog-lib/marketing/marketing-2-tall.webp"
+    },
+    {
+      "wide": "/images/blog-lib/marketing/marketing-3-wide.webp",
+      "tall": "/images/blog-lib/marketing/marketing-3-tall.webp"
+    },
+    {
+      "wide": "/images/blog-lib/marketing/marketing-4-wide.webp",
+      "tall": "/images/blog-lib/marketing/marketing-4-tall.webp"
+    },
+    {
+      "wide": "/images/blog-lib/marketing/marketing-5-wide.webp",
+      "tall": "/images/blog-lib/marketing/marketing-5-tall.webp"
+    },
+    {
+      "wide": "/images/blog-lib/marketing/marketing-6-wide.webp",
+      "tall": "/images/blog-lib/marketing/marketing-6-tall.webp"
+    }
+  ],
+  "sde": [
+    {
+      "wide": "/images/blog-lib/sde/sde-1-wide.webp",
+      "tall": "/images/blog-lib/sde/sde-1-tall.webp"
+    },
+    {
+      "wide": "/images/blog-lib/sde/sde-2-wide.webp",
+      "tall": "/images/blog-lib/sde/sde-2-tall.webp"
+    },
+    {
+      "wide": "/images/blog-lib/sde/sde-3-wide.webp",
+      "tall": "/images/blog-lib/sde/sde-3-tall.webp"
+    },
+    {
+      "wide": "/images/blog-lib/sde/sde-4-wide.webp",
+      "tall": "/images/blog-lib/sde/sde-4-tall.webp"
+    },
+    {
+      "wide": "/images/blog-lib/sde/sde-5-wide.webp",
+      "tall": "/images/blog-lib/sde/sde-5-tall.webp"
+    },
+    {
+      "wide": "/images/blog-lib/sde/sde-6-wide.webp",
+      "tall": "/images/blog-lib/sde/sde-6-tall.webp"
+    }
+  ],
+  "general": [
+    {
+      "wide": "/images/blog-lib/general/general-1-wide.webp",
+      "tall": "/images/blog-lib/general/general-1-tall.webp"
+    },
+    {
+      "wide": "/images/blog-lib/general/general-2-wide.webp",
+      "tall": "/images/blog-lib/general/general-2-tall.webp"
+    },
+    {
+      "wide": "/images/blog-lib/general/general-3-wide.webp",
+      "tall": "/images/blog-lib/general/general-3-tall.webp"
+    },
+    {
+      "wide": "/images/blog-lib/general/general-4-wide.webp",
+      "tall": "/images/blog-lib/general/general-4-tall.webp"
+    },
+    {
+      "wide": "/images/blog-lib/general/general-5-wide.webp",
+      "tall": "/images/blog-lib/general/general-5-tall.webp"
+    },
+    {
+      "wide": "/images/blog-lib/general/general-6-wide.webp",
+      "tall": "/images/blog-lib/general/general-6-tall.webp"
+    }
+  ]
+}
