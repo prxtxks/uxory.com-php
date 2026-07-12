@@ -1,6 +1,6 @@
 import type { APIRoute } from 'astro';
 import { Resend } from 'resend';
-import { applicationTemplate } from './emailTemplates';
+import { applicationTemplate } from '../../lib/emailTemplates';
 
 export const prerender = false;
 

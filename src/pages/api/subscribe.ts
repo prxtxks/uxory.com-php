@@ -1,7 +1,7 @@
 import type { APIRoute } from 'astro';
 import { createClient } from '@supabase/supabase-js';
 import { Resend } from 'resend';
-import { subscribeTemplate } from './emailTemplates';
+import { subscribeTemplate } from '../../lib/emailTemplates';
 
 export const prerender = false;
 
