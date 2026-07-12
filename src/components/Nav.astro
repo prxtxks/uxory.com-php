@@ -1,6 +1,7 @@
 ---
 // Nav component - converted from components/nav.php
 // PHP $currentPage/$currentParent variables become Astro props
+import { PORTAL_URL } from '../config';
 interface Props {
   currentPage?: string;
   currentParent?: string;
@@ -68,7 +69,7 @@ const { currentPage = '', currentParent = '' } = Astro.props;
 
           <li>
             <a
-              href="https://portal.uxory.in"
+              href={PORTAL_URL}
               class="text-white inline-block pb-1 pl-3 menu-list-item-dropdown-list text-base md:text-lg leading-8 md:leading-[50px]"
               >Client Portal
             </a>
