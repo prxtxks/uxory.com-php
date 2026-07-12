@@ -11,7 +11,7 @@ const projects = [
     location: "Mumbai, India",
     desc: "A luxury e-commerce storefront for a botanical skincare brand. Features an interactive 3D product gallery, smooth animations, and a conversion-focused layout showcasing a curated four-product ritual collection.",
     img: "/images/home-ai/cher.webp",
-    link: "https://cher-com.vercel.app/"
+    link: "https://cher.co.in"
   },
   {
     name: "JADEROCK CAPITAL",
@@ -1246,12 +1246,11 @@ $299 website
             <span class="rv-badge-text">Starter Spark</span>
           </div>
 
-          <p class="text-xs uppercase tracking-[2px] text-secondary/50 dark:text-backgroundBody/50 pt-2">Starts at</p>
-          <h5 class="pb-1 flex items-start gap-1">
-            <span id="sparkPrice">&nbsp;</span>
-            <a href="#pricing-disclaimer" class="text-primary text-lg leading-none" title="Not all features are included at the starter price">★</a>
+          <p class="font-satoshi text-xs uppercase tracking-[2px] text-secondary/50 dark:text-backgroundBody/50 pt-2">Starts at</p>
+          <h5 class="pb-1">
+            <span id="sparkPrice">&nbsp;</span><a href="#pricing-disclaimer" class="align-super text-base text-primary no-underline" title="Not all features are included at the starter price">*</a>
           </h5>
-          <p class="text-xs text-secondary/40 dark:text-backgroundBody/40 pb-4">Starting price — final quote depends on scope.</p>
+          <p class="font-satoshi text-xs text-secondary/50 dark:text-backgroundBody/60 pb-4">Starting price — final quote depends on scope.</p>
 
           <a href="./contact" class="rv-button rv-button-white mb-10" >
             <div class="rv-button-top">
@@ -1650,9 +1649,11 @@ $299 website
             <span class="rv-badge-text">Commerce Catalyst</span>
           </div>
 
-          <p class="text-xs uppercase tracking-[2px] text-secondary/50 dark:text-backgroundBody/50 pt-2">Starts at</p>
-          <h5 class="pb-1"><span id="catalystPrice">&nbsp;</span></h5>
-          <p class="text-xs text-secondary/40 dark:text-backgroundBody/40 pb-4">Starting price — final quote depends on scope.</p>
+          <p class="font-satoshi text-xs uppercase tracking-[2px] text-secondary/50 dark:text-backgroundBody/50 pt-2">Starts at</p>
+          <h5 class="pb-1">
+            <span id="catalystPrice">&nbsp;</span><a href="#pricing-disclaimer" class="align-super text-base text-primary no-underline" title="Not all features are included at the starter price">*</a>
+          </h5>
+          <p class="font-satoshi text-xs text-secondary/50 dark:text-backgroundBody/60 pb-4">Starting price — final quote depends on scope.</p>
 
           <a href="./contact" class="rv-button rv-button-white mb-10">
             <div class="rv-button-top">
@@ -2278,13 +2279,36 @@ $299 website
 
   <!-- Pricing disclaimer -->
   <div class="container mt-10">
-    <p id="pricing-disclaimer" class="scroll-mt-28 max-w-3xl mx-auto text-center text-sm text-secondary/50 dark:text-backgroundBody/50">
-      <span class="text-primary">★</span> Prices shown are <span class="font-medium">starting points</span> for each package —
+    <p id="pricing-disclaimer" class="scroll-mt-28 max-w-3xl mx-auto text-center font-satoshi text-sm text-secondary/60 dark:text-backgroundBody/60">
+      <span class="text-primary font-medium">*</span> Prices shown are <span class="font-medium text-secondary dark:text-backgroundBody">starting points</span> for each package —
       not all features are included at the starter tier. Your final quote depends on your scope,
-      integrations and design needs. Pricing is shown in <span class="font-medium">₹ (India)</span> or
-      <span class="font-medium">$ (global)</span> based on your location.
+      integrations and design needs. Pricing is shown in <span class="font-medium text-secondary dark:text-backgroundBody">₹ (India)</span> or
+      <span class="font-medium text-secondary dark:text-backgroundBody">$ (global)</span> based on your location.
       <a href="/contact" class="text-primary hover:underline">Get an exact quote →</a>
     </p>
+
+    <!-- Ecommerce onboarding guides -->
+    <div class="max-w-3xl mx-auto mt-8 text-center">
+      <p class="font-satoshi text-sm text-secondary/60 dark:text-backgroundBody/60 mb-3">
+        Planning an online store? See exactly what to expect, step by step:
+      </p>
+      <div class="flex flex-wrap items-center justify-center gap-3">
+        <a
+          href="/onboarding/ecommerce-india"
+          class="font-satoshi inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-secondary/15 dark:border-backgroundBody/15 text-sm text-secondary dark:text-backgroundBody hover:border-primary hover:text-primary transition-colors"
+        >
+          Ecommerce Onboarding — India
+          <span aria-hidden="true">→</span>
+        </a>
+        <a
+          href="/onboarding/ecommerce-usa"
+          class="font-satoshi inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-secondary/15 dark:border-backgroundBody/15 text-sm text-secondary dark:text-backgroundBody hover:border-primary hover:text-primary transition-colors"
+        >
+          Ecommerce Onboarding — USA
+          <span aria-hidden="true">→</span>
+        </a>
+      </div>
+    </div>
   </div>
 
 </section>
