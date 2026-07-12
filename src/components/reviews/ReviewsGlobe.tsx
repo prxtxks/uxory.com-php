@@ -16,12 +16,21 @@ export interface GlobeReview {
 interface Marker {
   id: string;
   location: [number, number];
+  pos3: [number, number, number]; // location on the cobe sphere (radius 0.8)
   name: string;
   label: string; // company name, falling back to author name (mobile pin label)
   rating: number;
   text: string;
   place: string;
   rotate: number;
+}
+
+// Mirror of cobe's internal U(): lat/lng -> 3D point on its render sphere
+// (radius ee = 0.8). Lets us project markers to screen space every frame.
+function toSphere([lat, lng]: [number, number]): [number, number, number] {
+  const r = (lat * Math.PI) / 180;
+  const a = (lng * Math.PI) / 180 - Math.PI;
+  return [-Math.cos(r) * Math.cos(a) * 0.8, Math.sin(r) * 0.8, Math.cos(r) * Math.sin(a) * 0.8];
 }
 
 const ROTATIONS = [-5, 4, -3, 6, -4, 3, -6, 5];
@@ -50,6 +59,7 @@ export default function ReviewsGlobe({ reviews }: { reviews: GlobeReview[] }) {
         .map((r, i) => ({
           id: `rev-${r.id}`,
           location: [r.lat as number, r.lng as number],
+          pos3: toSphere([r.lat as number, r.lng as number]),
           name: r.author_name,
           label: r.company_name || r.author_name,
           rating: r.rating,
@@ -109,13 +119,15 @@ export default function ReviewsGlobe({ reviews }: { reviews: GlobeReview[] }) {
     const canvas = canvasRef.current;
     let globe: ReturnType<typeof createGlobe> | null = null;
     let animationId: number;
-    let syncId: number;
     let phi = 0;
     const speed = 0.003;
 
     function init() {
       const width = canvas.offsetWidth;
       if (width === 0 || globe) return;
+
+      // On phones the labels themselves are the pins, so hide cobe's dots.
+      const isMobile = window.matchMedia('(max-width: 639px)').matches;
 
       globe = createGlobe(canvas, {
         devicePixelRatio: Math.min(window.devicePixelRatio || 1, 2),
@@ -131,53 +143,53 @@ export default function ReviewsGlobe({ reviews }: { reviews: GlobeReview[] }) {
         markerColor: [0.07, 0.85, 0.8], // uxory teal
         glowColor: dark ? [0.08, 0.25, 0.24] : [0.94, 0.93, 0.91],
         markerElevation: 0,
-        markers: markers.map((m) => ({ location: m.location, size: 0.025, id: m.id })),
+        markers: isMobile ? [] : markers.map((m) => ({ location: m.location, size: 0.025 })),
         arcs: [],
         opacity: 0.85,
       } as any);
 
+      const wrap = wrapRef.current;
+      const cardEls = new Map<string, HTMLElement>(
+        markers
+          .map((m) => [m.id, wrap?.querySelector<HTMLElement>(`[data-card="${m.id}"]`)] as const)
+          .filter((e): e is readonly [string, HTMLElement] => !!e[1])
+      );
+
+      // cobe positions its marker anchors only once at init, so cards pinned to
+      // them freeze while the globe rotates. Instead we replicate cobe's own
+      // projection (dist O()/U(): sphere radius 0.8, scale 1, offset 0, square
+      // canvas) with the exact phi/theta we feed it — cards track every frame.
       function animate() {
         if (!isPausedRef.current) phi += speed;
-        globe!.update({
-          phi: phi + phiOffsetRef.current + dragOffset.current.phi,
-          theta: 0.2 + thetaOffsetRef.current + dragOffset.current.theta,
-        });
+        const f = phi + phiOffsetRef.current + dragOffset.current.phi;
+        const l = 0.2 + thetaOffsetRef.current + dragOffset.current.theta;
+        globe!.update({ phi: f, theta: l });
+
+        const cf = Math.cos(f);
+        const sf = Math.sin(f);
+        const cl = Math.cos(l);
+        const sl = Math.sin(l);
+        for (const m of markers) {
+          const card = cardEls.get(m.id);
+          if (!card) continue;
+          const [px, py, pz] = m.pos3;
+          const front = -sf * cl * px + sl * py + cf * cl * pz;
+          if (front > 0.08) {
+            const c = cf * px + sf * pz;
+            const s = sf * sl * px + cl * py - cf * sl * pz;
+            card.style.left = `${(((c + 1) / 2) * 100).toFixed(3)}%`;
+            card.style.top = `${(((-s + 1) / 2) * 100).toFixed(3)}%`;
+            card.style.opacity = '1';
+            card.style.visibility = 'visible';
+          } else {
+            card.style.opacity = '0';
+            card.style.visibility = 'hidden';
+          }
+        }
         animationId = requestAnimationFrame(animate);
       }
       animate();
       setTimeout(() => canvas && (canvas.style.opacity = '1'));
-
-      // Position the polaroids with JS every frame (reliable on all browsers —
-      // CSS Anchor Positioning is Chromium-only and misaligns on mobile Safari).
-      // cobe wraps the canvas in its own relative div and appends 1px anchor
-      // divs there at left/top% for each marker; we mirror those coords onto our
-      // cards (which sit in the same-sized outer wrapper) and drive visibility
-      // from the --cobe-visible-* custom properties cobe writes to :root.
-      if (wrapRef.current) {
-        const wrap = wrapRef.current;
-        const sync = () => {
-          const rootCS = getComputedStyle(document.documentElement);
-          for (const m of markers) {
-            const card = wrap.querySelector<HTMLElement>(`[data-card="${m.id}"]`);
-            if (!card) continue;
-            const anchor = wrap.querySelector<HTMLElement>(`[style*="--cobe-${m.id}"]`);
-            if (anchor && anchor.style.left) {
-              card.style.left = anchor.style.left;
-              card.style.top = anchor.style.top;
-              // Rotation lives on the desktop polaroid itself so the mobile
-              // name label stays upright.
-              card.style.transform = 'translate(-50%, calc(-100% - 10px))';
-            }
-            // cobe sets --cobe-visible-<id> (to a flag) only while the marker
-            // faces the camera, and removes it otherwise. Present = show.
-            const visible = rootCS.getPropertyValue(`--cobe-visible-${m.id}`).trim() !== '';
-            card.style.opacity = visible ? '1' : '0';
-            card.style.visibility = visible ? 'visible' : 'hidden';
-          }
-          syncId = requestAnimationFrame(sync);
-        };
-        sync();
-      }
     }
 
     if (canvas.offsetWidth > 0) {
@@ -194,7 +206,6 @@ export default function ReviewsGlobe({ reviews }: { reviews: GlobeReview[] }) {
 
     return () => {
       if (animationId) cancelAnimationFrame(animationId);
-      if (syncId) cancelAnimationFrame(syncId);
       if (globe) globe.destroy();
     };
   }, [markers, dark]);
@@ -222,7 +233,7 @@ export default function ReviewsGlobe({ reviews }: { reviews: GlobeReview[] }) {
             position: 'absolute',
             left: '50%',
             top: '50%',
-            transform: 'translate(-50%, calc(-100% - 10px))',
+            transform: 'translate(-50%, -100%)',
             pointerEvents: 'none' as const,
             opacity: 0,
             visibility: 'hidden',
@@ -230,10 +241,11 @@ export default function ReviewsGlobe({ reviews }: { reviews: GlobeReview[] }) {
             zIndex: 10,
           }}
         >
-          {/* Desktop / tablet: full review polaroid */}
+          {/* Desktop / tablet: full review polaroid, floating above the dot */}
           <div
             className="hidden sm:block w-[150px] bg-white text-left"
             style={{
+              marginBottom: 10,
               padding: '10px 10px 8px',
               boxShadow: '0 2px 8px rgba(0,0,0,0.18), 0 1px 2px rgba(0,0,0,0.1)',
               borderRadius: 4,
@@ -263,9 +275,9 @@ export default function ReviewsGlobe({ reviews }: { reviews: GlobeReview[] }) {
             </span>
           </div>
 
-          {/* Mobile: iMessage-style bubble anchored to the pin (company name,
-              or author name). The rotated square below is the bubble tail. */}
-          <div className="sm:hidden relative">
+          {/* Mobile: iMessage-style bubble whose tail tip sits on the exact
+              location (cobe dots are hidden on mobile — the bubble is the pin). */}
+          <div className="sm:hidden relative" style={{ marginBottom: 4 }}>
             <div
               className="inline-block whitespace-nowrap rounded-xl bg-primary text-[#0d0d0d] shadow-md"
               style={{ padding: '4px 10px', fontSize: '0.62rem', fontWeight: 600, letterSpacing: '0.01em' }}
