@@ -1,7 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ImageCompressor from '../../components/tools/ImageCompressor.tsx';
-import AnimatedGradientBackground from '../../components/ai/AnimatedGradientBackground.tsx';
 import { SITE_URL } from '../../config';
 
 const structuredData = `
@@ -26,21 +25,18 @@ const structuredData = `
   currentParent="tools"
   structuredData={structuredData}
 >
-  <div class="relative">
-    <!-- Ambient brand gradient behind the tool (top glow that fades down) -->
-    <div class="absolute inset-0 -z-10 overflow-hidden pointer-events-none">
-      <AnimatedGradientBackground
-        client:load
-        Breathing={true}
-        startingGap={130}
-        containerClassName="opacity-50 dark:opacity-70"
+  <div class="relative overflow-hidden">
+    <!-- Same hero gradient used on the homepage / website-dev hero -->
+    <div
+      id="hero-gradient-wrapper"
+      class="absolute w-full h-full top-0 left-0 -z-10 blur-[60px] scale-90 pointer-events-none overflow-hidden"
+    >
+      <img
+        src="/images/hero-gradient-background.png"
+        alt=""
+        id="hero-gradient"
+        class="absolute left-1/2 top-[30%] -translate-x-1/2 -translate-y-1/2"
       />
-      <!-- clear teal glow so the gradient reads on both themes -->
-      <div
-        class="absolute inset-0"
-        style="background: radial-gradient(700px 340px at 50% 0%, rgba(18,216,204,0.28), transparent 65%);"
-      ></div>
-      <div class="absolute inset-x-0 bottom-0 h-[55%] bg-gradient-to-t from-backgroundBody dark:from-[#0b0b0b] to-transparent"></div>
     </div>
 
     <section class="pt-[120px] md:pt-[160px] pb-8 md:pb-10 relative overflow-hidden">

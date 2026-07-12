@@ -239,8 +239,9 @@ export default function UxoryAI() {
           </div>
         )}
 
-        {/* Input bar */}
-        <div className="sticky bottom-0 pb-6 pt-3 bg-backgroundBody/70 dark:bg-[#0b0b0b]/70 backdrop-blur-md">
+        {/* Input bar — gradient scrim fades the page into the input so the pill
+            floats cleanly (no hard visible band) */}
+        <div className="sticky bottom-0 pb-6 pt-8 bg-gradient-to-t from-backgroundBody via-backgroundBody/90 to-transparent dark:from-[#0b0b0b] dark:via-[#0b0b0b]/90 dark:to-transparent">
           {started && (
             <div className="flex justify-center mb-3">
               <button

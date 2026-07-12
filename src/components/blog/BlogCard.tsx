@@ -34,7 +34,7 @@ export function BlogCard({ imageUrl, title, category, description, meta, href }:
           </span>
         </figure>
 
-        <h3 className="text-[22px] font-bold leading-snug text-secondary transition-colors duration-200 line-clamp-2 group-hover:text-primary dark:text-backgroundBody lg:text-2xl">
+        <h3 className="text-[21px] font-medium leading-snug text-secondary transition-colors duration-200 line-clamp-2 group-hover:text-primary dark:text-backgroundBody lg:text-[23px]">
           {title}
         </h3>
       </a>

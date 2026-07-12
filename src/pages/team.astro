@@ -4,7 +4,10 @@ import CTA from '../components/CTA.astro';
 import Socials from '../components/Socials.astro';
 import Blog from '../components/Blog.astro';
 
-// No structured data in the original team, but it's okay.
+// Temporarily disabled: redirect visitors away and keep it out of the index.
+// To re-enable, delete these two lines and the sitemap filter in astro.config.mjs.
+export const prerender = false;
+return Astro.redirect('/coming-soon', 302);
 ---
 
 <BaseLayout

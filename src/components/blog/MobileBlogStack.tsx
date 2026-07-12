@@ -55,9 +55,17 @@ export default function MobileBlogStack({ posts }: { posts: BlogPost[] }) {
           );
         })}
 
-        {/* invisible spacer sizes the container */}
+        {/* invisible spacer sizes the container — use max-height content (2-line
+            title + 2-line excerpt) so no real card overflows and gets clipped */}
         <div className="pointer-events-none invisible" aria-hidden>
-          <StackCard post={{ title: 'Title', excerpt: 'Description', image: '', link: '#' }} />
+          <StackCard
+            post={{
+              title: 'Two line placeholder heading that wraps across the card',
+              excerpt: 'A two line placeholder description that wraps across the width of the card here.',
+              image: '',
+              link: '#',
+            }}
+          />
         </div>
 
         {showCaughtUp && !cardCount && (
@@ -178,7 +186,7 @@ function StackCard({
         <span className="text-[11px] font-medium uppercase tracking-wide text-primary">
           {prettyCategory(post.category)}
         </span>
-        <h3 className="mt-1 line-clamp-2 text-base font-bold leading-snug text-secondary dark:text-backgroundBody">
+        <h3 className="mt-1 line-clamp-2 text-base font-medium leading-snug text-secondary dark:text-backgroundBody">
           {post.title}
         </h3>
         <p className="mt-1.5 line-clamp-2 text-sm leading-relaxed text-secondary/65 dark:text-backgroundBody/65">
