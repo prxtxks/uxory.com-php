@@ -1,0 +1,70 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ImageCompressor from '../../components/tools/ImageCompressor.tsx';
+import AnimatedGradientBackground from '../../components/ai/AnimatedGradientBackground.tsx';
+import { SITE_URL } from '../../config';
+
+const structuredData = `
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Uxory Image Optimizer",
+  "url": "${SITE_URL}/tools/image-optimizer",
+  "applicationCategory": "MultimediaApplication",
+  "operatingSystem": "Any (web browser)",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "description": "Free online image optimizer. Compress and resize JPG, PNG and WebP images directly in your browser — no upload, no account, completely private."
+}
+`;
+---
+
+<BaseLayout
+  title="Free Image Optimizer — Compress JPG, PNG & WebP | Uxory"
+  description="Optimize and resize JPG, PNG and WebP images for free, right in your browser. No upload, no sign-up, no watermark — your images never leave your device."
+  canonical={`${SITE_URL}/tools/image-optimizer`}
+  currentPage="image-optimizer"
+  currentParent="tools"
+  structuredData={structuredData}
+>
+  <div class="relative">
+    <!-- Ambient brand gradient behind the tool (top glow that fades down) -->
+    <div class="absolute inset-0 -z-10 overflow-hidden pointer-events-none">
+      <AnimatedGradientBackground
+        client:load
+        Breathing={true}
+        startingGap={130}
+        containerClassName="opacity-50 dark:opacity-70"
+      />
+      <!-- clear teal glow so the gradient reads on both themes -->
+      <div
+        class="absolute inset-0"
+        style="background: radial-gradient(700px 340px at 50% 0%, rgba(18,216,204,0.28), transparent 65%);"
+      ></div>
+      <div class="absolute inset-x-0 bottom-0 h-[55%] bg-gradient-to-t from-backgroundBody dark:from-[#0b0b0b] to-transparent"></div>
+    </div>
+
+    <section class="pt-[120px] md:pt-[160px] pb-8 md:pb-10 relative overflow-hidden">
+      <div class="container">
+        <div class="reveal-me text-center max-w-2xl mx-auto">
+          <p class="font-satoshi text-sm font-normal leading-6 tracking-[3px] uppercase mb-4">
+            Free Tools
+          </p>
+          <h2 class="font-normal text-appear">
+            Image
+            <span class="font-instrument italic">Optimizer</span>
+          </h2>
+          <p class="mt-5 text-secondary/70 dark:text-backgroundBody/70 text-lg">
+            Shrink JPG, PNG and WebP images without losing visible quality. Fast, free, and
+            100% private — everything runs in your browser.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="pb-14 md:pb-16 lg:pb-[88px] xl:pb-[100px] relative overflow-hidden">
+      <div class="container">
+        <ImageCompressor client:load />
+      </div>
+    </section>
+  </div>
+</BaseLayout>

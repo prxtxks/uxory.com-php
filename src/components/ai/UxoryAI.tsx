@@ -149,12 +149,36 @@ export default function UxoryAI() {
     ta.style.height = Math.min(ta.scrollHeight, 200) + 'px';
   }
 
+  // Gemini-style interactive glow that follows the cursor over the hero.
+  const bgRef = useRef<HTMLDivElement | null>(null);
+  useEffect(() => {
+    function onMove(e: PointerEvent) {
+      const el = bgRef.current;
+      if (!el) return;
+      const r = el.getBoundingClientRect();
+      el.style.setProperty('--mx', `${((e.clientX - r.left) / r.width) * 100}%`);
+      el.style.setProperty('--my', `${((e.clientY - r.top) / r.height) * 100}%`);
+    }
+    window.addEventListener('pointermove', onMove);
+    return () => window.removeEventListener('pointermove', onMove);
+  }, []);
+
   return (
     <div className="relative min-h-[calc(100vh-80px)] flex flex-col">
-      <AnimatedGradientBackground
-        Breathing
-        containerClassName="opacity-40 dark:opacity-60 pointer-events-none"
-      />
+      {/* Ambient animated gradient + interactive cursor glow, edge-masked so it
+          blends smoothly into the nav above and footer below. */}
+      <div ref={bgRef} className="absolute inset-0 overflow-hidden pointer-events-none">
+        <AnimatedGradientBackground Breathing containerClassName="opacity-45 dark:opacity-65" />
+        <div
+          className="absolute inset-0 transition-opacity duration-500"
+          style={{
+            background:
+              'radial-gradient(500px circle at var(--mx, 50%) var(--my, 22%), rgba(18,216,204,0.16), transparent 55%)',
+          }}
+        />
+        <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-backgroundBody dark:from-[#0b0b0b] to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-backgroundBody dark:from-[#0b0b0b] to-transparent" />
+      </div>
 
       <div className="relative z-10 flex-1 flex flex-col max-w-3xl w-full mx-auto px-4">
         {!started ? (
@@ -216,7 +240,7 @@ export default function UxoryAI() {
         )}
 
         {/* Input bar */}
-        <div className="sticky bottom-0 pb-6 pt-2 bg-gradient-to-t from-backgroundBody dark:from-[#0a0a0a] to-transparent">
+        <div className="sticky bottom-0 pb-6 pt-3 bg-backgroundBody/70 dark:bg-[#0b0b0b]/70 backdrop-blur-md">
           {started && (
             <div className="flex justify-center mb-3">
               <button
