@@ -110,10 +110,6 @@ export default function ReviewsGlobe({ reviews }: { reviews: GlobeReview[] }) {
     let phi = 0;
     const speed = 0.003;
 
-    // Does this browser support CSS Anchor Positioning?
-    const hasAnchors =
-      typeof CSS !== 'undefined' && CSS.supports && CSS.supports('position-anchor', '--x');
-
     function init() {
       const width = canvas.offsetWidth;
       if (width === 0 || globe) return;
@@ -148,22 +144,30 @@ export default function ReviewsGlobe({ reviews }: { reviews: GlobeReview[] }) {
       animate();
       setTimeout(() => canvas && (canvas.style.opacity = '1'));
 
-      // Fallback for browsers without CSS Anchor Positioning: mirror cobe's
-      // anchor-div coordinates (inline left/top %) onto the cards each frame.
-      if (!hasAnchors && wrapRef.current) {
+      // Position the polaroids with JS every frame (reliable on all browsers —
+      // CSS Anchor Positioning is Chromium-only and misaligns on mobile Safari).
+      // cobe wraps the canvas in its own relative div and appends 1px anchor
+      // divs there at left/top% for each marker; we mirror those coords onto our
+      // cards (which sit in the same-sized outer wrapper) and drive visibility
+      // from the --cobe-visible-* custom properties cobe writes to :root.
+      if (wrapRef.current) {
         const wrap = wrapRef.current;
         const sync = () => {
+          const rootCS = getComputedStyle(document.documentElement);
           for (const m of markers) {
             const card = wrap.querySelector<HTMLElement>(`[data-card="${m.id}"]`);
+            if (!card) continue;
             const anchor = wrap.querySelector<HTMLElement>(`[style*="--cobe-${m.id}"]`);
-            if (card && anchor) {
+            if (anchor && anchor.style.left) {
               card.style.left = anchor.style.left;
               card.style.top = anchor.style.top;
-              card.style.bottom = 'auto';
-              card.style.translate = '-50% calc(-100% - 8px)';
+              card.style.transform = `translate(-50%, calc(-100% - 10px)) rotate(${m.rotate}deg)`;
             }
-            const visible = getComputedStyle(wrap).getPropertyValue(`--cobe-visible-${m.id}`);
-            if (card) card.style.setProperty(`--cobe-visible-${m.id}`, visible || '0');
+            // cobe sets --cobe-visible-<id> (to a flag) only while the marker
+            // faces the camera, and removes it otherwise. Present = show.
+            const visible = rootCS.getPropertyValue(`--cobe-visible-${m.id}`).trim() !== '';
+            card.style.opacity = visible ? '1' : '0';
+            card.style.visibility = visible ? 'visible' : 'hidden';
           }
           syncId = requestAnimationFrame(sync);
         };
@@ -209,23 +213,20 @@ export default function ReviewsGlobe({ reviews }: { reviews: GlobeReview[] }) {
         <div
           key={m.id}
           data-card={m.id}
-          className="w-[150px] bg-white text-left"
+          className="w-[130px] sm:w-[150px] bg-white text-left"
           style={{
             position: 'absolute',
-            // @ts-expect-error CSS Anchor Positioning (Chromium); JS fallback elsewhere
-            positionAnchor: `--cobe-${m.id}`,
-            bottom: 'anchor(top)',
-            left: 'anchor(center)',
-            translate: '-50% 0',
-            marginBottom: 8,
+            left: '50%',
+            top: '50%',
+            transformOrigin: 'bottom center',
+            transform: `translate(-50%, calc(-100% - 10px)) rotate(${m.rotate}deg)`,
             padding: '10px 10px 8px',
             boxShadow: '0 2px 8px rgba(0,0,0,0.18), 0 1px 2px rgba(0,0,0,0.1)',
             borderRadius: 4,
-            transform: `rotate(${m.rotate}deg)`,
             pointerEvents: 'none' as const,
-            opacity: `var(--cobe-visible-${m.id}, 0)`,
-            filter: `blur(calc((1 - var(--cobe-visible-${m.id}, 0)) * 8px))`,
-            transition: 'opacity 0.3s, filter 0.3s',
+            opacity: 0,
+            visibility: 'hidden',
+            transition: 'opacity 0.25s ease, filter 0.25s ease',
             zIndex: 10,
           }}
         >
