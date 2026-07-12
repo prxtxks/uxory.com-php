@@ -4,7 +4,7 @@ export const contactTemplate = `<!DOCTYPE html>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Uxory</title>
-  <link rel="icon" type="image/png" href="https://www.uxory.com/images/favicon.png">
+  <link rel="icon" type="image/png" href="https://uxory.in/images/favicon.png">
 </head>
 
 <body style="margin:0;padding:0;background-color:#f0f1f5;">
@@ -120,7 +120,7 @@ export const contactTemplate = `<!DOCTYPE html>
         <!-- CTA -->
         <tr>
           <td align="center" style="padding:10px 20px 30px 20px;">
-            <a href="https://www.uxory.com"
+            <a href="https://uxory.in"
                target="_blank"
                style="
                 display:inline-block;
@@ -132,7 +132,7 @@ export const contactTemplate = `<!DOCTYPE html>
                 font-size:16px;
                 font-weight:bold;
                 border-radius:999px;">
-              www.uxory.com
+              uxory.in
             </a>
           </td>
         </tr>
@@ -210,7 +210,7 @@ export const applicationTemplate = `<!DOCTYPE html>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Uxory</title>
-  <link rel="icon" type="image/png" href="https://www.uxory.com/images/favicon.png">
+  <link rel="icon" type="image/png" href="https://uxory.in/images/favicon.png">
 </head>
 
 <body style="margin:0;padding:0;background-color:#f0f1f5;">
@@ -328,7 +328,7 @@ export const applicationTemplate = `<!DOCTYPE html>
         <!-- CTA -->
         <tr>
           <td align="center" style="padding:10px 20px 30px 20px;">
-            <a href="https://www.uxory.com"
+            <a href="https://uxory.in"
                target="_blank"
                style="
                 display:inline-block;
@@ -340,7 +340,7 @@ export const applicationTemplate = `<!DOCTYPE html>
                 font-size:16px;
                 font-weight:bold;
                 border-radius:999px;">
-              www.uxory.com
+              uxory.in
             </a>
           </td>
         </tr>
@@ -418,7 +418,7 @@ export const subscribeTemplate = `<!DOCTYPE html>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Uxory</title>
-  <link rel="icon" type="image/png" href="https://www.uxory.com/images/favicon.png">
+  <link rel="icon" type="image/png" href="https://uxory.in/images/favicon.png">
 </head>
 
 <body style="margin:0;padding:0;background-color:#f0f1f5;">
@@ -534,7 +534,7 @@ export const subscribeTemplate = `<!DOCTYPE html>
         <!-- CTA -->
         <tr>
           <td align="center" style="padding:10px 20px 30px 20px;">
-            <a href="https://www.uxory.com"
+            <a href="https://uxory.in"
                target="_blank"
                style="
                 display:inline-block;
@@ -546,7 +546,7 @@ export const subscribeTemplate = `<!DOCTYPE html>
                 font-size:16px;
                 font-weight:bold;
                 border-radius:999px;">
-              www.uxory.com
+              uxory.in
             </a>
           </td>
         </tr>

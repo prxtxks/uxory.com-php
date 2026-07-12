@@ -31,7 +31,7 @@ export const POST: APIRoute = async ({ request }) => {
 
     const email = formData.get('email')?.toString().trim();
     
-    if (!email || !/^\\S+@\\S+\\.\\S+$/.test(email)) {
+    if (!email || !/^\S+@\S+\.\S+$/.test(email)) {
       return new Response(JSON.stringify({ status: 'error', message: 'Invalid email address.' }), {
         status: 400, headers: { 'Content-Type': 'application/json' }
       });
@@ -93,7 +93,7 @@ export const POST: APIRoute = async ({ request }) => {
       html: adminHtml,
     });
 
-    const unsubscribeLink = `https://uxory.com/unsubscribe?email=${encodeURIComponent(email)}`;
+    const unsubscribeLink = `https://uxory.in/unsubscribe?email=${encodeURIComponent(email)}`;
     let userHtml = subscribeTemplate ? subscribeTemplate : 'Thanks for subscribing!';
     userHtml = userHtml.replace('{UNSUBSCRIBE_LINK}', unsubscribeLink);
 

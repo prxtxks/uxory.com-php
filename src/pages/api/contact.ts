@@ -37,7 +37,7 @@ export const POST: APIRoute = async ({ request }) => {
     const company = formData.get('company')?.toString().trim();
     const message = formData.get('Message')?.toString().trim();
     
-    if (!name || !phone || !email || !/^\\S+@\\S+\\.\\S+$/.test(email)) {
+    if (!name || !phone || !email || !/^\S+@\S+\.\S+$/.test(email)) {
       return new Response(JSON.stringify({ status: 'error', message: 'Invalid form data.' }), {
         status: 400,
         headers: { 'Content-Type': 'application/json' }

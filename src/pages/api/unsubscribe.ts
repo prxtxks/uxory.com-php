@@ -17,7 +17,7 @@ export const POST: APIRoute = async ({ request }) => {
     const formData = await request.formData();
     const email = formData.get('email')?.toString().trim();
     
-    if (!email || !/^\\S+@\\S+\\.\\S+$/.test(email)) {
+    if (!email || !/^\S+@\S+\.\S+$/.test(email)) {
       return new Response(JSON.stringify({ status: 'error', message: 'Invalid email address.' }), {
         status: 400, headers: { 'Content-Type': 'application/json' }
       });
