@@ -24,6 +24,7 @@ const CITIES: Record<string, LatLng> = {
   'atlanta': [33.75, -84.39], 'denver': [39.74, -104.99], 'san diego': [32.72, -117.16],
   'washington': [38.91, -77.04], 'washington dc': [38.91, -77.04], 'cincinnati': [39.10, -84.51],
   'columbus': [39.96, -83.00], 'cleveland': [41.50, -81.69], 'san jose': [37.34, -121.89],
+  'ohio': [40.0, -82.9], // state-level pin (JadeRock etc.)
   // Nepal
   'kathmandu': [27.72, 85.32], 'pokhara': [28.21, 83.99], 'lalitpur': [27.67, 85.32],
   'bhaktapur': [27.67, 85.43], 'chitwan': [27.53, 84.35], 'biratnagar': [26.45, 87.27],

@@ -79,42 +79,58 @@ function SortFilterBar({
   starFilter: number | null;
   onStarFilter: (n: number | null) => void;
 }) {
-  const chip = (active: boolean) =>
-    `text-sm px-4 py-2 rounded-full border transition-colors duration-200 ${
-      active
-        ? 'bg-primary/15 text-primary border-primary'
-        : 'border-secondary/15 dark:border-backgroundBody/15 text-secondary/70 dark:text-backgroundBody/70 hover:border-primary/50'
-    }`;
-
   const sorts: [SortKey, string][] = [
     ['newest', 'Newest'],
     ['highest', 'Highest'],
     ['lowest', 'Lowest'],
-    ['discussed', 'Most discussed'],
+    ['discussed', 'Discussed'],
   ];
 
   return (
-    <div className="flex flex-col gap-4 mb-8">
-      <div className="flex flex-wrap items-center gap-2">
-        <span className="text-xs text-secondary/50 dark:text-backgroundBody/50 uppercase tracking-[2px] mr-1">
-          Sort
-        </span>
+    <div className="flex flex-wrap items-center justify-between gap-y-3 gap-x-6 mb-8 border-b border-secondary/10 dark:border-backgroundBody/10">
+      {/* Sort — quiet underline tabs */}
+      <div className="flex items-center gap-5">
         {sorts.map(([k, label]) => (
-          <button key={k} className={chip(sort === k)} onClick={() => onSort(k)}>
+          <button
+            key={k}
+            onClick={() => onSort(k)}
+            className={`relative pb-3 text-sm transition-colors ${
+              sort === k
+                ? 'text-secondary dark:text-backgroundBody font-medium'
+                : 'text-secondary/45 dark:text-backgroundBody/45 hover:text-secondary/80 dark:hover:text-backgroundBody/80'
+            }`}
+          >
             {label}
+            {sort === k && (
+              <span className="absolute left-0 right-0 -bottom-px h-[2px] bg-primary rounded-full" />
+            )}
           </button>
         ))}
       </div>
-      <div className="flex flex-wrap items-center gap-2">
-        <span className="text-xs text-secondary/50 dark:text-backgroundBody/50 uppercase tracking-[2px] mr-1">
-          Filter
-        </span>
-        <button className={chip(starFilter === null)} onClick={() => onStarFilter(null)}>
+
+      {/* Star filter — one compact control */}
+      <div className="flex items-center gap-1.5 pb-2.5">
+        <button
+          onClick={() => onStarFilter(null)}
+          className={`text-xs px-2.5 py-1 rounded-md transition-colors ${
+            starFilter === null
+              ? 'bg-secondary/10 dark:bg-backgroundBody/15 text-secondary dark:text-backgroundBody font-medium'
+              : 'text-secondary/45 dark:text-backgroundBody/45 hover:text-secondary/80 dark:hover:text-backgroundBody/80'
+          }`}
+        >
           All
         </button>
         {[5, 4, 3, 2, 1].map((s) => (
-          <button key={s} className={chip(starFilter === s)} onClick={() => onStarFilter(s)}>
-            {s} ★
+          <button
+            key={s}
+            onClick={() => onStarFilter(starFilter === s ? null : s)}
+            className={`text-xs px-2 py-1 rounded-md transition-colors tabular-nums ${
+              starFilter === s
+                ? 'bg-primary/15 text-primary font-medium'
+                : 'text-secondary/45 dark:text-backgroundBody/45 hover:text-secondary/80 dark:hover:text-backgroundBody/80'
+            }`}
+          >
+            {s}<span className="text-[10px]">★</span>
           </button>
         ))}
       </div>
@@ -206,19 +222,18 @@ function ReviewForm({ onPosted }: { onPosted: (r: Review, token: string) => void
   }
 
   const inputCls =
-    'review-input py-3 px-4 focus:outline-none focus:border-primary border border-secondary/10 dark:border-backgroundBody/10 w-full text-base mt-2';
+    'review-input py-2.5 px-3.5 focus:outline-none focus:border-primary border border-secondary/10 dark:border-backgroundBody/10 w-full text-base mt-2';
 
   return (
     <div className="max-w-[720px] mx-auto mb-12">
       <div className="text-center">
-        <button
-          onClick={() => setOpen((o) => !o)}
-          className="inline-flex items-center gap-2 bg-primary text-black font-medium px-6 py-3 rounded-full hover:opacity-90 transition-opacity"
-        >
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-            <path strokeLinecap="round" strokeLinejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931z" />
-          </svg>
-          {open ? 'Close' : 'Write a review'}
+        <button onClick={() => setOpen((o) => !o)} className="rv-button rv-button-primary">
+          <div className="rv-button-top">
+            <span>{open ? 'Close' : 'Write a review'}</span>
+          </div>
+          <div className="rv-button-bottom">
+            <span>{open ? 'Close' : 'Write a review'}</span>
+          </div>
         </button>
       </div>
 
@@ -228,32 +243,33 @@ function ReviewForm({ onPosted }: { onPosted: (r: Review, token: string) => void
       >
         <form
           onSubmit={handleSubmit}
-          className="review-form-card border dark:border-dark p-6 md:p-8 mt-6"
+          className="review-form-card border dark:border-dark p-5 md:p-7 mt-6"
         >
-          <h4 className="text-2xl mb-6">Share your experience</h4>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+          <h4 className="text-xl mb-5">Share your experience</h4>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
-              <label className="text-base text-secondary dark:text-backgroundBody">
+              <label className="text-sm text-secondary/70 dark:text-backgroundBody/70">
                 Your name <span className="text-primary">*</span>
               </label>
               <input required name="author_name" maxLength={100} placeholder="John Doe" className={inputCls} />
             </div>
             <div>
-              <label className="text-base text-secondary dark:text-backgroundBody">Company</label>
+              <label className="text-sm text-secondary/70 dark:text-backgroundBody/70">Company</label>
               <input name="company_name" maxLength={100} placeholder="Acme Inc. (optional)" className={inputCls} />
             </div>
-            <div className="md:col-span-full">
-              <label className="text-base text-secondary dark:text-backgroundBody">
+            <div className={otpSent ? '' : 'md:col-span-full'}>
+              <label className="text-sm text-secondary/70 dark:text-backgroundBody/70">
                 Email <span className="text-primary">*</span>
               </label>
-              <div className="flex gap-2 items-stretch">
+              {/* Joined input group: email + send-code live in one field */}
+              <div className="review-input mt-2 flex items-center border border-secondary/10 dark:border-backgroundBody/10 focus-within:border-primary transition-colors overflow-hidden">
                 <input
                   required
                   type="email"
                   name="email"
                   maxLength={255}
                   placeholder="you@company.com"
-                  className={inputCls}
+                  className="flex-1 min-w-0 py-2.5 px-3.5 bg-transparent focus:outline-none text-base"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                 />
@@ -261,19 +277,19 @@ function ReviewForm({ onPosted }: { onPosted: (r: Review, token: string) => void
                   type="button"
                   onClick={sendCode}
                   disabled={sendingOtp}
-                  className="mt-2 shrink-0 px-4 border border-primary text-primary text-sm font-medium hover:bg-primary hover:text-black transition-colors disabled:opacity-50"
+                  className="shrink-0 mr-1.5 my-1.5 px-3 py-1.5 rounded-md bg-primary/15 text-primary text-xs font-medium hover:bg-primary hover:text-black transition-colors disabled:opacity-50 whitespace-nowrap"
                 >
-                  {sendingOtp ? 'Sending…' : otpSent ? 'Resend code' : 'Send code'}
+                  {sendingOtp ? 'Sending…' : otpSent ? 'Resend' : 'Send code'}
                 </button>
               </div>
-              <p className="text-xs text-secondary/40 dark:text-backgroundBody/40 mt-1">
-                Never shown publicly — used once to verify your review is real.
+              <p className="text-[11px] text-secondary/40 dark:text-backgroundBody/40 mt-1">
+                Never shown publicly — verifies your review is real.
               </p>
             </div>
 
             {otpSent && (
-              <div className="md:col-span-full">
-                <label className="text-base text-secondary dark:text-backgroundBody">
+              <div>
+                <label className="text-sm text-secondary/70 dark:text-backgroundBody/70">
                   Verification code <span className="text-primary">*</span>
                 </label>
                 <input
@@ -282,28 +298,25 @@ function ReviewForm({ onPosted }: { onPosted: (r: Review, token: string) => void
                   inputMode="numeric"
                   pattern="\d{6}"
                   maxLength={6}
-                  placeholder="6-digit code"
-                  className={`${inputCls} tracking-[6px] font-medium max-w-[220px]`}
+                  placeholder="••••••"
+                  className={`${inputCls} tracking-[6px] font-medium`}
                 />
-                {otpNote && (
-                  <p className="text-xs text-primary/80 mt-1">{otpNote}</p>
-                )}
+                {otpNote && <p className="text-[11px] text-primary/80 mt-1">{otpNote}</p>}
               </div>
             )}
 
             <div>
-              <label className="text-base text-secondary dark:text-backgroundBody">City</label>
-              <input name="city" maxLength={80} placeholder="e.g. Mumbai, Berlin, New York" className={inputCls} />
+              <label className="text-sm text-secondary/70 dark:text-backgroundBody/70">City</label>
+              <input name="city" maxLength={80} placeholder="Mumbai, Berlin, New York…" className={inputCls} />
             </div>
             <div>
-              <label className="text-base text-secondary dark:text-backgroundBody">Country</label>
-              <input name="country" maxLength={80} placeholder="e.g. India, USA, Germany" className={inputCls} />
-              <p className="text-xs text-secondary/40 dark:text-backgroundBody/40 mt-1">
-                Optional — puts your review on our globe 🌍
-              </p>
+              <label className="text-sm text-secondary/70 dark:text-backgroundBody/70">
+                Country <span className="normal-case text-[11px] text-secondary/40 dark:text-backgroundBody/40">— puts you on the globe 🌍</span>
+              </label>
+              <input name="country" maxLength={80} placeholder="India, USA, Germany…" className={inputCls} />
             </div>
             <div className="md:col-span-full">
-              <label className="text-base text-secondary dark:text-backgroundBody">
+              <label className="text-sm text-secondary/70 dark:text-backgroundBody/70">
                 Rating <span className="text-primary">*</span>
               </label>
               <div className="mt-2">
@@ -311,7 +324,7 @@ function ReviewForm({ onPosted }: { onPosted: (r: Review, token: string) => void
               </div>
             </div>
             <div className="md:col-span-full">
-              <label className="text-base text-secondary dark:text-backgroundBody">
+              <label className="text-sm text-secondary/70 dark:text-backgroundBody/70">
                 Your review <span className="text-primary">*</span>
               </label>
               <textarea
@@ -669,13 +682,10 @@ export default function ReviewsApp() {
         <>
           {/* Reviews around the world — interactive globe */}
           <div className="mb-12">
-            <h3 className="text-center text-2xl md:text-3xl font-medium mb-1">
-              Loved <span className="font-instrument italic">around the world</span>
-            </h3>
-            <p className="text-center text-sm text-secondary/50 dark:text-backgroundBody/50 mb-4">
-              Verified reviews from real clients — drag the globe
-            </p>
             <ReviewsGlobe reviews={reviews as any} />
+            <p className="text-center text-xs text-secondary/40 dark:text-backgroundBody/40 mt-3">
+              Drag to explore — verified reviews from around the world
+            </p>
           </div>
 
           {reviews.length > 0 && (

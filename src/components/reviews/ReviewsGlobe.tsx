@@ -191,7 +191,7 @@ export default function ReviewsGlobe({ reviews }: { reviews: GlobeReview[] }) {
   }, [markers, dark]);
 
   return (
-    <div ref={wrapRef} className="relative aspect-square select-none w-full max-w-lg mx-auto">
+    <div ref={wrapRef} className="relative aspect-square select-none w-full max-w-lg lg:max-w-3xl mx-auto">
       <canvas
         ref={canvasRef}
         onPointerDown={handlePointerDown}
