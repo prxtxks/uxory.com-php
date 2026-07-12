@@ -1,6 +1,8 @@
 import type { APIRoute } from 'astro';
 import { createClient } from '@supabase/supabase-js';
 import crypto from 'node:crypto';
+import { hashCode } from '../../../lib/otp';
+import { geocode } from '../../../lib/geo';
 
 export const prerender = false;
 
@@ -20,7 +22,7 @@ export const GET: APIRoute = async () => {
     // The PHP did: ?select=id,author_name,company_name,rating,review_text,created_at,review_replies(...)
     const { data: reviews, error } = await supabase
       .from('reviews')
-      .select('id,author_name,company_name,rating,review_text,created_at,review_replies(id,review_id,author_name,company_name,reply_text,created_at)')
+      .select('id,author_name,company_name,rating,review_text,created_at,verified,city,country,lat,lng,review_replies(id,review_id,author_name,company_name,reply_text,created_at)')
       .order('created_at', { ascending: false });
 
     if (error) throw error;
@@ -118,12 +120,58 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
       });
     }
 
+    const city = formData.get('city')?.toString().trim().slice(0, 80) || null;
+    const country = formData.get('country')?.toString().trim().slice(0, 80) || null;
+    const otp = formData.get('otp')?.toString().trim();
+
+    const supabase = getSupabase();
+
+    // --- Email OTP verification: every review is traceable to a real inbox ---
+    if (!otp || !/^\d{6}$/.test(otp)) {
+      return new Response(JSON.stringify({ status: 'error', message: 'Please enter the 6-digit code we emailed you.' }), {
+        status: 400, headers: { 'Content-Type': 'application/json' }
+      });
+    }
+    const emailKey = email.toLowerCase();
+    const { data: otpRow } = await supabase
+      .from('review_otps')
+      .select('code_hash,expires_at,attempts')
+      .eq('email', emailKey)
+      .maybeSingle();
+    if (!otpRow) {
+      return new Response(JSON.stringify({ status: 'error', message: 'No code found for this email — tap "Send code" first.' }), {
+        status: 400, headers: { 'Content-Type': 'application/json' }
+      });
+    }
+    if (new Date(otpRow.expires_at).getTime() < Date.now()) {
+      await supabase.from('review_otps').delete().eq('email', emailKey);
+      return new Response(JSON.stringify({ status: 'error', message: 'That code expired — request a new one.' }), {
+        status: 400, headers: { 'Content-Type': 'application/json' }
+      });
+    }
+    if (otpRow.attempts >= 5) {
+      await supabase.from('review_otps').delete().eq('email', emailKey);
+      return new Response(JSON.stringify({ status: 'error', message: 'Too many attempts — request a new code.' }), {
+        status: 429, headers: { 'Content-Type': 'application/json' }
+      });
+    }
+    if (otpRow.code_hash !== hashCode(otp)) {
+      await supabase.from('review_otps').update({ attempts: otpRow.attempts + 1 }).eq('email', emailKey);
+      return new Response(JSON.stringify({ status: 'error', message: "That code doesn't match — double-check and try again." }), {
+        status: 400, headers: { 'Content-Type': 'application/json' }
+      });
+    }
+    // Code is good — consume it (single use).
+    await supabase.from('review_otps').delete().eq('email', emailKey);
+
+    // Resolve location for the globe (offline lookup; null is fine)
+    const coords = geocode(city, country, emailKey);
+
     // Supabase Insert Data
     const salt = recaptchaSecret || 'default_salt';
     const ipHash = crypto.createHash('md5').update((clientAddress || '127.0.0.1') + salt).digest('hex');
     const deleteToken = crypto.randomBytes(16).toString('hex');
 
-    const supabase = getSupabase();
     const { data: newReview, error } = await supabase
       .from('reviews')
       .insert({
@@ -133,7 +181,12 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
         rating,
         review_text: reviewText,
         delete_token: deleteToken,
-        ip_hash: ipHash
+        ip_hash: ipHash,
+        verified: true,
+        city,
+        country,
+        lat: coords ? coords[0] : null,
+        lng: coords ? coords[1] : null
       })
       .select()
       .single();
@@ -148,6 +201,11 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
         rating: newReview.rating,
         review_text: newReview.review_text,
         created_at: newReview.created_at,
+        verified: newReview.verified,
+        city: newReview.city,
+        country: newReview.country,
+        lat: newReview.lat,
+        lng: newReview.lng,
         review_replies: []
     };
 

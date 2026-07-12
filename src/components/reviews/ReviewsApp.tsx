@@ -10,10 +10,12 @@ import {
   initials,
   avatarColor,
   relativeTime,
+  requestReviewOtp,
   type Review,
 } from './reviewsApi';
 import { Stars, StarInput, Avatar } from './Stars';
 import { useRecaptcha } from './useRecaptcha';
+import ReviewsGlobe from './ReviewsGlobe';
 
 type SortKey = 'newest' | 'highest' | 'lowest' | 'discussed';
 
@@ -127,9 +129,39 @@ function ReviewForm({ onPosted }: { onPosted: (r: Review, token: string) => void
   const [open, setOpen] = useState(false);
   const [rating, setRating] = useState(0);
   const [text, setText] = useState('');
+  const [email, setEmail] = useState('');
+  const [otpSent, setOtpSent] = useState(false);
+  const [sendingOtp, setSendingOtp] = useState(false);
+  const [otpNote, setOtpNote] = useState<string | null>(null);
   const [submitting, setSubmitting] = useState(false);
   const [status, setStatus] = useState<{ type: 'error' | 'success'; msg: string } | null>(null);
   const recaptcha = useRecaptcha(open);
+
+  async function sendCode() {
+    if (!/^\S+@\S+\.\S+$/.test(email)) {
+      setStatus({ type: 'error', msg: 'Enter a valid email first, then tap "Send code".' });
+      return;
+    }
+    setStatus(null);
+    setSendingOtp(true);
+    try {
+      const data = await requestReviewOtp(email.trim());
+      if (data.status === 'success') {
+        setOtpSent(true);
+        setOtpNote(
+          data.dev_code
+            ? `Dev mode — your code is ${data.dev_code}`
+            : 'We emailed you a 6-digit code. It expires in 10 minutes.'
+        );
+      } else {
+        setStatus({ type: 'error', msg: data.message || 'Could not send the code.' });
+      }
+    } catch {
+      setStatus({ type: 'error', msg: 'Network error sending the code.' });
+    } finally {
+      setSendingOtp(false);
+    }
+  }
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -139,6 +171,10 @@ function ReviewForm({ onPosted }: { onPosted: (r: Review, token: string) => void
     fd.set('rating', String(rating));
     if (rating < 1) {
       setStatus({ type: 'error', msg: 'Please select a star rating.' });
+      return;
+    }
+    if (!otpSent) {
+      setStatus({ type: 'error', msg: 'Please verify your email — tap "Send code" and enter the code.' });
       return;
     }
     const token = recaptcha.getToken();
@@ -152,8 +188,11 @@ function ReviewForm({ onPosted }: { onPosted: (r: Review, token: string) => void
         form.reset();
         setRating(0);
         setText('');
+        setEmail('');
+        setOtpSent(false);
+        setOtpNote(null);
         recaptcha.reset();
-        setStatus({ type: 'success', msg: 'Thanks! Your review is now live.' });
+        setStatus({ type: 'success', msg: 'Thanks! Your verified review is now live.' });
         setTimeout(() => setOpen(false), 1200);
       } else {
         setStatus({ type: 'error', msg: data.message || 'Something went wrong.' });
@@ -207,9 +246,60 @@ function ReviewForm({ onPosted }: { onPosted: (r: Review, token: string) => void
               <label className="text-base text-secondary dark:text-backgroundBody">
                 Email <span className="text-primary">*</span>
               </label>
-              <input required type="email" name="email" maxLength={255} placeholder="you@company.com" className={inputCls} />
+              <div className="flex gap-2 items-stretch">
+                <input
+                  required
+                  type="email"
+                  name="email"
+                  maxLength={255}
+                  placeholder="you@company.com"
+                  className={inputCls}
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                />
+                <button
+                  type="button"
+                  onClick={sendCode}
+                  disabled={sendingOtp}
+                  className="mt-2 shrink-0 px-4 border border-primary text-primary text-sm font-medium hover:bg-primary hover:text-black transition-colors disabled:opacity-50"
+                >
+                  {sendingOtp ? 'Sending…' : otpSent ? 'Resend code' : 'Send code'}
+                </button>
+              </div>
               <p className="text-xs text-secondary/40 dark:text-backgroundBody/40 mt-1">
-                Never shown publicly.
+                Never shown publicly — used once to verify your review is real.
+              </p>
+            </div>
+
+            {otpSent && (
+              <div className="md:col-span-full">
+                <label className="text-base text-secondary dark:text-backgroundBody">
+                  Verification code <span className="text-primary">*</span>
+                </label>
+                <input
+                  required
+                  name="otp"
+                  inputMode="numeric"
+                  pattern="\d{6}"
+                  maxLength={6}
+                  placeholder="6-digit code"
+                  className={`${inputCls} tracking-[6px] font-medium max-w-[220px]`}
+                />
+                {otpNote && (
+                  <p className="text-xs text-primary/80 mt-1">{otpNote}</p>
+                )}
+              </div>
+            )}
+
+            <div>
+              <label className="text-base text-secondary dark:text-backgroundBody">City</label>
+              <input name="city" maxLength={80} placeholder="e.g. Mumbai, Berlin, New York" className={inputCls} />
+            </div>
+            <div>
+              <label className="text-base text-secondary dark:text-backgroundBody">Country</label>
+              <input name="country" maxLength={80} placeholder="e.g. India, USA, Germany" className={inputCls} />
+              <p className="text-xs text-secondary/40 dark:text-backgroundBody/40 mt-1">
+                Optional — puts your review on our globe 🌍
               </p>
             </div>
             <div className="md:col-span-full">
@@ -377,11 +467,26 @@ function ReviewCard({
         <div className="flex-1 min-w-0">
           <div className="flex items-start justify-between gap-2">
             <div>
-              <p className="font-medium text-secondary dark:text-backgroundBody leading-tight">
+              <p className="font-medium text-secondary dark:text-backgroundBody leading-tight flex items-center gap-1.5">
                 {review.author_name}
+                {review.verified && (
+                  <span
+                    className="inline-flex items-center gap-0.5 text-[10px] font-medium text-primary bg-primary/10 rounded-full px-2 py-0.5"
+                    title="Email-verified review"
+                  >
+                    <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                    </svg>
+                    Verified
+                  </span>
+                )}
               </p>
-              {review.company_name && (
-                <p className="text-sm text-secondary/50 dark:text-backgroundBody/50">{review.company_name}</p>
+              {(review.company_name || review.city || review.country) && (
+                <p className="text-sm text-secondary/50 dark:text-backgroundBody/50">
+                  {[review.company_name, [review.city, review.country].filter(Boolean).join(', ')]
+                    .filter(Boolean)
+                    .join(' · ')}
+                </p>
               )}
             </div>
             {ownedToken && (
@@ -562,6 +667,17 @@ export default function ReviewsApp() {
         </div>
       ) : (
         <>
+          {/* Reviews around the world — interactive globe */}
+          <div className="mb-12">
+            <h3 className="text-center text-2xl md:text-3xl font-medium mb-1">
+              Loved <span className="font-instrument italic">around the world</span>
+            </h3>
+            <p className="text-center text-sm text-secondary/50 dark:text-backgroundBody/50 mb-4">
+              Verified reviews from real clients — drag the globe
+            </p>
+            <ReviewsGlobe reviews={reviews as any} />
+          </div>
+
           {reviews.length > 0 && (
             <div className="mb-10">
               <RatingSummary reviews={reviews} />

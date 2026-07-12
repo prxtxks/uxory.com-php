@@ -17,7 +17,20 @@ export interface Review {
   rating: number;
   review_text: string;
   created_at: string;
+  verified?: boolean;
+  city?: string | null;
+  country?: string | null;
+  lat?: number | null;
+  lng?: number | null;
   review_replies: Reply[];
+}
+
+/** Request an email verification code for posting a review. */
+export async function requestReviewOtp(email: string) {
+  const form = new FormData();
+  form.append('email', email);
+  const res = await fetch('/api/reviews/verify', { method: 'POST', body: form });
+  return res.json();
 }
 
 export interface ReviewsResponse {
