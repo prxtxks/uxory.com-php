@@ -16,12 +16,30 @@ const SUGGESTIONS = [
 
 const STORAGE_KEY = 'uxory_ai_chat';
 
+// Theme-aware ambient gradient: a soft teal glow whose OUTER stop matches the
+// page background so it fades in seamlessly (no hard edge / dark blob in light
+// mode). Center → edge.
+const GRADIENT_DARK = ['#12D8CC', '#0f766e', '#0d3b38', '#0b2523', '#0b1615', '#0b0e0e', '#0b0b0b'];
+const GRADIENT_LIGHT = ['#22d3c4', '#7ff0e6', '#b8f5ee', '#d6f7f3', '#e4f2f4', '#ebf0f4', '#EDF0F5'];
+const GRADIENT_STOPS = [8, 24, 40, 55, 70, 85, 100];
+
 export default function UxoryAI() {
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState('');
   const [streaming, setStreaming] = useState(false);
+  const [dark, setDark] = useState(false);
   const scrollRef = useRef<HTMLDivElement | null>(null);
   const taRef = useRef<HTMLTextAreaElement | null>(null);
+
+  // Track the site's dark-mode class so the gradient matches the theme.
+  useEffect(() => {
+    const html = document.documentElement;
+    const update = () => setDark(html.classList.contains('dark'));
+    update();
+    const mo = new MutationObserver(update);
+    mo.observe(html, { attributes: true, attributeFilter: ['class'] });
+    return () => mo.disconnect();
+  }, []);
 
   // Restore anonymous session from sessionStorage
   useEffect(() => {
@@ -168,16 +186,25 @@ export default function UxoryAI() {
       {/* Ambient animated gradient + interactive cursor glow, edge-masked so it
           blends smoothly into the nav above and footer below. */}
       <div ref={bgRef} className="absolute inset-0 overflow-hidden pointer-events-none">
-        <AnimatedGradientBackground Breathing containerClassName="opacity-45 dark:opacity-65" />
+        <AnimatedGradientBackground
+          Breathing
+          startingGap={125}
+          gradientColors={dark ? GRADIENT_DARK : GRADIENT_LIGHT}
+          gradientStops={GRADIENT_STOPS}
+          containerClassName="opacity-70 dark:opacity-80"
+        />
         <div
           className="absolute inset-0 transition-opacity duration-500"
           style={{
             background:
-              'radial-gradient(500px circle at var(--mx, 50%) var(--my, 22%), rgba(18,216,204,0.16), transparent 55%)',
+              'radial-gradient(600px circle at var(--mx, 50%) var(--my, 20%), rgba(18,216,204,0.18), transparent 60%)',
           }}
         />
-        <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-backgroundBody dark:from-[#0b0b0b] to-transparent" />
-        <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-backgroundBody dark:from-[#0b0b0b] to-transparent" />
+        {/* Fade every edge into the page background so nothing ends abruptly */}
+        <div className="absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-backgroundBody dark:from-[#0b0b0b] to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-backgroundBody dark:from-[#0b0b0b] to-transparent" />
+        <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-backgroundBody dark:from-[#0b0b0b] to-transparent" />
+        <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-backgroundBody dark:from-[#0b0b0b] to-transparent" />
       </div>
 
       <div className="relative z-10 flex-1 flex flex-col max-w-3xl w-full mx-auto px-4">
