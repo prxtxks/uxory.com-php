@@ -18,7 +18,7 @@ function prettyCategory(cat?: string | null): string {
 
 export default function BlogGrid({ posts }: { posts: BlogPost[] }) {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center px-1 pt-2 pb-6">
       {posts.map((p) => (
         <BlogCard
           key={p.link}
