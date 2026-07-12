@@ -44,11 +44,15 @@ function SortFilterBar({
   onSort,
   starFilter,
   onStarFilter,
+  availableRatings,
+  count,
 }: {
   sort: SortKey;
   onSort: (s: SortKey) => void;
   starFilter: number | null;
   onStarFilter: (n: number | null) => void;
+  availableRatings: number[];
+  count: number;
 }) {
   const sorts: [SortKey, string][] = [
     ['newest', 'Newest'],
@@ -57,52 +61,57 @@ function SortFilterBar({
   ];
 
   return (
-    <div className="flex flex-wrap items-center justify-between gap-y-3 gap-x-6 mb-8 border-b border-secondary/10 dark:border-backgroundBody/10">
-      {/* Sort — quiet underline tabs */}
-      <div className="flex items-center gap-5">
-        {sorts.map(([k, label]) => (
-          <button
-            key={k}
-            onClick={() => onSort(k)}
-            className={`relative pb-3 text-sm transition-colors ${
-              sort === k
-                ? 'text-secondary dark:text-backgroundBody font-medium'
-                : 'text-secondary/45 dark:text-backgroundBody/45 hover:text-secondary/80 dark:hover:text-backgroundBody/80'
-            }`}
-          >
-            {label}
-            {sort === k && (
-              <span className="absolute left-0 right-0 -bottom-px h-[2px] bg-primary rounded-full" />
-            )}
-          </button>
-        ))}
-      </div>
+    <div className="flex flex-wrap items-center justify-between gap-3 mb-8">
+      <p className="text-sm text-secondary/50 dark:text-backgroundBody/50">
+        {count} {count === 1 ? 'review' : 'reviews'}
+      </p>
 
-      {/* Star filter — one compact control */}
-      <div className="flex items-center gap-1.5 pb-2.5">
-        <button
-          onClick={() => onStarFilter(null)}
-          className={`text-xs px-2.5 py-1 rounded-md transition-colors ${
-            starFilter === null
-              ? 'bg-secondary/10 dark:bg-backgroundBody/15 text-secondary dark:text-backgroundBody font-medium'
-              : 'text-secondary/45 dark:text-backgroundBody/45 hover:text-secondary/80 dark:hover:text-backgroundBody/80'
-          }`}
-        >
-          All
-        </button>
-        {[5, 4, 3, 2, 1].map((s) => (
-          <button
-            key={s}
-            onClick={() => onStarFilter(starFilter === s ? null : s)}
-            className={`text-xs px-2 py-1 rounded-md transition-colors tabular-nums ${
-              starFilter === s
-                ? 'bg-primary/15 text-primary font-medium'
-                : 'text-secondary/45 dark:text-backgroundBody/45 hover:text-secondary/80 dark:hover:text-backgroundBody/80'
-            }`}
-          >
-            {s}<span className="text-[10px]">★</span>
-          </button>
-        ))}
+      <div className="flex items-center gap-2">
+        {/* Sort — segmented pill control */}
+        <div className="inline-flex items-center gap-0.5 rounded-full border border-secondary/10 bg-secondary/[0.04] p-0.5 dark:border-white/10 dark:bg-white/5">
+          {sorts.map(([k, label]) => (
+            <button
+              key={k}
+              onClick={() => onSort(k)}
+              className={`rounded-full px-3.5 py-1.5 text-sm transition-all ${
+                sort === k
+                  ? 'bg-white text-secondary shadow-sm font-medium dark:bg-[#2e2e2e] dark:text-backgroundBody'
+                  : 'text-secondary/55 hover:text-secondary dark:text-backgroundBody/55 dark:hover:text-backgroundBody'
+              }`}
+            >
+              {label}
+            </button>
+          ))}
+        </div>
+
+        {/* Rating filter — only meaningful once more than one rating exists */}
+        {availableRatings.length > 1 && (
+          <div className="relative">
+            <select
+              value={starFilter ?? ''}
+              onChange={(e) => onStarFilter(e.target.value ? Number(e.target.value) : null)}
+              className="cursor-pointer appearance-none rounded-full border border-secondary/10 bg-secondary/[0.04] py-[7px] pl-4 pr-9 text-sm text-secondary/80 outline-none transition-colors hover:border-primary/40 focus:border-primary dark:border-white/10 dark:bg-white/5 dark:text-backgroundBody/80"
+            >
+              <option value="">All ratings</option>
+              {availableRatings.map((r) => (
+                <option key={r} value={r}>
+                  {r} star{r === 1 ? '' : 's'}
+                </option>
+              ))}
+            </select>
+            <svg
+              className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-secondary/40 dark:text-backgroundBody/40"
+              width="14"
+              height="14"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.2"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" d="M6 9l6 6 6-6" />
+            </svg>
+          </div>
+        )}
       </div>
     </div>
   );
@@ -486,6 +495,12 @@ export default function ReviewsApp() {
     return list;
   }, [reviews, sort, starFilter]);
 
+  // Distinct ratings present, high→low. Drives whether the rating filter shows.
+  const availableRatings = useMemo(
+    () => [...new Set(reviews.map((r) => r.rating))].sort((a, b) => b - a),
+    [reviews]
+  );
+
   function handlePosted(review: Review, token: string) {
     rememberOwnedReview(review.id, token);
     setOwned(getOwnedTokens());
@@ -530,7 +545,14 @@ export default function ReviewsApp() {
           <ReviewForm onPosted={handlePosted} />
 
           {reviews.length > 0 && (
-            <SortFilterBar sort={sort} onSort={setSort} starFilter={starFilter} onStarFilter={setStarFilter} />
+            <SortFilterBar
+              sort={sort}
+              onSort={setSort}
+              starFilter={starFilter}
+              onStarFilter={setStarFilter}
+              availableRatings={availableRatings}
+              count={visible.length}
+            />
           )}
 
           {reviews.length === 0 ? (
