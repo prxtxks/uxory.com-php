@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { BlogCard } from './BlogCard';
+import MobileBlogStack from './MobileBlogStack';
 
 export interface BlogPost {
   title: string;
@@ -11,26 +12,28 @@ export interface BlogPost {
   tags?: string[] | null;
 }
 
-function prettyCategory(cat?: string | null): string {
-  if (!cat) return 'Insights';
-  return cat.replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase());
-}
-
 export default function BlogGrid({ posts }: { posts: BlogPost[] }) {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center px-1 pt-2 pb-6">
-      {posts.map((p) => (
-        <BlogCard
-          key={p.link}
-          href={p.link}
-          imageUrl={p.image}
-          title={p.title}
-          subtitle={prettyCategory(p.category)}
-          description={p.excerpt}
-          highlights={p.tags || []}
-          meta={p.read_time ? `${p.read_time} min read` : undefined}
-        />
-      ))}
-    </div>
+    <>
+      {/* Mobile: swipeable stacked deck */}
+      <div className="sm:hidden">
+        <MobileBlogStack posts={posts} />
+      </div>
+
+      {/* Desktop: tight 3-column grid (close to the original live layout) */}
+      <div className="hidden sm:grid grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-10">
+        {posts.map((p) => (
+          <BlogCard
+            key={p.link}
+            href={p.link}
+            imageUrl={p.image}
+            title={p.title}
+            category={p.category}
+            description={p.excerpt}
+            meta={p.read_time ? `${p.read_time} minute read` : undefined}
+          />
+        ))}
+      </div>
+    </>
   );
 }
