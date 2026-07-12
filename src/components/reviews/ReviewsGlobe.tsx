@@ -114,6 +114,11 @@ export default function ReviewsGlobe({ reviews }: { reviews: GlobeReview[] }) {
       const width = canvas.offsetWidth;
       if (width === 0 || globe) return;
 
+      // On phones the globe is small, so the polaroid cards overwhelm it and
+      // overlap. There we hide the cards and show larger marker dots (pinpoints)
+      // instead. Desktop keeps the polaroids.
+      const isMobile = () => window.matchMedia('(max-width: 639px)').matches;
+
       globe = createGlobe(canvas, {
         devicePixelRatio: Math.min(window.devicePixelRatio || 1, 2),
         width,
@@ -128,7 +133,11 @@ export default function ReviewsGlobe({ reviews }: { reviews: GlobeReview[] }) {
         markerColor: [0.07, 0.85, 0.8], // uxory teal
         glowColor: dark ? [0.08, 0.25, 0.24] : [0.94, 0.93, 0.91],
         markerElevation: 0,
-        markers: markers.map((m) => ({ location: m.location, size: 0.025, id: m.id })),
+        markers: markers.map((m) => ({
+          location: m.location,
+          size: isMobile() ? 0.05 : 0.025,
+          id: m.id,
+        })),
         arcs: [],
         opacity: 0.85,
       } as any);
@@ -154,9 +163,17 @@ export default function ReviewsGlobe({ reviews }: { reviews: GlobeReview[] }) {
         const wrap = wrapRef.current;
         const sync = () => {
           const rootCS = getComputedStyle(document.documentElement);
+          const mobile = isMobile();
           for (const m of markers) {
             const card = wrap.querySelector<HTMLElement>(`[data-card="${m.id}"]`);
             if (!card) continue;
+            // On mobile, never show the polaroid cards — the enlarged marker
+            // dots serve as the pinpoints instead.
+            if (mobile) {
+              card.style.opacity = '0';
+              card.style.visibility = 'hidden';
+              continue;
+            }
             const anchor = wrap.querySelector<HTMLElement>(`[style*="--cobe-${m.id}"]`);
             if (anchor && anchor.style.left) {
               card.style.left = anchor.style.left;
