@@ -53,8 +53,8 @@ const prettyCat = category ? category.replace(/-/g, ' ') : null;
   <style is:global>
     .blog-body { font-size: 1.075rem; line-height: 1.85; }
     .blog-body > *:first-child { margin-top: 0; }
-    .blog-body h2 { font-size: 1.75rem; margin: 2.5rem 0 0.85rem; font-weight: 600; letter-spacing: -0.01em; scroll-margin-top: 7rem; }
-    .blog-body h3 { font-size: 1.4rem; margin: 2rem 0 0.6rem; font-weight: 600; letter-spacing: -0.01em; scroll-margin-top: 7rem; }
+    .blog-body h2 { font-size: 1.7rem; margin: 2.75rem 0 0.85rem; font-weight: 500; letter-spacing: -0.01em; scroll-margin-top: 7rem; }
+    .blog-body h3 { font-size: 1.35rem; margin: 2.25rem 0 0.6rem; font-weight: 500; letter-spacing: -0.01em; scroll-margin-top: 7rem; }
     .blog-body p { margin: 0 0 1.25rem; }
     .blog-body ul, .blog-body ol { margin: 0 0 1.25rem 1.25rem; }
     .blog-body ul { list-style: disc; }
@@ -66,10 +66,17 @@ const prettyCat = category ? category.replace(/-/g, ' ') : null;
       border-left: 3px solid #12D8CC; padding: 0.25rem 0 0.25rem 1.15rem; margin: 1.5rem 0;
       opacity: 0.9; font-style: italic;
     }
+    .blog-body img, .blog-body figure img {
+      width: 100%; border-radius: 1rem; margin: 2rem 0; object-fit: cover;
+    }
+    .blog-body figure { margin: 2rem 0; }
+    .blog-body figure figcaption { font-size: 0.85rem; opacity: 0.55; text-align: center; margin-top: 0.6rem; }
     .blog-body code { background: rgba(18,216,204,0.12); padding: 0.1rem 0.35rem; border-radius: 6px; font-size: 0.9em; }
     .blog-body pre { background: rgba(0,0,0,0.4); padding: 1rem; border-radius: 12px; overflow-x: auto; margin: 1.5rem 0; }
     .blog-body pre code { background: none; padding: 0; }
-    /* reading progress bar */
+    /* TOC active state */
+    .blog-toc a.is-active { color: #12D8CC; }
+    .blog-toc a.is-active::before { opacity: 1; }
     #read-progress { position: fixed; top: 0; left: 0; height: 3px; width: 0; background: #12D8CC; z-index: 100; transition: width 0.1s linear; }
   </style>
 
@@ -112,36 +119,58 @@ const prettyCat = category ? category.replace(/-/g, ' ') : null;
         </picture>
       )}
 
-      <!-- Body -->
-      <div class="max-w-3xl mx-auto">
-        {bodyHtml ? (
-          <div class="blog-body mt-12 text-secondary/85 dark:text-backgroundBody/85" set:html={bodyHtml} />
-        ) : (
-          <div class="blog-body mt-12 text-secondary/85 dark:text-backgroundBody/85"><slot /></div>
-        )}
+      <!-- Sidebar TOC + content -->
+      <div class="mt-12 max-w-5xl mx-auto lg:grid lg:grid-cols-[210px_minmax(0,1fr)] lg:gap-12">
+        <!-- Desktop sticky sidebar -->
+        <aside class="hidden lg:block">
+          <nav
+            id="blog-toc"
+            class="blog-toc sticky top-28 border-l border-secondary/10 dark:border-white/10 pl-4 text-sm"
+          >
+            <p class="mb-3 text-xs uppercase tracking-[2px] text-secondary/40 dark:text-backgroundBody/40">
+              On this page
+            </p>
+          </nav>
+        </aside>
 
-        {sources && sources.length > 0 && (
-          <div class="mt-12 pt-6 border-t border-secondary/10 dark:border-backgroundBody/10">
-            <p class="text-sm uppercase tracking-[2px] text-secondary/40 dark:text-backgroundBody/40 mb-3">Sources</p>
-            <ul class="space-y-1.5 text-sm">
-              {sources.map((u) => (
-                <li>
-                  <a href={u} target="_blank" rel="noopener noreferrer" class="text-primary hover:underline break-all">{u}</a>
-                </li>
-              ))}
-            </ul>
+        <div class="min-w-0">
+          <!-- Mobile TOC (collapsible) -->
+          <details class="lg:hidden mb-8 rounded-xl border border-secondary/10 dark:border-white/10 bg-secondary/[0.03] dark:bg-white/[0.03] px-4 py-3">
+            <summary class="cursor-pointer text-sm font-medium text-secondary/70 dark:text-backgroundBody/70 select-none">
+              On this page
+            </summary>
+            <nav id="blog-toc-mobile" class="blog-toc mt-3 text-sm"></nav>
+          </details>
+
+          {bodyHtml ? (
+            <div class="blog-body text-secondary/85 dark:text-backgroundBody/85" set:html={bodyHtml} />
+          ) : (
+            <div class="blog-body text-secondary/85 dark:text-backgroundBody/85"><slot /></div>
+          )}
+
+          {sources && sources.length > 0 && (
+            <div class="mt-12 pt-6 border-t border-secondary/10 dark:border-backgroundBody/10">
+              <p class="text-sm uppercase tracking-[2px] text-secondary/40 dark:text-backgroundBody/40 mb-3">Sources</p>
+              <ul class="space-y-1.5 text-sm">
+                {sources.map((u) => (
+                  <li>
+                    <a href={u} target="_blank" rel="noopener noreferrer" class="text-primary hover:underline break-all">{u}</a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          <!-- End CTA -->
+          <div class="mt-14 rounded-3xl border border-primary/30 bg-primary/5 p-8 md:p-10 text-center">
+            <h3 class="text-2xl md:text-3xl font-medium mb-2">Want this for your business?</h3>
+            <p class="text-secondary/70 dark:text-backgroundBody/70 mb-6 max-w-xl mx-auto">
+              Uxory builds AI, automation and software that turn ideas like these into working systems.
+            </p>
+            <a href="/contact" class="inline-block bg-primary text-black font-medium px-7 py-3 rounded-full hover:opacity-90 transition-opacity">
+              Talk to Uxory
+            </a>
           </div>
-        )}
-
-        <!-- End CTA -->
-        <div class="mt-14 rounded-3xl border border-primary/30 bg-primary/5 p-8 md:p-10 text-center">
-          <h3 class="text-2xl md:text-3xl font-medium mb-2">Want this for your business?</h3>
-          <p class="text-secondary/70 dark:text-backgroundBody/70 mb-6 max-w-xl mx-auto">
-            Uxory builds AI, automation and software that turn ideas like these into working systems.
-          </p>
-          <a href="/contact" class="inline-block bg-primary text-black font-medium px-7 py-3 rounded-full hover:opacity-90 transition-opacity">
-            Talk to Uxory
-          </a>
         </div>
       </div>
     </div>
@@ -153,14 +182,68 @@ const prettyCat = category ? category.replace(/-/g, ' ') : null;
 
   <script is:inline>
     (function () {
+      // Reading progress
       const bar = document.getElementById('read-progress');
       const onScroll = () => {
         const h = document.documentElement;
         const max = h.scrollHeight - h.clientHeight;
-        bar.style.width = max > 0 ? (h.scrollTop / max) * 100 + '%' : '0%';
+        if (bar) bar.style.width = max > 0 ? (h.scrollTop / max) * 100 + '%' : '0%';
       };
       document.addEventListener('scroll', onScroll, { passive: true });
       onScroll();
+
+      // Build the table of contents from headings + scrollspy
+      const body = document.querySelector('.blog-body');
+      if (!body) return;
+      const headings = Array.from(body.querySelectorAll('h2, h3'));
+      const slug = (s) =>
+        s.toLowerCase().trim().replace(/[^\w\s-]/g, '').replace(/\s+/g, '-').slice(0, 60) || 'section';
+      const used = {};
+      headings.forEach((h) => {
+        if (!h.id) {
+          let id = slug(h.textContent || '');
+          if (used[id]) id += '-' + (used[id] = used[id] + 1);
+          else used[id] = 1;
+          h.id = id;
+        }
+      });
+
+      const navs = [document.getElementById('blog-toc'), document.getElementById('blog-toc-mobile')].filter(Boolean);
+      if (!headings.length) {
+        navs.forEach((n) => (n.style.display = 'none'));
+        return;
+      }
+      const linkMap = new Map(); // id -> [anchors]
+      navs.forEach((nav) => {
+        headings.forEach((h) => {
+          const a = document.createElement('a');
+          a.href = '#' + h.id;
+          a.textContent = h.textContent;
+          a.className =
+            'relative block py-1.5 leading-snug text-secondary/60 dark:text-backgroundBody/60 hover:text-primary transition-colors ' +
+            (h.tagName === 'H3' ? 'pl-3 text-[13px]' : 'font-medium');
+          nav.appendChild(a);
+          const arr = linkMap.get(h.id) || [];
+          arr.push(a);
+          linkMap.set(h.id, arr);
+        });
+      });
+
+      let activeId = null;
+      const setActive = (id) => {
+        if (id === activeId) return;
+        if (activeId) (linkMap.get(activeId) || []).forEach((a) => a.classList.remove('is-active'));
+        activeId = id;
+        (linkMap.get(id) || []).forEach((a) => a.classList.add('is-active'));
+      };
+      const io = new IntersectionObserver(
+        (entries) => {
+          const visible = entries.filter((e) => e.isIntersecting).sort((a, b) => a.target.offsetTop - b.target.offsetTop);
+          if (visible.length) setActive(visible[0].target.id);
+        },
+        { rootMargin: '-90px 0px -65% 0px', threshold: 0 }
+      );
+      headings.forEach((h) => io.observe(h));
     })();
   </script>
 </BaseLayout>
