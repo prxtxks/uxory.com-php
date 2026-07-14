@@ -1,0 +1,101 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import QuoteWizard from '../components/quote/QuoteWizard.tsx';
+import { SITE_URL } from '../config';
+
+const structuredData = `
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Uxory Instant Estimate",
+  "url": "${SITE_URL}/get-quote",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Any (web browser)",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "description": "Answer a few questions about your website, app, AI bot or automation project and get an instant indicative quote — in INR for India or USD globally."
+}
+`;
+---
+
+<BaseLayout
+  title="Instant Project Estimate — Website, App & AI Quotes | Uxory"
+  description="Get an instant indicative quote for your website, e-commerce store, mobile app, AI bot or automation project. Answer a few questions — transparent pricing in ₹ or $, emailed to you free."
+  canonical={`${SITE_URL}/get-quote`}
+  currentPage="get-quote"
+  currentParent="pricing"
+  structuredData={structuredData}
+>
+  <div class="relative overflow-hidden">
+    <!-- Same hero gradient family as the homepage -->
+    <div
+      id="hero-gradient-wrapper"
+      class="absolute w-full h-full top-0 left-0 -z-10 blur-[60px] scale-90 pointer-events-none overflow-hidden"
+    >
+      <img
+        src="/images/hero-gradient-background.png"
+        alt=""
+        id="hero-gradient"
+        class="absolute left-1/2 top-[25%] -translate-x-1/2 -translate-y-1/2"
+      />
+    </div>
+
+    <section class="pt-[110px] md:pt-[150px] pb-6 relative">
+      <div class="container">
+        <div class="reveal-me text-center max-w-2xl mx-auto">
+          <p class="font-satoshi text-sm font-normal leading-6 tracking-[3px] uppercase mb-4">
+            Instant Estimate
+          </p>
+          <h1 class="font-normal text-appear text-[40px] md:text-6xl leading-[1.1]">
+            Know your price
+            <span class="font-instrument italic">before you commit</span>
+          </h1>
+          <p class="mt-4 text-secondary/70 dark:text-backgroundBody/70 text-lg">
+            No other agency shows you this upfront. Two minutes, honest numbers, zero obligation.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="pb-16 md:pb-24 relative">
+      <div class="container">
+        <div class="mx-auto max-w-3xl rounded-3xl border border-secondary/10 bg-white/70 p-5 backdrop-blur-xl dark:border-white/10 dark:bg-[#141414]/70 md:p-10">
+          <QuoteWizard client:load />
+        </div>
+        <p class="mt-6 text-center text-xs text-secondary/40 dark:text-backgroundBody/40">
+          Estimates are indicative and matched to our public packages · Trusted by clients in 🇮🇳 🇺🇸 🇩🇪 🇳🇵
+        </p>
+      </div>
+    </section>
+  </div>
+
+  <style is:global>
+    /* Range slider theming for the quote wizard */
+    .quote-slider {
+      -webkit-appearance: none;
+      appearance: none;
+      height: 6px;
+      border-radius: 9999px;
+      outline: none;
+    }
+    .quote-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: #12d8cc;
+      border: 3px solid #fff;
+      box-shadow: 0 1px 6px rgba(0, 0, 0, 0.25);
+      cursor: pointer;
+    }
+    .quote-slider::-moz-range-thumb {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: #12d8cc;
+      border: 3px solid #fff;
+      box-shadow: 0 1px 6px rgba(0, 0, 0, 0.25);
+      cursor: pointer;
+    }
+  </style>
+</BaseLayout>

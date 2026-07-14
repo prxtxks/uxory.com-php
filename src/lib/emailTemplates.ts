@@ -618,3 +618,155 @@ export const subscribeTemplate = `<!DOCTYPE html>
 </body>
 </html>`;
 
+
+// ─────────────────────────────────────────────────────────────
+// Instant Estimate quote email (client copy)
+// ─────────────────────────────────────────────────────────────
+export interface QuoteEmailParams {
+  name: string;
+  categoryLabel: string;
+  lowFormatted: string; // e.g. "₹52,999"
+  highFormatted: string;
+  lineRows: Array<{ label: string; amount: string | null; note?: string }>;
+  refined: boolean; // LLM adjusted from the client's notes
+}
+
+export function quoteTemplate(p: QuoteEmailParams): string {
+  const rows = p.lineRows
+    .map(
+      (r) => `
+        <tr>
+          <td style="padding:9px 0;font-family:Arial,Helvetica,sans-serif;font-size:14px;color:#333;border-bottom:1px solid #eef0f3;">
+            ${r.label}${r.note ? ` <span style="color:#9aa0a6;font-size:12px;">(${r.note})</span>` : ''}
+          </td>
+          <td align="right" style="padding:9px 0;font-family:Arial,Helvetica,sans-serif;font-size:14px;color:#555;border-bottom:1px solid #eef0f3;white-space:nowrap;">
+            ${r.amount ?? ''}
+          </td>
+        </tr>`
+    )
+    .join('');
+
+  return `<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Uxory Estimate</title>
+</head>
+<body style="margin:0;padding:0;background-color:#f0f1f5;">
+<table width="100%" cellpadding="0" cellspacing="0" align="center" bgcolor="#f0f1f5">
+  <tr>
+    <td align="center">
+      <table width="600" cellpadding="0" cellspacing="0" align="center" bgcolor="#ffffff" style="width:600px;max-width:100%;">
+
+        <!-- LOGO -->
+        <tr>
+          <td align="center" style="padding:50px 20px 20px 20px;">
+            <img src="https://uxory.in/images/logo.png" width="84" alt="Uxory" style="display:block;border:0;outline:none;">
+          </td>
+        </tr>
+
+        <!-- DIVIDER -->
+        <tr>
+          <td align="center" style="padding:0 42px;">
+            <table width="100%" cellpadding="0" cellspacing="0"><tr><td height="1" bgcolor="#bfc3c8"></td></tr></table>
+          </td>
+        </tr>
+
+        <!-- SUBJECT -->
+        <tr>
+          <td align="left" style="padding:30px 42px 8px 42px;font-family:Arial,Helvetica,sans-serif;font-size:22px;font-weight:bold;color:#000;">
+            Your ${p.categoryLabel} estimate is ready ✦
+          </td>
+        </tr>
+
+        <!-- GREETING -->
+        <tr>
+          <td align="left" style="padding:6px 42px 18px 42px;font-family:Arial,Helvetica,sans-serif;font-size:16px;line-height:1.6;color:#000;">
+            Hi ${p.name},<br><br>
+            Thanks for using the Uxory Instant Estimate. Based on what you told us, here's your indicative range:
+          </td>
+        </tr>
+
+        <!-- PRICE RANGE HERO -->
+        <tr>
+          <td align="center" style="padding:6px 42px 8px 42px;">
+            <table width="100%" cellpadding="0" cellspacing="0" style="background-color:#0f1211;border-radius:14px;">
+              <tr>
+                <td align="center" style="padding:28px 20px 6px 20px;font-family:Arial,Helvetica,sans-serif;font-size:12px;letter-spacing:2px;color:#12D8CC;text-transform:uppercase;">
+                  Indicative estimate
+                </td>
+              </tr>
+              <tr>
+                <td align="center" style="padding:2px 20px 8px 20px;font-family:Arial,Helvetica,sans-serif;font-size:34px;font-weight:bold;color:#ffffff;">
+                  ${p.lowFormatted} &ndash; ${p.highFormatted}
+                </td>
+              </tr>
+              <tr>
+                <td align="center" style="padding:0 20px 26px 20px;font-family:Arial,Helvetica,sans-serif;font-size:12px;color:#9aa0a6;">
+                  Valid 14 days &middot; final quote after a short call${p.refined ? ' &middot; refined from your notes' : ''}
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <!-- LINE ITEMS -->
+        <tr>
+          <td align="left" style="padding:22px 42px 4px 42px;font-family:Arial,Helvetica,sans-serif;font-size:13px;letter-spacing:2px;color:#9aa0a6;text-transform:uppercase;">
+            What's included
+          </td>
+        </tr>
+        <tr>
+          <td style="padding:4px 42px 10px 42px;">
+            <table width="100%" cellpadding="0" cellspacing="0">${rows}</table>
+          </td>
+        </tr>
+
+        <!-- WHAT HAPPENS NEXT -->
+        <tr>
+          <td align="left" style="padding:18px 42px 6px 42px;font-family:Arial,Helvetica,sans-serif;font-size:16px;font-weight:bold;color:#000;">
+            What happens next
+          </td>
+        </tr>
+        <tr>
+          <td align="left" style="padding:0 42px 16px 42px;font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.7;color:#333;">
+            1. We review your requirements (a real human, within one business day)<br>
+            2. A short call to lock scope &amp; timeline<br>
+            3. You get a fixed, itemised proposal — no surprises
+          </td>
+        </tr>
+
+        <!-- CTA -->
+        <tr>
+          <td align="center" style="padding:10px 42px 34px 42px;">
+            <a href="https://uxory.in/calendly"
+               style="display:inline-block;background-color:#12D8CC;color:#000;font-family:Arial,Helvetica,sans-serif;font-size:15px;font-weight:bold;text-decoration:none;padding:14px 34px;border-radius:999px;">
+              Book your free call
+            </a>
+          </td>
+        </tr>
+
+        <!-- DIVIDER -->
+        <tr>
+          <td align="center" style="padding:0 42px;">
+            <table width="100%" cellpadding="0" cellspacing="0"><tr><td height="1" bgcolor="#e6e8ec"></td></tr></table>
+          </td>
+        </tr>
+
+        <!-- FOOTER -->
+        <tr>
+          <td align="center" style="padding:22px 42px 40px 42px;font-family:Arial,Helvetica,sans-serif;font-size:12px;line-height:1.7;color:#9aa0a6;">
+            Uxory &middot; Intelligent software, automation &amp; AI systems<br>
+            <a href="https://uxory.in" style="color:#12D8CC;text-decoration:none;">uxory.in</a> &middot;
+            <a href="mailto:contact@uxory.in" style="color:#12D8CC;text-decoration:none;">contact@uxory.in</a>
+          </td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>`;
+}
