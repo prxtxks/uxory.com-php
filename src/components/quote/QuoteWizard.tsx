@@ -3,7 +3,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { estimate, type QuoteAnswers, type Category } from '../../lib/pricing/engine';
 import type { Region } from '../../lib/pricing/rateCard';
-import { StepShell, OptionCard, Chip, Counter, SliderControl, TextField, Toggle } from './controls';
+import { StepShell, OptionCard, Chip, Counter, SliderControl, TextField, Toggle, Spark } from './controls';
 import PriceReveal from './PriceReveal';
 
 /* ── Types ── */
@@ -628,27 +628,34 @@ export default function QuoteWizard() {
     document.getElementById('quote-wizard-top')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
 
+  const stepNum = Math.min(stepIdx + 1, steps.length);
+
   return (
     <div id="quote-wizard-top" className="mx-auto w-full max-w-3xl">
       {/* Region + progress header */}
-      <div className="mb-6 flex items-center justify-between gap-4">
-        <div className="h-1.5 flex-1 overflow-hidden rounded-full bg-secondary/10 dark:bg-white/10">
+      <div className="mb-7">
+        <div className="mb-2.5 flex items-center justify-between gap-4">
+          <span className="text-[11px] font-medium uppercase tracking-[2.5px] text-secondary/45 dark:text-backgroundBody/45">
+            {isReveal ? 'Estimate ready' : `Step ${stepNum} of ${steps.length}`}
+          </span>
+          <button
+            type="button"
+            onClick={() => setState((s) => ({ ...s, region: s.region === 'IN' ? 'GLOBAL' : 'IN', regionResolved: true }))}
+            className="shrink-0 rounded-full border border-secondary/12 px-3 py-1.5 text-xs text-secondary/70 transition-all hover:border-primary hover:text-primary dark:border-white/12 dark:text-backgroundBody/70"
+            title="Switch pricing region"
+          >
+            {state.region === 'IN' ? '🇮🇳 India · ₹' : '🌍 Global · $'}
+          </button>
+        </div>
+        <div className="h-1.5 w-full overflow-hidden rounded-full bg-secondary/10 dark:bg-white/[0.08]">
           {/* Plain CSS transition (not framer) so the width is correct even
               when rAF is throttled — motion width animates via the frame loop
               and would leave the bar at its natural 100% width. */}
           <div
-            className="h-full rounded-full bg-primary transition-[width] duration-500 ease-out"
-            style={{ width: `${progress}%` }}
+            className="h-full rounded-full bg-gradient-to-r from-primary to-[#5ee7d8] shadow-[0_0_12px_-2px_rgba(18,216,204,0.7)] transition-[width] duration-500 ease-out"
+            style={{ width: `${Math.max(progress, 4)}%` }}
           />
         </div>
-        <button
-          type="button"
-          onClick={() => setState((s) => ({ ...s, region: s.region === 'IN' ? 'GLOBAL' : 'IN', regionResolved: true }))}
-          className="shrink-0 rounded-full border border-secondary/12 px-3 py-1.5 text-xs text-secondary/70 transition-colors hover:border-primary dark:border-white/12 dark:text-backgroundBody/70"
-          title="Switch pricing region"
-        >
-          {state.region === 'IN' ? '🇮🇳 India · ₹' : '🌍 Global · $'}
-        </button>
       </div>
 
       {/* Step body — popLayout mounts the next step immediately while the old
@@ -699,9 +706,19 @@ export default function QuoteWizard() {
             whileTap={{ scale: 0.97 }}
             disabled={!current.valid}
             onClick={() => go(1)}
-            className="rounded-full bg-primary px-8 py-3.5 text-base font-semibold text-black transition-all hover:shadow-lg hover:shadow-primary/25 disabled:cursor-not-allowed disabled:opacity-35"
+            className="group inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-primary to-[#12cfc4] px-8 py-3.5 text-base font-semibold text-black shadow-[0_8px_24px_-8px_rgba(18,216,204,0.7)] transition-all hover:shadow-[0_10px_30px_-6px_rgba(18,216,204,0.85)] disabled:cursor-not-allowed disabled:from-secondary/20 disabled:to-secondary/20 disabled:opacity-40 disabled:shadow-none dark:disabled:from-white/10 dark:disabled:to-white/10"
           >
-            {stepIdx === steps.length - 2 ? 'See my estimate ✦' : 'Continue →'}
+            {stepIdx === steps.length - 2 ? (
+              <>
+                See my estimate
+                <Spark size={13} />
+              </>
+            ) : (
+              <>
+                Continue
+                <span className="transition-transform duration-200 group-hover:translate-x-0.5">→</span>
+              </>
+            )}
           </motion.button>
         </div>
       )}

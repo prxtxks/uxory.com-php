@@ -42,8 +42,12 @@ const structuredData = `
     <section class="pt-[110px] md:pt-[150px] pb-6 relative">
       <div class="container">
         <div class="reveal-me text-center max-w-2xl mx-auto">
-          <p class="font-satoshi text-sm font-normal leading-6 tracking-[3px] uppercase mb-4">
-            Instant Estimate
+          <p class="font-satoshi inline-flex items-center gap-2 rounded-full border border-secondary/10 bg-white/50 px-4 py-1.5 text-xs font-medium leading-6 tracking-[3px] uppercase mb-6 backdrop-blur-md dark:border-white/10 dark:bg-white/[0.04]">
+            <span class="relative flex h-1.5 w-1.5">
+              <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-75"></span>
+              <span class="relative inline-flex h-1.5 w-1.5 rounded-full bg-primary"></span>
+            </span>
+            AI-Powered Estimate
           </p>
           <h1 class="font-medium text-appear text-[44px] md:text-[60px] xl:text-[68px] leading-[1.12]">
             Know your price before you commit
@@ -57,10 +61,19 @@ const structuredData = `
 
     <section class="pb-16 md:pb-24 relative">
       <div class="container">
-        <div class="mx-auto max-w-3xl rounded-3xl border border-secondary/10 bg-white/70 p-5 backdrop-blur-xl dark:border-white/10 dark:bg-[#141414]/70 md:p-10">
-          <QuoteWizard client:load />
+        <div class="relative mx-auto max-w-3xl">
+          <!-- Soft AI glow behind the console -->
+          <div
+            class="pointer-events-none absolute -inset-x-6 -top-8 bottom-0 -z-10 rounded-[40px] bg-[radial-gradient(60%_50%_at_50%_0%,rgba(18,216,204,0.16),transparent_70%)]"
+          >
+          </div>
+          <div
+            class="quote-console relative overflow-hidden rounded-[28px] border border-secondary/10 bg-white/75 p-5 shadow-[0_30px_80px_-40px_rgba(0,0,0,0.35)] backdrop-blur-2xl dark:border-white/[0.08] dark:bg-[#111]/70 dark:shadow-[0_30px_90px_-40px_rgba(0,0,0,0.9)] md:p-9"
+          >
+            <QuoteWizard client:load />
+          </div>
         </div>
-        <p class="mt-6 text-center text-xs text-secondary/40 dark:text-backgroundBody/40">
+        <p class="mt-7 text-center text-xs text-secondary/40 dark:text-backgroundBody/40">
           Estimates are indicative and matched to our public packages · Trusted by clients in 🇮🇳 🇺🇸 🇩🇪 🇳🇵
         </p>
       </div>
@@ -68,6 +81,20 @@ const structuredData = `
   </div>
 
   <style is:global>
+    /* Gradient hairline along the top edge of the estimate console */
+    .quote-console::before {
+      content: '';
+      position: absolute;
+      inset: 0 0 auto 0;
+      height: 1px;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(18, 216, 204, 0.55),
+        transparent
+      );
+    }
+
     /* Range slider theming for the quote wizard */
     .quote-slider {
       -webkit-appearance: none;
@@ -84,8 +111,13 @@ const structuredData = `
       border-radius: 50%;
       background: #12d8cc;
       border: 3px solid #fff;
-      box-shadow: 0 1px 6px rgba(0, 0, 0, 0.25);
+      box-shadow: 0 0 0 4px rgba(18, 216, 204, 0.18), 0 2px 8px rgba(0, 0, 0, 0.3);
       cursor: pointer;
+      transition: box-shadow 0.2s ease, transform 0.15s ease;
+    }
+    .quote-slider::-webkit-slider-thumb:hover {
+      box-shadow: 0 0 0 6px rgba(18, 216, 204, 0.24), 0 2px 10px rgba(0, 0, 0, 0.35);
+      transform: scale(1.08);
     }
     .quote-slider::-moz-range-thumb {
       width: 22px;
@@ -93,7 +125,7 @@ const structuredData = `
       border-radius: 50%;
       background: #12d8cc;
       border: 3px solid #fff;
-      box-shadow: 0 1px 6px rgba(0, 0, 0, 0.25);
+      box-shadow: 0 0 0 4px rgba(18, 216, 204, 0.18), 0 2px 8px rgba(0, 0, 0, 0.3);
       cursor: pointer;
     }
   </style>

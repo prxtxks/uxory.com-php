@@ -128,6 +128,14 @@ const {
       white-space: normal !important;
     }
   </style>
+  <style is:global>
+    /* In dark mode, soften the teal/orange hero glow (same hues, pastel and
+       lighter) so headings stay readable. Scoped by src so the pink
+       hero-gradient-background-02 used on service pages is untouched. */
+    html.dark img[src*="hero-gradient-background.png"] {
+      filter: saturate(0.7) opacity(0.85);
+    }
+  </style>
 
   <!-- Header -->
   <Header />
