@@ -76,13 +76,13 @@ export default function PriceReveal({
     <div className="text-center">
       <p className="mb-1 text-xs uppercase tracking-[3px] text-primary">Your indicative estimate</p>
 
-      <div className="mt-3 text-4xl font-medium tabular-nums text-secondary dark:text-backgroundBody md:text-6xl">
+      <div className="mt-3 text-[44px] font-medium tabular-nums text-secondary dark:text-backgroundBody md:text-7xl">
         <CountUp to={low} locale={locale} prefix={sym} />
         <span className="mx-2 text-secondary/30 dark:text-backgroundBody/30">–</span>
         <CountUp to={high} locale={locale} prefix={sym} />
       </div>
 
-      <p className="mt-3 text-xs text-secondary/45 dark:text-backgroundBody/45">
+      <p className="mt-3 text-sm text-secondary/45 dark:text-backgroundBody/45">
         Indicative range · valid 14 days · final quote after a short call
         {quote.flooredTo ? ' · matched to our package pricing' : ''}
       </p>
@@ -100,7 +100,7 @@ export default function PriceReveal({
               initial={{ opacity: 0, x: -12 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.5 + i * 0.08 }}
-              className="flex items-baseline justify-between gap-3 text-sm"
+              className="flex items-baseline justify-between gap-3 text-[15px]"
             >
               <span className="text-secondary/75 dark:text-backgroundBody/75">
                 {item.label}
@@ -126,7 +126,7 @@ export default function PriceReveal({
             whileTap={{ scale: 0.97 }}
             onClick={submit}
             disabled={submitState === 'sending'}
-            className="rounded-full bg-primary px-8 py-3.5 text-sm font-semibold text-black transition-all hover:shadow-lg hover:shadow-primary/25 disabled:opacity-60"
+            className="rounded-full bg-primary px-9 py-4 text-base font-semibold text-black transition-all hover:shadow-lg hover:shadow-primary/25 disabled:opacity-60"
           >
             {submitState === 'sending' ? 'Sending…' : `Email me this quote ✦`}
           </motion.button>
@@ -137,7 +137,7 @@ export default function PriceReveal({
         )}
         <a
           href="/calendly"
-          className="rounded-full border border-secondary/15 px-8 py-3.5 text-sm font-medium text-secondary transition-colors hover:border-primary dark:border-white/15 dark:text-backgroundBody"
+          className="rounded-full border border-secondary/15 px-9 py-4 text-base font-medium text-secondary transition-colors hover:border-primary dark:border-white/15 dark:text-backgroundBody"
         >
           Book a free call
         </a>

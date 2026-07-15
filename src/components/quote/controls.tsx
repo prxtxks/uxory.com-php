@@ -21,11 +21,11 @@ export function StepShell({
       {eyebrow && (
         <p className="mb-2 text-xs uppercase tracking-[3px] text-primary">{eyebrow}</p>
       )}
-      <h3 className="text-2xl font-medium leading-snug text-secondary dark:text-backgroundBody md:text-3xl">
+      <h3 className="text-[27px] font-medium leading-snug text-secondary dark:text-backgroundBody md:text-4xl">
         {title}
       </h3>
       {subtitle && (
-        <p className="mt-2 text-sm text-secondary/55 dark:text-backgroundBody/55">{subtitle}</p>
+        <p className="mt-2.5 text-base text-secondary/55 dark:text-backgroundBody/55">{subtitle}</p>
       )}
       <div className="mt-7">{children}</div>
     </div>
@@ -68,11 +68,11 @@ export function OptionCard({
           {icon}
         </span>
       )}
-      <span className="text-[15px] font-medium leading-tight text-secondary dark:text-backgroundBody">
+      <span className="text-[17px] font-medium leading-tight text-secondary dark:text-backgroundBody">
         {label}
       </span>
       {hint && (
-        <span className="text-xs leading-relaxed text-secondary/50 dark:text-backgroundBody/50">
+        <span className="text-sm leading-relaxed text-secondary/50 dark:text-backgroundBody/50">
           {hint}
         </span>
       )}
@@ -107,7 +107,7 @@ export function Chip({
       type="button"
       whileTap={{ scale: 0.96 }}
       onClick={onClick}
-      className={`rounded-full border px-4 py-2 text-sm transition-all duration-150 ${
+      className={`rounded-full border px-[18px] py-2.5 text-[15px] transition-all duration-150 ${
         selected
           ? 'border-primary bg-primary/10 font-medium text-primary'
           : 'border-secondary/12 text-secondary/65 hover:border-primary/40 dark:border-white/12 dark:text-backgroundBody/65'
@@ -203,10 +203,10 @@ export function TextField({
   textarea?: boolean;
 }) {
   const cls =
-    'w-full rounded-xl border border-secondary/12 bg-white px-4 py-3 text-[15px] text-secondary outline-none transition-colors placeholder:text-secondary/35 focus:border-primary dark:border-white/12 dark:bg-white/[0.04] dark:text-backgroundBody dark:placeholder:text-backgroundBody/30';
+    'w-full rounded-xl border border-secondary/12 bg-white px-4 py-3.5 text-base text-secondary outline-none transition-colors placeholder:text-secondary/35 focus:border-primary dark:border-white/12 dark:bg-white/[0.04] dark:text-backgroundBody dark:placeholder:text-backgroundBody/30';
   return (
     <label className="block">
-      <span className="mb-1.5 block text-sm text-secondary/60 dark:text-backgroundBody/60">
+      <span className="mb-1.5 block text-[15px] text-secondary/60 dark:text-backgroundBody/60">
         {label}
         {required && <span className="text-primary"> *</span>}
       </span>
@@ -249,8 +249,8 @@ export function Toggle({
       className="flex w-full items-center justify-between gap-4 rounded-2xl border border-secondary/10 bg-white p-4 text-left transition-colors hover:border-primary/40 dark:border-white/10 dark:bg-white/[0.03]"
     >
       <span>
-        <span className="block text-[15px] font-medium text-secondary dark:text-backgroundBody">{label}</span>
-        {hint && <span className="mt-0.5 block text-xs text-secondary/50 dark:text-backgroundBody/50">{hint}</span>}
+        <span className="block text-[17px] font-medium text-secondary dark:text-backgroundBody">{label}</span>
+        {hint && <span className="mt-0.5 block text-sm text-secondary/50 dark:text-backgroundBody/50">{hint}</span>}
       </span>
       <span
         className={`relative h-6 w-11 shrink-0 rounded-full transition-colors ${on ? 'bg-primary' : 'bg-secondary/15 dark:bg-white/15'}`}

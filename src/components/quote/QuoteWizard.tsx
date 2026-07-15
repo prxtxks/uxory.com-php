@@ -112,7 +112,6 @@ export default function QuoteWizard() {
     valid: !!a.category,
     node: (
       <StepShell
-        eyebrow="Instant estimate"
         title="What are we building for you?"
         subtitle="Answer a few questions — get an indicative quote in about 2 minutes."
       >
@@ -678,14 +677,14 @@ export default function QuoteWizard() {
           <button
             type="button"
             onClick={() => go(-1)}
-            className={`text-sm text-secondary/50 transition-colors hover:text-secondary dark:text-backgroundBody/50 dark:hover:text-backgroundBody ${stepIdx === 0 ? 'invisible' : ''}`}
+            className={`text-base text-secondary/50 transition-colors hover:text-secondary dark:text-backgroundBody/50 dark:hover:text-backgroundBody ${stepIdx === 0 ? 'invisible' : ''}`}
           >
             ← Back
           </button>
 
           {/* live running estimate */}
           {live && stepIdx > 0 && (
-            <span className="hidden text-xs text-secondary/45 dark:text-backgroundBody/45 sm:block">
+            <span className="hidden text-sm text-secondary/45 dark:text-backgroundBody/45 sm:block">
               Running estimate:{' '}
               <span className="font-medium text-primary">
                 {currency}
@@ -700,7 +699,7 @@ export default function QuoteWizard() {
             whileTap={{ scale: 0.97 }}
             disabled={!current.valid}
             onClick={() => go(1)}
-            className="rounded-full bg-primary px-7 py-3 text-sm font-semibold text-black transition-all hover:shadow-lg hover:shadow-primary/25 disabled:cursor-not-allowed disabled:opacity-35"
+            className="rounded-full bg-primary px-8 py-3.5 text-base font-semibold text-black transition-all hover:shadow-lg hover:shadow-primary/25 disabled:cursor-not-allowed disabled:opacity-35"
           >
             {stepIdx === steps.length - 2 ? 'See my estimate ✦' : 'Continue →'}
           </motion.button>
