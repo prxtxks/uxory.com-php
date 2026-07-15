@@ -26,17 +26,11 @@ const structuredData = `
   structuredData={structuredData}
 >
   <div class="relative overflow-hidden">
-    <!-- Same hero gradient family as the homepage -->
+    <!-- Soft AI glow anchored to the top; fades out smoothly so it never
+         forms a hard band/divider above the form -->
     <div
-      id="hero-gradient-wrapper"
-      class="absolute w-full h-full top-0 left-0 -z-10 blur-[60px] scale-90 pointer-events-none overflow-hidden"
+      class="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[680px] bg-[radial-gradient(120%_85%_at_50%_-12%,rgba(18,216,204,0.20),rgba(18,216,204,0.05)_42%,transparent_70%)] dark:bg-[radial-gradient(120%_85%_at_50%_-12%,rgba(18,216,204,0.15),transparent_65%)]"
     >
-      <img
-        src="/images/hero-gradient-background.png"
-        alt=""
-        id="hero-gradient"
-        class="absolute left-1/2 top-[25%] -translate-x-1/2 -translate-y-1/2"
-      />
     </div>
 
     <section class="pt-[110px] md:pt-[150px] pb-6 relative">
@@ -49,7 +43,7 @@ const structuredData = `
             </span>
             AI-Powered Estimate
           </p>
-          <h1 class="font-medium text-appear text-[44px] md:text-[60px] xl:text-[68px] leading-[1.12]">
+          <h1 class="font-medium text-appear text-[40px] md:text-[60px] xl:text-[68px] leading-[1.22] md:leading-[1.15] pb-1">
             Know your price before you commit
           </h1>
           <p class="mt-5 text-secondary/70 dark:text-backgroundBody/70 text-lg md:text-xl">
@@ -62,11 +56,6 @@ const structuredData = `
     <section class="pb-16 md:pb-24 relative">
       <div class="container">
         <div class="relative mx-auto max-w-3xl">
-          <!-- Soft AI glow behind the console -->
-          <div
-            class="pointer-events-none absolute -inset-x-6 -top-8 bottom-0 -z-10 rounded-[40px] bg-[radial-gradient(60%_50%_at_50%_0%,rgba(18,216,204,0.16),transparent_70%)]"
-          >
-          </div>
           <div
             class="quote-console relative overflow-hidden rounded-[28px] border border-secondary/10 bg-white/75 p-5 shadow-[0_30px_80px_-40px_rgba(0,0,0,0.35)] backdrop-blur-2xl dark:border-white/[0.08] dark:bg-[#111]/70 dark:shadow-[0_30px_90px_-40px_rgba(0,0,0,0.9)] md:p-9"
           >
