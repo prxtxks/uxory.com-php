@@ -641,10 +641,13 @@ export default function QuoteWizard() {
           <button
             type="button"
             onClick={() => setState((s) => ({ ...s, region: s.region === 'IN' ? 'GLOBAL' : 'IN', regionResolved: true }))}
-            className="shrink-0 rounded-full border border-secondary/12 px-3 py-1.5 text-xs text-secondary/70 transition-all hover:border-primary hover:text-primary dark:border-white/12 dark:text-backgroundBody/70"
+            className="currency-badge group shrink-0 inline-flex items-center gap-1.5 rounded-full border border-primary/40 bg-primary/[0.07] px-3.5 py-1.5 text-sm font-medium text-secondary transition-all hover:border-primary dark:text-backgroundBody"
             title="Switch pricing region"
           >
-            {state.region === 'IN' ? '🇮🇳 India · ₹' : '🌍 Global · $'}
+            <span className="text-[15px] leading-none">{state.region === 'IN' ? '🇮🇳' : '🌍'}</span>
+            <span>{state.region === 'IN' ? 'India' : 'Global'}</span>
+            <span className="text-secondary/25 dark:text-backgroundBody/25">·</span>
+            <span className="text-[15px] font-bold text-primary">{state.region === 'IN' ? '₹' : '$'}</span>
           </button>
         </div>
         <div className="h-1.5 w-full overflow-hidden rounded-full bg-secondary/10 dark:bg-white/[0.08]">

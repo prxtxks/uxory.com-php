@@ -70,6 +70,29 @@ const structuredData = `
   </div>
 
   <style is:global>
+    /* Currency / region badge — gentle pulsing teal glow to draw the eye */
+    .currency-badge {
+      box-shadow: 0 0 0 1px rgba(18, 216, 204, 0.3), 0 0 14px -4px rgba(18, 216, 204, 0.5);
+      animation: currencyGlow 2.4s ease-in-out infinite;
+    }
+    .currency-badge:hover {
+      animation-play-state: paused;
+    }
+    @keyframes currencyGlow {
+      0%,
+      100% {
+        box-shadow: 0 0 0 1px rgba(18, 216, 204, 0.28), 0 0 12px -5px rgba(18, 216, 204, 0.4);
+      }
+      50% {
+        box-shadow: 0 0 0 1px rgba(18, 216, 204, 0.6), 0 0 22px -2px rgba(18, 216, 204, 0.8);
+      }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .currency-badge {
+        animation: none;
+      }
+    }
+
     /* Gradient hairline along the top edge of the estimate console */
     .quote-console::before {
       content: '';
