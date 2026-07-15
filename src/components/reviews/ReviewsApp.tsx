@@ -16,6 +16,10 @@ import { Stars, StarInput, Avatar } from './Stars';
 import { useRecaptcha } from './useRecaptcha';
 import ReviewsGlobe from './ReviewsGlobe';
 
+// Temporarily disabled until a valid reCAPTCHA key is configured.
+// Flip to true (and restore the script in reviews.astro) to re-enable.
+const RECAPTCHA_ENABLED = false;
+
 type SortKey = 'newest' | 'highest' | 'lowest';
 
 // ─────────────────────────────────────────────────────────────
@@ -130,7 +134,7 @@ function ReviewForm({ onPosted }: { onPosted: (r: Review, token: string) => void
   const [otpNote, setOtpNote] = useState<string | null>(null);
   const [submitting, setSubmitting] = useState(false);
   const [status, setStatus] = useState<{ type: 'error' | 'success'; msg: string } | null>(null);
-  const recaptcha = useRecaptcha(open);
+  const recaptcha = useRecaptcha(open && RECAPTCHA_ENABLED);
 
   async function sendCode() {
     if (!/^\S+@\S+\.\S+$/.test(email)) {
@@ -324,7 +328,7 @@ function ReviewForm({ onPosted }: { onPosted: (r: Review, token: string) => void
               <input type="text" name="website" tabIndex={-1} autoComplete="off" />
             </div>
 
-            <div className="md:col-span-full" ref={recaptcha.containerRef} />
+            {RECAPTCHA_ENABLED && <div className="md:col-span-full" ref={recaptcha.containerRef} />}
 
             {status && (
               <div
@@ -340,9 +344,14 @@ function ReviewForm({ onPosted }: { onPosted: (r: Review, token: string) => void
               <button
                 type="submit"
                 disabled={submitting}
-                className="bg-primary text-black font-medium px-6 py-3 rounded-full hover:opacity-90 transition-opacity disabled:opacity-60"
+                className="rv-button rv-button-primary inline-block disabled:pointer-events-none disabled:opacity-60"
               >
-                {submitting ? 'Posting…' : 'Post review'}
+                <div className="rv-button-top">
+                  <span className="text-nowrap">{submitting ? 'Posting…' : 'Post review'}</span>
+                </div>
+                <div className="rv-button-bottom">
+                  <span className="text-nowrap">{submitting ? 'Posting…' : 'Post review'}</span>
+                </div>
               </button>
             </div>
           </div>

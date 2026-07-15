@@ -79,13 +79,20 @@ export default function ReferForm() {
 
       {error && <p className="text-red-500 text-sm mt-3">{error}</p>}
 
-      <button
-        type="submit"
-        disabled={submitting}
-        className="mt-6 w-full py-3 rounded-full bg-primary text-black font-medium hover:opacity-90 disabled:opacity-60 transition-opacity"
-      >
-        {submitting ? 'Submitting…' : 'Submit referral'}
-      </button>
+      <div className="mt-6">
+        <button
+          type="submit"
+          disabled={submitting}
+          className="rv-button rv-button-primary inline-block disabled:pointer-events-none disabled:opacity-60"
+        >
+          <div className="rv-button-top">
+            <span className="text-nowrap">{submitting ? 'Submitting…' : 'Submit referral'}</span>
+          </div>
+          <div className="rv-button-bottom">
+            <span className="text-nowrap">{submitting ? 'Submitting…' : 'Submit referral'}</span>
+          </div>
+        </button>
+      </div>
       <p className="text-xs text-secondary/40 dark:text-backgroundBody/40 mt-3 text-center">
         We’ll only use these emails to process your referral. No spam.
       </p>
