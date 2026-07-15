@@ -1,0 +1,16 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import DocLayout from '../../components/docs/DocLayout.astro';
+import { supportAfterLaunch } from '../../data/docs';
+import { SITE_URL } from '../../config';
+---
+
+<BaseLayout
+  title="Requesting Changes and Support After Launch | Uxory Docs"
+  description="How support works after your site goes live: what free support covers, the difference between maintenance and new work, and how to request a change."
+  canonical={`${SITE_URL}/docs/support-after-launch`}
+  currentPage="docs-support"
+  currentParent="docs"
+>
+  <DocLayout doc={supportAfterLaunch} />
+</BaseLayout>
