@@ -114,7 +114,7 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
       try {
         // Owner notification - full detail
         await resend.emails.send({
-          from: 'Uxory Quotes <onboarding@resend.dev>',
+          from: 'Uxory Quotes <quotes@uxory.in>',
           to: 'uxoryllc@gmail.com',
           subject: `New quote: ${CATEGORY_LABELS[answers.category]} · ${fmt(quote.low)}–${fmt(quote.high)} · ${name}`,
           html: `<h2>New Instant Estimate lead</h2>
@@ -132,7 +132,7 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
 
         // Client branded quote
         await resend.emails.send({
-          from: 'Uxory <onboarding@resend.dev>',
+          from: 'Uxory <quotes@uxory.in>',
           to: email,
           subject: `Your Uxory estimate: ${fmt(quote.low)} – ${fmt(quote.high)}`,
           html: quoteTemplate({

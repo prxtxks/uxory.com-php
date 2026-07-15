@@ -87,7 +87,7 @@ export const POST: APIRoute = async ({ request }) => {
     // Send emails
     const adminHtml = `<h2>New Newsletter Subscriber: ${email}</h2>`;
     await resend.emails.send({
-      from: 'Uxory Subs <onboarding@resend.dev>',
+      from: 'Uxory Subs <hello@uxory.in>',
       to: 'uxoryllc@gmail.com',
       subject: 'New Newsletter Subscription',
       html: adminHtml,
@@ -98,7 +98,7 @@ export const POST: APIRoute = async ({ request }) => {
     userHtml = userHtml.replace('{UNSUBSCRIBE_LINK}', unsubscribeLink);
 
     await resend.emails.send({
-      from: 'Uxory Team <onboarding@resend.dev>',
+      from: 'Uxory Team <hello@uxory.in>',
       to: email,
       subject: 'Welcome to Uxory Newsletter',
       html: userHtml,

@@ -90,7 +90,7 @@ export const POST: APIRoute = async ({ request }) => {
     `;
 
     const adminResult = await resend.emails.send({
-      from: 'Uxory Careers <onboarding@resend.dev>',
+      from: 'Uxory Careers <careers@uxory.in>',
       to: 'uxoryllc@gmail.com',
       subject: `New Job Application: ${position}`,
       html: adminHtml,
@@ -119,7 +119,7 @@ export const POST: APIRoute = async ({ request }) => {
     userHtml = userHtml.replace(/{NAME}/g, name).replace(/{POSITION}/g, position);
 
     await resend.emails.send({
-      from: 'Uxory Careers <onboarding@resend.dev>',
+      from: 'Uxory Careers <careers@uxory.in>',
       to: email,
       subject: 'Application Received - Uxory',
       html: userHtml,

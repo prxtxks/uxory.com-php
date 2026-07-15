@@ -70,7 +70,7 @@ export const POST: APIRoute = async ({ request }) => {
     `;
 
     const adminResult = await resend.emails.send({
-      from: 'Uxory Contact <onboarding@resend.dev>',
+      from: 'Uxory Contact <contact@uxory.in>',
       to: 'uxoryllc@gmail.com',
       subject: 'New Contact Form Submission',
       html: adminHtml,
@@ -91,7 +91,7 @@ export const POST: APIRoute = async ({ request }) => {
     const autoReplyHtml = contactTemplate ? contactTemplate : 'Thank you for contacting us!';
 
     await resend.emails.send({
-      from: 'Uxory Team <onboarding@resend.dev>',
+      from: 'Uxory Team <contact@uxory.in>',
       to: email,
       subject: 'Thank You for Contacting Uxory',
       html: autoReplyHtml,

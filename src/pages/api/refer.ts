@@ -60,7 +60,7 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
       const resend = new Resend(resendKey);
       resend.emails
         .send({
-          from: 'Uxory Referrals <onboarding@resend.dev>',
+          from: 'Uxory Referrals <referrals@uxory.in>',
           to: 'uxoryllc@gmail.com',
           subject: `New referral from ${referrerEmail}`,
           html: `<p><strong>Referrer:</strong> ${referrerName || ''} &lt;${referrerEmail}&gt;</p>

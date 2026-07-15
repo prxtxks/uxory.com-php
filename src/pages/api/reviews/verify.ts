@@ -60,7 +60,7 @@ export const POST: APIRoute = async ({ request }) => {
       const { Resend } = await import('resend');
       const resend = new Resend(resendKey);
       const { error: mailErr } = await resend.emails.send({
-        from: 'Uxory Reviews <onboarding@resend.dev>',
+        from: 'Uxory Reviews <reviews@uxory.in>',
         to: email,
         subject: `${code} is your Uxory review code`,
         html: `<p>Hi,</p>
