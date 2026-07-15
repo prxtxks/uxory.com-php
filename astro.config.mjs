@@ -17,7 +17,7 @@ export default defineConfig({
     // that already includes preflight. Disable base styles here to avoid a double
     // reset; this instance only emits utilities used by new components.
     tailwind({ applyBaseStyles: false }),
-    // /team is temporarily disabled — keep it out of the sitemap.
-    sitemap({ filter: (page) => !page.includes('/team') }),
+    // /team is temporarily disabled and /pricing is noindexed — keep both out of the sitemap.
+    sitemap({ filter: (page) => !page.includes('/team') && !page.includes('/pricing') }),
   ],
 });
