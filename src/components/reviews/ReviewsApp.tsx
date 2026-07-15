@@ -290,13 +290,13 @@ function ReviewForm({ onPosted }: { onPosted: (r: Review, token: string) => void
 
             <div>
               <label className="text-sm text-secondary/70 dark:text-backgroundBody/70">City</label>
-              <input name="city" maxLength={80} placeholder="Mumbai, Berlin, New York…" className={inputCls} />
+              <input name="city" maxLength={80} placeholder="Mumbai, New York…" className={inputCls} />
             </div>
             <div>
               <label className="text-sm text-secondary/70 dark:text-backgroundBody/70">
                 Country <span className="normal-case text-[11px] text-secondary/40 dark:text-backgroundBody/40">- puts you on the globe 🌍</span>
               </label>
-              <input name="country" maxLength={80} placeholder="India, USA, Germany…" className={inputCls} />
+              <input name="country" maxLength={80} placeholder="India, USA…" className={inputCls} />
             </div>
             <div className="md:col-span-full">
               <label className="text-sm text-secondary/70 dark:text-backgroundBody/70">
