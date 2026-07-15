@@ -16,30 +16,12 @@ const SUGGESTIONS = [
 
 const STORAGE_KEY = 'uxory_ai_chat';
 
-// Theme-aware ambient gradient: a soft teal glow whose OUTER stop matches the
-// page background so it fades in seamlessly (no hard edge / dark blob in light
-// mode). Center → edge.
-const GRADIENT_DARK = ['#12D8CC', '#0f766e', '#0d3b38', '#0b2523', '#0b1615', '#0b0e0e', '#0b0b0b'];
-const GRADIENT_LIGHT = ['#22d3c4', '#7ff0e6', '#b8f5ee', '#d6f7f3', '#e4f2f4', '#ebf0f4', '#EDF0F5'];
-const GRADIENT_STOPS = [8, 24, 40, 55, 70, 85, 100];
-
 export default function UxoryAI() {
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState('');
   const [streaming, setStreaming] = useState(false);
-  const [dark, setDark] = useState(false);
   const scrollRef = useRef<HTMLDivElement | null>(null);
   const taRef = useRef<HTMLTextAreaElement | null>(null);
-
-  // Track the site's dark-mode class so the gradient matches the theme.
-  useEffect(() => {
-    const html = document.documentElement;
-    const update = () => setDark(html.classList.contains('dark'));
-    update();
-    const mo = new MutationObserver(update);
-    mo.observe(html, { attributes: true, attributeFilter: ['class'] });
-    return () => mo.disconnect();
-  }, []);
 
   // Restore anonymous session from sessionStorage
   useEffect(() => {
@@ -182,29 +164,19 @@ export default function UxoryAI() {
   }, []);
 
   return (
-    <div className="relative min-h-[calc(100vh-80px)] flex flex-col">
-      {/* Ambient animated gradient + interactive cursor glow, edge-masked so it
-          blends smoothly into the nav above and footer below. */}
+    <div className="relative min-h-[calc(100vh-80px)] flex flex-col bg-[#0A0A0A] text-white">
+      {/* Exact 21st.dev animated gradient (Uxory teal), plus an interactive
+          cursor glow. The gradient's own near-black base blends into the page,
+          so no edge masks are needed. */}
       <div ref={bgRef} className="absolute inset-0 overflow-hidden pointer-events-none">
-        <AnimatedGradientBackground
-          Breathing
-          startingGap={125}
-          gradientColors={dark ? GRADIENT_DARK : GRADIENT_LIGHT}
-          gradientStops={GRADIENT_STOPS}
-          containerClassName="opacity-70 dark:opacity-80"
-        />
+        <AnimatedGradientBackground Breathing startingGap={125} breathingRange={6} animationSpeed={0.02} />
         <div
-          className="absolute inset-0 transition-opacity duration-500"
+          className="absolute inset-0"
           style={{
             background:
-              'radial-gradient(600px circle at var(--mx, 50%) var(--my, 20%), rgba(18,216,204,0.18), transparent 60%)',
+              'radial-gradient(600px circle at var(--mx, 50%) var(--my, 20%), rgba(18,216,204,0.16), transparent 60%)',
           }}
         />
-        {/* Fade every edge into the page background so nothing ends abruptly */}
-        <div className="absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-backgroundBody dark:from-[#0b0b0b] to-transparent" />
-        <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-backgroundBody dark:from-[#0b0b0b] to-transparent" />
-        <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-backgroundBody dark:from-[#0b0b0b] to-transparent" />
-        <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-backgroundBody dark:from-[#0b0b0b] to-transparent" />
       </div>
 
       <div className="relative z-10 flex-1 flex flex-col max-w-3xl w-full mx-auto px-4">
@@ -212,11 +184,11 @@ export default function UxoryAI() {
           // ── Landing state ──
           <div className="flex-1 flex flex-col items-center justify-center text-center py-16">
             <h1 className="text-5xl md:text-6xl font-medium tracking-tight">
-              <span className="bg-gradient-to-r from-primary via-teal-300 to-primary bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-primary via-[#7ff5ea] to-primary bg-clip-text text-transparent">
                 Hello, I’m Uxory AI
               </span>
             </h1>
-            <p className="mt-4 text-lg text-secondary/60 dark:text-backgroundBody/60 max-w-md">
+            <p className="mt-4 text-lg text-white/60 max-w-md">
               Ask me anything about building software, websites, AI agents, or how Uxory can help your business.
             </p>
 
@@ -225,7 +197,7 @@ export default function UxoryAI() {
                 <button
                   key={s}
                   onClick={() => send(s)}
-                  className="text-left text-sm px-4 py-3 rounded-2xl border border-secondary/10 dark:border-backgroundBody/10 bg-white/40 dark:bg-white/[0.04] backdrop-blur hover:border-primary/50 transition-colors"
+                  className="text-left text-sm px-4 py-3 rounded-2xl border border-white/10 bg-white/[0.04] backdrop-blur hover:border-primary/50 hover:bg-white/[0.07] transition-colors"
                 >
                   {s}
                 </button>
@@ -246,7 +218,7 @@ export default function UxoryAI() {
                   className={`max-w-[85%] px-4 py-3 rounded-2xl ${
                     m.role === 'user'
                       ? 'bg-primary text-black rounded-br-sm'
-                      : 'bg-secondary/5 dark:bg-backgroundBody/[0.06] rounded-bl-sm'
+                      : 'bg-white/[0.06] rounded-bl-sm'
                   }`}
                 >
                   {m.role === 'assistant' ? (
@@ -266,20 +238,20 @@ export default function UxoryAI() {
           </div>
         )}
 
-        {/* Input bar — gradient scrim fades the page into the input so the pill
+        {/* Input bar — dark scrim fades the page into the input so the pill
             floats cleanly (no hard visible band) */}
-        <div className="sticky bottom-0 pb-6 pt-8 bg-gradient-to-t from-backgroundBody via-backgroundBody/90 to-transparent dark:from-[#0b0b0b] dark:via-[#0b0b0b]/90 dark:to-transparent">
+        <div className="sticky bottom-0 pb-6 pt-8 bg-gradient-to-t from-[#0A0A0A] via-[#0A0A0A]/90 to-transparent">
           {started && (
             <div className="flex justify-center mb-3">
               <button
                 onClick={newChat}
-                className="text-xs text-secondary/50 dark:text-backgroundBody/50 hover:text-primary transition-colors"
+                className="text-xs text-white/50 hover:text-primary transition-colors"
               >
                 + New chat
               </button>
             </div>
           )}
-          <div className="flex items-end gap-2 bg-white dark:bg-white/[0.06] border border-secondary/15 dark:border-backgroundBody/15 rounded-3xl px-4 py-2 shadow-lg">
+          <div className="flex items-end gap-2 bg-white/[0.06] border border-white/15 rounded-3xl px-4 py-2 shadow-lg backdrop-blur-md focus-within:border-primary/50 transition-colors">
             <textarea
               ref={taRef}
               rows={1}
@@ -290,7 +262,7 @@ export default function UxoryAI() {
               }}
               onKeyDown={onInputKey}
               placeholder="Ask Uxory AI…"
-              className="flex-1 resize-none bg-transparent py-2 focus:outline-none text-[15px] max-h-[200px]"
+              className="flex-1 resize-none bg-transparent py-2 focus:outline-none text-[15px] max-h-[200px] text-white placeholder:text-white/40"
             />
             <button
               onClick={() => send(input)}
@@ -303,7 +275,7 @@ export default function UxoryAI() {
               </svg>
             </button>
           </div>
-          <p className="text-center text-[11px] text-secondary/40 dark:text-backgroundBody/40 mt-2">
+          <p className="text-center text-[11px] text-white/40 mt-2">
             Uxory AI can make mistakes. No account needed — chats are private to this browser session.
           </p>
         </div>
@@ -318,7 +290,7 @@ function TypingDots() {
       {[0, 1, 2].map((i) => (
         <span
           key={i}
-          className="w-2 h-2 rounded-full bg-secondary/40 dark:bg-backgroundBody/40 animate-bounce"
+          className="w-2 h-2 rounded-full bg-white/40 animate-bounce"
           style={{ animationDelay: `${i * 0.15}s` }}
         />
       ))}
