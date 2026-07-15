@@ -26,7 +26,7 @@ function RatingSummary({ reviews }: { reviews: Review[] }) {
   const avg = total ? reviews.reduce((s, r) => s + r.rating, 0) / total : 0;
 
   return (
-    <div className="review-card border dark:border-dark p-6 md:p-8 flex flex-col items-center justify-center text-center gap-3">
+    <div className="review-card border dark:border-dark p-6 md:p-8 flex flex-col items-center justify-center text-center gap-3 max-w-[260px] mx-auto">
       <div className="text-6xl font-medium text-primary leading-none">{total ? avg.toFixed(1) : '—'}</div>
       <Stars value={avg} size={22} />
       <p className="text-sm text-secondary/50 dark:text-backgroundBody/50">
