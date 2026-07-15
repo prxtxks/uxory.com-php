@@ -55,7 +55,7 @@ export default function MobileBlogStack({ posts }: { posts: BlogPost[] }) {
           );
         })}
 
-        {/* invisible spacer sizes the container — use max-height content (2-line
+        {/* invisible spacer sizes the container - use max-height content (2-line
             title + 2-line excerpt) so no real card overflows and gets clipped */}
         <div className="pointer-events-none invisible" aria-hidden>
           <StackCard

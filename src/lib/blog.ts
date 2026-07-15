@@ -122,7 +122,7 @@ export function renderMarkdown(md: string): string {
 
 /**
  * Pick a category-appropriate hero image, avoiding the N most recently used
- * (relevant AND non-repetitive). Deterministic given the same inputs — pass an
+ * (relevant AND non-repetitive). Deterministic given the same inputs - pass an
  * index seed to vary. Returns {wide, tall}.
  */
 export function pickHeroImage(

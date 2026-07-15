@@ -44,7 +44,7 @@ const platformOptions: Block = {
     {
       name: 'Custom build',
       tag: 'Maximum control',
-      desc: 'A bespoke storefront — typically Next.js/React on Vercel with a headless commerce backend (Medusa, Saleor) or a custom API. Best for unique flows, large catalogues, or when the store is core to your business. Highest upfront cost, best long-term flexibility and performance.',
+      desc: 'A bespoke storefront - typically Next.js/React on Vercel with a headless commerce backend (Medusa, Saleor) or a custom API. Best for unique flows, large catalogues, or when the store is core to your business. Highest upfront cost, best long-term flexibility and performance.',
     },
   ],
 };
@@ -52,7 +52,7 @@ const platformOptions: Block = {
 const stackNote: Block = {
   type: 'note',
   variant: 'info',
-  text: 'We build on all three. For custom stores our default stack is Next.js + Vercel with Supabase/PostgreSQL for data, and a headless CMS (Sanity or Strapi) when you need to edit content yourself. We\'ll recommend the right fit for your catalogue size, budget and roadmap — you don\'t need to decide this alone.',
+  text: 'We build on all three. For custom stores our default stack is Next.js + Vercel with Supabase/PostgreSQL for data, and a headless CMS (Sanity or Strapi) when you need to edit content yourself. We\'ll recommend the right fit for your catalogue size, budget and roadmap - you don\'t need to decide this alone.',
 };
 
 const brandingBlocks: Block[] = [
@@ -63,10 +63,10 @@ const brandingBlocks: Block[] = [
   {
     type: 'checklist',
     items: [
-      'Logo — send us your existing logo files (SVG/PNG preferred). No logo yet? Let us know and our design team will create one.',
-      'Brand colours & fonts — share your palette and fonts, or ask us to define a brand system.',
-      'Product photography — decide between: (a) you supply images, (b) licensed stock imagery, or (c) a professional photo/video shoot with our partner agencies. Good product photos are the single biggest driver of conversion.',
-      'Product descriptions & copy — you provide raw details; we can polish or write the copy.',
+      'Logo - send us your existing logo files (SVG/PNG preferred). No logo yet? Let us know and our design team will create one.',
+      'Brand colours & fonts - share your palette and fonts, or ask us to define a brand system.',
+      'Product photography - decide between: (a) you supply images, (b) licensed stock imagery, or (c) a professional photo/video shoot with our partner agencies. Good product photos are the single biggest driver of conversion.',
+      'Product descriptions & copy - you provide raw details; we can polish or write the copy.',
     ],
   },
 ];
@@ -77,14 +77,14 @@ const brandingBlocks: Block[] = [
 export const indiaGuide: Guide = {
   country: 'India',
   flag: '🇮🇳',
-  title: 'Ecommerce Onboarding — India',
+  title: 'Ecommerce Onboarding - India',
   subtitle: 'What to expect when we build your online store, step by step. Everything you\'ll need to prepare, in the order you\'ll need it.',
   currency: '₹',
   phases: [
     {
       id: 'discovery',
       title: '1. Discovery & scope',
-      intro: 'We start by understanding your business so we recommend the right approach — not the most expensive one.',
+      intro: 'We start by understanding your business so we recommend the right approach - not the most expensive one.',
       blocks: [
         {
           type: 'checklist',
@@ -101,7 +101,7 @@ export const indiaGuide: Guide = {
     {
       id: 'platform',
       title: '2. Choose your platform',
-      intro: 'The foundation. Each option is a valid choice — the right one depends on your catalogue, budget and how custom your store needs to be.',
+      intro: 'The foundation. Each option is a valid choice - the right one depends on your catalogue, budget and how custom your store needs to be.',
       blocks: [platformOptions, stackNote],
     },
     {
@@ -112,7 +112,7 @@ export const indiaGuide: Guide = {
         {
           type: 'accounts',
           items: [
-            { name: 'Domain registrar', desc: 'Where your domain (yourbrand.in / .com) is registered — e.g. GoDaddy, BigRock, Namecheap. We\'ll need access to point DNS.' },
+            { name: 'Domain registrar', desc: 'Where your domain (yourbrand.in / .com) is registered - e.g. GoDaddy, BigRock, Namecheap. We\'ll need access to point DNS.' },
             { name: 'Business email', desc: 'Google Workspace or Zoho Mail on your domain (e.g. hello@yourbrand.in). Zoho has a free tier popular in India.' },
             { name: 'Hosting (if not us/Shopify)', desc: 'For WooCommerce/custom we usually host on Vercel or a managed host. If you have existing hosting, share access.' },
             { name: 'GitHub (custom builds)', desc: 'For custom stores, code lives in a GitHub repo that deploys to Vercel. We can host it under Uxory or your own org.' },
@@ -142,7 +142,7 @@ export const indiaGuide: Guide = {
         {
           type: 'note',
           variant: 'warn',
-          text: 'India-specific — SMS OTP requires DLT registration. By TRAI rules, every business sending SMS must register as a Principal Entity on a DLT platform (Jio, Airtel, Vodafone-Idea, etc.), register your Sender ID (Header), and pre-register message templates. This involves KYC and can take several days to a couple of weeks — start early. WhatsApp Business API also requires Meta business verification.',
+          text: 'India-specific - SMS OTP requires DLT registration. By TRAI rules, every business sending SMS must register as a Principal Entity on a DLT platform (Jio, Airtel, Vodafone-Idea, etc.), register your Sender ID (Header), and pre-register message templates. This involves KYC and can take several days to a couple of weeks - start early. WhatsApp Business API also requires Meta business verification.',
         },
         {
           type: 'accounts',
@@ -163,13 +163,13 @@ export const indiaGuide: Guide = {
           items: [
             { name: 'Razorpay', desc: 'The most common choice in India. Supports UPI, cards, netbanking, wallets, EMI. Needs business KYC: PAN, bank account, and GST if registered.' },
             { name: 'Cashfree / PhonePe / Paytm', desc: 'Strong alternatives, competitive pricing, also UPI-first.' },
-            { name: 'Stripe (India)', desc: 'Powerful but availability is limited/invite-based in India — best if you also sell internationally.' },
+            { name: 'Stripe (India)', desc: 'Powerful but availability is limited/invite-based in India - best if you also sell internationally.' },
           ],
         },
         {
           type: 'note',
           variant: 'info',
-          text: 'UPI comes built-in with Razorpay/PhonePe/Paytm — no separate integration needed. Note settlement cycles (T+2 is typical) and that accepting international cards may need extra approval. You create the gateway account and complete KYC; then share API keys with us.',
+          text: 'UPI comes built-in with Razorpay/PhonePe/Paytm - no separate integration needed. Note settlement cycles (T+2 is typical) and that accepting international cards may need extra approval. You create the gateway account and complete KYC; then share API keys with us.',
         },
       ],
     },
@@ -184,11 +184,11 @@ export const indiaGuide: Guide = {
         {
           type: 'accounts',
           items: [
-            { name: 'Shiprocket', desc: 'Popular India aggregator — multiple couriers, one dashboard, COD support, easy returns.' },
+            { name: 'Shiprocket', desc: 'Popular India aggregator - multiple couriers, one dashboard, COD support, easy returns.' },
             { name: 'Delhivery / Blue Dart / DTDC', desc: 'Direct courier integrations if you prefer a single carrier or have volume rates.' },
           ],
         },
-        { type: 'note', variant: 'info', text: 'Decide upfront whether you\'ll offer Cash on Delivery (COD) — it\'s expected by many Indian shoppers but adds RTO (return-to-origin) risk. We\'ll set COD rules accordingly.' },
+        { type: 'note', variant: 'info', text: 'Decide upfront whether you\'ll offer Cash on Delivery (COD) - it\'s expected by many Indian shoppers but adds RTO (return-to-origin) risk. We\'ll set COD rules accordingly.' },
       ],
     },
     {
@@ -208,7 +208,7 @@ export const indiaGuide: Guide = {
         {
           type: 'note',
           variant: 'warn',
-          text: 'India specifics: the Consumer Protection (E-Commerce) Rules, 2020 require a named Grievance Officer and country-of-origin on products. GST-compliant tax invoices are needed if you\'re GST-registered. The DPDP Act (data protection) sets expectations for handling customer data. We\'ll wire these in — please provide your GSTIN and grievance contact.',
+          text: 'India specifics: the Consumer Protection (E-Commerce) Rules, 2020 require a named Grievance Officer and country-of-origin on products. GST-compliant tax invoices are needed if you\'re GST-registered. The DPDP Act (data protection) sets expectations for handling customer data. We\'ll wire these in - please provide your GSTIN and grievance contact.',
         },
       ],
     },
@@ -219,12 +219,12 @@ export const indiaGuide: Guide = {
         {
           type: 'checklist',
           items: [
-            'Google Analytics 4 (GA4) — traffic and conversion tracking',
-            'Google Search Console — SEO health and indexing',
-            'Meta Pixel — Facebook/Instagram ad tracking & retargeting',
-            'Google Merchant Center — free & paid product listings on Google',
-            'Email marketing (Mailchimp / Klaviyo) — newsletters, abandoned-cart flows',
-            'WhatsApp Business — order updates and support (widely expected in India)',
+            'Google Analytics 4 (GA4) - traffic and conversion tracking',
+            'Google Search Console - SEO health and indexing',
+            'Meta Pixel - Facebook/Instagram ad tracking & retargeting',
+            'Google Merchant Center - free & paid product listings on Google',
+            'Email marketing (Mailchimp / Klaviyo) - newsletters, abandoned-cart flows',
+            'WhatsApp Business - order updates and support (widely expected in India)',
           ],
         },
       ],
@@ -235,7 +235,7 @@ export const indiaGuide: Guide = {
       blocks: [
         {
           type: 'text',
-          text: 'Before go-live we run a structured round of testing and feedback. This is where the Uxory client portal makes life easy — you point at any page, mark the exact section, and request changes with screenshots. No messy email threads.',
+          text: 'Before go-live we run a structured round of testing and feedback. This is where the Uxory client portal makes life easy - you point at any page, mark the exact section, and request changes with screenshots. No messy email threads.',
         },
         {
           type: 'checklist',
@@ -243,7 +243,7 @@ export const indiaGuide: Guide = {
             'User acceptance testing (you try real orders end-to-end)',
             'Structured feedback rounds via the Uxory client portal',
             'Go-live checklist: payments live, SSL, redirects, analytics firing',
-            'Credentials handover — every account stays in your name',
+            'Credentials handover - every account stays in your name',
             'Training session + a support/maintenance plan',
           ],
         },
@@ -252,7 +252,7 @@ export const indiaGuide: Guide = {
     {
       id: 'timeline',
       title: '11. What we need from you, when',
-      intro: 'A quick map so nothing blocks the build. Typical durations — yours may vary with scope.',
+      intro: 'A quick map so nothing blocks the build. Typical durations - yours may vary with scope.',
       blocks: [
         {
           type: 'table',
@@ -260,7 +260,7 @@ export const indiaGuide: Guide = {
           rows: [
             ['Discovery', 'Goals, catalogue size, references', '2–4 days'],
             ['Platform & design', 'Logo, brand, product photos/copy', '1–2 weeks'],
-            ['Accounts', 'Domain, email, payment KYC, DLT (start early!)', 'Parallel — start day 1'],
+            ['Accounts', 'Domain, email, payment KYC, DLT (start early!)', 'Parallel - start day 1'],
             ['Build', 'Timely feedback via the portal', '3–8 weeks (scope-based)'],
             ['Launch', 'Final approval, go-live sign-off', '2–5 days'],
           ],
@@ -268,7 +268,7 @@ export const indiaGuide: Guide = {
         {
           type: 'note',
           variant: 'info',
-          text: 'The two things that most often delay Indian ecommerce launches are DLT registration (for SMS OTP) and payment-gateway KYC — both are on your side and both take time. Start them on day one and the rest of the build won\'t wait on them.',
+          text: 'The two things that most often delay Indian ecommerce launches are DLT registration (for SMS OTP) and payment-gateway KYC - both are on your side and both take time. Start them on day one and the rest of the build won\'t wait on them.',
         },
       ],
     },
@@ -281,14 +281,14 @@ export const indiaGuide: Guide = {
 export const usaGuide: Guide = {
   country: 'USA',
   flag: '🇺🇸',
-  title: 'Ecommerce Onboarding — USA',
+  title: 'Ecommerce Onboarding - USA',
   subtitle: 'What to expect when we build your online store, step by step. Everything you\'ll need to prepare, in the order you\'ll need it.',
   currency: '$',
   phases: [
     {
       id: 'discovery',
       title: '1. Discovery & scope',
-      intro: 'We start by understanding your business so we recommend the right approach — not the most expensive one.',
+      intro: 'We start by understanding your business so we recommend the right approach - not the most expensive one.',
       blocks: [
         {
           type: 'checklist',
@@ -305,7 +305,7 @@ export const usaGuide: Guide = {
     {
       id: 'platform',
       title: '2. Choose your platform',
-      intro: 'The foundation. Each option is a valid choice — the right one depends on your catalogue, budget and how custom your store needs to be.',
+      intro: 'The foundation. Each option is a valid choice - the right one depends on your catalogue, budget and how custom your store needs to be.',
       blocks: [platformOptions, stackNote],
     },
     {
@@ -316,7 +316,7 @@ export const usaGuide: Guide = {
         {
           type: 'accounts',
           items: [
-            { name: 'Domain registrar', desc: 'Where your domain (yourbrand.com) is registered — e.g. GoDaddy, Namecheap, Cloudflare. We\'ll need access to point DNS.' },
+            { name: 'Domain registrar', desc: 'Where your domain (yourbrand.com) is registered - e.g. GoDaddy, Namecheap, Cloudflare. We\'ll need access to point DNS.' },
             { name: 'Business email', desc: 'Google Workspace or Microsoft 365 on your domain (e.g. hello@yourbrand.com).' },
             { name: 'Hosting (if not us/Shopify)', desc: 'For WooCommerce/custom we usually host on Vercel or a managed host. If you have existing hosting, share access.' },
             { name: 'GitHub (custom builds)', desc: 'For custom stores, code lives in a GitHub repo that deploys to Vercel. We can host it under Uxory or your own org.' },
@@ -346,12 +346,12 @@ export const usaGuide: Guide = {
         {
           type: 'note',
           variant: 'warn',
-          text: 'US-specific — SMS requires A2P 10DLC registration. To send application-to-person SMS on US networks you must register your Brand and Campaign (via Twilio or your provider). It\'s faster and lighter than India\'s DLT but still needs doing before OTP works. Tip: email-based OTP avoids this entirely if SMS isn\'t essential.',
+          text: 'US-specific - SMS requires A2P 10DLC registration. To send application-to-person SMS on US networks you must register your Brand and Campaign (via Twilio or your provider). It\'s faster and lighter than India\'s DLT but still needs doing before OTP works. Tip: email-based OTP avoids this entirely if SMS isn\'t essential.',
         },
         {
           type: 'accounts',
           items: [
-            { name: 'Twilio', desc: 'The default US choice for SMS/OTP — reliable, great docs, handles 10DLC registration.' },
+            { name: 'Twilio', desc: 'The default US choice for SMS/OTP - reliable, great docs, handles 10DLC registration.' },
             { name: 'MessageBird / AWS SNS', desc: 'Alternatives depending on volume and existing cloud stack.' },
           ],
         },
@@ -389,10 +389,10 @@ export const usaGuide: Guide = {
           type: 'accounts',
           items: [
             { name: 'Shippo / EasyPost', desc: 'Multi-carrier (USPS, UPS, FedEx) with discounted rates and one API/dashboard.' },
-            { name: 'ShipStation', desc: 'Great for higher order volumes — batch labels, automation rules, returns.' },
+            { name: 'ShipStation', desc: 'Great for higher order volumes - batch labels, automation rules, returns.' },
           ],
         },
-        { type: 'note', variant: 'info', text: 'Plan your returns policy early (free returns? restocking fee? prepaid labels?) — it affects checkout copy and logistics setup.' },
+        { type: 'note', variant: 'info', text: 'Plan your returns policy early (free returns? restocking fee? prepaid labels?) - it affects checkout copy and logistics setup.' },
       ],
     },
     {
@@ -412,7 +412,7 @@ export const usaGuide: Guide = {
         {
           type: 'note',
           variant: 'warn',
-          text: 'US specifics: sales-tax nexus (above); CCPA/CPRA if you have California customers (privacy rights + a "Do Not Sell" link); ADA accessibility is an expectation and a litigation risk — we build to WCAG standards; and CAN-SPAM rules for marketing email (clear unsubscribe, valid physical address).',
+          text: 'US specifics: sales-tax nexus (above); CCPA/CPRA if you have California customers (privacy rights + a "Do Not Sell" link); ADA accessibility is an expectation and a litigation risk - we build to WCAG standards; and CAN-SPAM rules for marketing email (clear unsubscribe, valid physical address).',
         },
       ],
     },
@@ -423,12 +423,12 @@ export const usaGuide: Guide = {
         {
           type: 'checklist',
           items: [
-            'Google Analytics 4 (GA4) — traffic and conversion tracking',
-            'Google Search Console — SEO health and indexing',
-            'Meta Pixel — Facebook/Instagram ad tracking & retargeting',
-            'Google Merchant Center — free & paid product listings on Google',
-            'Email marketing (Klaviyo / Mailchimp) — newsletters, abandoned-cart flows',
-            'TikTok / Pinterest pixels — if those channels fit your audience',
+            'Google Analytics 4 (GA4) - traffic and conversion tracking',
+            'Google Search Console - SEO health and indexing',
+            'Meta Pixel - Facebook/Instagram ad tracking & retargeting',
+            'Google Merchant Center - free & paid product listings on Google',
+            'Email marketing (Klaviyo / Mailchimp) - newsletters, abandoned-cart flows',
+            'TikTok / Pinterest pixels - if those channels fit your audience',
           ],
         },
       ],
@@ -439,7 +439,7 @@ export const usaGuide: Guide = {
       blocks: [
         {
           type: 'text',
-          text: 'Before go-live we run a structured round of testing and feedback. This is where the Uxory client portal makes life easy — you point at any page, mark the exact section, and request changes with screenshots. No messy email threads.',
+          text: 'Before go-live we run a structured round of testing and feedback. This is where the Uxory client portal makes life easy - you point at any page, mark the exact section, and request changes with screenshots. No messy email threads.',
         },
         {
           type: 'checklist',
@@ -447,7 +447,7 @@ export const usaGuide: Guide = {
             'User acceptance testing (you try real orders end-to-end)',
             'Structured feedback rounds via the Uxory client portal',
             'Go-live checklist: payments live, SSL, redirects, analytics firing',
-            'Credentials handover — every account stays in your name',
+            'Credentials handover - every account stays in your name',
             'Training session + a support/maintenance plan',
           ],
         },
@@ -456,7 +456,7 @@ export const usaGuide: Guide = {
     {
       id: 'timeline',
       title: '11. What we need from you, when',
-      intro: 'A quick map so nothing blocks the build. Typical durations — yours may vary with scope.',
+      intro: 'A quick map so nothing blocks the build. Typical durations - yours may vary with scope.',
       blocks: [
         {
           type: 'table',
@@ -464,7 +464,7 @@ export const usaGuide: Guide = {
           rows: [
             ['Discovery', 'Goals, catalogue size, references', '2–4 days'],
             ['Platform & design', 'Logo, brand, product photos/copy', '1–2 weeks'],
-            ['Accounts', 'Domain, email, payment verification, 10DLC (if SMS)', 'Parallel — start day 1'],
+            ['Accounts', 'Domain, email, payment verification, 10DLC (if SMS)', 'Parallel - start day 1'],
             ['Build', 'Timely feedback via the portal', '3–8 weeks (scope-based)'],
             ['Launch', 'Final approval, go-live sign-off', '2–5 days'],
           ],
@@ -472,7 +472,7 @@ export const usaGuide: Guide = {
         {
           type: 'note',
           variant: 'info',
-          text: 'The two things worth starting on day one are payment-gateway verification and (if you\'re using SMS) A2P 10DLC registration — both are on your side and take a little lead time. Everything else we can build in parallel.',
+          text: 'The two things worth starting on day one are payment-gateway verification and (if you\'re using SMS) A2P 10DLC registration - both are on your side and take a little lead time. Everything else we can build in parallel.',
         },
       ],
     },

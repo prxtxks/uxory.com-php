@@ -2,7 +2,7 @@
  * Central site configuration.
  *
  * When Uxory acquires uxory.com and switches the primary domain, change
- * SITE_URL here and update the Vercel domain settings — nothing else in the
+ * SITE_URL here and update the Vercel domain settings - nothing else in the
  * codebase should hardcode the origin. New code MUST import SITE_URL from here
  * rather than hardcoding the domain.
  */

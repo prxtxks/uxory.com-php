@@ -1,5 +1,5 @@
 /**
- * Uxory Instant Estimate — rate card.
+ * Uxory Instant Estimate - rate card.
  *
  * EVERY tunable number lives here. The engine (engine.ts) is pure math over
  * this file. Rates are "friendly new-agency" (~60–70% of average local agency
@@ -163,13 +163,13 @@ export const RUSH_MULTIPLIER = 1.25;
 /** Indicative range half-width around the point estimate. */
 export const RANGE_SPREAD = 0.12;
 
-/** Monthly maintenance (money/month) — shown as a separate line, not summed. */
+/** Monthly maintenance (money/month) - shown as a separate line, not summed. */
 export const MAINTENANCE_MONTHLY: Record<Region, number> = {
   IN: 1999,
   GLOBAL: 29,
 };
 
-/** Uxory SMB hosting (money/year) — separate line, not summed. */
+/** Uxory SMB hosting (money/year) - separate line, not summed. */
 export const HOSTING_YEARLY: Record<Region, number> = {
   IN: 9999,
   GLOBAL: 139,

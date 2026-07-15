@@ -13,7 +13,7 @@
 
 /*
  * Slimmer primary buttons. The compiled main.css ships .rv-button at
- * 25px/39px padding, which reads oversized — especially on mobile. This sheet
+ * 25px/39px padding, which reads oversized - especially on mobile. This sheet
  * loads after main.css, so these win on equal specificity.
  */
 .rv-button .rv-button-top,

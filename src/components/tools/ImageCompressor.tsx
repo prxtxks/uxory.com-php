@@ -233,7 +233,7 @@ export default function ImageCompressor() {
       </div>
 
       <p className="text-center text-xs text-secondary/40 dark:text-backgroundBody/40 mt-3">
-        🔒 Images never leave your device — compression happens entirely in your browser.
+        🔒 Images never leave your device - compression happens entirely in your browser.
       </p>
 
       {/* Action bar */}

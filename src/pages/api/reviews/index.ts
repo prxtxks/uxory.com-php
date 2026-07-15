@@ -139,29 +139,29 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
       .eq('email', emailKey)
       .maybeSingle();
     if (!otpRow) {
-      return new Response(JSON.stringify({ status: 'error', message: 'No code found for this email — tap "Send code" first.' }), {
+      return new Response(JSON.stringify({ status: 'error', message: 'No code found for this email - tap "Send code" first.' }), {
         status: 400, headers: { 'Content-Type': 'application/json' }
       });
     }
     if (new Date(otpRow.expires_at).getTime() < Date.now()) {
       await supabase.from('review_otps').delete().eq('email', emailKey);
-      return new Response(JSON.stringify({ status: 'error', message: 'That code expired — request a new one.' }), {
+      return new Response(JSON.stringify({ status: 'error', message: 'That code expired - request a new one.' }), {
         status: 400, headers: { 'Content-Type': 'application/json' }
       });
     }
     if (otpRow.attempts >= 5) {
       await supabase.from('review_otps').delete().eq('email', emailKey);
-      return new Response(JSON.stringify({ status: 'error', message: 'Too many attempts — request a new code.' }), {
+      return new Response(JSON.stringify({ status: 'error', message: 'Too many attempts - request a new code.' }), {
         status: 429, headers: { 'Content-Type': 'application/json' }
       });
     }
     if (otpRow.code_hash !== hashCode(otp)) {
       await supabase.from('review_otps').update({ attempts: otpRow.attempts + 1 }).eq('email', emailKey);
-      return new Response(JSON.stringify({ status: 'error', message: "That code doesn't match — double-check and try again." }), {
+      return new Response(JSON.stringify({ status: 'error', message: "That code doesn't match - double-check and try again." }), {
         status: 400, headers: { 'Content-Type': 'application/json' }
       });
     }
-    // Code is good — consume it (single use).
+    // Code is good - consume it (single use).
     await supabase.from('review_otps').delete().eq('email', emailKey);
 
     // Resolve location for the globe (offline lookup; null is fine)

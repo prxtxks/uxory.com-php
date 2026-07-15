@@ -14,9 +14,9 @@ function prettyCategory(cat?: string | null): string {
   return cat.replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase());
 }
 
-// Desktop blog card — close to the original live layout: portrait image, title,
+// Desktop blog card - close to the original live layout: portrait image, title,
 // excerpt, "minute read" link. Fills its grid column (no max-width) so cards sit
-// close together. Hover is a gentle image zoom (clipped by the rounded frame) —
+// close together. Hover is a gentle image zoom (clipped by the rounded frame) -
 // no whole-card scale/rotate, which previously looked "cut".
 export function BlogCard({ imageUrl, title, category, description, meta, href }: BlogCardProps) {
   return (

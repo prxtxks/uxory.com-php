@@ -3,9 +3,9 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 /* Shared UI primitives for the Instant Estimate wizard.
    Design language: glassy cards over the site's dark/light surfaces, teal
-   #12D8CC accents with soft glows, gradient edges — an "AI console" feel. */
+   #12D8CC accents with soft glows, gradient edges - an "AI console" feel. */
 
-/* Four-point spark — the ✦ used across the site's marquees. */
+/* Four-point spark - the ✦ used across the site's marquees. */
 export function Spark({ size = 14, className = '' }: { size?: number; className?: string }) {
   return (
     <svg width={size} height={size} viewBox="0 0 40 40" fill="none" className={className} aria-hidden="true">

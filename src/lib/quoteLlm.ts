@@ -1,5 +1,5 @@
 /**
- * LLM enhancer for the Instant Estimate — Gemini as a bounded advisor.
+ * LLM enhancer for the Instant Estimate - Gemini as a bounded advisor.
  *
  * The model NEVER prices anything. It returns a percentage adjustment to the
  * deterministic engine's hours, which we clamp to LLM_ADJUSTMENT_CLAMP before
@@ -76,6 +76,6 @@ Respond with JSON only.`;
     const notes = Array.isArray(parsed.notes) ? parsed.notes.slice(0, 3).map(String) : [];
     return { pct, notes };
   } catch {
-    return null; // graceful: quota, timeout, parse — all fall back silently
+    return null; // graceful: quota, timeout, parse - all fall back silently
   }
 }

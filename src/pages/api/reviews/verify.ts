@@ -42,7 +42,7 @@ export const POST: APIRoute = async ({ request }) => {
       .eq('email', email)
       .maybeSingle();
     if (existing && Date.now() - new Date(existing.created_at).getTime() < 60_000) {
-      return json({ status: 'error', message: 'Code already sent — check your inbox (you can resend in a minute).' }, 429);
+      return json({ status: 'error', message: 'Code already sent - check your inbox (you can resend in a minute).' }, 429);
     }
 
     const code = crypto.randomInt(100000, 1000000).toString();
@@ -67,7 +67,7 @@ export const POST: APIRoute = async ({ request }) => {
           <p>Your verification code for posting a review on Uxory is:</p>
           <p style="font-size:28px;font-weight:bold;letter-spacing:6px;color:#0aa89e">${code}</p>
           <p>It expires in 10 minutes. If you didn't request this, you can ignore this email.</p>
-          <p>— Uxory (uxory.in)</p>`,
+          <p>- Uxory (uxory.in)</p>`,
       });
       if (mailErr) {
         console.error('OTP email failed:', mailErr);
@@ -80,9 +80,9 @@ export const POST: APIRoute = async ({ request }) => {
     // dev → return the code so the flow is testable locally.
     // prod → fail loudly rather than silently un-verifiable.
     if (import.meta.env.DEV) {
-      return json({ status: 'success', message: 'DEV: no RESEND_API_KEY — code returned for testing.', dev_code: code });
+      return json({ status: 'success', message: 'DEV: no RESEND_API_KEY - code returned for testing.', dev_code: code });
     }
-    console.error('RESEND_API_KEY missing in production — cannot send review OTP.');
+    console.error('RESEND_API_KEY missing in production - cannot send review OTP.');
     return json({ status: 'error', message: 'Verification is temporarily unavailable. Please try later.' }, 503);
   } catch (e) {
     console.error('Review OTP error:', e);

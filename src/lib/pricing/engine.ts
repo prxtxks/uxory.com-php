@@ -1,9 +1,9 @@
 /**
- * Uxory Instant Estimate — deterministic pricing engine.
+ * Uxory Instant Estimate - deterministic pricing engine.
  *
  * Pure function over rateCard.ts: same answers in → same quote out, on both
  * client (live preview) and server (source of truth at submit). The LLM layer
- * may only nudge `hours` via a clamped percentage — it never prices anything
+ * may only nudge `hours` via a clamped percentage - it never prices anything
  * itself.
  */
 import {
@@ -150,7 +150,7 @@ export function estimate(a: QuoteAnswers, region: Region, llmAdjustPct = 0): Quo
         items.push({
           label: `Products beyond 100 (${count - 100})`,
           amount: null,
-          note: 'custom volume pricing — we’ll confirm on the call',
+          note: 'custom volume pricing - we’ll confirm on the call',
         });
       }
       break;
@@ -198,7 +198,7 @@ export function estimate(a: QuoteAnswers, region: Region, llmAdjustPct = 0): Quo
   if (supabase) backendHours *= 1 - SUPABASE_DISCOUNT;
   addHours(
     backendKey === 'supabase'
-      ? 'Supabase backend (recommended — cost saving applied)'
+      ? 'Supabase backend (recommended - cost saving applied)'
       : backendKey === 'custom'
         ? 'Custom backend & database'
         : backendKey === 'existing_api'
@@ -287,7 +287,7 @@ export function estimate(a: QuoteAnswers, region: Region, llmAdjustPct = 0): Quo
     items.push({
       label: 'SMS OTP note',
       amount: null,
-      note: 'India requires DLT registration for SMS — we guide you through it',
+      note: 'India requires DLT registration for SMS - we guide you through it',
     });
   }
 

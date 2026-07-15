@@ -1,5 +1,5 @@
 /**
- * Tiny offline geocoder for review locations — no external API.
+ * Tiny offline geocoder for review locations - no external API.
  * Reviews only need city-level accuracy for the globe. Unknown cities fall
  * back to the country centroid (with a small deterministic jitter so several
  * reviews from one country don't stack on the exact same pixel).

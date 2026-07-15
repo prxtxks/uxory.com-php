@@ -8,7 +8,7 @@ import { Spark } from './controls';
 
 function CountUp({ to, locale, prefix }: { to: number; locale: string; prefix: string }) {
   // Plain React state (not a MotionValue rendered by framer) so the fallback
-  // below can flush outside framer's rAF-gated pipeline — rAF is suspended in
+  // below can flush outside framer's rAF-gated pipeline - rAF is suspended in
   // background/throttled tabs and would otherwise freeze the figure at 0.
   const [val, setVal] = useState(0);
   useEffect(() => {
@@ -188,7 +188,7 @@ export default function PriceReveal({
 
       {submitState === 'error' && (
         <p className="relative mt-3 text-sm text-red-400">
-          Couldn't send just now — please retry, or email us at contact@uxory.in
+          Couldn't send just now - please retry, or email us at contact@uxory.in
         </p>
       )}
 

@@ -158,7 +158,7 @@ export default function ReviewsGlobe({ reviews }: { reviews: GlobeReview[] }) {
       // cobe positions its marker anchors only once at init, so cards pinned to
       // them freeze while the globe rotates. Instead we replicate cobe's own
       // projection (dist O()/U(): sphere radius 0.8, scale 1, offset 0, square
-      // canvas) with the exact phi/theta we feed it — cards track every frame.
+      // canvas) with the exact phi/theta we feed it - cards track every frame.
       function animate() {
         if (!isPausedRef.current) phi += speed;
         const f = phi + phiOffsetRef.current + dragOffset.current.phi;
@@ -276,7 +276,7 @@ export default function ReviewsGlobe({ reviews }: { reviews: GlobeReview[] }) {
           </div>
 
           {/* Mobile: iMessage-style bubble whose tail tip sits on the exact
-              location (cobe dots are hidden on mobile — the bubble is the pin). */}
+              location (cobe dots are hidden on mobile - the bubble is the pin). */}
           <div className="sm:hidden relative" style={{ marginBottom: 4 }}>
             <div
               className="inline-block whitespace-nowrap rounded-xl bg-primary text-[#0d0d0d] shadow-md"

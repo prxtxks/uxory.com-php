@@ -19,7 +19,7 @@ import ReviewsGlobe from './ReviewsGlobe';
 type SortKey = 'newest' | 'highest' | 'lowest';
 
 // ─────────────────────────────────────────────────────────────
-// Rating summary — average, stars, and review count (no per-star breakdown)
+// Rating summary - average, stars, and review count (no per-star breakdown)
 // ─────────────────────────────────────────────────────────────
 function RatingSummary({ reviews }: { reviews: Review[] }) {
   const total = reviews.length;
@@ -27,7 +27,7 @@ function RatingSummary({ reviews }: { reviews: Review[] }) {
 
   return (
     <div className="review-card border dark:border-dark p-6 md:p-8 flex flex-col items-center justify-center text-center gap-3 max-w-[260px] mx-auto">
-      <div className="text-6xl font-medium text-primary leading-none">{total ? avg.toFixed(1) : '—'}</div>
+      <div className="text-6xl font-medium text-primary leading-none">{total ? avg.toFixed(1) : '-'}</div>
       <Stars value={avg} size={22} />
       <p className="text-sm text-secondary/50 dark:text-backgroundBody/50">
         Based on {total} review{total === 1 ? '' : 's'}
@@ -67,7 +67,7 @@ function SortFilterBar({
       </p>
 
       <div className="flex items-center gap-2">
-        {/* Sort — segmented pill control */}
+        {/* Sort - segmented pill control */}
         <div className="inline-flex items-center gap-0.5 rounded-full border border-secondary/10 bg-secondary/[0.04] p-0.5 dark:border-white/10 dark:bg-white/5">
           {sorts.map(([k, label]) => (
             <button
@@ -84,7 +84,7 @@ function SortFilterBar({
           ))}
         </div>
 
-        {/* Rating filter — only meaningful once more than one rating exists */}
+        {/* Rating filter - only meaningful once more than one rating exists */}
         {availableRatings.length > 1 && (
           <div className="relative">
             <select
@@ -145,7 +145,7 @@ function ReviewForm({ onPosted }: { onPosted: (r: Review, token: string) => void
         setOtpSent(true);
         setOtpNote(
           data.dev_code
-            ? `Dev mode — your code is ${data.dev_code}`
+            ? `Dev mode - your code is ${data.dev_code}`
             : 'We emailed you a 6-digit code. It expires in 10 minutes.'
         );
       } else {
@@ -169,7 +169,7 @@ function ReviewForm({ onPosted }: { onPosted: (r: Review, token: string) => void
       return;
     }
     if (!otpSent) {
-      setStatus({ type: 'error', msg: 'Please verify your email — tap "Send code" and enter the code.' });
+      setStatus({ type: 'error', msg: 'Please verify your email - tap "Send code" and enter the code.' });
       return;
     }
     const token = recaptcha.getToken();
@@ -206,12 +206,12 @@ function ReviewForm({ onPosted }: { onPosted: (r: Review, token: string) => void
   return (
     <div className="max-w-[720px] mx-auto mb-12">
       <div className="text-center">
-        <button onClick={() => setOpen((o) => !o)} className="rv-button rv-button-primary">
+        <button onClick={() => setOpen((o) => !o)} className="rv-button rv-button-primary inline-block">
           <div className="rv-button-top">
-            <span>{open ? 'Close' : 'Write a review'}</span>
+            <span className="text-nowrap">{open ? 'Close' : 'Write a review'}</span>
           </div>
           <div className="rv-button-bottom">
-            <span>{open ? 'Close' : 'Write a review'}</span>
+            <span className="text-nowrap">{open ? 'Close' : 'Write a review'}</span>
           </div>
         </button>
       </div>
@@ -262,7 +262,7 @@ function ReviewForm({ onPosted }: { onPosted: (r: Review, token: string) => void
                 </button>
               </div>
               <p className="text-[11px] text-secondary/40 dark:text-backgroundBody/40 mt-1">
-                Never shown publicly — verifies your review is real.
+                Never shown publicly - verifies your review is real.
               </p>
             </div>
 
@@ -290,7 +290,7 @@ function ReviewForm({ onPosted }: { onPosted: (r: Review, token: string) => void
             </div>
             <div>
               <label className="text-sm text-secondary/70 dark:text-backgroundBody/70">
-                Country <span className="normal-case text-[11px] text-secondary/40 dark:text-backgroundBody/40">— puts you on the globe 🌍</span>
+                Country <span className="normal-case text-[11px] text-secondary/40 dark:text-backgroundBody/40">- puts you on the globe 🌍</span>
               </label>
               <input name="country" maxLength={80} placeholder="India, USA, Germany…" className={inputCls} />
             </div>
@@ -434,7 +434,7 @@ function ReviewCard({
               long && !expanded ? 'line-clamp-4' : ''
             }`}
           >
-            {review.review_text}
+            {review.review_text.replace(/—/g, '-')}
           </p>
           {long && (
             <button
@@ -528,11 +528,11 @@ export default function ReviewsApp() {
         </div>
       ) : (
         <>
-          {/* Reviews around the world — interactive globe */}
+          {/* Reviews around the world - interactive globe */}
           <div className="mb-12">
             <ReviewsGlobe reviews={reviews as any} />
             <p className="text-center text-xs text-secondary/40 dark:text-backgroundBody/40 mt-3">
-              Drag to explore — verified reviews from around the world
+              Drag to explore - verified reviews from around the world
             </p>
           </div>
 

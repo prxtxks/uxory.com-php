@@ -32,7 +32,7 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
     const body = await request.json().catch(() => null);
     if (!body) return json({ status: 'error', message: 'Invalid request.' }, 400);
 
-    // Honeypot — hidden field must stay empty
+    // Honeypot - hidden field must stay empty
     if (typeof body.website === 'string' && body.website.trim() !== '') {
       return json({ status: 'success', message: 'Quote sent!' }, 200);
     }
@@ -112,7 +112,7 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
       const fmt = (n: number) => sym + Math.round(n).toLocaleString(locale);
       const resend = new Resend(resendKey);
       try {
-        // Owner notification — full detail
+        // Owner notification - full detail
         await resend.emails.send({
           from: 'Uxory Quotes <onboarding@resend.dev>',
           to: 'uxoryllc@gmail.com',
@@ -121,11 +121,11 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
             <p><strong>${name}</strong> (${email})${company ? ` · ${company}` : ''}${phone ? ` · ${phone}` : ''}</p>
             <p><strong>Category:</strong> ${answers.category} · <strong>Region:</strong> ${region} · <strong>Hours:</strong> ${quote.hours}</p>
             <p><strong>Range:</strong> ${fmt(quote.low)} – ${fmt(quote.high)}${quote.flooredTo ? ' (floored to package)' : ''}</p>
-            ${llmUsed ? `<p><strong>LLM adjustment:</strong> ${llmPct}% · notes: ${llmNotes.join('; ') || '—'}</p>` : '<p>LLM: not used</p>'}
+            ${llmUsed ? `<p><strong>LLM adjustment:</strong> ${llmPct}% · notes: ${llmNotes.join('; ') || '-'}</p>` : '<p>LLM: not used</p>'}
             ${comment ? `<p><strong>Client comment:</strong> ${escapeHtml(comment)}</p>` : ''}
             ${answers.description ? `<p><strong>Description:</strong> ${escapeHtml(answers.description)}</p>` : ''}
             <h3>Line items</h3>
-            <ul>${quote.lineItems.map((i) => `<li>${i.label}${i.amount != null ? ` — ${fmt(i.amount)}` : ''}${i.note ? ` (${i.note})` : ''}</li>`).join('')}</ul>
+            <ul>${quote.lineItems.map((i) => `<li>${i.label}${i.amount != null ? ` - ${fmt(i.amount)}` : ''}${i.note ? ` (${i.note})` : ''}</li>`).join('')}</ul>
             <h3>Raw answers</h3>
             <pre style="font-size:12px">${escapeHtml(JSON.stringify(answers, null, 2))}</pre>`,
         });

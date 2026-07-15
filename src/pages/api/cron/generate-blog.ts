@@ -55,8 +55,8 @@ async function generatePost(
   category: string,
   items: { title: string; link: string; snippet: string }[],
 ) {
-  const sourceList = items.map((i, n) => `${n + 1}. ${i.title} — ${i.snippet} (${i.link})`).join('\n');
-  const prompt = `You are a senior writer for Uxory, a software/AI agency. Using the recent ${category} news items below as inspiration, write ONE original, insightful blog post (do NOT copy text — synthesize and analyse). Audience: business owners and founders. Tone: clear, practical, confident, no fluff.
+  const sourceList = items.map((i, n) => `${n + 1}. ${i.title} - ${i.snippet} (${i.link})`).join('\n');
+  const prompt = `You are a senior writer for Uxory, a software/AI agency. Using the recent ${category} news items below as inspiration, write ONE original, insightful blog post (do NOT copy text - synthesize and analyse). Audience: business owners and founders. Tone: clear, practical, confident, no fluff.
 
 Recent items:
 ${sourceList}

@@ -65,7 +65,7 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
           subject: `New referral from ${referrerEmail}`,
           html: `<p><strong>Referrer:</strong> ${referrerName || ''} &lt;${referrerEmail}&gt;</p>
                  <p><strong>Referred client:</strong> ${clientName || ''} &lt;${clientEmail}&gt;</p>
-                 <p><strong>Message:</strong> ${message || '—'}</p>`,
+                 <p><strong>Message:</strong> ${message || '-'}</p>`,
         })
         .catch((e) => console.error('Resend referral notify failed:', e));
     }

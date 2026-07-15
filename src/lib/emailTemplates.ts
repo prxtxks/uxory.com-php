@@ -733,7 +733,7 @@ export function quoteTemplate(p: QuoteEmailParams): string {
           <td align="left" style="padding:0 42px 16px 42px;font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.7;color:#333;">
             1. We review your requirements (a real human, within one business day)<br>
             2. A short call to lock scope &amp; timeline<br>
-            3. You get a fixed, itemised proposal — no surprises
+            3. You get a fixed, itemised proposal - no surprises
           </td>
         </tr>
 

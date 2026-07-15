@@ -31,7 +31,7 @@ export function useRecaptcha(active: boolean) {
           widgetId.current = window.grecaptcha.render(containerRef.current, { sitekey: RECAPTCHA_SITE_KEY });
           setReady(true);
         } catch {
-          /* already rendered or unavailable — ignore */
+          /* already rendered or unavailable - ignore */
         }
       } else {
         setTimeout(tryRender, 300);

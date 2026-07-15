@@ -3,7 +3,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { estimate, type QuoteAnswers, type Category } from '../../lib/pricing/engine';
 import type { Region } from '../../lib/pricing/rateCard';
-import { StepShell, OptionCard, Chip, Counter, SliderControl, TextField, Toggle, Spark } from './controls';
+import { StepShell, OptionCard, Chip, Counter, SliderControl, TextField, Toggle } from './controls';
 import PriceReveal from './PriceReveal';
 
 /* ── Types ── */
@@ -113,7 +113,7 @@ export default function QuoteWizard() {
     node: (
       <StepShell
         title="What are we building for you?"
-        subtitle="Answer a few questions — get an indicative quote in about 2 minutes."
+        subtitle="Answer a few questions - get an indicative quote in about 2 minutes."
       >
         <div className="grid grid-cols-2 gap-3 md:grid-cols-3">
           {(
@@ -123,7 +123,7 @@ export default function QuoteWizard() {
               ['mobile', 'Mobile app', 'iOS, Android or both'],
               ['ai_bot', 'AI bot / agent', 'Chat assistants that work 24/7'],
               ['automation', 'Automation', 'Connect your tools, kill busywork'],
-              ['custom', 'Something else', 'Describe it — we’ll estimate'],
+              ['custom', 'Something else', 'Describe it - we’ll estimate'],
             ] as [Category, string, string][]
           ).map(([key, label, hint]) => (
             <OptionCard
@@ -146,7 +146,7 @@ export default function QuoteWizard() {
       id: 'w-type',
       valid: !!a.websiteType,
       node: (
-        <StepShell title="What kind of website?" subtitle="Pick the closest match — you can refine on our call.">
+        <StepShell title="What kind of website?" subtitle="Pick the closest match - you can refine on our call.">
           <div className="grid grid-cols-2 gap-3">
             {(
               [
@@ -190,7 +190,7 @@ export default function QuoteWizard() {
       id: 'w-features',
       valid: true,
       node: (
-        <StepShell title="Any extras?" subtitle="Select everything that applies — skip if unsure.">
+        <StepShell title="Any extras?" subtitle="Select everything that applies - skip if unsure.">
           <div className="flex flex-wrap gap-2">
             {(
               [
@@ -221,7 +221,7 @@ export default function QuoteWizard() {
       id: 'e-platform',
       valid: !!a.platform && (a.platform !== 'custom' || !!a.techStack),
       node: (
-        <StepShell title="Which platform?" subtitle="We build on all of them — each has trade-offs we’ll walk you through.">
+        <StepShell title="Which platform?" subtitle="We build on all of them - each has trade-offs we’ll walk you through.">
           <div className="grid grid-cols-1 gap-3 md:grid-cols-3">
             {(
               [
@@ -262,7 +262,7 @@ export default function QuoteWizard() {
       node: (
         <StepShell
           title="How many products?"
-          subtitle={`First 10 are included. Beyond that ${currency}${state.region === 'IN' ? '1,500' : '25'}/product — with package discounts at 25+ and 50+.`}
+          subtitle={`First 10 are included. Beyond that ${currency}${state.region === 'IN' ? '1,500' : '25'}/product - with package discounts at 25+ and 50+.`}
         >
           <SliderControl
             value={a.productCount ?? 20}
@@ -298,7 +298,7 @@ export default function QuoteWizard() {
             ))}
           </div>
           <p className="mt-5 text-xs text-secondary/45 dark:text-backgroundBody/45">
-            Payments: {state.region === 'IN' ? 'Razorpay · UPI · PhonePe · Stripe' : 'Stripe · PayPal · Shopify Payments'} — we set up whichever you choose.
+            Payments: {state.region === 'IN' ? 'Razorpay · UPI · PhonePe · Stripe' : 'Stripe · PayPal · Shopify Payments'} - we set up whichever you choose.
           </p>
         </StepShell>
       ),
@@ -317,7 +317,7 @@ export default function QuoteWizard() {
               [
                 ['android', 'Android only', 'Play Store'],
                 ['ios', 'iOS only', 'App Store'],
-                ['cross', 'Both (recommended)', 'One codebase — React Native / Flutter'],
+                ['cross', 'Both (recommended)', 'One codebase - React Native / Flutter'],
               ] as [string, string, string][]
             ).map(([k, l, h]) => (
               <OptionCard key={k} selected={a.mobilePlatform === k} onClick={() => setA({ mobilePlatform: k as any })} label={l} hint={h} badge={k === 'cross' ? 'Best value' : undefined} />
@@ -330,7 +330,7 @@ export default function QuoteWizard() {
       id: 'm-size',
       valid: !!a.screenBand,
       node: (
-        <StepShell title="How big is the app?" subtitle="Rough screen count — think login, home, profile, settings…">
+        <StepShell title="How big is the app?" subtitle="Rough screen count - think login, home, profile, settings…">
           <div className="grid grid-cols-2 gap-3 md:grid-cols-4">
             {(
               [
@@ -386,7 +386,7 @@ export default function QuoteWizard() {
           <div className="flex flex-wrap gap-2">
             {(
               [
-                ['supabase', 'Supabase (recommended — saves cost)'],
+                ['supabase', 'Supabase (recommended - saves cost)'],
                 ['custom', 'Custom backend'],
                 ['existing_api', 'We already have an API'],
               ] as [string, string][]
@@ -517,7 +517,7 @@ export default function QuoteWizard() {
       id: 'auto-complexity',
       valid: !!a.automationComplexity,
       node: (
-        <StepShell title="How tangled is it?" subtitle="Honest guess is fine — we’ll confirm on the call.">
+        <StepShell title="How tangled is it?" subtitle="Honest guess is fine - we’ll confirm on the call.">
           <div className="grid grid-cols-1 gap-3 md:grid-cols-3">
             {(
               [
@@ -571,7 +571,7 @@ export default function QuoteWizard() {
               on={!!a.rush}
               onChange={(v) => setA({ rush: v })}
               label="Priority delivery"
-              hint="Jump the queue — we compress the timeline (+25%)"
+              hint="Jump the queue - we compress the timeline (+25%)"
             />
             <TextField
               label="Anything special we should know? (optional)"
@@ -589,7 +589,7 @@ export default function QuoteWizard() {
       valid:
         state.contact.name.trim().length > 1 && /^\S+@\S+\.\S+$/.test(state.contact.email),
       node: (
-        <StepShell title="Where should we send your quote?" subtitle="You'll see it on screen too — the email is your copy.">
+        <StepShell title="Where should we send your quote?" subtitle="You'll see it on screen too - the email is your copy.">
           <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
             <TextField label="Your name" value={state.contact.name} onChange={(v) => setContact({ name: v })} required placeholder="Full name" />
             <TextField label="Email" type="email" value={state.contact.email} onChange={(v) => setContact({ email: v })} required placeholder="you@company.com" />
@@ -649,7 +649,7 @@ export default function QuoteWizard() {
         </div>
         <div className="h-1.5 w-full overflow-hidden rounded-full bg-secondary/10 dark:bg-white/[0.08]">
           {/* Plain CSS transition (not framer) so the width is correct even
-              when rAF is throttled — motion width animates via the frame loop
+              when rAF is throttled - motion width animates via the frame loop
               and would leave the bar at its natural 100% width. */}
           <div
             className="h-full rounded-full bg-gradient-to-r from-primary to-[#5ee7d8] shadow-[0_0_12px_-2px_rgba(18,216,204,0.7)] transition-[width] duration-500 ease-out"
@@ -658,7 +658,7 @@ export default function QuoteWizard() {
         </div>
       </div>
 
-      {/* Step body — popLayout mounts the next step immediately while the old
+      {/* Step body - popLayout mounts the next step immediately while the old
           one animates out, so navigation never blocks on the exit animation
           (mode="wait" can freeze mid-transition in throttled/background tabs). */}
       <div className="relative min-h-[380px]">
@@ -701,25 +701,19 @@ export default function QuoteWizard() {
             </span>
           )}
 
-          <motion.button
+          <button
             type="button"
-            whileTap={{ scale: 0.97 }}
             disabled={!current.valid}
             onClick={() => go(1)}
-            className="group inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-primary to-[#12cfc4] px-8 py-3.5 text-base font-semibold text-black shadow-[0_8px_24px_-8px_rgba(18,216,204,0.7)] transition-all hover:shadow-[0_10px_30px_-6px_rgba(18,216,204,0.85)] disabled:cursor-not-allowed disabled:from-secondary/20 disabled:to-secondary/20 disabled:opacity-40 disabled:shadow-none dark:disabled:from-white/10 dark:disabled:to-white/10"
+            className="rv-button rv-button-primary inline-block disabled:pointer-events-none disabled:opacity-40"
           >
-            {stepIdx === steps.length - 2 ? (
-              <>
-                See my estimate
-                <Spark size={13} />
-              </>
-            ) : (
-              <>
-                Continue
-                <span className="transition-transform duration-200 group-hover:translate-x-0.5">→</span>
-              </>
-            )}
-          </motion.button>
+            <div className="rv-button-top">
+              <span className="text-nowrap">{stepIdx === steps.length - 2 ? 'See my estimate' : 'Continue'}</span>
+            </div>
+            <div className="rv-button-bottom">
+              <span className="text-nowrap">{stepIdx === steps.length - 2 ? 'See my estimate' : 'Continue'}</span>
+            </div>
+          </button>
         </div>
       )}
     </div>
@@ -755,13 +749,13 @@ function stackStep(a: QuoteAnswers, setA: (p: Partial<QuoteAnswers>) => void, re
     id: 'stack',
     valid: !!a.backend,
     node: (
-      <StepShell title="Data & hosting" subtitle="Choosing Supabase keeps your cost down — we pass the saving on.">
+      <StepShell title="Data & hosting" subtitle="Choosing Supabase keeps your cost down - we pass the saving on.">
         <p className="mb-2 text-sm text-secondary/60 dark:text-backgroundBody/60">Content & database:</p>
         <div className="flex flex-wrap gap-2">
           {(
             [
               ['none', 'No database needed'],
-              ['supabase', 'Supabase (recommended — saves ~20%)'],
+              ['supabase', 'Supabase (recommended - saves ~20%)'],
               ['custom', 'Custom backend'],
             ] as [string, string][]
           ).map(([k, l]) => (
@@ -788,7 +782,7 @@ function stackStep(a: QuoteAnswers, setA: (p: Partial<QuoteAnswers>) => void, re
             on={!!a.maintenance}
             onChange={(v) => setA({ maintenance: v })}
             label="Monthly maintenance plan"
-            hint={`Updates, backups, small changes — ${sym}${region === 'IN' ? '1,999' : '29'}/mo`}
+            hint={`Updates, backups, small changes - ${sym}${region === 'IN' ? '1,999' : '29'}/mo`}
           />
         </div>
       </StepShell>

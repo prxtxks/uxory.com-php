@@ -23,7 +23,7 @@ interface AnimatedGradientBackgroundProps {
 }
 
 /**
- * AnimatedGradientBackground — the 21st.dev component, verbatim, with the
+ * AnimatedGradientBackground - the 21st.dev component, verbatim, with the
  * rainbow default swapped for the Uxory teal palette (brand teal #12D8CC on a
  * near-black base). Renders a large radial gradient anchored near the top
  * (50% 20%) with an optional breathing effect and a framer-motion entrance.

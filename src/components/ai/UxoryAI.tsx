@@ -238,7 +238,7 @@ export default function UxoryAI() {
           </div>
         )}
 
-        {/* Input bar — dark scrim fades the page into the input so the pill
+        {/* Input bar - dark scrim fades the page into the input so the pill
             floats cleanly (no hard visible band) */}
         <div className="sticky bottom-0 pb-6 pt-8 bg-gradient-to-t from-[#0A0A0A] via-[#0A0A0A]/90 to-transparent">
           {started && (
@@ -276,7 +276,7 @@ export default function UxoryAI() {
             </button>
           </div>
           <p className="text-center text-[11px] text-white/40 mt-2">
-            Uxory AI can make mistakes. No account needed — chats are private to this browser session.
+            Uxory AI can make mistakes. No account needed - chats are private to this browser session.
           </p>
         </div>
       </div>
