@@ -71,7 +71,9 @@ export const POST: APIRoute = async ({ request }) => {
       });
       if (mailErr) {
         console.error('OTP email failed:', mailErr);
-        return json({ status: 'error', message: 'Could not send the code. Please try again.' }, 500);
+        const reason =
+          (mailErr as any)?.message || (mailErr as any)?.name || 'unknown mail error';
+        return json({ status: 'error', message: `Could not send the code. Reason: ${reason}` }, 500);
       }
       return json({ status: 'success', message: 'Code sent! Check your inbox (and spam).' });
     }
@@ -86,6 +88,7 @@ export const POST: APIRoute = async ({ request }) => {
     return json({ status: 'error', message: 'Verification is temporarily unavailable. Please try later.' }, 503);
   } catch (e) {
     console.error('Review OTP error:', e);
-    return json({ status: 'error', message: 'Something went wrong. Please try again.' }, 500);
+    const reason = (e as any)?.message || (e as any)?.name || 'unknown error';
+    return json({ status: 'error', message: `Something went wrong. Reason: ${reason}` }, 500);
   }
 };
