@@ -1,47 +1,59 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ReviewsApp from '../components/reviews/ReviewsApp.tsx';
+import { SITE_URL } from '../config';
 
-const structuredData = `
-{
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "Organization",
-      "@id": "https://uxory.in/#organization",
-      "name": "Uxory",
-      "url": "https://uxory.in",
-      "logo": {
-        "@type": "ImageObject",
-        "@id": "https://uxory.in/#logo",
-        "url": "https://uxory.in/images/logo.png",
-        "contentUrl": "https://uxory.in/images/logo.png",
-        "width": 512,
-        "height": 512
-      }
-    },
-    {
-      "@type": "WebPage",
-      "@id": "https://uxory.in/reviews#webpage",
-      "url": "https://uxory.in/reviews",
-      "name": "Client Reviews | The Uxory Globe",
-      "description": "Read real reviews from Uxory clients. Share your experience working with us.",
-      "isPartOf": {
-        "@id": "https://uxory.in/#website"
-      }
-    },
-    {
-      "@type": "WebSite",
-      "@id": "https://uxory.in/#website",
-      "url": "https://uxory.in",
-      "name": "Uxory",
-      "publisher": {
-        "@id": "https://uxory.in/#organization"
-      }
+// Pull real rating stats at build time so the reviews page can carry an
+// AggregateRating in its structured data. Wrapped so a failed/absent DB
+// connection never breaks the build — we simply omit the rating.
+let aggregateRating: { ratingValue: string; reviewCount: number } | null = null;
+try {
+  const url = import.meta.env.SUPABASE_URL || process.env.SUPABASE_URL;
+  const key = import.meta.env.SUPABASE_SERVICE_KEY || process.env.SUPABASE_SERVICE_KEY;
+  if (url && key) {
+    const { createClient } = await import('@supabase/supabase-js');
+    const sb = createClient(url, key);
+    const { data } = await sb.from('reviews').select('rating');
+    if (data && data.length > 0) {
+      const avg = data.reduce((s, r) => s + (r.rating || 0), 0) / data.length;
+      aggregateRating = { ratingValue: avg.toFixed(1), reviewCount: data.length };
     }
-  ]
+  }
+} catch {
+  aggregateRating = null;
 }
-`;
+
+const organizationNode: Record<string, unknown> = {
+  '@type': 'Organization',
+  '@id': `${SITE_URL}/#organization`,
+  name: 'Uxory',
+  url: `${SITE_URL}/`,
+};
+if (aggregateRating) {
+  organizationNode.aggregateRating = {
+    '@type': 'AggregateRating',
+    ratingValue: aggregateRating.ratingValue,
+    reviewCount: aggregateRating.reviewCount,
+    bestRating: '5',
+    worstRating: '1',
+  };
+}
+
+const structuredData = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@graph': [
+    organizationNode,
+    {
+      '@type': 'WebPage',
+      '@id': `${SITE_URL}/reviews#webpage`,
+      url: `${SITE_URL}/reviews`,
+      name: 'Client Reviews | The Uxory Globe',
+      description:
+        'Read real reviews from Uxory clients. Share your experience working with us.',
+      isPartOf: { '@id': `${SITE_URL}/#website` },
+    },
+  ],
+});
 ---
 
 <BaseLayout

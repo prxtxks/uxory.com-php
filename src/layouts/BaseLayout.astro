@@ -6,6 +6,7 @@ import Footer from '../components/Footer.astro';
 import ChatWidget from '../components/ChatWidget.astro';
 import Scripts from '../components/Scripts.astro';
 import { SITE_URL } from '../config';
+import { siteGraph, breadcrumbGraph } from '../lib/schema';
 // Tailwind utilities for new islands. main.css is <link>ed below and wins on
 // any shared class, so existing pages render unchanged.
 import '../styles/tailwind.css';
@@ -44,6 +45,10 @@ const {
 const canonicalURL =
   canonical ||
   new URL(Astro.url.pathname.replace(/\/+$/, '') || '/', SITE_URL).href;
+
+// Site-wide structured data (Organization + WebSite), plus a breadcrumb trail
+// derived from the current path. Suppressed on noindex pages.
+const breadcrumb = noindex ? null : breadcrumbGraph(Astro.url.pathname);
 ---
 
 <!DOCTYPE html>
@@ -111,6 +116,8 @@ const canonicalURL =
   <meta name="twitter:image:alt" content={title} />
 
   <!-- Structured Data -->
+  {!noindex && <script type="application/ld+json" set:html={JSON.stringify(siteGraph())} />}
+  {breadcrumb && <script type="application/ld+json" set:html={JSON.stringify(breadcrumb)} />}
   {structuredData && <script type="application/ld+json" set:html={structuredData} />}
   
   <!-- reCAPTCHA -->
