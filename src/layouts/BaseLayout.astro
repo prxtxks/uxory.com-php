@@ -23,6 +23,7 @@ interface Props {
   noMainWrapper?: boolean;
   extraHead?: string;
   noindex?: boolean;
+  recaptcha?: boolean;
 }
 
 const {
@@ -36,6 +37,7 @@ const {
   noFooter = false,
   noMainWrapper = false,
   noindex = false,
+  recaptcha = true,
 } = Astro.props;
 
 // Self-referencing canonical: unless a page passes its own canonical, derive it
@@ -75,6 +77,16 @@ const breadcrumb = noindex ? null : breadcrumbGraph(Astro.url.pathname);
   
   <!-- Canonical URL -->
   <link rel="canonical" href={canonicalURL} />
+
+  <!-- hreflang: one English site serving India and a global audience.
+       All variants resolve to the same URL; x-default catches everyone else. -->
+  {!noindex && (
+    <>
+      <link rel="alternate" hreflang="en-in" href={canonicalURL} />
+      <link rel="alternate" hreflang="en" href={canonicalURL} />
+      <link rel="alternate" hreflang="x-default" href={canonicalURL} />
+    </>
+  )}
   
   <!-- Performance Hints -->
   <link rel="preconnect" href="https://www.google.com" crossorigin />
@@ -120,9 +132,6 @@ const breadcrumb = noindex ? null : breadcrumbGraph(Astro.url.pathname);
   {breadcrumb && <script type="application/ld+json" set:html={JSON.stringify(breadcrumb)} />}
   {structuredData && <script type="application/ld+json" set:html={structuredData} />}
   
-  <!-- reCAPTCHA -->
-  <script src="https://www.google.com/recaptcha/api.js" async defer crossorigin="anonymous"></script>
-
   <slot name="head" />
 </head>
 
@@ -180,6 +189,6 @@ const breadcrumb = noindex ? null : breadcrumbGraph(Astro.url.pathname);
   <ChatWidget />
 
   <!-- Scripts -->
-  <Scripts />
+  <Scripts recaptcha={recaptcha} />
 </body>
 </html>

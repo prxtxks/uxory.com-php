@@ -1,5 +1,9 @@
 ---
 // Scripts component - converted from components/scripts.php
+interface Props { recaptcha?: boolean; }
+// Default true so every page that renders a form (the newsletter subscribe form
+// lives in the sitewide Blog component) keeps working; form-less pages opt out.
+const { recaptcha = true } = Astro.props;
 ---
 
 <!--=====================================
@@ -23,5 +27,6 @@
 <script is:inline src="/js/contact.js"></script>
 <script is:inline src="/js/application.js"></script>
 
-<!-- Google Captcha (explicit render – widgets shown only when needed) -->
-<script is:inline src="https://www.google.com/recaptcha/api.js?render=explicit" async defer></script>
+<!-- Google Captcha (explicit render – widgets shown only when needed).
+     Loaded only on pages that render a protected form. -->
+{recaptcha && <script is:inline src="https://www.google.com/recaptcha/api.js?render=explicit" async defer></script>}
