@@ -4,6 +4,34 @@ import Testimonials from '../components/Testimonials.astro';
 import CTA from '../components/CTA.astro';
 import Socials from '../components/Socials.astro';
 import Blog from '../components/Blog.astro';
+import FaqSection from '../components/FaqSection.astro';
+
+const faqs = [
+  {
+    q: "What business processes can be automated?",
+    a: "Common wins include moving data between apps, sending invoices and reminders, onboarding customers, syncing spreadsheets and CRMs, generating reports, and routing leads or support tickets. If a task is repetitive and rule-based, it can usually be automated.",
+  },
+  {
+    q: "What tools do you use for automation?",
+    a: "We use platforms such as Make, Zapier, and n8n for connecting your existing apps, and we build custom scripts or APIs when a workflow needs logic those tools cannot handle. We pick the approach that is most reliable and cost-effective for you.",
+  },
+  {
+    q: "How soon does automation pay for itself?",
+    a: "It varies, but automations that remove hours of manual work each week often pay back quickly. We focus first on the tasks costing you the most time or causing the most errors, so the impact is felt early.",
+  },
+  {
+    q: "Do I have to replace my current software?",
+    a: "No. Automation usually connects the tools you already use rather than replacing them. We work with your existing stack, whether that is Google Workspace, a CRM, accounting software, or something custom.",
+  },
+  {
+    q: "Is my data safe in automated workflows?",
+    a: "Yes. We use secure, authenticated connections, limit access to only what each workflow needs, and follow good practice around credentials and privacy. Your data moves only where you intend it to.",
+  },
+  {
+    q: "Do you maintain the automations after they are built?",
+    a: "Yes. Apps and APIs change over time, so we offer monitoring and support to keep your workflows running, and we adjust them as your processes evolve.",
+  },
+];
 
 const structuredData = `
 {
@@ -409,6 +437,8 @@ Solutions Section
   </div>
 
 </section>
+
+<FaqSection items={faqs} pageUrl="https://uxory.in/process-automation" />
 
 <Testimonials />
 <CTA />

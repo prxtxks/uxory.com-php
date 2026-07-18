@@ -4,6 +4,34 @@ import Testimonials from '../components/Testimonials.astro';
 import CTA from '../components/CTA.astro';
 import Socials from '../components/Socials.astro';
 import Blog from '../components/Blog.astro';
+import FaqSection from '../components/FaqSection.astro';
+
+const faqs = [
+  {
+    q: "How much does website development cost in India?",
+    a: "It depends on scope. A focused business or portfolio site starts lower, while an ecommerce store or a fully custom build with integrations costs more because of the extra design, development, and testing involved. The clearest way to get a real number is our instant quote tool, which asks a few questions and gives an indicative price in rupees for India or dollars globally. We are transparent about pricing before you commit.",
+  },
+  {
+    q: "How long does it take to build a website?",
+    a: "Most business websites take about three to six weeks from kickoff to launch, depending on the number of pages, the design detail, and how quickly content is ready. Larger ecommerce or custom projects take longer. We agree on a clear timeline at the start and keep you updated at each stage.",
+  },
+  {
+    q: "Do you build custom websites or use templates?",
+    a: "Both, and we recommend what fits your goals and budget. For speed and easy self-editing we build on platforms like WordPress or Webflow. For unique designs, heavy traffic, or deep custom logic we build from scratch with modern frameworks such as Next.js. You are never locked into a choice you do not need.",
+  },
+  {
+    q: "Will I be able to update the website myself after launch?",
+    a: "Yes. When it suits your setup we build on a content management system and hand over a simple editing experience, so you can change text, images, and pages without touching code. We also provide a short walkthrough so your team is comfortable managing it.",
+  },
+  {
+    q: "Do you provide hosting and maintenance after the site goes live?",
+    a: "Yes. We offer managed hosting, security monitoring, backups, and support plans so your site stays fast and safe. Ongoing changes and new work are handled through a maintenance plan so nothing is left unsupported after launch.",
+  },
+  {
+    q: "Do you work with clients outside India?",
+    a: "Yes. We work with clients across India and globally, including the United States and Europe. Pricing, communication, and project hours are arranged to suit your location and timezone.",
+  },
+];
 
 const projects = [
   {
@@ -2400,6 +2428,8 @@ $299 website
 <!-- ================================
  Socials Section
 ================================ -->
+<FaqSection items={faqs} pageUrl="https://uxory.in/website-dev" />
+
 <Socials />
 
 <!--=====================================

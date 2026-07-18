@@ -1,0 +1,30 @@
+---
+// Emits FAQPage structured data only (no visible markup), for pages that
+// already have a visible FAQ section. The `items` must match the on-page
+// questions and answers word for word, which Google requires.
+
+export interface FaqItem {
+  q: string;
+  a: string;
+}
+
+interface Props {
+  items: FaqItem[];
+  pageUrl?: string;
+}
+
+const { items, pageUrl } = Astro.props;
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  ...(pageUrl ? { '@id': `${pageUrl}#faq` } : {}),
+  mainEntity: items.map((it) => ({
+    '@type': 'Question',
+    name: it.q,
+    acceptedAnswer: { '@type': 'Answer', text: it.a },
+  })),
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />

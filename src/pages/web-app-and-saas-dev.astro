@@ -4,6 +4,36 @@ import Testimonials from '../components/Testimonials.astro';
 import CTA from '../components/CTA.astro';
 import Socials from '../components/Socials.astro';
 import Blog from '../components/Blog.astro';
+import FaqSchema from '../components/FaqSchema.astro';
+
+// Mirrors the visible "People Asked Us" FAQ on this page, word for word,
+// so the FAQPage schema matches what users see.
+const faqs = [
+  {
+    q: "What kind of software do you build?",
+    a: "We build custom business software, internal systems, SaaS platforms, automation tools, and AI-powered systems tailored to how your operations actually work. If it replaces manual effort, handles data, or runs a core process, we can build it.",
+  },
+  {
+    q: "What does the development timeline look like?",
+    a: "Most projects take 4-12 weeks depending on scope, complexity, and integrations. Larger systems are delivered in clear phases, so you start seeing value early instead of waiting months for everything at once.",
+  },
+  {
+    q: "Can you integrate with our existing tools and systems?",
+    a: "Yes. We regularly integrate CRMs, accounting tools, payment systems, internal databases, third-party APIs, and custom platforms so your software fits cleanly into your existing setup.",
+  },
+  {
+    q: "Do you work with global clients and US-based invoicing?",
+    a: "Yes. We work with clients worldwide and provide US-compliant invoices. Communication, documentation, and delivery are structured for international teams and stakeholders.",
+  },
+  {
+    q: "Do you provide support after the software is delivered?",
+    a: "Yes. We offer optional ongoing support, maintenance, and feature improvements to keep your system secure, reliable, and aligned with how your business evolves.",
+  },
+  {
+    q: "How do you handle requirements if we don't have everything figured out?",
+    a: "That's completely normal. We help you clarify workflows, priorities, and edge cases through short discovery sessions before development starts. You don't need a perfect spec - we guide you to one.",
+  },
+];
 
 const projects = [
   {
@@ -979,6 +1009,8 @@ Our Projects Section
     </div>
   </div>
 </section>
+
+<FaqSchema items={faqs} pageUrl="https://uxory.in/web-app-and-saas-dev" />
 
 <CTA />
 <Socials />

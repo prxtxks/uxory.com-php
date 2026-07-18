@@ -3,6 +3,36 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import CTA from '../components/CTA.astro';
 import Socials from '../components/Socials.astro';
 import Blog from '../components/Blog.astro';
+import FaqSchema from '../components/FaqSchema.astro';
+
+// Mirrors the visible FAQ on this page, word for word, so the FAQPage
+// schema matches what users see.
+const faqs = [
+  {
+    q: "What makes Uxory different?",
+    a: "We focus on clarity, speed, and real outcomes. No overengineering, no vague promises - just solid execution.",
+  },
+  {
+    q: "Do you offer post-launch support?",
+    a: "Yes. We provide maintenance, updates, and ongoing improvements after launch.",
+  },
+  {
+    q: "What industries do you serve?",
+    a: "Startups, SaaS, e-commerce, education, healthcare, and service-based businesses.",
+  },
+  {
+    q: "How long does development take?",
+    a: "It depends on scope. MVPs usually take 4-8 weeks. Larger apps take longer.",
+  },
+  {
+    q: "How much does app development cost?",
+    a: "Pricing depends on features and complexity. We provide clear quotes after a quick discussion.",
+  },
+  {
+    q: "Can you work with an existing product?",
+    a: "Yes. We improve, scale, or rebuild existing apps based on your needs.",
+  },
+];
 
 const structuredData = `{
     "@context": "https://schema.org",
@@ -1079,6 +1109,8 @@ our-expertise-v4 Section
 <!-- ================================
  Socials Section
 ================================ -->
+<FaqSchema items={faqs} pageUrl="https://uxory.in/mobile-app-development" />
+
 <Socials />
 
 <!--=====================================
