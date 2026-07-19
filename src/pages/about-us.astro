@@ -66,11 +66,9 @@ const structuredData = `
 >
 
 <!--=====================================
-   Page Header Details Section
+   Hero Section
 ======================================-->
-<section
-  class="pt-32 max-md:pb-20 md:py-44 lg:pt-[200px] relative overflow-hidden"
->
+<section class="pt-32 md:pt-44 lg:pt-[190px] pb-14 md:pb-20 relative overflow-hidden">
   <!-- Gradient Background Wrapper -->
   <div
     id="hero-gradient-wrapper"
@@ -84,130 +82,213 @@ const structuredData = `
     />
   </div>
 
-  <!-- Hero Content Container -->
-  <div class="container reveal-me">
-    <div class="text-center">
+  <div class="container px-5 md:px-8">
+    <div class="reveal-me mx-auto max-w-3xl text-center">
+      <p class="font-satoshi mb-4 text-sm font-normal uppercase leading-6 tracking-[3px]">
+        About Uxory
+      </p>
+      <h1 class="font-medium text-appear text-[42px] leading-[1.1] md:text-[60px] xl:text-[68px]">
+        Software that works as hard
+        <span class="font-instrument italic">as you do</span>
+      </h1>
+      <p class="mx-auto mt-6 max-w-2xl text-lg text-secondary/70 dark:text-backgroundBody/70 md:text-xl">
+        We build intelligent systems that automate operations, increase revenue, and eliminate
+        inefficiencies. Custom software, websites, automation, and AI - designed, built, and cared
+        for by one team.
+      </p>
+    </div>
 
-
-      <!-- Hero Title -->
-      <h2 class="mb-5 lg:mb-8 font-medium">About Uxory</h2>
-
-      <!-- Hero Description -->
-      <p class="max-md:max-w-[650px]">We build intelligent software systems that automate operations, increase revenue, and eliminate inefficiencies. <br> Custom software, automation, and AI solutions designed for modern business growth.</p>
+    <!-- Stats -->
+    <div class="reveal-me mx-auto mt-12 grid max-w-3xl grid-cols-1 gap-4 sm:grid-cols-3 md:mt-16">
+      <div class="rounded-2xl border border-secondary/10 bg-white/60 p-6 text-center backdrop-blur-sm dark:border-white/10 dark:bg-white/[0.03]">
+        <p class="text-4xl font-medium text-primary">4+</p>
+        <p class="mt-1.5 text-sm text-secondary/60 dark:text-backgroundBody/60">Countries our clients call home</p>
+      </div>
+      <div class="rounded-2xl border border-secondary/10 bg-white/60 p-6 text-center backdrop-blur-sm dark:border-white/10 dark:bg-white/[0.03]">
+        <p class="text-4xl font-medium text-primary">2</p>
+        <p class="mt-1.5 text-sm text-secondary/60 dark:text-backgroundBody/60">Offices - USA &amp; India</p>
+      </div>
+      <div class="rounded-2xl border border-secondary/10 bg-white/60 p-6 text-center backdrop-blur-sm dark:border-white/10 dark:bg-white/[0.03]">
+        <p class="text-4xl font-medium text-primary">1 day</p>
+        <p class="mt-1.5 text-sm text-secondary/60 dark:text-backgroundBody/60">Max reply time, every time</p>
+      </div>
     </div>
   </div>
 </section>
 
 <!--=====================================
-   Services Details Section
+   Who we are
 ======================================-->
-<section class="pb-14 md:pb-16 lg:pb-[88px] xl:pb-[100px]">
-  <div class="max-w-[1440px] mx-auto px-8 md:px-20">
-    <div class="flex flex-col gap-8 lg:flex-row justify-start">
-      <!-- Sticky Table of Contents -->
-      <aside class="min-w-[275px] flex-1">
-        <div class="sticky top-28">
-          <div class="reveal-me">
-            <h3 class="max-md:text-[40px] md:text-[32px]">Table of contents</h3>
-            <ul
-              class="mt-4 sm:mt-7 md:mt-10 [&>*:not(:last-child)]:mb-2 md:[&>*:not(:last-child)]:mb-5"
-            >
-              <li>
-                <a
-                  href="#service-overview"
-                  class="text-xl normal-case font-normal leading-7 tracking-normal dark:text-dark-100 hover:font-medium hover:text-secondary dark:hover:text-backgroundBody transition-all lenis-scroll-to"
-                >
-                Overview
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#our-service-includes"
-                  class="text-xl normal-case font-normal leading-7 tracking-normal dark:text-dark-100 hover:font-medium hover:text-secondary dark:hover:text-backgroundBody transition-all lenis-scroll-to"
-                >
-                  Our service includes
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#why-choose"
-                  class="text-xl normal-case font-normal leading-7 tracking-normal dark:text-dark-100 hover:font-medium hover:text-secondary dark:hover:text-backgroundBody transition-all lenis-scroll-to"
-                >
-                  Why Choose Us
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </aside>
+<section class="py-14 md:py-16 lg:py-[88px]">
+  <div class="container px-5 md:px-8">
+    <div class="grid items-start gap-10 lg:grid-cols-2 lg:gap-16">
+      <div class="reveal-me">
+        <p class="font-satoshi mb-3 text-sm uppercase tracking-[3px] text-primary">Who we are</p>
+        <h2 class="text-appear-2 text-3xl font-normal leading-tight md:text-[44px]">
+          A studio, not a
+          <span class="font-instrument italic">factory</span>
+        </h2>
+      </div>
+      <div class="reveal-me space-y-5 text-lg leading-relaxed text-secondary/75 dark:text-backgroundBody/75">
+        <p>
+          Uxory is a software and AI studio with teams in the United States and India. We take on a
+          small number of projects at a time and go deep on each one - understanding the business
+          first, then building the system that fits it.
+        </p>
+        <p>
+          From luxury e-commerce and hotel booking engines to AI underwriting platforms, everything
+          is designed, developed, and maintained in-house. No hand-offs, no outsourcing chains - the
+          people who scope your project are the ones who build it.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
 
-      <!-- Main Content -->
-      <article class="project-details-body">
-        <div class="reveal-me">
-          <h3 id="service-overview">Overview</h3>
-          <p>
-            At Uxory, we specialize in building intelligent software systems that automate operations, 
-            increase revenue, and eliminate inefficiencies. We develop custom software, high-performance 
-            websites, process automation solutions, and AI-powered systems tailored to your business needs. 
-            With our expert team of developers and engineers, we ensure robust, scalable solutions that 
-            grow with your business, allowing you to focus on your core objectives while we handle the 
-            technical complexity.
-          </p>
-        </div>
-        <div class="reveal-me">
-          <h3 id="our-service-includes">What We Offer</h3>
-          <p>
-            Custom Software Development: We build secure, scalable, and AI-enabled software systems 
-            that automate work, power products, and grow with your business. From internal tools to 
-            customer-facing platforms, we create software that improves efficiency and reduces manual work. <br />
-            <br />
-            Website Development: High-performance websites built with modern technologies, optimized 
-            for speed, security, and user experience. We create responsive, dynamic websites that 
-            deliver results and scale with your business. <br />
-            <br />
-            Process Automation: We design reliable workflows and automation systems for lead management, 
-            finance, customer support, and internal operations. Our solutions eliminate repetitive tasks 
-            and streamline business processes. <br />
-            <br />
-            AI Solutions: Intelligent systems that leverage artificial intelligence to enhance operations, 
-            improve decision-making, and create competitive advantages. We integrate AI capabilities into 
-            your existing systems or build new AI-powered solutions from the ground up. <br />
-            <br />
-            Technology Consulting: Our team evaluates the best technologies and platforms to ensure 
-            your solutions are built with the latest tools for optimal performance, security, and scalability.
-          </p>
-        </div>
-        <div class="reveal-me">
-          <h3 id="why-choose">Why Choose Us</h3>
-          <p>
-            Expertise and Innovation: Our team combines years of experience with cutting-edge technology 
-            to deliver modern, functional, and secure software solutions. We stay current with the latest 
-            frameworks, tools, and best practices in software development, automation, and AI. <br />
-            <br />
-            Tailored Solutions: We understand that every business is unique, so we offer customized solutions 
-            that perfectly align with your specific needs and business objectives. No one-size-fits-all 
-            approaches-every project is designed for your success. <br />
-            <br />
-            Seamless Collaboration: We work closely with you throughout the entire development process, 
-            ensuring your vision is realized while maintaining transparency and open communication at every step. <br />
-            <br />
-            End-to-End Service: From concept to deployment, we handle every aspect of your software project, 
-            allowing you to focus on what matters most-your business. We manage architecture, development, 
-            testing, deployment, and ongoing support. <br />
-            <br />
-            Speed and Efficiency: With our streamlined development process, we ensure timely delivery without 
-            compromising quality, so your solutions can launch quickly and effectively. <br />
-            <br />
-            Results-Driven Approach: We focus on delivering measurable outcomes, whether it's increased 
-            operational efficiency, reduced manual work, improved system performance, or enhanced business 
-            capabilities. <br />
-            <br />
-            Post-Launch Support: Our commitment doesn't end at launch. We provide ongoing maintenance, 
-            updates, and support to keep your systems running smoothly and up to date with evolving 
-            requirements and technologies.
-          </p>
-        </div>
-      </article>
+<!--=====================================
+   What we do
+======================================-->
+<section class="py-14 md:py-16 lg:py-[88px]">
+  <div class="container px-5 md:px-8">
+    <div class="reveal-me mb-10 text-center md:mb-14">
+      <p class="font-satoshi mb-3 text-sm uppercase tracking-[3px] text-primary">What we do</p>
+      <h2 class="text-appear-2 text-3xl font-normal md:text-[44px]">
+        One team, <span class="font-instrument italic">end to end</span>
+      </h2>
+    </div>
+
+    <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      {
+        [
+          {
+            href: '/website-dev',
+            title: 'Websites & E-commerce',
+            desc: 'High-performance sites and stores - Shopify, WooCommerce, or fully custom.',
+            icon: 'M3 5h18v14H3zM3 9h18M7 7h.01M10 7h.01',
+          },
+          {
+            href: '/web-app-and-saas-dev',
+            title: 'Web Apps & SaaS',
+            desc: 'Dashboards, portals and products - from MVP to scale, built on modern stacks.',
+            icon: 'M3 4h18v16H3zM3 9h18M8 9v11M3 14h5',
+          },
+          {
+            href: '/mobile-app-development',
+            title: 'Mobile Apps',
+            desc: 'iOS and Android from one codebase - designed, shipped, and store-published.',
+            icon: 'M8 2h8a2 2 0 012 2v16a2 2 0 01-2 2H8a2 2 0 01-2-2V4a2 2 0 012-2zM12 18h.01',
+          },
+          {
+            href: '/process-automation',
+            title: 'AI Agents & Automation',
+            desc: 'Chat assistants and workflow automation that kill busywork around the clock.',
+            icon: 'M12 8V4m0 0H8m4 0h4M5 12a7 7 0 0114 0v5a3 3 0 01-3 3H8a3 3 0 01-3-3v-5zM9 14h.01M15 14h.01',
+          },
+          {
+            href: '/smb-hosting',
+            title: 'Managed Hosting & Care',
+            desc: 'Fast, secure hosting with monitoring, backups, and a team on call.',
+            icon: 'M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2M7 8h.01M7 16h.01',
+          },
+          {
+            href: '/get-quote',
+            title: 'Instant Estimate',
+            desc: 'Know your price before you commit - our AI scopes your project in minutes.',
+            icon: 'M12 3l1.9 5.8H20l-4.9 3.6 1.9 5.8-5-3.6-5 3.6 1.9-5.8L4 8.8h6.1z',
+          },
+        ].map((s) => (
+          <a
+            href={s.href}
+            class="group reveal-me flex flex-col gap-3 rounded-2xl border border-secondary/10 bg-white/60 p-6 transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:shadow-[0_16px_40px_-20px_rgba(18,216,204,0.45)] dark:border-white/10 dark:bg-white/[0.03]"
+          >
+            <span class="flex h-11 w-11 items-center justify-center rounded-xl bg-primary/10 text-primary">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <path d={s.icon} />
+              </svg>
+            </span>
+            <span class="text-lg font-medium text-secondary transition-colors group-hover:text-primary dark:text-backgroundBody">
+              {s.title}
+            </span>
+            <span class="text-[15px] leading-relaxed text-secondary/60 dark:text-backgroundBody/60">
+              {s.desc}
+            </span>
+          </a>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<!--=====================================
+   How we work
+======================================-->
+<section class="py-14 md:py-16 lg:py-[88px]">
+  <div class="container px-5 md:px-8">
+    <div class="reveal-me mb-10 text-center md:mb-14">
+      <p class="font-satoshi mb-3 text-sm uppercase tracking-[3px] text-primary">How we work</p>
+      <h2 class="text-appear-2 text-3xl font-normal md:text-[44px]">
+        From first call to <span class="font-instrument italic">long after launch</span>
+      </h2>
+    </div>
+
+    <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      {
+        [
+          ['01', 'Discover', 'A short call to understand your business, goals, and budget - then a clear, honest scope.'],
+          ['02', 'Design & build', 'We design, develop, and demo in tight loops so you see progress, not surprises.'],
+          ['03', 'Launch', 'Testing, deployment, analytics, and SEO done properly - your project goes live clean.'],
+          ['04', 'Support', 'Monitoring, maintenance, and improvements. We stay accountable after the invoice.'],
+        ].map(([n, title, desc]) => (
+          <div class="reveal-me relative rounded-2xl border border-secondary/10 p-6 dark:border-white/10">
+            <span class="font-satoshi text-sm font-bold tracking-[2px] text-primary">{n}</span>
+            <p class="mt-3 text-lg font-medium text-secondary dark:text-backgroundBody">{title}</p>
+            <p class="mt-2 text-[15px] leading-relaxed text-secondary/60 dark:text-backgroundBody/60">{desc}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<!--=====================================
+   Why choose us
+======================================-->
+<section class="py-14 md:py-16 lg:py-[88px]">
+  <div class="container px-5 md:px-8">
+    <div class="grid items-start gap-10 lg:grid-cols-[1fr_1.6fr] lg:gap-16">
+      <div class="reveal-me lg:sticky lg:top-28">
+        <p class="font-satoshi mb-3 text-sm uppercase tracking-[3px] text-primary">Why Uxory</p>
+        <h2 class="text-appear-2 text-3xl font-normal leading-tight md:text-[44px]">
+          Built for people who
+          <span class="font-instrument italic">hate surprises</span>
+        </h2>
+        <p class="mt-5 max-w-md text-lg text-secondary/70 dark:text-backgroundBody/70">
+          Transparent pricing, honest timelines, and systems that keep working long after we ship.
+        </p>
+      </div>
+
+      <div class="grid gap-4 sm:grid-cols-2">
+        {
+          [
+            ['Tailored, never templated', 'Every project is scoped around your business - no one-size-fits-all builds.'],
+            ['Transparent pricing', 'Public packages and an instant estimator. You see the numbers before you commit.'],
+            ['Speed without shortcuts', 'Tight, streamlined delivery - launch quickly without trading away quality.'],
+            ['One accountable team', 'Architecture to deployment under one roof. No hand-offs, no finger-pointing.'],
+            ['Results you can measure', 'Less manual work, faster systems, more revenue - outcomes, not just deliverables.'],
+            ['Support that stays', 'Maintenance, monitoring, and improvements long after launch day.'],
+          ].map(([title, desc]) => (
+            <div class="reveal-me rounded-2xl border border-secondary/10 bg-white/60 p-6 dark:border-white/10 dark:bg-white/[0.03]">
+              <span class="flex h-8 w-8 items-center justify-center rounded-full bg-primary/10 text-primary">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
+              </span>
+              <p class="mt-3.5 font-medium text-secondary dark:text-backgroundBody">{title}</p>
+              <p class="mt-1.5 text-[15px] leading-relaxed text-secondary/60 dark:text-backgroundBody/60">{desc}</p>
+            </div>
+          ))
+        }
+      </div>
     </div>
   </div>
 </section>
