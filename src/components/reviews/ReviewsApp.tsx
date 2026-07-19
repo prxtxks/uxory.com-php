@@ -204,8 +204,25 @@ function ReviewForm({ onPosted }: { onPosted: (r: Review, token: string) => void
     }
   }
 
-  const inputCls =
-    'review-input py-2.5 px-3.5 focus:outline-none focus:border-primary border border-secondary/10 dark:border-backgroundBody/10 w-full text-base mt-2';
+  // Leading-icon SVGs (match the contact/referral forms).
+  const IconUser = (
+    <svg className="cform-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.7} strokeLinecap="round" strokeLinejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" /><circle cx="12" cy="7" r="4" /></svg>
+  );
+  const IconBuilding = (
+    <svg className="cform-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.7} strokeLinecap="round" strokeLinejoin="round"><path d="M3 21h18M5 21V7l8-4v18M19 21V11l-6-4M9 9h.01M9 12h.01M9 15h.01" /></svg>
+  );
+  const IconPin = (
+    <svg className="cform-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.7} strokeLinecap="round" strokeLinejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z" /><circle cx="12" cy="10" r="3" /></svg>
+  );
+  const IconGlobe = (
+    <svg className="cform-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.7} strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10" /><path d="M2 12h20M12 2a15.3 15.3 0 0 1 0 20 15.3 15.3 0 0 1 0-20z" /></svg>
+  );
+  const IconLock = (
+    <svg className="cform-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.7} strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" /><path d="M7 11V7a5 5 0 0 1 10 0v4" /></svg>
+  );
+  const IconMsg = (
+    <svg className="cform-icon cform-icon-top" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.7} strokeLinecap="round" strokeLinejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" /></svg>
+  );
 
   return (
     <div className="max-w-[720px] mx-auto mb-12">
@@ -229,30 +246,32 @@ function ReviewForm({ onPosted }: { onPosted: (r: Review, token: string) => void
           className="review-form-card border dark:border-dark p-5 md:p-7 mt-6"
         >
           <h4 className="text-xl mb-5">Share your experience</h4>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-5">
             <div>
-              <label className="text-sm text-secondary/70 dark:text-backgroundBody/70">
-                Your name <span className="text-primary">*</span>
-              </label>
-              <input required name="author_name" maxLength={100} placeholder="John Doe" className={inputCls} />
+              <label className="cform-label">Your name <span className="text-primary">*</span></label>
+              <div className="cform-field-wrap">
+                {IconUser}
+                <input required name="author_name" maxLength={100} placeholder="John Doe" className="cform-field" />
+              </div>
             </div>
             <div>
-              <label className="text-sm text-secondary/70 dark:text-backgroundBody/70">Company</label>
-              <input name="company_name" maxLength={100} placeholder="Acme Inc. (optional)" className={inputCls} />
+              <label className="cform-label">Company <span className="cform-optional">optional</span></label>
+              <div className="cform-field-wrap">
+                {IconBuilding}
+                <input name="company_name" maxLength={100} placeholder="Acme Inc." className="cform-field" />
+              </div>
             </div>
             <div className={otpSent ? '' : 'md:col-span-full'}>
-              <label className="text-sm text-secondary/70 dark:text-backgroundBody/70">
-                Email <span className="text-primary">*</span>
-              </label>
+              <label className="cform-label">Email <span className="text-primary">*</span></label>
               {/* Joined input group: email + send-code live in one field */}
-              <div className="review-input mt-2 flex items-center border border-secondary/10 dark:border-backgroundBody/10 focus-within:border-primary transition-colors overflow-hidden">
+              <div className="cform-field flex items-center !p-0 !pl-0 overflow-hidden focus-within:!border-primary">
                 <input
                   required
                   type="email"
                   name="email"
                   maxLength={255}
                   placeholder="you@company.com"
-                  className="flex-1 min-w-0 py-2.5 px-3.5 bg-transparent focus:outline-none text-base"
+                  className="flex-1 min-w-0 py-3 px-4 bg-transparent focus:outline-none text-base"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                 />
@@ -260,67 +279,73 @@ function ReviewForm({ onPosted }: { onPosted: (r: Review, token: string) => void
                   type="button"
                   onClick={sendCode}
                   disabled={sendingOtp}
-                  className="shrink-0 mr-1.5 my-1.5 px-3 py-1.5 rounded-md bg-primary/15 text-primary text-xs font-medium hover:bg-primary hover:text-black transition-colors disabled:opacity-50 whitespace-nowrap"
+                  className="shrink-0 mr-1.5 my-1.5 px-3 py-1.5 rounded-lg bg-primary/15 text-primary text-xs font-medium hover:bg-primary hover:text-black transition-colors disabled:opacity-50 whitespace-nowrap"
                 >
                   {sendingOtp ? 'Sending…' : otpSent ? 'Resend' : 'Send code'}
                 </button>
               </div>
-              <p className="text-[11px] text-secondary/40 dark:text-backgroundBody/40 mt-1">
+              <p className="text-[11px] text-secondary/40 dark:text-backgroundBody/40 mt-1.5">
                 Never shown publicly - verifies your review is real.
               </p>
             </div>
 
             {otpSent && (
               <div>
-                <label className="text-sm text-secondary/70 dark:text-backgroundBody/70">
-                  Verification code <span className="text-primary">*</span>
-                </label>
-                <input
-                  required
-                  name="otp"
-                  inputMode="numeric"
-                  pattern="\d{6}"
-                  maxLength={6}
-                  placeholder="••••••"
-                  className={`${inputCls} tracking-[6px] font-medium`}
-                />
-                {otpNote && <p className="text-[11px] text-primary/80 mt-1">{otpNote}</p>}
+                <label className="cform-label">Verification code <span className="text-primary">*</span></label>
+                <div className="cform-field-wrap">
+                  {IconLock}
+                  <input
+                    required
+                    name="otp"
+                    inputMode="numeric"
+                    pattern="\d{6}"
+                    maxLength={6}
+                    placeholder="••••••"
+                    className="cform-field tracking-[6px] font-medium"
+                  />
+                </div>
+                {otpNote && <p className="text-[11px] text-primary/80 mt-1.5">{otpNote}</p>}
               </div>
             )}
 
             <div>
-              <label className="text-sm text-secondary/70 dark:text-backgroundBody/70">City</label>
-              <input name="city" maxLength={80} placeholder="Mumbai, New York…" className={inputCls} />
+              <label className="cform-label">City</label>
+              <div className="cform-field-wrap">
+                {IconPin}
+                <input name="city" maxLength={80} placeholder="Mumbai, New York…" className="cform-field" />
+              </div>
             </div>
             <div>
-              <label className="text-sm text-secondary/70 dark:text-backgroundBody/70">
-                Country <span className="normal-case text-[11px] text-secondary/40 dark:text-backgroundBody/40">- puts you on the globe 🌍</span>
+              <label className="cform-label">
+                Country <span className="cform-optional">puts you on the globe 🌍</span>
               </label>
-              <input name="country" maxLength={80} placeholder="India, USA…" className={inputCls} />
+              <div className="cform-field-wrap">
+                {IconGlobe}
+                <input name="country" maxLength={80} placeholder="India, USA…" className="cform-field" />
+              </div>
             </div>
             <div className="md:col-span-full">
-              <label className="text-sm text-secondary/70 dark:text-backgroundBody/70">
-                Rating <span className="text-primary">*</span>
-              </label>
-              <div className="mt-2">
+              <label className="cform-label">Rating <span className="text-primary">*</span></label>
+              <div className="mt-1">
                 <StarInput value={rating} onChange={setRating} />
               </div>
             </div>
             <div className="md:col-span-full">
-              <label className="text-sm text-secondary/70 dark:text-backgroundBody/70">
-                Your review <span className="text-primary">*</span>
-              </label>
-              <textarea
-                required
-                name="review_text"
-                maxLength={2000}
-                rows={4}
-                value={text}
-                onChange={(e) => setText(e.target.value)}
-                placeholder="Tell us about your experience working with Uxory..."
-                className={`${inputCls} resize-y`}
-              />
-              <p className="text-xs text-secondary/40 dark:text-backgroundBody/40 mt-1">{text.length}/2000</p>
+              <label className="cform-label">Your review <span className="text-primary">*</span></label>
+              <div className="cform-field-wrap">
+                {IconMsg}
+                <textarea
+                  required
+                  name="review_text"
+                  maxLength={2000}
+                  rows={4}
+                  value={text}
+                  onChange={(e) => setText(e.target.value)}
+                  placeholder="Tell us about your experience working with Uxory..."
+                  className="cform-field cform-textarea"
+                />
+              </div>
+              <p className="text-xs text-secondary/40 dark:text-backgroundBody/40 mt-1.5">{text.length}/2000</p>
             </div>
 
             {/* Honeypot */}

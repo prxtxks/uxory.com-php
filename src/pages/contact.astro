@@ -1,15 +1,12 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import FormFieldStyles from '../components/FormFieldStyles.astro';
 
-// Field styling: layout via Tailwind, colours via the .cform-* classes in the
-// <style> block below (the same !important + :is(:where(.dark) ...) pattern the
-// reviews page uses, because this site's form inputs don't reliably pick up
-// Tailwind dark: background utilities).
-const inputCls =
-  'cform-field w-full rounded-xl py-3.5 pl-11 pr-4 text-base outline-none transition-all duration-200';
-const labelCls = 'cform-label mb-2 block text-[13px] font-semibold uppercase tracking-[0.07em]';
-const iconCls =
-  'cform-icon pointer-events-none absolute left-4 top-1/2 h-[18px] w-[18px] -translate-y-1/2 transition-colors';
+// Field styling lives in FormFieldStyles.astro (shared with the referral and
+// review forms). These consts just apply the shared classes.
+const inputCls = 'cform-field';
+const labelCls = 'cform-label';
+const iconCls = 'cform-icon';
 
 const structuredData = `
 {
@@ -172,7 +169,7 @@ const structuredData = `
           <!-- Full Name Field -->
           <div class="md:col-span-full">
             <label for="name" class={labelCls}>Full Name</label>
-            <div class="group relative">
+            <div class="cform-field-wrap">
               <svg class={iconCls} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
               <input required type="text" name="name" placeholder="Enter your full name" class={inputCls} />
             </div>
@@ -181,7 +178,7 @@ const structuredData = `
           <!-- Phone Field -->
           <div>
             <label for="phone" class={labelCls}>Phone Number</label>
-            <div class="group relative">
+            <div class="cform-field-wrap">
               <svg class={iconCls} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
               <input type="tel" inputmode="tel" name="phone" id="phone" placeholder="+91 98765 43210" class={inputCls} required />
             </div>
@@ -190,7 +187,7 @@ const structuredData = `
           <!-- Email Field -->
           <div>
             <label for="email" class={labelCls}>Email</label>
-            <div class="group relative">
+            <div class="cform-field-wrap">
               <svg class={iconCls} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
               <input required type="email" name="email" placeholder="name@company.com" class={inputCls} />
             </div>
@@ -199,7 +196,7 @@ const structuredData = `
           <!-- Company Field -->
           <div class="md:col-span-full">
             <label for="company" class={labelCls}>Company Name <span class="ml-1.5 font-medium normal-case tracking-normal text-secondary/35 dark:text-backgroundBody/30">optional</span></label>
-            <div class="group relative">
+            <div class="cform-field-wrap">
               <svg class={iconCls} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V7l8-4v18M19 21V11l-6-4M9 9h.01M9 12h.01M9 15h.01"/></svg>
               <input type="text" name="company" placeholder="Your company name" class={inputCls} />
             </div>
@@ -208,9 +205,9 @@ const structuredData = `
           <!-- Project Details -->
           <div class="md:col-span-full">
             <label for="Message" class={labelCls}>Project Brief</label>
-            <div class="group relative">
-              <svg class="cform-icon cform-icon-top pointer-events-none absolute left-4 top-[18px] h-[18px] w-[18px] transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-              <textarea name="Message" rows="4" placeholder="Tell us about your project goals and timeline" class={`${inputCls} min-h-[120px] resize-y pt-3.5`}></textarea>
+            <div class="cform-field-wrap">
+              <svg class="cform-icon cform-icon-top" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+              <textarea name="Message" rows="4" placeholder="Tell us about your project goals and timeline" class={`${inputCls} cform-textarea`}></textarea>
             </div>
           </div>
 
@@ -285,41 +282,6 @@ const structuredData = `
 
 </section>
 
-<style is:global>
-  /* Relax the legacy 10px radius so the refined 12px (rounded-xl) shows. */
-  #contactForm input,
-  #contactForm textarea {
-    border-radius: 0.75rem;
-  }
-
-  /* Labels */
-  .cform-label { color: rgba(24, 24, 24, 0.6); }
-  .dark .cform-label { color: rgba(237, 240, 245, 0.55); }
-
-  /* Leading icons */
-  .cform-icon { color: rgba(24, 24, 24, 0.38); }
-  .dark .cform-icon { color: rgba(237, 240, 245, 0.35); }
-  .group:focus-within .cform-icon { color: #12d8cc; }
-
-  /* Inputs and textarea */
-  .cform-field {
-    border: 1px solid rgba(24, 24, 24, 0.12) !important;
-    background-color: #ffffff !important;
-    color: #181818;
-  }
-  .cform-field::placeholder { color: rgba(24, 24, 24, 0.4); }
-  .cform-field:hover { border-color: rgba(18, 216, 204, 0.45) !important; }
-  .cform-field:focus {
-    border-color: #12d8cc !important;
-    box-shadow: 0 0 0 3px rgba(18, 216, 204, 0.15), 0 10px 26px -14px rgba(18, 216, 204, 0.6);
-  }
-  .dark .cform-field {
-    border-color: rgba(255, 255, 255, 0.12) !important;
-    background-color: #1c1c1c !important;
-    color: #edf0f5;
-  }
-  .dark .cform-field::placeholder { color: rgba(237, 240, 245, 0.32); }
-  .dark .cform-field:focus { border-color: #12d8cc !important; }
-</style>
+<FormFieldStyles />
 
 </BaseLayout>

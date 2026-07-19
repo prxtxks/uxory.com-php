@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ReviewsApp from '../components/reviews/ReviewsApp.tsx';
+import FormFieldStyles from '../components/FormFieldStyles.astro';
 import { SITE_URL } from '../config';
 
 // Pull real rating stats at build time so the reviews page can carry an
@@ -126,6 +127,7 @@ const structuredData = JSON.stringify({
   <section class="pb-14 md:pb-16 lg:pb-[88px] xl:pb-[100px] relative overflow-hidden">
     <div class="container">
       <ReviewsApp client:load />
+      <FormFieldStyles />
     </div>
   </section>
 

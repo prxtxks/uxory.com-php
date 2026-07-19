@@ -1,0 +1,82 @@
+---
+/**
+ * Shared form-field styling used by the contact, referral and review forms.
+ * Colours are set with !important and a `.dark`-scoped selector because this
+ * site's precompiled CSS otherwise wins over Tailwind dark: utilities on form
+ * inputs. Include this once on any page whose form uses the .cform-* classes.
+ *
+ * Markup contract:
+ *   <label class="cform-label">Field <span class="cform-optional">optional</span></label>
+ *   <div class="cform-field-wrap">
+ *     <svg class="cform-icon" ...></svg>            (add cform-icon-top for textareas)
+ *     <input class="cform-field" ... />             (add cform-textarea for textareas)
+ *   </div>
+ */
+---
+
+<style is:global>
+  .cform-label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: rgba(24, 24, 24, 0.6);
+  }
+  .dark .cform-label { color: rgba(237, 240, 245, 0.55); }
+
+  .cform-optional {
+    margin-left: 6px;
+    font-weight: 500;
+    letter-spacing: normal;
+    text-transform: none;
+    color: rgba(24, 24, 24, 0.35);
+  }
+  .dark .cform-optional { color: rgba(237, 240, 245, 0.3); }
+
+  .cform-field-wrap { position: relative; }
+
+  .cform-icon {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 18px;
+    height: 18px;
+    color: rgba(24, 24, 24, 0.38);
+    pointer-events: none;
+    transition: color 0.2s ease;
+  }
+  .dark .cform-icon { color: rgba(237, 240, 245, 0.35); }
+  .cform-icon-top { top: 17px; transform: none; }
+  .cform-field-wrap:focus-within .cform-icon { color: #12d8cc; }
+
+  .cform-field {
+    width: 100%;
+    border-radius: 12px !important;
+    padding: 13px 16px 13px 43px;
+    font-size: 1rem;
+    line-height: 1.5;
+    border: 1px solid rgba(24, 24, 24, 0.12) !important;
+    background-color: #ffffff !important;
+    color: #181818;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+  }
+  .cform-field::placeholder { color: rgba(24, 24, 24, 0.4); }
+  .cform-field:hover { border-color: rgba(18, 216, 204, 0.45) !important; }
+  .cform-field:focus {
+    border-color: #12d8cc !important;
+    box-shadow: 0 0 0 3px rgba(18, 216, 204, 0.15), 0 10px 26px -14px rgba(18, 216, 204, 0.6);
+  }
+  .dark .cform-field {
+    border-color: rgba(255, 255, 255, 0.12) !important;
+    background-color: #1c1c1c !important;
+    color: #edf0f5;
+  }
+  .dark .cform-field::placeholder { color: rgba(237, 240, 245, 0.32); }
+  .dark .cform-field:focus { border-color: #12d8cc !important; }
+
+  .cform-textarea { min-height: 118px; resize: vertical; padding-top: 13px; }
+</style>

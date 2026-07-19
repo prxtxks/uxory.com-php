@@ -21,8 +21,19 @@ export default function ReferForm() {
     }
   }
 
-  const input =
-    'w-full px-4 py-3 rounded-xl bg-white dark:bg-[#151515] border border-secondary/10 dark:border-backgroundBody/10 focus:outline-none focus:border-primary text-base mt-2';
+  // Leading-icon SVGs (match the contact form's set).
+  const IconUser = (
+    <svg className="cform-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.7} strokeLinecap="round" strokeLinejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" /><circle cx="12" cy="7" r="4" /></svg>
+  );
+  const IconMail = (
+    <svg className="cform-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.7} strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="4" width="20" height="16" rx="2" /><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" /></svg>
+  );
+  const IconBuilding = (
+    <svg className="cform-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.7} strokeLinecap="round" strokeLinejoin="round"><path d="M3 21h18M5 21V7l8-4v18M19 21V11l-6-4M9 9h.01M9 12h.01M9 15h.01" /></svg>
+  );
+  const IconMsg = (
+    <svg className="cform-icon cform-icon-top" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.7} strokeLinecap="round" strokeLinejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" /></svg>
+  );
 
   if (done) {
     return (
@@ -45,31 +56,42 @@ export default function ReferForm() {
       onSubmit={onSubmit}
       className="max-w-lg mx-auto rounded-2xl border border-secondary/10 dark:border-backgroundBody/10 bg-secondary/[0.02] dark:bg-white/[0.03] p-6 md:p-8"
     >
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-5">
         <div>
-          <label className="text-sm text-secondary/70 dark:text-backgroundBody/70">Your name</label>
-          <input name="referrer_name" maxLength={100} placeholder="Jane Doe" className={input} />
+          <label className="cform-label">Your name</label>
+          <div className="cform-field-wrap">
+            {IconUser}
+            <input name="referrer_name" maxLength={100} placeholder="Jane Doe" className="cform-field" />
+          </div>
         </div>
         <div>
-          <label className="text-sm text-secondary/70 dark:text-backgroundBody/70">
-            Your email <span className="text-primary">*</span>
-          </label>
-          <input required type="email" name="referrer_email" maxLength={255} placeholder="you@email.com" className={input} />
+          <label className="cform-label">Your email <span className="text-primary">*</span></label>
+          <div className="cform-field-wrap">
+            {IconMail}
+            <input required type="email" name="referrer_email" maxLength={255} placeholder="you@email.com" className="cform-field" />
+          </div>
         </div>
         <div>
-          <label className="text-sm text-secondary/70 dark:text-backgroundBody/70">Referral’s name</label>
-          <input name="client_name" maxLength={100} placeholder="Acme Inc." className={input} />
+          <label className="cform-label">Referral’s name</label>
+          <div className="cform-field-wrap">
+            {IconBuilding}
+            <input name="client_name" maxLength={100} placeholder="Acme Inc." className="cform-field" />
+          </div>
         </div>
         <div>
-          <label className="text-sm text-secondary/70 dark:text-backgroundBody/70">
-            Referral’s email <span className="text-primary">*</span>
-          </label>
-          <input required type="email" name="client_email" maxLength={255} placeholder="client@company.com" className={input} />
+          <label className="cform-label">Referral’s email <span className="text-primary">*</span></label>
+          <div className="cform-field-wrap">
+            {IconMail}
+            <input required type="email" name="client_email" maxLength={255} placeholder="client@company.com" className="cform-field" />
+          </div>
         </div>
       </div>
-      <div className="mt-4">
-        <label className="text-sm text-secondary/70 dark:text-backgroundBody/70">Anything we should know? (optional)</label>
-        <textarea name="message" maxLength={1000} rows={3} placeholder="What do they need built?" className={`${input} resize-y`} />
+      <div className="mt-5">
+        <label className="cform-label">Anything we should know? <span className="cform-optional">optional</span></label>
+        <div className="cform-field-wrap">
+          {IconMsg}
+          <textarea name="message" maxLength={1000} rows={3} placeholder="What do they need built?" className="cform-field cform-textarea" />
+        </div>
       </div>
 
       {/* Honeypot */}
