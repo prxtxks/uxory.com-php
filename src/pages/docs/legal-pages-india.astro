@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import DocLayout from '../../components/docs/DocLayout.astro';
+import DocsShell from '../../components/docs/DocsShell.astro';
 import { legalIndia } from '../../data/docs';
 import { SITE_URL } from '../../config';
 ---
@@ -13,5 +14,7 @@ import { SITE_URL } from '../../config';
   currentPage="docs-legal-india"
   currentParent="docs"
 >
-  <DocLayout doc={legalIndia} />
+  <DocsShell current="/docs/legal-pages-india">
+    <DocLayout doc={legalIndia} />
+  </DocsShell>
 </BaseLayout>

@@ -1,0 +1,24 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import DocsShell from '../../../components/docs/DocsShell.astro';
+import OnboardingGuide from '../../../components/onboarding/OnboardingGuide.astro';
+import { indiaGuide } from '../../../data/onboarding';
+import { SITE_URL } from '../../../config';
+---
+
+<BaseLayout
+  recaptcha={false}
+  title="Ecommerce Onboarding for India - What to Expect | Uxory Docs"
+  description="A step-by-step guide to building your ecommerce store with Uxory in India: platform choice, payments (Razorpay/UPI), SMS OTP & DLT, legal pages, and launch."
+  canonical={`${SITE_URL}/docs/onboarding/ecommerce-india`}
+  currentPage="onboarding-india"
+  currentParent="docs"
+>
+  <DocsShell current="/docs/onboarding/ecommerce-india">
+    <OnboardingGuide
+      guide={indiaGuide}
+      otherHref="/docs/onboarding/ecommerce-usa"
+      otherLabel="USA"
+    />
+  </DocsShell>
+</BaseLayout>

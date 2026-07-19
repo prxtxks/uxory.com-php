@@ -1,0 +1,145 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { DOCS_NAV, DOCS_FLAT } from '../../data/docsNav';
+import { SITE_URL } from '../../config';
+
+const structuredData = `{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "@id": "${SITE_URL}/docs",
+  "url": "${SITE_URL}/docs",
+  "name": "Uxory Documentation",
+  "description": "Guides and documentation for working with Uxory: content preparation, legal pages, hosting, e-commerce onboarding, and support.",
+  "hasPart": [
+    ${DOCS_FLAT.map((d) => `{ "@type": "WebPage", "name": "${d.title}", "url": "${SITE_URL}${d.href}" }`).join(',\n    ')}
+  ]
+}`;
+---
+
+<BaseLayout
+  recaptcha={false}
+  title="Documentation | Uxory Docs"
+  description="Guides and documentation for working with Uxory - content preparation, legal pages, hosting, e-commerce onboarding, and post-launch support."
+  canonical={`${SITE_URL}/docs`}
+  currentPage="docs"
+  currentParent="docs"
+  structuredData={structuredData}
+>
+  <section class="pt-[110px] md:pt-[150px] pb-10 md:pb-14 relative overflow-hidden">
+    <div class="container px-5 md:px-8">
+      <div class="max-w-2xl">
+        <p class="font-satoshi text-sm tracking-[3px] uppercase mb-3 text-primary">
+          Uxory Docs
+        </p>
+        <h1 class="text-4xl md:text-5xl font-normal leading-tight">Documentation</h1>
+        <p class="mt-5 text-lg text-secondary/70 dark:text-backgroundBody/70">
+          Plain-language guides for working with us: what to prepare, how things work, and what
+          happens after launch. New docs are added regularly.
+        </p>
+
+        <!-- Search across all docs -->
+        <div class="relative mt-8 max-w-md">
+          <svg
+            class="pointer-events-none absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-secondary/35 dark:text-backgroundBody/35"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <circle cx="11" cy="11" r="7"></circle><path stroke-linecap="round" d="M20 20l-3.5-3.5"></path>
+          </svg>
+          <input
+            id="docs-home-search"
+            type="text"
+            placeholder="Search the docs..."
+            autocomplete="off"
+            class="w-full rounded-xl border border-secondary/12 bg-white/70 py-3.5 pl-12 pr-4 text-base text-secondary outline-none transition-all placeholder:text-secondary/35 focus:border-primary focus:ring-[3px] focus:ring-primary/15 dark:border-white/12 dark:bg-white/[0.04] dark:text-backgroundBody dark:placeholder:text-backgroundBody/30"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pb-16 md:pb-24">
+    <div class="container px-5 md:px-8">
+      <div class="grid gap-6 md:grid-cols-2" id="docs-home-grid">
+        {
+          DOCS_NAV.map((cat) => (
+            <div
+              class="docs-home-cat rounded-2xl border border-secondary/10 p-6 dark:border-white/10 md:p-7"
+              data-cat={cat.title.toLowerCase()}
+            >
+              <h2 class="text-xl font-medium text-secondary dark:text-backgroundBody md:text-2xl">
+                {cat.title}
+              </h2>
+              <p class="mt-1.5 text-sm leading-relaxed text-secondary/55 dark:text-backgroundBody/55">
+                {cat.blurb}
+              </p>
+              <ul class="mt-5 space-y-1">
+                {cat.items.map((item) => (
+                  <li class="docs-home-item" data-title={`${item.title} ${item.description}`.toLowerCase()}>
+                    <a
+                      href={item.href}
+                      class="group flex items-start gap-3 rounded-xl px-3 py-2.5 transition-colors hover:bg-secondary/[0.04] dark:hover:bg-white/[0.04] -mx-3"
+                    >
+                      <svg
+                        class="mt-1 h-4 w-4 shrink-0 text-primary"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                      >
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M7 7h10v10M7 17L17 7" />
+                      </svg>
+                      <span>
+                        <span class="flex items-center gap-2 font-medium text-secondary transition-colors group-hover:text-primary dark:text-backgroundBody">
+                          {item.title}
+                          {item.badge && (
+                            <span class="rounded-full bg-primary/10 px-1.5 py-px text-[10px] font-semibold uppercase tracking-wide text-primary">
+                              {item.badge}
+                            </span>
+                          )}
+                        </span>
+                        <span class="mt-0.5 block text-sm leading-relaxed text-secondary/55 dark:text-backgroundBody/55">
+                          {item.description}
+                        </span>
+                      </span>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))
+        }
+      </div>
+      <p id="docs-home-empty" class="hidden pt-10 text-center text-secondary/50 dark:text-backgroundBody/50">
+        No docs match your search - try a different word, or <a href="/contact" class="text-primary hover:underline">ask us directly</a>.
+      </p>
+    </div>
+  </section>
+
+  <script is:inline>
+    // Docs home search: filters items and hides empty category cards.
+    (function () {
+      const input = document.getElementById('docs-home-search');
+      if (!input) return;
+      const items = Array.from(document.querySelectorAll('.docs-home-item'));
+      const cats = Array.from(document.querySelectorAll('.docs-home-cat'));
+      const empty = document.getElementById('docs-home-empty');
+      input.addEventListener('input', function () {
+        const q = this.value.trim().toLowerCase();
+        let shown = 0;
+        items.forEach((li) => {
+          const hit = !q || (li.getAttribute('data-title') || '').includes(q);
+          li.style.display = hit ? '' : 'none';
+          if (hit) shown++;
+        });
+        cats.forEach((cat) => {
+          const any = Array.from(cat.querySelectorAll('.docs-home-item')).some((li) => li.style.display !== 'none');
+          cat.style.display = any ? '' : 'none';
+        });
+        if (empty) empty.classList.toggle('hidden', shown > 0);
+      });
+    })();
+  </script>
+</BaseLayout>
