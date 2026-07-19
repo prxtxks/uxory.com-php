@@ -4,7 +4,10 @@ import crypto from 'node:crypto';
 
 export const prerender = false;
 
-const MODEL = import.meta.env.GEMINI_MODEL || process.env.GEMINI_MODEL || 'gemini-2.0-flash';
+// gemini-flash-latest works on the current free tier; the older
+// gemini-2.0-flash returns 429 (limit: 0) for newer keys. Same fix as
+// quoteLlm.ts - override via GEMINI_MODEL if ever needed.
+const MODEL = import.meta.env.GEMINI_MODEL || process.env.GEMINI_MODEL || 'gemini-flash-latest';
 const MAX_HISTORY = 12; // last N messages kept
 const MAX_CHARS = 4000; // cap on a single user message
 const RATE_LIMIT = 20; // messages …

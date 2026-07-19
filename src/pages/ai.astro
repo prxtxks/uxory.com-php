@@ -24,6 +24,9 @@ const structuredData = `
   currentPage="ai"
   currentParent="tools"
   structuredData={structuredData}
+  noFooter
+  noMainWrapper
+  recaptcha={false}
 >
   <style is:global>
     .prose-uxory p { margin: 0 0 0.75rem; }
@@ -43,7 +46,7 @@ const structuredData = `
     .prose-uxory h1, .prose-uxory h2, .prose-uxory h3 { font-weight: 600; margin: 0.5rem 0; }
   </style>
 
-  <section class="pt-[80px] bg-[#0A0A0A]">
+  <main id="main-content" class="relative z-10 bg-[#0A0A0A]">
     <UxoryAI client:load />
-  </section>
+  </main>
 </BaseLayout>
