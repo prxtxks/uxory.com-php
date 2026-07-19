@@ -180,66 +180,36 @@ const structuredData = `
 </section>
 
 <!--=====================================
-   Leadership
+   The team
 ======================================-->
 <section class="py-14 md:py-20 lg:py-[100px]">
   <div class="container px-5 md:px-8">
     <div class="grid items-start gap-10 lg:grid-cols-[1fr_1.4fr] lg:gap-16">
       <div class="reveal-me">
-        <p class="font-satoshi mb-3 text-sm uppercase tracking-[3px] text-primary">Leadership</p>
+        <p class="font-satoshi mb-3 text-sm uppercase tracking-[3px] text-primary">The team</p>
         <h2 class="text-appear-2 text-3xl font-normal leading-tight md:text-[44px]">
           The people behind
           <span class="font-instrument italic">the work</span>
         </h2>
         <p class="mt-5 max-w-md text-lg text-secondary/70 dark:text-backgroundBody/70">
-          No account managers in between. When you work with Uxory, you work directly with the
-          people responsible for your project.
+          No account managers in between. When you work with Uxory, you talk directly to the
+          people designing and building your project.
         </p>
       </div>
 
-      <div class="grid gap-4 sm:grid-cols-2">
-        <a
-          href="/pratik"
-          class="group reveal-me rounded-2xl border border-secondary/10 p-6 transition-colors hover:border-primary/50 dark:border-white/10"
-        >
-          <img
-            src="/images/headshot.webp"
-            alt="Pratik Chaudhari"
-            class="h-20 w-20 rounded-full object-cover"
-            loading="lazy"
-          />
-          <p class="mt-5 text-xl font-medium text-secondary transition-colors group-hover:text-primary dark:text-backgroundBody">
-            Pratik Chaudhari
-          </p>
-          <p class="mt-1 text-sm text-secondary/55 dark:text-backgroundBody/55">Director - Uxory LLC, USA</p>
-          <p class="mt-3 text-[15px] leading-relaxed text-secondary/65 dark:text-backgroundBody/65">
-            Leads product, engineering, and client delivery across the US and India.
-          </p>
-          <span class="mt-4 inline-flex items-center gap-1.5 text-sm text-primary">
-            View profile
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </span>
-        </a>
-
-        <a
-          href="/rajesh"
-          class="group reveal-me rounded-2xl border border-secondary/10 p-6 transition-colors hover:border-primary/50 dark:border-white/10"
-        >
-          <span class="flex h-20 w-20 items-center justify-center rounded-full bg-primary/12 text-2xl font-semibold text-primary">
-            RC
-          </span>
-          <p class="mt-5 text-xl font-medium text-secondary transition-colors group-hover:text-primary dark:text-backgroundBody">
-            Rajesh Chaudhari
-          </p>
-          <p class="mt-1 text-sm text-secondary/55 dark:text-backgroundBody/55">Director - Uxory Technologies, India</p>
-          <p class="mt-3 text-[15px] leading-relaxed text-secondary/65 dark:text-backgroundBody/65">
-            Oversees operations and long-term client relationships from Pune.
-          </p>
-          <span class="mt-4 inline-flex items-center gap-1.5 text-sm text-primary">
-            View profile
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </span>
-        </a>
+      <div class="reveal-me divide-y divide-secondary/10 dark:divide-white/10">
+        {
+          [
+            ['Engineers and designers, one roof', 'Product, design, development, and hosting handled by a single in-house team - nothing is passed to outsourcing chains.'],
+            ['Across the US and India', 'Our team works from both sides of the world, which means overlap with your timezone and progress while you sleep.'],
+            ['Small on purpose', 'We keep the team and the project count deliberately small, so senior people do the actual work - not just the sales call.'],
+          ].map(([title, desc]) => (
+            <div class="py-6 first:pt-0 last:pb-0">
+              <p class="text-xl font-medium text-secondary dark:text-backgroundBody">{title}</p>
+              <p class="mt-2 text-[15px] leading-relaxed text-secondary/60 dark:text-backgroundBody/60">{desc}</p>
+            </div>
+          ))
+        }
       </div>
     </div>
   </div>
