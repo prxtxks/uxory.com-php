@@ -8,7 +8,10 @@
  */
 import { LLM_ADJUSTMENT_CLAMP, WEBAPP_MODULES, WEBAPP_MODULE_CLAMP } from './pricing/rateCard';
 
-const MODEL = import.meta.env.GEMINI_MODEL || process.env.GEMINI_MODEL || 'gemini-2.0-flash';
+// gemini-flash-latest works on the current free tier; the older
+// gemini-2.0-flash returns 429 (limit: 0) for newer keys and 2.5-flash is
+// 404 "no longer available to new users". Override via GEMINI_MODEL if needed.
+const MODEL = import.meta.env.GEMINI_MODEL || process.env.GEMINI_MODEL || 'gemini-flash-latest';
 
 function getKey(): string | undefined {
   return import.meta.env.GEMINI_API_KEY || process.env.GEMINI_API_KEY;
