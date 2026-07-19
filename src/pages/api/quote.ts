@@ -74,10 +74,12 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
     // ── LLM enhancer (clamped, silent fallback) ──
     // Web apps already carry explicit module scope from the AI scoper, so the
     // generic hours nudge would double-count; skip it for that category.
+    // Everything else runs whenever the client wrote free text: a project
+    // description (custom, ai_bot, automation) or an extra comment.
     let llmPct = 0;
     let llmNotes: string[] = [];
     let llmUsed = false;
-    if (answers.category !== 'webapp' && (answers.category === 'custom' || comment)) {
+    if (answers.category !== 'webapp' && (answers.description?.trim() || comment)) {
       const adj = await getLlmAdjustment({
         category: answers.category,
         answersSummary: JSON.stringify({ ...answers, description: undefined }),

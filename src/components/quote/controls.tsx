@@ -69,7 +69,7 @@ export function OptionCard({
       type="button"
       whileTap={{ scale: 0.97 }}
       onClick={onClick}
-      className={`group relative flex w-full flex-col items-start gap-2.5 rounded-2xl border p-4 text-left transition-all duration-300 md:p-5 ${
+      className={`group relative flex w-full flex-col items-start gap-2.5 rounded-2xl border p-4 text-left transition-all duration-300 max-md:pb-10 md:p-5 ${
         selected
           ? 'border-primary/70 bg-gradient-to-br from-primary/[0.14] via-primary/[0.05] to-transparent shadow-[0_0_28px_-8px_rgba(18,216,204,0.55)]'
           : 'border-secondary/10 bg-white/70 hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-[0_10px_32px_-14px_rgba(0,0,0,0.3)] dark:border-white/10 dark:bg-white/[0.03] dark:hover:bg-white/[0.06] dark:hover:shadow-[0_0_24px_-10px_rgba(18,216,204,0.35)]'

@@ -47,8 +47,16 @@ export const AI_BOT_BASE_HOURS = 40;
 export const AUTOMATION_HOURS_PER_WORKFLOW = 10;
 
 // ── Website / shared adders ────────────────────────────────────
-/** Pages included in each website base before per-page pricing kicks in. */
-export const PAGES_INCLUDED = 5;
+/**
+ * Pages included in each website base before per-page pricing kicks in.
+ * Business base (36h ≈ ₹25,200 / Starter Spark floor) bundles 5 pages;
+ * smaller site types bundle fewer.
+ */
+export const WEBSITE_PAGES_INCLUDED: Record<string, number> = {
+  landing: 1,
+  portfolio: 4,
+  business: 5,
+};
 export const HOURS_PER_EXTRA_PAGE = 3;
 
 export const DESIGN_TIER_MULTIPLIER: Record<string, number> = {

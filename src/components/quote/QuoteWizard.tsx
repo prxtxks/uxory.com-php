@@ -49,7 +49,13 @@ const ICONS: Record<string, React.ReactNode> = {
   custom: ic('M12 3l1.9 5.8H20l-4.9 3.6 1.9 5.8-5-3.6-5 3.6 1.9-5.8L4 8.8h6.1z'),
 };
 
-const PAGE_OPTIONS = ['Home', 'About', 'Services', 'Contact', 'Blog', 'FAQ', 'Careers', 'Portfolio', 'Privacy & Terms'];
+/** Page choices tailored to each website type - a portfolio has no Careers page. */
+const PAGE_OPTIONS: Record<string, string[]> = {
+  business: ['Home', 'About', 'Services', 'Contact', 'Blog', 'FAQ', 'Careers', 'Portfolio', 'Privacy & Terms'],
+  portfolio: ['Home', 'About', 'Work / Projects', 'Services', 'Testimonials', 'Blog', 'Contact', 'Privacy & Terms'],
+};
+/** Pages bundled into each website base build (mirrors the rate card). */
+const PAGES_INCLUDED_BY_TYPE: Record<string, number> = { landing: 1, portfolio: 4, business: 5 };
 
 /* ── Main wizard ── */
 export default function QuoteWizard() {
@@ -134,7 +140,12 @@ export default function QuoteWizard() {
             <OptionCard
               key={key}
               selected={a.category === key}
-              onClick={() => setA({ category: key })}
+              onClick={() =>
+                // Changing category clears cross-cutting answers (features,
+                // design tier) so selections made under another category can
+                // never silently bill into this one.
+                setA(a.category === key ? { category: key } : { category: key, features: [], designTier: undefined })
+              }
               icon={ICONS[key]}
               label={label}
               hint={hint}
@@ -160,35 +171,51 @@ export default function QuoteWizard() {
                 ['business', 'Business website', 'Multi-page company presence'],
               ] as [string, string, string][]
             ).map(([k, l, h]) => (
-              <OptionCard key={k} selected={a.websiteType === k} onClick={() => setA({ websiteType: k as any })} label={l} hint={h} />
+              <OptionCard
+                key={k}
+                selected={a.websiteType === k}
+                onClick={() =>
+                  // Landing pages have no page-picker step - clear any pages
+                  // selected under a previous type so they can't be billed.
+                  setA({ websiteType: k as any, ...(k === 'landing' ? { pages: [], extraPages: 0 } : {}) })
+                }
+                label={l}
+                hint={h}
+              />
             ))}
           </div>
         </StepShell>
       ),
     });
-    steps.push({
-      id: 'w-pages',
-      valid: (a.pages?.length ?? 0) > 0 || (a.extraPages ?? 0) > 0,
-      node: (
-        <StepShell title="Which pages do you need?" subtitle="First 5 pages are included in the base build.">
-          <div className="flex flex-wrap gap-2">
-            {PAGE_OPTIONS.map((p) => (
-              <Chip
-                key={p}
-                selected={!!a.pages?.includes(p)}
-                onClick={() => setA({ pages: a.pages?.includes(p) ? a.pages.filter((x) => x !== p) : [...(a.pages ?? []), p] })}
-              >
-                {p}
-              </Chip>
-            ))}
-          </div>
-          <div className="mt-6 flex items-center gap-4">
-            <span className="text-sm text-secondary/60 dark:text-backgroundBody/60">Other custom pages:</span>
-            <Counter value={a.extraPages ?? 0} onChange={(n) => setA({ extraPages: n })} max={40} />
-          </div>
-        </StepShell>
-      ),
-    });
+    if (a.websiteType !== 'landing') {
+      const pagesIncluded = PAGES_INCLUDED_BY_TYPE[a.websiteType ?? 'business'] ?? 5;
+      steps.push({
+        id: 'w-pages',
+        valid: (a.pages?.length ?? 0) > 0 || (a.extraPages ?? 0) > 0,
+        node: (
+          <StepShell
+            title="Which pages do you need?"
+            subtitle={`First ${pagesIncluded} pages are included in the base build.`}
+          >
+            <div className="flex flex-wrap gap-2">
+              {(PAGE_OPTIONS[a.websiteType ?? 'business'] ?? PAGE_OPTIONS.business).map((p) => (
+                <Chip
+                  key={p}
+                  selected={!!a.pages?.includes(p)}
+                  onClick={() => setA({ pages: a.pages?.includes(p) ? a.pages.filter((x) => x !== p) : [...(a.pages ?? []), p] })}
+                >
+                  {p}
+                </Chip>
+              ))}
+            </div>
+            <div className="mt-6 flex items-center gap-4">
+              <span className="text-sm text-secondary/60 dark:text-backgroundBody/60">Other custom pages:</span>
+              <Counter value={a.extraPages ?? 0} onChange={(n) => setA({ extraPages: n })} max={40} />
+            </div>
+          </StepShell>
+        ),
+      });
+    }
     steps.push(designStep(a, setA));
     steps.push({
       id: 'w-features',
@@ -498,6 +525,29 @@ export default function QuoteWizard() {
 
   if (a.category === 'ai_bot') {
     steps.push({
+      id: 'b-describe',
+      valid: (a.description?.trim().length ?? 0) >= 20,
+      node: (
+        <StepShell
+          eyebrow="AI-assisted estimate"
+          title="What should your AI do?"
+          subtitle="A sentence or two in your own words - our AI reads this and refines your estimate. (20+ characters)"
+        >
+          <TextField
+            label="Describe the assistant"
+            value={a.description ?? ''}
+            onChange={(v) => setA({ description: v })}
+            textarea
+            required
+            placeholder="e.g. Answer customer questions on WhatsApp about our menu and orders, take bookings, and hand over to a human when it gets stuck."
+          />
+          <p className="mt-1.5 text-right text-xs text-secondary/40 dark:text-backgroundBody/40">
+            {a.description?.trim().length ?? 0} / 20+
+          </p>
+        </StepShell>
+      ),
+    });
+    steps.push({
       id: 'b-channel',
       valid: !!a.botChannel,
       node: (
@@ -580,6 +630,29 @@ export default function QuoteWizard() {
   }
 
   if (a.category === 'automation') {
+    steps.push({
+      id: 'auto-describe',
+      valid: (a.description?.trim().length ?? 0) >= 20,
+      node: (
+        <StepShell
+          eyebrow="AI-assisted estimate"
+          title="What should we automate?"
+          subtitle="Briefly describe the busywork in your own words - our AI reads this and refines your estimate. (20+ characters)"
+        >
+          <TextField
+            label="Describe the process"
+            value={a.description ?? ''}
+            onChange={(v) => setA({ description: v })}
+            textarea
+            required
+            placeholder="e.g. When a new order comes in on Shopify, create an invoice in Zoho, notify the packing team on WhatsApp, and update our stock sheet."
+          />
+          <p className="mt-1.5 text-right text-xs text-secondary/40 dark:text-backgroundBody/40">
+            {a.description?.trim().length ?? 0} / 20+
+          </p>
+        </StepShell>
+      ),
+    });
     steps.push({
       id: 'auto-scope',
       valid: (a.workflowCount ?? 0) > 0 && !!a.automationTool,
@@ -717,10 +790,21 @@ export default function QuoteWizard() {
   const isReveal = current.id === 'reveal';
   const progress = steps.length > 1 ? (stepIdx / (steps.length - 1)) * 100 : 0;
 
+  const scrollToTop = () => {
+    const el = document.getElementById('quote-wizard-top');
+    if (!el) return;
+    const y = el.getBoundingClientRect().top + window.scrollY - 110; // clear the fixed header
+    window.scrollTo({ top: Math.max(0, y), behavior: 'smooth' });
+  };
+
   const go = (delta: number) => {
     setDir(delta);
     setStepIdx((i) => Math.max(0, Math.min(steps.length - 1, i + delta)));
-    document.getElementById('quote-wizard-top')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    // Scroll now, and again once the old step has animated out - a tall step
+    // collapsing after the first scroll would otherwise leave the viewport
+    // stranded near the footer.
+    scrollToTop();
+    setTimeout(scrollToTop, 380);
   };
 
   const stepNum = Math.min(stepIdx + 1, steps.length);

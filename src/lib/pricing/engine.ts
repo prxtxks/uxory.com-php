@@ -14,7 +14,7 @@ import {
   MOBILE_BASE_HOURS,
   AI_BOT_BASE_HOURS,
   AUTOMATION_HOURS_PER_WORKFLOW,
-  PAGES_INCLUDED,
+  WEBSITE_PAGES_INCLUDED,
   HOURS_PER_EXTRA_PAGE,
   DESIGN_TIER_MULTIPLIER,
   FEATURE_HOURS,
@@ -138,10 +138,12 @@ export function estimate(a: QuoteAnswers, region: Region, llmAdjustPct = 0): Quo
   // ── Category bases ──
   switch (a.category) {
     case 'website': {
-      const base = WEBSITE_BASE_HOURS[a.websiteType ?? 'business'] ?? WEBSITE_BASE_HOURS.business;
+      const type = a.websiteType ?? 'business';
+      const base = WEBSITE_BASE_HOURS[type] ?? WEBSITE_BASE_HOURS.business;
       addHours(labelForWebsite(a.websiteType), base);
+      const included = WEBSITE_PAGES_INCLUDED[type] ?? WEBSITE_PAGES_INCLUDED.business;
       const pageCount = (a.pages?.length ?? 0) + (a.extraPages ?? 0);
-      const extra = Math.max(0, pageCount - PAGES_INCLUDED);
+      const extra = Math.max(0, pageCount - included);
       if (extra > 0)
         addHours(`${extra} additional page${extra > 1 ? 's' : ''}`, extra * HOURS_PER_EXTRA_PAGE);
       break;
