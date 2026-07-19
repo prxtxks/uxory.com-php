@@ -8,6 +8,8 @@
     { "source": "/tools/image-compressor", "destination": "/tools/image-optimizer", "permanent": true },
     { "source": "/onboarding/ecommerce-india", "destination": "/docs/onboarding/ecommerce-india", "permanent": true },
     { "source": "/onboarding/ecommerce-usa", "destination": "/docs/onboarding/ecommerce-usa", "permanent": true },
+    { "source": "/pratik", "destination": "/about-us", "permanent": true },
+    { "source": "/rajesh", "destination": "/about-us", "permanent": true },
     {
       "source": "/",
       "has": [{ "type": "host", "value": "docs.uxory.in" }],
