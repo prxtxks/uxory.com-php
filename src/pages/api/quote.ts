@@ -10,11 +10,12 @@ import { quoteTemplate } from '../../lib/emailTemplates';
 export const prerender = false;
 
 const EMAIL_RE = /^\S+@\S+\.\S+$/;
-const CATEGORIES: Category[] = ['website', 'ecommerce', 'mobile', 'ai_bot', 'automation', 'custom'];
+const CATEGORIES: Category[] = ['website', 'ecommerce', 'mobile', 'webapp', 'ai_bot', 'automation', 'custom'];
 const CATEGORY_LABELS: Record<Category, string> = {
   website: 'website',
   ecommerce: 'e-commerce store',
   mobile: 'mobile app',
+  webapp: 'web app',
   ai_bot: 'AI assistant',
   automation: 'automation',
   custom: 'project',
@@ -60,11 +61,23 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
     answers.workflowCount = clampNum(answers.workflowCount, 1, 200);
     answers.botLanguages = clampNum(answers.botLanguages, 1, 30);
 
+    // Sanitize web-app modules: cap count and shape each entry. The engine
+    // also clamps per-module hours and the running total, but we never want
+    // an unbounded array reaching it.
+    if (Array.isArray(answers.appModules)) {
+      answers.appModules = answers.appModules
+        .filter((m) => m && typeof m.label === 'string')
+        .slice(0, 40)
+        .map((m) => ({ label: m.label.slice(0, 120), hours: clampNum(m.hours, 0, 90) ?? 0 }));
+    }
+
     // ── LLM enhancer (clamped, silent fallback) ──
+    // Web apps already carry explicit module scope from the AI scoper, so the
+    // generic hours nudge would double-count; skip it for that category.
     let llmPct = 0;
     let llmNotes: string[] = [];
     let llmUsed = false;
-    if (answers.category === 'custom' || comment) {
+    if (answers.category !== 'webapp' && (answers.category === 'custom' || comment)) {
       const adj = await getLlmAdjustment({
         category: answers.category,
         answersSummary: JSON.stringify({ ...answers, description: undefined }),

@@ -33,10 +33,19 @@ import {
   MAINTENANCE_MONTHLY,
   HOSTING_YEARLY,
   FLOORS,
+  WEBAPP_BASE_HOURS,
+  WEBAPP_MODULE_CLAMP,
+  WEBAPP_TOTAL_HOURS_CAP,
   type Region,
 } from './rateCard';
 
-export type Category = 'website' | 'ecommerce' | 'mobile' | 'ai_bot' | 'automation' | 'custom';
+export type Category = 'website' | 'ecommerce' | 'mobile' | 'webapp' | 'ai_bot' | 'automation' | 'custom';
+
+/** A scoped web-app module: a label and the hours it is estimated at. */
+export interface AppModule {
+  label: string;
+  hours: number;
+}
 
 export interface QuoteAnswers {
   category: Category;
@@ -57,6 +66,10 @@ export interface QuoteAnswers {
   botKnowledge?: keyof typeof BOT_KNOWLEDGE_HOURS;
   botLanguages?: number;
   botVolume?: keyof typeof BOT_VOLUME_MULTIPLIER;
+  // web app / saas
+  appModules?: AppModule[]; // scoped modules (from the AI scoper or manual picker)
+  appSummary?: string; // the client's own description, kept for the agency
+  appHints?: string[]; // structured toggles that seed the AI scoper (informational)
   // automation
   workflowCount?: number;
   automationComplexity?: keyof typeof AUTOMATION_COMPLEXITY_MULTIPLIER;
@@ -159,6 +172,24 @@ export function estimate(a: QuoteAnswers, region: Region, llmAdjustPct = 0): Quo
       const p = a.mobilePlatform ?? 'cross';
       addHours(labelForMobile(p), MOBILE_BASE_HOURS[p]);
       addHours('Additional screens', SCREEN_BAND_HOURS[a.screenBand ?? 's']);
+      break;
+    }
+    case 'webapp': {
+      addHours('Architecture, setup & core scaffolding', WEBAPP_BASE_HOURS);
+      let moduleHours = 0;
+      for (const m of a.appModules ?? []) {
+        if (!m?.label) continue;
+        const h = Math.max(WEBAPP_MODULE_CLAMP.min, Math.min(WEBAPP_MODULE_CLAMP.max, Math.round(m.hours || 0)));
+        // Respect the total cap: stop adding billable module hours past it.
+        const room = WEBAPP_TOTAL_HOURS_CAP - moduleHours;
+        if (room <= 0) {
+          items.push({ label: m.label, amount: null, note: 'scoped on our call' });
+          continue;
+        }
+        const billable = Math.min(h, room);
+        moduleHours += billable;
+        addHours(m.label, billable);
+      }
       break;
     }
     case 'ai_bot': {

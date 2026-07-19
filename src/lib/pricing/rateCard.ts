@@ -175,11 +175,59 @@ export const HOSTING_YEARLY: Record<Region, number> = {
   GLOBAL: 139,
 };
 
+// ── Web app / SaaS (deep estimator) ────────────────────────────
+/**
+ * Baseline hours every custom web app carries regardless of features:
+ * architecture, project setup, auth scaffolding, database design, CI/CD,
+ * responsive shell, and QA. Feature modules add on top of this.
+ */
+export const WEBAPP_BASE_HOURS = 30;
+
+/**
+ * Reference module library for custom web apps / SaaS. The LLM scoper is
+ * grounded in these hour norms and its per-module hours are clamped to
+ * WEBAPP_MODULE_CLAMP. Hours are a mid-complexity baseline; the LLM (or the
+ * manual picker) shifts within the clamp based on the described complexity.
+ * `key` is stable; the LLM may also propose modules not in this list (still
+ * clamped), which is why the engine prices from the returned hours, not a
+ * fixed table.
+ */
+export const WEBAPP_MODULES: Array<{ key: string; label: string; hours: number; group: string }> = [
+  { key: 'auth_roles', label: 'Authentication & user roles', hours: 24, group: 'Core' },
+  { key: 'user_profiles', label: 'User profiles & account settings', hours: 16, group: 'Core' },
+  { key: 'dashboard', label: 'Main dashboard', hours: 26, group: 'Core' },
+  { key: 'admin_panel', label: 'Admin / management panel', hours: 40, group: 'Core' },
+  { key: 'crud_entity', label: 'Data module (create, list, edit, delete)', hours: 20, group: 'Data' },
+  { key: 'search_filter', label: 'Search & advanced filtering', hours: 14, group: 'Data' },
+  { key: 'file_uploads', label: 'File uploads & media handling', hours: 16, group: 'Data' },
+  { key: 'import_export', label: 'Import / export data', hours: 12, group: 'Data' },
+  { key: 'reporting', label: 'Reports, charts & analytics', hours: 30, group: 'Data' },
+  { key: 'audit_logs', label: 'Audit logs & activity history', hours: 14, group: 'Data' },
+  { key: 'payments', label: 'Payments & checkout', hours: 34, group: 'Commerce' },
+  { key: 'subscriptions', label: 'Subscriptions & recurring billing', hours: 40, group: 'Commerce' },
+  { key: 'notifications', label: 'Email & in-app notifications', hours: 14, group: 'Engagement' },
+  { key: 'chat_messaging', label: 'In-app chat / messaging', hours: 34, group: 'Engagement' },
+  { key: 'realtime', label: 'Real-time / live updates', hours: 28, group: 'Engagement' },
+  { key: 'onboarding_flow', label: 'Onboarding & guided setup', hours: 14, group: 'Engagement' },
+  { key: 'integration', label: 'Third-party integration', hours: 16, group: 'Integrations' },
+  { key: 'public_api', label: 'Public / partner API', hours: 30, group: 'Integrations' },
+  { key: 'maps_location', label: 'Maps & location', hours: 14, group: 'Integrations' },
+  { key: 'ai_features', label: 'AI-powered features', hours: 40, group: 'Advanced' },
+  { key: 'multi_tenant', label: 'Multi-tenant / organizations', hours: 44, group: 'Advanced' },
+  { key: 'public_pages', label: 'Public marketing pages', hours: 16, group: 'Advanced' },
+];
+
+/** Per-module hour clamp applied to whatever the LLM proposes. */
+export const WEBAPP_MODULE_CLAMP = { min: 6, max: 90 };
+/** Safety cap on total module hours before the base is added. */
+export const WEBAPP_TOTAL_HOURS_CAP = 1400;
+
 // ── Price floors (money) ───────────────────────────────────────
 export const FLOORS: Record<string, Record<Region, number>> = {
   website: { IN: 24999, GLOBAL: 299 },
   ecommerce: { IN: 44999, GLOBAL: 639 },
   mobile: { IN: 79999, GLOBAL: 3999 },
+  webapp: { IN: 79999, GLOBAL: 2499 },
   ai_bot: { IN: 24999, GLOBAL: 999 },
   automation: { IN: 9999, GLOBAL: 299 },
   custom: { IN: 24999, GLOBAL: 999 },

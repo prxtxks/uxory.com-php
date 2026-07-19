@@ -5,6 +5,7 @@ import { estimate, type QuoteAnswers, type Category } from '../../lib/pricing/en
 import type { Region } from '../../lib/pricing/rateCard';
 import { StepShell, OptionCard, Chip, Counter, SliderControl, TextField, Toggle } from './controls';
 import PriceReveal from './PriceReveal';
+import WebappScope from './WebappScope';
 
 /* ── Types ── */
 export interface ContactInfo {
@@ -40,6 +41,7 @@ const ic = (d: string) => (
 );
 const ICONS: Record<string, React.ReactNode> = {
   website: ic('M3 5h18v14H3zM3 9h18M7 7h.01M10 7h.01'),
+  webapp: ic('M3 4h18v16H3zM3 9h18M8 9v11M3 14h5'),
   ecommerce: ic('M6 6h15l-1.5 8.5H8L6 3H3M9 20a1 1 0 100-2 1 1 0 000 2zm9 0a1 1 0 100-2 1 1 0 000 2z'),
   mobile: ic('M8 2h8a2 2 0 012 2v16a2 2 0 01-2 2H8a2 2 0 01-2-2V4a2 2 0 012-2zM12 18h.01'),
   ai_bot: ic('M12 8V4m0 0H8m4 0h4M5 12a7 7 0 0114 0v5a3 3 0 01-3 3H8a3 3 0 01-3-3v-5zM9 14h.01M15 14h.01'),
@@ -90,6 +92,8 @@ export default function QuoteWizard() {
   const setContact = (patch: Partial<ContactInfo>) => setState((s) => ({ ...s, contact: { ...s.contact, ...patch } }));
   const toggleFeature = (f: string) =>
     setA({ features: a.features?.includes(f) ? a.features.filter((x) => x !== f) : [...(a.features ?? []), f] });
+  const toggleHint = (h: string) =>
+    setA({ appHints: a.appHints?.includes(h) ? a.appHints.filter((x) => x !== h) : [...(a.appHints ?? []), h] });
   const currency = state.region === 'IN' ? '₹' : '$';
 
   /* live estimate (only meaningful once category picked) */
@@ -118,7 +122,8 @@ export default function QuoteWizard() {
         <div className="grid grid-cols-2 gap-3 md:grid-cols-3">
           {(
             [
-              ['website', 'Website', 'Business, portfolio or web app'],
+              ['website', 'Website', 'Business or portfolio site'],
+              ['webapp', 'Web app / SaaS', 'Logins, dashboards, a real product'],
               ['ecommerce', 'E-commerce', 'Shopify, WooCommerce or custom store'],
               ['mobile', 'Mobile app', 'iOS, Android or both'],
               ['ai_bot', 'AI bot / agent', 'Chat assistants that work 24/7'],
@@ -153,7 +158,6 @@ export default function QuoteWizard() {
                 ['landing', 'Landing page', 'One sharp page that converts'],
                 ['portfolio', 'Portfolio', 'Show your work beautifully'],
                 ['business', 'Business website', 'Multi-page company presence'],
-                ['webapp', 'Web application', 'Logins, dashboards, real product'],
               ] as [string, string, string][]
             ).map(([k, l, h]) => (
               <OptionCard key={k} selected={a.websiteType === k} onClick={() => setA({ websiteType: k as any })} label={l} hint={h} />
@@ -214,6 +218,97 @@ export default function QuoteWizard() {
       ),
     });
     steps.push(stackStep(a, setA, state.region));
+  }
+
+  if (a.category === 'webapp') {
+    steps.push({
+      id: 'app-describe',
+      valid: (a.appSummary?.trim().length ?? 0) >= 30,
+      node: (
+        <StepShell
+          eyebrow="AI-assisted scoping"
+          title="Describe your web app"
+          subtitle="In your own words - who uses it and what they do. Our AI reads this and breaks it into a real, priced scope. A few sentences is enough (30+ characters)."
+        >
+          <TextField
+            label="What are we building?"
+            value={a.appSummary ?? ''}
+            onChange={(v) => setA({ appSummary: v })}
+            textarea
+            required
+            placeholder="e.g. A marketplace where vendors list products, buyers place orders, and an admin approves payouts. Vendors get a dashboard with sales reports; buyers get order tracking and email updates."
+          />
+          <p className="mt-1.5 text-right text-xs text-secondary/40 dark:text-backgroundBody/40">
+            {a.appSummary?.trim().length ?? 0} / 30+
+          </p>
+          <p className="mb-2 mt-6 text-sm text-secondary/60 dark:text-backgroundBody/60">
+            Anything it definitely needs? (optional - helps the AI)
+          </p>
+          <div className="flex flex-wrap gap-2">
+            {(
+              [
+                'User accounts & logins',
+                'Multiple user roles',
+                'Payments or subscriptions',
+                'Admin dashboard',
+                'Real-time updates',
+                'Third-party integrations',
+                'AI features',
+                'Reports & analytics',
+              ] as string[]
+            ).map((h) => (
+              <Chip key={h} selected={!!a.appHints?.includes(h)} onClick={() => toggleHint(h)}>
+                {h}
+              </Chip>
+            ))}
+          </div>
+        </StepShell>
+      ),
+    });
+    steps.push({
+      id: 'app-scope',
+      valid: (a.appModules?.length ?? 0) > 0,
+      node: (
+        <StepShell title="Your app, broken down" subtitle="Priced by the hours each part takes to build - tick what you need.">
+          <WebappScope
+            description={a.appSummary ?? ''}
+            hints={a.appHints ?? []}
+            region={state.region}
+            value={a.appModules ?? []}
+            onChange={(mods) => setA({ appModules: mods })}
+          />
+        </StepShell>
+      ),
+    });
+    steps.push({
+      id: 'app-stack',
+      valid: true,
+      node: (
+        <StepShell title="Hosting & care" subtitle="Your app needs a home and upkeep - both optional to decide now.">
+          <p className="mb-2 text-sm text-secondary/60 dark:text-backgroundBody/60">Hosting:</p>
+          <div className="flex flex-wrap gap-2">
+            {(
+              [
+                ['uxory', `Uxory managed (${currency}${state.region === 'IN' ? '9,999' : '139'}/yr)`],
+                ['own', "I'll use my own"],
+              ] as [string, string][]
+            ).map(([k, l]) => (
+              <Chip key={k} selected={a.hosting === k} onClick={() => setA({ hosting: k as any })}>
+                {l}
+              </Chip>
+            ))}
+          </div>
+          <div className="mt-6">
+            <Toggle
+              on={!!a.maintenance}
+              onChange={(v) => setA({ maintenance: v })}
+              label="Monthly maintenance plan"
+              hint={`Updates, monitoring, small changes - ${currency}${state.region === 'IN' ? '1,999' : '29'}/mo`}
+            />
+          </div>
+        </StepShell>
+      ),
+    });
   }
 
   if (a.category === 'ecommerce') {
