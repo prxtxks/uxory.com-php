@@ -1,12 +1,12 @@
 // Two-currency pricing: INR for India, USD for everyone else.
 async function localizeCurrency() {
-  const ids = ['monthlyPrice', 'yearlyPrice', 'sparkPrice', 'catalystPrice', 'titlePrice'];
+  const ids = ['monthlyPrice', 'yearlyPrice', 'sparkPrice', 'catalystPrice', 'titlePrice', 'setupFee'];
   const els = {};
   ids.forEach((id) => (els[id] = document.getElementById(id)));
   if (ids.every((id) => !els[id])) return;
 
-  const USD = { monthly: '$29 /m', yearly: '$139 /y', spark: '$299', catalyst: '$639', title: '$299' };
-  const INR = { monthly: '₹1,999 /m', yearly: '₹9,999 /y', spark: '₹24,999', catalyst: '₹44,999', title: '₹24,999' };
+  const USD = { monthly: '$25 /m', yearly: '$149 /y', spark: '$299', catalyst: '$639', title: '$299', setup: '$99' };
+  const INR = { monthly: '₹1,499 /m', yearly: '₹8,999 /y', spark: '₹24,999', catalyst: '₹44,999', title: '₹24,999', setup: '₹5,000' };
 
   let p = USD; // default: Global (USD)
   try {
@@ -21,6 +21,7 @@ async function localizeCurrency() {
   if (els.sparkPrice) els.sparkPrice.innerText = p.spark;
   if (els.catalystPrice) els.catalystPrice.innerText = p.catalyst;
   if (els.titlePrice) els.titlePrice.innerText = p.title;
+  if (els.setupFee) els.setupFee.innerText = p.setup;
 
   document.body.classList.add('prices-loaded');
 }
