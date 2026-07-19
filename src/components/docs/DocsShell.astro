@@ -137,6 +137,106 @@ const { doc, prev, next } = findDoc(current);
   }
 </style>
 
+<style is:global>
+  /* ── Docs reading experience (applies inside the shell) ── */
+
+  /* Scrollspy: the TOC link whose section is in view */
+  nav[aria-label='On this page'] a.toc-active {
+    color: #12d8cc;
+    font-weight: 500;
+  }
+  nav[aria-label='On this page'] ul {
+    border-left: 1px solid rgba(24, 24, 24, 0.1);
+  }
+  .dark nav[aria-label='On this page'] ul {
+    border-left-color: rgba(255, 255, 255, 0.1);
+  }
+  nav[aria-label='On this page'] ul a {
+    padding-left: 14px;
+    margin-left: -1px;
+    border-left: 2px solid transparent;
+  }
+  nav[aria-label='On this page'] ul a.toc-active {
+    border-left-color: #12d8cc;
+  }
+
+  /* Hover anchor links on section headings */
+  .doc-heading {
+    position: relative;
+  }
+  .doc-heading .doc-anchor {
+    margin-left: 10px;
+    font-weight: 400;
+    color: rgba(18, 216, 204, 0.85);
+    opacity: 0;
+    text-decoration: none;
+    transition: opacity 0.15s ease;
+  }
+  .doc-heading:hover .doc-anchor,
+  .doc-anchor:focus-visible {
+    opacity: 1;
+  }
+</style>
+
+<script is:inline>
+  // Scrollspy for the per-page "On this page" rail. Generic: works for any
+  // content layout inside the shell whose TOC is nav[aria-label="On this page"]
+  // with #hash links pointing at elements with matching ids.
+  (function () {
+    const nav = document.querySelector('nav[aria-label="On this page"]');
+    if (!nav) return;
+    const links = Array.from(nav.querySelectorAll('a[href^="#"]'));
+    const byId = new Map();
+    const targets = [];
+    links.forEach((a) => {
+      const id = decodeURIComponent(a.getAttribute('href').slice(1));
+      const el = document.getElementById(id);
+      if (el) {
+        byId.set(id, a);
+        targets.push(el);
+      }
+    });
+    if (!targets.length) return;
+
+    let activeId = null;
+    const setActive = (id) => {
+      if (id === activeId) return;
+      activeId = id;
+      links.forEach((a) => a.classList.remove('toc-active'));
+      const link = byId.get(id);
+      if (link) link.classList.add('toc-active');
+    };
+
+    // Pick the last section whose top has passed the reading line (~35% vh).
+    const onScroll = () => {
+      const vh = window.innerHeight || document.documentElement.clientHeight || 800;
+      const line = vh * 0.35;
+      let current = targets[0].id;
+      for (const el of targets) {
+        if (el.getBoundingClientRect().top <= line) current = el.id;
+        else break;
+      }
+      setActive(current);
+    };
+    // Timeout throttle (not rAF - rAF is suspended in background/throttled
+    // tabs and the spy would freeze).
+    let pending = false;
+    window.addEventListener(
+      'scroll',
+      () => {
+        if (pending) return;
+        pending = true;
+        setTimeout(() => {
+          pending = false;
+          onScroll();
+        }, 80);
+      },
+      { passive: true }
+    );
+    onScroll();
+  })();
+</script>
+
 <script is:inline>
   // Desktop: keep the sidebar <details> open (summary is hidden by CSS there).
   (function () {

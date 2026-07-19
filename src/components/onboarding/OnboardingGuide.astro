@@ -40,10 +40,14 @@ const { guide, otherHref, otherLabel } = Astro.props;
   </aside>
 
   <!-- Phases -->
-  <div class="min-w-0 flex-1 max-w-3xl space-y-14">
+  <div class="min-w-0 flex-1 max-w-3xl">
+    <div class="divide-y divide-secondary/[0.08] dark:divide-white/[0.08]">
         {guide.phases.map((phase) => (
-          <div id={phase.id} class="scroll-mt-28">
-            <h2 class="text-2xl md:text-3xl font-normal mb-2">{phase.title}</h2>
+          <div id={phase.id} class="scroll-mt-28 py-10 first:pt-0 last:pb-0">
+            <h2 class="doc-heading text-2xl md:text-3xl font-normal mb-2">
+              {phase.title}
+              <a class="doc-anchor" href={`#${phase.id}`} aria-label={`Link to ${phase.title}`}>#</a>
+            </h2>
             {phase.intro && <p class="text-secondary/70 dark:text-backgroundBody/70 mb-6">{phase.intro}</p>}
 
             <div class="space-y-5">
@@ -127,16 +131,17 @@ const { guide, otherHref, otherLabel } = Astro.props;
             </div>
           </div>
         ))}
+    </div>
 
-        <!-- CTA -->
-        <div class="rounded-2xl border border-primary/30 bg-primary/5 p-8 text-center">
-          <h3 class="text-2xl font-normal mb-2">Ready to start?</h3>
-          <p class="text-secondary/70 dark:text-backgroundBody/70 mb-5">
-            Book a call and we'll walk you through this for your specific store - no obligation.
-          </p>
-          <a href="/contact" class="inline-block bg-primary text-black font-medium px-6 py-3 rounded-full hover:opacity-90 transition-opacity">
-            Talk to Uxory
-          </a>
-        </div>
-      </div>
+    <!-- CTA -->
+    <div class="mt-12 rounded-2xl border border-primary/30 bg-primary/5 p-8 text-center">
+      <h3 class="text-2xl font-normal mb-2">Ready to start?</h3>
+      <p class="text-secondary/70 dark:text-backgroundBody/70 mb-5">
+        Book a call and we'll walk you through this for your specific store - no obligation.
+      </p>
+      <a href="/contact" class="inline-block bg-primary text-black font-medium px-6 py-3 rounded-full hover:opacity-90 transition-opacity">
+        Talk to Uxory
+      </a>
+    </div>
+  </div>
 </div>

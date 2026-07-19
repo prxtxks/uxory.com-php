@@ -47,11 +47,15 @@ const { doc } = Astro.props;
     </nav>
   </aside>
 
-  <!-- Sections -->
-  <div class="min-w-0 flex-1 max-w-3xl space-y-14">
+  <!-- Sections: divider rhythm between sections, AWS/Google docs style -->
+  <div class="min-w-0 flex-1 max-w-3xl">
+    <div class="divide-y divide-secondary/[0.08] dark:divide-white/[0.08]">
         {doc.sections.map((section) => (
-          <div id={section.id} class="scroll-mt-28">
-            <h2 class="text-2xl md:text-3xl font-normal mb-2">{section.title}</h2>
+          <div id={section.id} class="scroll-mt-28 py-10 first:pt-0 last:pb-0">
+            <h2 class="doc-heading text-2xl md:text-3xl font-normal mb-2">
+              {section.title}
+              <a class="doc-anchor" href={`#${section.id}`} aria-label={`Link to ${section.title}`}>#</a>
+            </h2>
             {section.intro && (
               <p class="text-secondary/70 dark:text-backgroundBody/70 mb-6">{section.intro}</p>
             )}
@@ -155,15 +159,17 @@ const { doc } = Astro.props;
           </div>
         ))}
 
-        <!-- CTA -->
-        <div class="rounded-2xl border border-primary/30 bg-primary/5 p-8 text-center">
-          <h3 class="text-2xl font-normal mb-2">{doc.cta?.title ?? 'Have a question about this?'}</h3>
-          <p class="text-secondary/70 dark:text-backgroundBody/70 mb-5">
-            {doc.cta?.text ?? 'Book a quick call and we will walk you through it for your specific project. No obligation.'}
-          </p>
-          <a href="/contact" class="inline-block bg-primary text-black font-medium px-6 py-3 rounded-full hover:opacity-90 transition-opacity">
-            {doc.cta?.button ?? 'Talk to Uxory'}
-          </a>
-        </div>
-      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="mt-12 rounded-2xl border border-primary/30 bg-primary/5 p-8 text-center">
+      <h3 class="text-2xl font-normal mb-2">{doc.cta?.title ?? 'Have a question about this?'}</h3>
+      <p class="text-secondary/70 dark:text-backgroundBody/70 mb-5">
+        {doc.cta?.text ?? 'Book a quick call and we will walk you through it for your specific project. No obligation.'}
+      </p>
+      <a href="/contact" class="inline-block bg-primary text-black font-medium px-6 py-3 rounded-full hover:opacity-90 transition-opacity">
+        {doc.cta?.button ?? 'Talk to Uxory'}
+      </a>
+    </div>
+  </div>
 </div>
