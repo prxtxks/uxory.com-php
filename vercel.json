@@ -7,18 +7,18 @@
     { "source": "/(.*)\\.php", "destination": "/$1", "permanent": true },
     { "source": "/tools/image-compressor", "destination": "/tools/image-optimizer", "permanent": true },
     { "source": "/onboarding/ecommerce-india", "destination": "/docs/onboarding/ecommerce-india", "permanent": true },
-    { "source": "/onboarding/ecommerce-usa", "destination": "/docs/onboarding/ecommerce-usa", "permanent": true }
-  ],
-  "rewrites": [
+    { "source": "/onboarding/ecommerce-usa", "destination": "/docs/onboarding/ecommerce-usa", "permanent": true },
     {
       "source": "/",
       "has": [{ "type": "host", "value": "docs.uxory.in" }],
-      "destination": "/docs"
+      "destination": "/docs",
+      "permanent": false
     },
     {
       "source": "/",
       "has": [{ "type": "host", "value": "tools.uxory.in" }],
-      "destination": "/tools/image-optimizer"
+      "destination": "/tools/image-optimizer",
+      "permanent": false
     }
   ],
   "headers": [
