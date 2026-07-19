@@ -91,7 +91,7 @@ export default function PriceReveal({
         initial={{ opacity: 0, scale: 0.96 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-        className="relative mt-3 text-[44px] font-semibold tracking-[-1px] tabular-nums md:text-7xl"
+        className="relative mt-3 text-[44px] font-semibold tracking-[-1px] tabular-nums md:text-6xl"
       >
         <span className="bg-gradient-to-br from-secondary to-secondary/70 bg-clip-text text-transparent dark:from-white dark:to-white/70">
           <CountUp to={low} locale={locale} prefix={sym} />
@@ -152,7 +152,7 @@ export default function PriceReveal({
             whileTap={{ scale: 0.97 }}
             onClick={submit}
             disabled={submitState === 'sending'}
-            className="inline-flex items-center gap-2 rounded-2xl bg-gradient-to-r from-primary to-[#12cfc4] px-9 py-4 text-base font-semibold text-black shadow-[0_10px_28px_-8px_rgba(18,216,204,0.7)] transition-all hover:shadow-[0_12px_34px_-6px_rgba(18,216,204,0.85)] disabled:opacity-60"
+            className="inline-flex items-center gap-2 rounded-2xl bg-gradient-to-r from-primary to-[#12cfc4] px-9 py-4 text-[15px] font-normal uppercase tracking-[1.12px] text-black shadow-[0_10px_28px_-8px_rgba(18,216,204,0.7)] transition-all hover:shadow-[0_12px_34px_-6px_rgba(18,216,204,0.85)] disabled:opacity-60"
           >
             {submitState === 'sending' ? (
               <>
@@ -180,7 +180,7 @@ export default function PriceReveal({
         )}
         <a
           href="/calendly"
-          className="rounded-2xl border border-secondary/15 px-9 py-4 text-base font-medium text-secondary transition-all hover:border-primary hover:text-primary dark:border-white/15 dark:text-backgroundBody"
+          className="rounded-2xl border border-secondary/15 px-9 py-4 text-[15px] font-normal uppercase tracking-[1.12px] text-secondary transition-all hover:border-primary hover:text-primary dark:border-white/15 dark:text-backgroundBody"
         >
           Book a free call
         </a>
