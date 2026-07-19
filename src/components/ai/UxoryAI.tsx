@@ -1,23 +1,22 @@
 import React, { useEffect, useRef, useState } from 'react';
 import ReactMarkdown from 'react-markdown';
-import AnimatedGradientBackground from './AnimatedGradientBackground';
 
 interface Message {
   role: 'user' | 'assistant';
   content: string;
 }
 
-const SUGGESTIONS: { label: string; hint: string; icon: string }[] = [
-  { label: 'What can Uxory build for my business?', hint: 'Explore', icon: 'M12 3l1.9 5.8H20l-4.9 3.6 1.9 5.8-5-3.6-5 3.6 1.9-5.8L4 8.8h6.1z' },
-  { label: 'How much does a custom website cost?', hint: 'Pricing', icon: 'M12 1v22M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6' },
-  { label: 'What is an AI agent, in simple terms?', hint: 'Learn', icon: 'M12 8V4m0 0H8m4 0h4M5 12a7 7 0 0114 0v5a3 3 0 01-3 3H8a3 3 0 01-3-3v-5zM9 14h.01M15 14h.01' },
-  { label: 'Should I use Shopify or a custom store?', hint: 'Compare', icon: 'M6 6h15l-1.5 8.5H8L6 3H3M9 20a1 1 0 100-2 1 1 0 000 2zm9 0a1 1 0 100-2 1 1 0 000 2z' },
+const SUGGESTIONS: { label: string; icon: string }[] = [
+  { label: 'What can Uxory build for my business?', icon: 'M12 3l1.9 5.8H20l-4.9 3.6 1.9 5.8-5-3.6-5 3.6 1.9-5.8L4 8.8h6.1z' },
+  { label: 'How much does a custom website cost?', icon: 'M12 1v22M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6' },
+  { label: 'What is an AI agent, in simple terms?', icon: 'M12 8V4m0 0H8m4 0h4M5 12a7 7 0 0114 0v5a3 3 0 01-3 3H8a3 3 0 01-3-3v-5zM9 14h.01M15 14h.01' },
+  { label: 'Should I use Shopify or a custom store?', icon: 'M6 6h15l-1.5 8.5H8L6 3H3M9 20a1 1 0 100-2 1 1 0 000 2zm9 0a1 1 0 100-2 1 1 0 000 2z' },
 ];
 
 const STORAGE_KEY = 'uxory_ai_chat';
 
-/** Four-point spark - Uxory's mark, used as the assistant avatar. */
-function Spark({ size = 18, className = '' }: { size?: number; className?: string }) {
+/** Uxory's four-point spark - the assistant mark. */
+function Spark({ size = 20, className = '' }: { size?: number; className?: string }) {
   return (
     <svg width={size} height={size} viewBox="0 0 40 40" fill="none" className={className} aria-hidden="true">
       <path
@@ -35,7 +34,6 @@ export default function UxoryAI() {
   const scrollRef = useRef<HTMLDivElement | null>(null);
   const taRef = useRef<HTMLTextAreaElement | null>(null);
 
-  // Restore anonymous session from sessionStorage
   useEffect(() => {
     try {
       const saved = sessionStorage.getItem(STORAGE_KEY);
@@ -65,7 +63,6 @@ export default function UxoryAI() {
     const next: Message[] = [...messages, { role: 'user', content }];
     setMessages(next);
     setStreaming(true);
-    // Placeholder assistant message we stream into
     setMessages((m) => [...m, { role: 'assistant', content: '' }]);
 
     try {
@@ -161,133 +158,160 @@ export default function UxoryAI() {
     ta.style.height = Math.min(ta.scrollHeight, 200) + 'px';
   }
 
-  // Interactive glow that follows the cursor (Gemini-style ambient light).
-  const bgRef = useRef<HTMLDivElement | null>(null);
-  useEffect(() => {
-    function onMove(e: PointerEvent) {
-      const el = bgRef.current;
-      if (!el) return;
-      const r = el.getBoundingClientRect();
-      el.style.setProperty('--mx', `${((e.clientX - r.left) / r.width) * 100}%`);
-      el.style.setProperty('--my', `${((e.clientY - r.top) / r.height) * 100}%`);
-    }
-    window.addEventListener('pointermove', onMove);
-    return () => window.removeEventListener('pointermove', onMove);
-  }, []);
-
   return (
-    <div className="relative flex h-[100svh] min-h-[600px] flex-col overflow-hidden bg-[#0A0A0A] pt-[76px] text-white">
-      {/* Gemini-style motion, in Uxory teal */}
+    <div className="ai-root relative flex h-[100svh] min-h-[560px] flex-col overflow-hidden pt-[72px]">
       <style>{`
-        @keyframes ux-gradient-pan {
-          0% { background-position: 0% 50%; }
-          50% { background-position: 100% 50%; }
-          100% { background-position: 0% 50%; }
+        .ai-root {
+          --ai-bg: #f5f7fa;
+          --ai-text: #16181d;
+          --ai-muted: rgba(22,24,29,0.56);
+          --ai-faint: rgba(22,24,29,0.4);
+          --ai-surface: #ffffff;
+          --ai-surface-2: #ffffff;
+          --ai-border: rgba(22,24,29,0.1);
+          --ai-user-bg: #16181d;
+          --ai-user-text: #ffffff;
+          --ai-glow: rgba(18,216,204,0.14);
+          --ai-code-bg: rgba(18,216,204,0.12);
+          background-color: var(--ai-bg);
+          color: var(--ai-text);
         }
-        @keyframes ux-rise {
-          from { opacity: 0; transform: translateY(18px); }
-          to { opacity: 1; transform: translateY(0); }
+        :is(.dark) .ai-root {
+          --ai-bg: #0b0d0f;
+          --ai-text: #e9edf0;
+          --ai-muted: rgba(233,237,240,0.56);
+          --ai-faint: rgba(233,237,240,0.38);
+          --ai-surface: rgba(255,255,255,0.05);
+          --ai-surface-2: rgba(255,255,255,0.08);
+          --ai-border: rgba(255,255,255,0.1);
+          --ai-user-bg: rgba(255,255,255,0.09);
+          --ai-user-text: #e9edf0;
+          --ai-glow: rgba(18,216,204,0.2);
+          --ai-code-bg: rgba(18,216,204,0.16);
         }
-        @keyframes ux-shimmer {
-          0% { background-position: -200% 0; }
-          100% { background-position: 200% 0; }
-        }
-        @keyframes ux-spark-spin {
-          0% { transform: rotate(0deg) scale(1); }
-          50% { transform: rotate(180deg) scale(1.15); }
-          100% { transform: rotate(360deg) scale(1); }
-        }
-        .ux-greet {
-          background: linear-gradient(90deg, #12d8cc, #7ff5ea, #4f9cf9, #12d8cc);
+
+        @keyframes ai-pan { 0%,100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
+        @keyframes ai-rise { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes ai-breathe { 0%,100% { opacity: .75; transform: scale(1); } 50% { opacity: 1; transform: scale(1.06); } }
+        @keyframes ai-shimmer { 0% { background-position: -180% 0; } 100% { background-position: 180% 0; } }
+        @keyframes ai-spin { 0% { transform: rotate(0) scale(1); } 50% { transform: rotate(180deg) scale(1.12); } 100% { transform: rotate(360deg) scale(1); } }
+
+        .ai-greet {
+          background: linear-gradient(90deg,#0aa89e,#12d8cc,#3b82f6,#0aa89e);
           background-size: 300% 100%;
-          -webkit-background-clip: text;
-          background-clip: text;
-          color: transparent;
-          animation: ux-gradient-pan 8s ease-in-out infinite;
+          -webkit-background-clip: text; background-clip: text; color: transparent;
+          animation: ai-pan 9s ease-in-out infinite;
         }
-        .ux-rise { animation: ux-rise 0.7s cubic-bezier(0.16, 1, 0.3, 1) both; }
-        .ux-msg-in { animation: ux-rise 0.4s cubic-bezier(0.16, 1, 0.3, 1) both; }
-        .ux-shimmer-bar {
-          background: linear-gradient(90deg, rgba(255,255,255,0.05) 25%, rgba(18,216,204,0.22) 50%, rgba(255,255,255,0.05) 75%);
+        .ai-rise { animation: ai-rise .65s cubic-bezier(.16,1,.3,1) both; }
+        .ai-glow-orb { animation: ai-breathe 7s ease-in-out infinite; }
+        .ai-think-bar {
+          background: linear-gradient(90deg, var(--ai-border) 20%, var(--ai-glow) 50%, var(--ai-border) 80%);
           background-size: 200% 100%;
-          animation: ux-shimmer 1.6s linear infinite;
+          animation: ai-shimmer 1.5s linear infinite;
         }
-        .ux-spark-think { animation: ux-spark-spin 1.6s ease-in-out infinite; }
+        .ai-spin { animation: ai-spin 1.5s ease-in-out infinite; }
+        .ai-scroll::-webkit-scrollbar { width: 8px; }
+        .ai-scroll::-webkit-scrollbar-thumb { background: var(--ai-border); border-radius: 999px; }
+
+        /* Markdown */
+        .prose-ai { color: var(--ai-text); }
+        .prose-ai p { margin: 0 0 .7rem; }
+        .prose-ai p:last-child { margin-bottom: 0; }
+        .prose-ai ul { list-style: disc; padding-left: 1.2rem; margin: 0 0 .7rem; }
+        .prose-ai ol { list-style: decimal; padding-left: 1.2rem; margin: 0 0 .7rem; }
+        .prose-ai li { margin: .15rem 0; }
+        .prose-ai a { color: #0aa89e; text-decoration: underline; }
+        :is(.dark) .prose-ai a { color: #2fe0d3; }
+        .prose-ai strong { font-weight: 600; color: var(--ai-text); }
+        .prose-ai code { background: var(--ai-code-bg); padding: .1rem .35rem; border-radius: 6px; font-size: .9em; }
+        .prose-ai pre { background: var(--ai-code-bg); padding: .75rem; border-radius: 10px; overflow-x: auto; margin: 0 0 .7rem; }
+        .prose-ai h1, .prose-ai h2, .prose-ai h3 { font-weight: 600; margin: .8rem 0 .3rem; line-height: 1.3; }
+        .prose-ai h1 { font-size: 1.2rem; }
+        .prose-ai h2 { font-size: 1.08rem; }
+        .prose-ai h3 { font-size: 1rem; }
       `}</style>
 
-      {/* Ambient background */}
-      <div ref={bgRef} className="pointer-events-none absolute inset-0 overflow-hidden">
-        <AnimatedGradientBackground Breathing startingGap={125} breathingRange={6} animationSpeed={0.02} />
+      {/* Ambient glow - top only, fades before the input so nothing collides at the bottom */}
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-[55%] overflow-hidden">
         <div
-          className="absolute inset-0"
-          style={{
-            background:
-              'radial-gradient(600px circle at var(--mx, 50%) var(--my, 20%), rgba(18,216,204,0.14), transparent 60%)',
-          }}
+          className="ai-glow-orb absolute left-1/2 top-[-30%] h-[520px] w-[720px] -translate-x-1/2 rounded-full blur-[90px]"
+          style={{ background: 'radial-gradient(circle, var(--ai-glow), transparent 68%)' }}
         />
       </div>
 
       <div className="relative z-10 mx-auto flex w-full max-w-3xl flex-1 flex-col overflow-hidden px-4">
         {!started ? (
-          // ── Landing (Gemini-style greeting) ──
-          <div className="flex flex-1 flex-col items-center justify-center pb-10 text-center">
-            <h1 className="text-[42px] font-medium leading-[1.15] tracking-tight md:text-6xl">
-              <span className="ux-rise ux-greet block">Hello, I’m Uxory AI</span>
-              <span className="ux-rise block text-white/40" style={{ animationDelay: '0.25s' }}>
+          /* ── Landing ── */
+          <div className="flex flex-1 flex-col items-center justify-center pb-8 text-center">
+            <div className="ai-rise mb-6 flex h-14 w-14 items-center justify-center rounded-2xl" style={{ background: 'var(--ai-code-bg)' }}>
+              <Spark size={30} className="text-primary" />
+            </div>
+            <h1 className="text-[38px] font-medium leading-[1.15] tracking-tight md:text-5xl">
+              <span className="ai-rise ai-greet block">Hello, I’m Uxory AI</span>
+              <span className="ai-rise block" style={{ color: 'var(--ai-faint)', animationDelay: '.2s' }}>
                 How can I help you today?
               </span>
             </h1>
 
-            <div className="mt-12 grid w-full max-w-2xl grid-cols-1 gap-3 sm:grid-cols-2">
+            <div className="mt-11 grid w-full max-w-2xl grid-cols-1 gap-3 sm:grid-cols-2">
               {SUGGESTIONS.map((s, i) => (
                 <button
                   key={s.label}
                   onClick={() => send(s.label)}
-                  className="ux-rise group flex min-h-[110px] flex-col justify-between rounded-2xl border border-white/10 bg-white/[0.04] p-4 text-left backdrop-blur transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/50 hover:bg-white/[0.07]"
-                  style={{ animationDelay: `${0.45 + i * 0.08}s` }}
+                  className="ai-rise group flex items-center gap-3 rounded-2xl border p-4 text-left transition-all duration-300 hover:-translate-y-0.5"
+                  style={{
+                    background: 'var(--ai-surface)',
+                    borderColor: 'var(--ai-border)',
+                    animationDelay: `${0.35 + i * 0.07}s`,
+                  }}
                 >
-                  <span className="text-[15px] leading-snug text-white/85">{s.label}</span>
-                  <span className="mt-3 flex items-center justify-between">
-                    <span className="text-[11px] uppercase tracking-[1.5px] text-white/35">{s.hint}</span>
-                    <span className="flex h-8 w-8 items-center justify-center rounded-full bg-white/[0.06] text-primary transition-colors group-hover:bg-primary group-hover:text-black">
-                      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
-                        <path d={s.icon} strokeLinecap="round" strokeLinejoin="round" />
-                      </svg>
-                    </span>
+                  <span
+                    className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl text-primary transition-colors group-hover:bg-primary group-hover:text-black"
+                    style={{ background: 'var(--ai-code-bg)' }}
+                  >
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7">
+                      <path d={s.icon} strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  </span>
+                  <span className="text-[14.5px] leading-snug" style={{ color: 'var(--ai-text)' }}>
+                    {s.label}
                   </span>
                 </button>
               ))}
             </div>
           </div>
         ) : (
-          // ── Conversation ──
-          <div ref={scrollRef} className="flex-1 space-y-7 overflow-y-auto py-8 [scrollbar-width:thin]">
+          /* ── Conversation ── */
+          <div ref={scrollRef} className="ai-scroll flex-1 space-y-7 overflow-y-auto py-8">
             {messages.map((m, i) =>
               m.role === 'user' ? (
-                <div key={i} className="ux-msg-in flex justify-end">
-                  <div className="max-w-[85%] rounded-3xl rounded-br-lg bg-white/[0.08] px-5 py-3">
-                    <p className="whitespace-pre-wrap text-[15px] leading-relaxed text-white/90">{m.content}</p>
+                <div key={i} className="ai-rise flex justify-end">
+                  <div
+                    className="max-w-[85%] rounded-3xl rounded-br-lg px-5 py-3"
+                    style={{ background: 'var(--ai-user-bg)', color: 'var(--ai-user-text)' }}
+                  >
+                    <p className="whitespace-pre-wrap text-[15px] leading-relaxed">{m.content}</p>
                   </div>
                 </div>
               ) : (
-                <div key={i} className="ux-msg-in flex gap-4">
-                  <div
+                <div key={i} className="ai-rise flex gap-4">
+                  <span
                     className={`mt-0.5 shrink-0 text-primary ${
-                      streaming && i === messages.length - 1 && !m.content ? 'ux-spark-think' : ''
+                      streaming && i === messages.length - 1 && !m.content ? 'ai-spin' : ''
                     }`}
                   >
                     <Spark size={22} />
-                  </div>
-                  <div className="min-w-0 flex-1">
+                  </span>
+                  <div className="min-w-0 flex-1 pt-0.5">
                     {m.content ? (
-                      <div className="prose-uxory text-[15px] leading-relaxed text-white/85">
+                      <div className="prose-ai text-[15px] leading-relaxed">
                         <ReactMarkdown>{m.content}</ReactMarkdown>
                       </div>
                     ) : (
                       <div className="space-y-2.5 pt-1">
-                        <div className="ux-shimmer-bar h-3.5 w-3/4 rounded-full" />
-                        <div className="ux-shimmer-bar h-3.5 w-1/2 rounded-full" style={{ animationDelay: '0.2s' }} />
-                        <div className="ux-shimmer-bar h-3.5 w-2/3 rounded-full" style={{ animationDelay: '0.4s' }} />
+                        <div className="ai-think-bar h-3.5 w-3/4 rounded-full" />
+                        <div className="ai-think-bar h-3.5 w-1/2 rounded-full" />
+                        <div className="ai-think-bar h-3.5 w-2/3 rounded-full" />
                       </div>
                     )}
                   </div>
@@ -297,23 +321,31 @@ export default function UxoryAI() {
           </div>
         )}
 
-        {/* ── Input bar ── */}
+        {/* ── Input ── */}
         <div className="relative pb-5 pt-2">
-          <div className="pointer-events-none absolute inset-x-0 -top-10 bottom-0 bg-gradient-to-t from-[#0A0A0A] via-[#0A0A0A]/85 to-transparent" />
+          {/* scrim fades messages into the page bg - matches theme exactly, so no band */}
+          <div
+            className="pointer-events-none absolute inset-x-0 -top-12 bottom-0"
+            style={{ background: 'linear-gradient(to top, var(--ai-bg) 55%, transparent)' }}
+          />
           <div className="relative flex items-end gap-2.5">
             {started && (
               <button
                 onClick={newChat}
                 title="New chat"
                 aria-label="New chat"
-                className="mb-1 flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/[0.05] text-white/60 backdrop-blur transition-colors hover:border-primary/50 hover:text-primary"
+                className="mb-1 flex h-11 w-11 shrink-0 items-center justify-center rounded-full border transition-colors hover:border-primary/60 hover:text-primary"
+                style={{ background: 'var(--ai-surface)', borderColor: 'var(--ai-border)', color: 'var(--ai-muted)' }}
               >
                 <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <path strokeLinecap="round" d="M12 5v14M5 12h14" />
                 </svg>
               </button>
             )}
-            <div className="flex flex-1 items-end gap-2 rounded-[28px] border border-white/12 bg-white/[0.06] px-5 py-2 shadow-[0_10px_40px_-12px_rgba(0,0,0,0.8)] backdrop-blur-md transition-colors focus-within:border-primary/50">
+            <div
+              className="flex flex-1 items-end gap-2 rounded-[26px] border px-5 py-2 shadow-[0_8px_30px_-14px_rgba(0,0,0,0.35)] transition-colors focus-within:border-primary/60"
+              style={{ background: 'var(--ai-surface)', borderColor: 'var(--ai-border)' }}
+            >
               <textarea
                 ref={taRef}
                 rows={1}
@@ -324,17 +356,17 @@ export default function UxoryAI() {
                 }}
                 onKeyDown={onInputKey}
                 placeholder="Ask Uxory AI…"
-                className="max-h-[200px] flex-1 resize-none bg-transparent py-2.5 text-[15px] text-white outline-none placeholder:text-white/35"
+                className="max-h-[200px] flex-1 resize-none bg-transparent py-2.5 text-[15px] outline-none"
+                style={{ color: 'var(--ai-text)' }}
               />
               <button
                 onClick={() => send(input)}
                 disabled={!input.trim() || streaming}
                 aria-label="Send"
                 className={`mb-1 flex h-9 w-9 shrink-0 items-center justify-center rounded-full transition-all duration-200 ${
-                  input.trim() && !streaming
-                    ? 'bg-primary text-black hover:opacity-90'
-                    : 'bg-white/[0.07] text-white/25'
+                  input.trim() && !streaming ? 'bg-primary text-black hover:opacity-90' : ''
                 }`}
+                style={input.trim() && !streaming ? undefined : { background: 'var(--ai-code-bg)', color: 'var(--ai-faint)' }}
               >
                 <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M12 19V5M5 12l7-7 7 7" />
@@ -342,7 +374,7 @@ export default function UxoryAI() {
               </button>
             </div>
           </div>
-          <p className="relative mt-2.5 text-center text-[11px] text-white/35">
+          <p className="relative mt-2.5 text-center text-[11px]" style={{ color: 'var(--ai-faint)' }}>
             Uxory AI can make mistakes. No account needed - chats stay private to this browser session.
           </p>
         </div>

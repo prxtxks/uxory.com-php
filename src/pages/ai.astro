@@ -28,25 +28,7 @@ const structuredData = `
   noMainWrapper
   recaptcha={false}
 >
-  <style is:global>
-    .prose-uxory p { margin: 0 0 0.75rem; }
-    .prose-uxory p:last-child { margin-bottom: 0; }
-    .prose-uxory ul { list-style: disc; padding-left: 1.25rem; margin: 0 0 0.75rem; }
-    .prose-uxory ol { list-style: decimal; padding-left: 1.25rem; margin: 0 0 0.75rem; }
-    .prose-uxory li { margin: 0.15rem 0; }
-    .prose-uxory a { color: #12D8CC; text-decoration: underline; }
-    .prose-uxory strong { font-weight: 600; }
-    .prose-uxory code {
-      background: rgba(18,216,204,0.12);
-      padding: 0.1rem 0.35rem;
-      border-radius: 6px;
-      font-size: 0.9em;
-    }
-    .prose-uxory pre { background: rgba(0,0,0,0.35); padding: 0.75rem; border-radius: 10px; overflow-x: auto; }
-    .prose-uxory h1, .prose-uxory h2, .prose-uxory h3 { font-weight: 600; margin: 0.5rem 0; }
-  </style>
-
-  <main id="main-content" class="relative z-10 bg-[#0A0A0A]">
+  <main id="main-content" class="relative z-10">
     <UxoryAI client:load />
   </main>
 </BaseLayout>
