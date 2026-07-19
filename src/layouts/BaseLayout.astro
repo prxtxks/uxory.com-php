@@ -159,6 +159,13 @@ const breadcrumb = noindex ? null : breadcrumbGraph(Astro.url.pathname);
     html.dark img[src*="hero-gradient-background.png"] {
       filter: saturate(0.7) opacity(0.85);
     }
+
+    /* text-appear wraps each line in an overflow-hidden .line mask; with tight
+       leading on large display type this clips Satoshi's descenders (y, g, p).
+       Give hero titles a little room inside the mask so descenders show. */
+    .hero-title .line {
+      padding-bottom: 0.14em;
+    }
   </style>
 
   <!-- Header -->
