@@ -179,7 +179,7 @@ export default function WebappScope({
         <button
           type="button"
           onClick={submitAnswers}
-          className="mt-6 inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-[15px] font-medium text-black transition-opacity hover:opacity-90"
+          className="mt-6 inline-flex items-center gap-2 rounded-2xl bg-primary px-6 py-3 text-[15px] font-medium text-black transition-opacity hover:opacity-90"
         >
           <Spark size={13} /> Build my breakdown
         </button>

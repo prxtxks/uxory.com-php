@@ -152,7 +152,7 @@ export default function PriceReveal({
             whileTap={{ scale: 0.97 }}
             onClick={submit}
             disabled={submitState === 'sending'}
-            className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-primary to-[#12cfc4] px-9 py-4 text-base font-semibold text-black shadow-[0_10px_28px_-8px_rgba(18,216,204,0.7)] transition-all hover:shadow-[0_12px_34px_-6px_rgba(18,216,204,0.85)] disabled:opacity-60"
+            className="inline-flex items-center gap-2 rounded-2xl bg-gradient-to-r from-primary to-[#12cfc4] px-9 py-4 text-base font-semibold text-black shadow-[0_10px_28px_-8px_rgba(18,216,204,0.7)] transition-all hover:shadow-[0_12px_34px_-6px_rgba(18,216,204,0.85)] disabled:opacity-60"
           >
             {submitState === 'sending' ? (
               <>
@@ -170,7 +170,7 @@ export default function PriceReveal({
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            className="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-6 py-3 text-sm font-medium text-primary"
+            className="inline-flex items-center gap-2 rounded-2xl border border-primary/40 bg-primary/10 px-6 py-3 text-sm font-medium text-primary"
           >
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
               <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
@@ -180,7 +180,7 @@ export default function PriceReveal({
         )}
         <a
           href="/calendly"
-          className="rounded-full border border-secondary/15 px-9 py-4 text-base font-medium text-secondary transition-all hover:border-primary hover:text-primary dark:border-white/15 dark:text-backgroundBody"
+          className="rounded-2xl border border-secondary/15 px-9 py-4 text-base font-medium text-secondary transition-all hover:border-primary hover:text-primary dark:border-white/15 dark:text-backgroundBody"
         >
           Book a free call
         </a>

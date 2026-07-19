@@ -253,18 +253,18 @@ export default function ImageCompressor() {
             )}
           </div>
           <div className="flex gap-2">
-            <button onClick={reset} className="px-4 py-2 rounded-full text-sm border border-secondary/15 dark:border-backgroundBody/15 hover:border-primary/50">
+            <button onClick={reset} className="px-4 py-2 rounded-xl text-sm border border-secondary/15 dark:border-backgroundBody/15 hover:border-primary/50">
               Clear
             </button>
             {doneItems.length > 1 && (
-              <button onClick={downloadZip} className="px-4 py-2 rounded-full text-sm border border-primary text-primary hover:bg-primary/10">
+              <button onClick={downloadZip} className="px-4 py-2 rounded-xl text-sm border border-primary text-primary hover:bg-primary/10">
                 Download all (.zip)
               </button>
             )}
             <button
               onClick={compressAll}
               disabled={working || items.every((i) => i.status === 'done')}
-              className="px-5 py-2 rounded-full text-sm bg-primary text-black font-medium hover:opacity-90 disabled:opacity-50"
+              className="px-5 py-2 rounded-xl text-sm bg-primary text-black font-medium hover:opacity-90 disabled:opacity-50"
             >
               {working ? 'Compressing…' : doneItems.length ? 'Compress new' : 'Compress'}
             </button>
