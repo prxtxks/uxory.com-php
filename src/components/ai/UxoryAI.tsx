@@ -214,7 +214,9 @@ export default function UxoryAI() {
         .ai-scroll::-webkit-scrollbar-thumb { background: var(--ai-border); border-radius: 999px; }
 
         /* Markdown */
-        .prose-ai { color: var(--ai-text); }
+        /* set colour on the descendants too - the site's global p/li{color}
+           rule beats a colour merely inherited from .prose-ai. */
+        .prose-ai, .prose-ai p, .prose-ai li, .prose-ai h1, .prose-ai h2, .prose-ai h3 { color: var(--ai-text); }
         .prose-ai p { margin: 0 0 .7rem; }
         .prose-ai p:last-child { margin-bottom: 0; }
         .prose-ai ul { list-style: disc; padding-left: 1.2rem; margin: 0 0 .7rem; }
@@ -288,9 +290,13 @@ export default function UxoryAI() {
                 <div key={i} className="ai-rise flex justify-end">
                   <div
                     className="max-w-[85%] rounded-3xl rounded-br-lg px-5 py-3"
-                    style={{ background: 'var(--ai-user-bg)', color: 'var(--ai-user-text)' }}
+                    style={{ background: 'var(--ai-user-bg)' }}
                   >
-                    <p className="whitespace-pre-wrap text-[15px] leading-relaxed">{m.content}</p>
+                    {/* colour set on the <p> itself: the site's global p{color}
+                        rule otherwise overrides an inherited colour. */}
+                    <p className="whitespace-pre-wrap text-[15px] leading-relaxed" style={{ color: 'var(--ai-user-text)' }}>
+                      {m.content}
+                    </p>
                   </div>
                 </div>
               ) : (
