@@ -68,8 +68,7 @@ const structuredData = `
 <!--=====================================
    Hero Section
 ======================================-->
-<section class="pt-32 md:pt-44 lg:pt-[190px] pb-14 md:pb-20 relative overflow-hidden">
-  <!-- Gradient Background Wrapper -->
+<section class="pt-32 md:pt-44 lg:pt-[190px] pb-10 md:pb-14 relative overflow-hidden">
   <div
     id="hero-gradient-wrapper"
     class="absolute w-full h-full top-0 left-0 -z-10 blur-[35px] md:blur-[60px] sm:scale-[0.1] bg-blend-multiply md:scale-75"
@@ -92,34 +91,28 @@ const structuredData = `
         <span class="font-instrument italic">as you do</span>
       </h1>
       <p class="mx-auto mt-6 max-w-2xl text-lg text-secondary/70 dark:text-backgroundBody/70 md:text-xl">
-        We build intelligent systems that automate operations, increase revenue, and eliminate
-        inefficiencies. Custom software, websites, automation, and AI - designed, built, and cared
-        for by one team.
+        We design, build, and care for intelligent software - websites, web apps, automation, and
+        AI - for businesses that want systems that simply work.
       </p>
-    </div>
 
-    <!-- Stats -->
-    <div class="reveal-me mx-auto mt-12 grid max-w-3xl grid-cols-1 gap-4 sm:grid-cols-3 md:mt-16">
-      <div class="rounded-2xl border border-secondary/10 bg-white/60 p-6 text-center backdrop-blur-sm dark:border-white/10 dark:bg-white/[0.03]">
-        <p class="text-4xl font-medium text-primary">4+</p>
-        <p class="mt-1.5 text-sm text-secondary/60 dark:text-backgroundBody/60">Countries our clients call home</p>
-      </div>
-      <div class="rounded-2xl border border-secondary/10 bg-white/60 p-6 text-center backdrop-blur-sm dark:border-white/10 dark:bg-white/[0.03]">
-        <p class="text-4xl font-medium text-primary">2</p>
-        <p class="mt-1.5 text-sm text-secondary/60 dark:text-backgroundBody/60">Offices - USA &amp; India</p>
-      </div>
-      <div class="rounded-2xl border border-secondary/10 bg-white/60 p-6 text-center backdrop-blur-sm dark:border-white/10 dark:bg-white/[0.03]">
-        <p class="text-4xl font-medium text-primary">1 day</p>
-        <p class="mt-1.5 text-sm text-secondary/60 dark:text-backgroundBody/60">Max reply time, every time</p>
-      </div>
+      <!-- Single inline trust line - no cards -->
+      <p class="mt-8 text-sm text-secondary/55 dark:text-backgroundBody/55">
+        Registered in the USA &amp; India
+        <span class="mx-2 text-primary">·</span>
+        Clients in 4 countries
+        <span class="mx-2 text-primary">·</span>
+        <a href="/reviews" class="underline-offset-4 transition-colors hover:text-primary hover:underline">
+          5.0★ verified client reviews
+        </a>
+      </p>
     </div>
   </div>
 </section>
 
 <!--=====================================
-   Who we are
+   Our story
 ======================================-->
-<section class="py-14 md:py-16 lg:py-[88px]">
+<section class="py-14 md:py-20 lg:py-[100px]">
   <div class="container px-5 md:px-8">
     <div class="grid items-start gap-10 lg:grid-cols-2 lg:gap-16">
       <div class="reveal-me">
@@ -131,14 +124,14 @@ const structuredData = `
       </div>
       <div class="reveal-me space-y-5 text-lg leading-relaxed text-secondary/75 dark:text-backgroundBody/75">
         <p>
-          Uxory is a software and AI studio with teams in the United States and India. We take on a
-          small number of projects at a time and go deep on each one - understanding the business
-          first, then building the system that fits it.
+          Uxory is a software and AI studio with registered companies in the United States and
+          India. We take on a small number of projects at a time and go deep on each one -
+          understanding the business first, then building the system that fits it.
         </p>
         <p>
           From luxury e-commerce and hotel booking engines to AI underwriting platforms, everything
-          is designed, developed, and maintained in-house. No hand-offs, no outsourcing chains - the
-          people who scope your project are the ones who build it.
+          is designed, developed, and maintained in-house. The people who scope your project are
+          the ones who build it.
         </p>
       </div>
     </div>
@@ -146,71 +139,38 @@ const structuredData = `
 </section>
 
 <!--=====================================
-   What we do
+   What we build - minimal row index
 ======================================-->
-<section class="py-14 md:py-16 lg:py-[88px]">
+<section class="py-14 md:py-20 lg:py-[100px]">
   <div class="container px-5 md:px-8">
-    <div class="reveal-me mb-10 text-center md:mb-14">
-      <p class="font-satoshi mb-3 text-sm uppercase tracking-[3px] text-primary">What we do</p>
+    <div class="reveal-me mb-10 md:mb-14">
+      <p class="font-satoshi mb-3 text-sm uppercase tracking-[3px] text-primary">What we build</p>
       <h2 class="text-appear-2 text-3xl font-normal md:text-[44px]">
         One team, <span class="font-instrument italic">end to end</span>
       </h2>
     </div>
 
-    <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+    <div class="reveal-me divide-y divide-secondary/10 border-y border-secondary/10 dark:divide-white/10 dark:border-white/10">
       {
         [
-          {
-            href: '/website-dev',
-            title: 'Websites & E-commerce',
-            desc: 'High-performance sites and stores - Shopify, WooCommerce, or fully custom.',
-            icon: 'M3 5h18v14H3zM3 9h18M7 7h.01M10 7h.01',
-          },
-          {
-            href: '/web-app-and-saas-dev',
-            title: 'Web Apps & SaaS',
-            desc: 'Dashboards, portals and products - from MVP to scale, built on modern stacks.',
-            icon: 'M3 4h18v16H3zM3 9h18M8 9v11M3 14h5',
-          },
-          {
-            href: '/mobile-app-development',
-            title: 'Mobile Apps',
-            desc: 'iOS and Android from one codebase - designed, shipped, and store-published.',
-            icon: 'M8 2h8a2 2 0 012 2v16a2 2 0 01-2 2H8a2 2 0 01-2-2V4a2 2 0 012-2zM12 18h.01',
-          },
-          {
-            href: '/process-automation',
-            title: 'AI Agents & Automation',
-            desc: 'Chat assistants and workflow automation that kill busywork around the clock.',
-            icon: 'M12 8V4m0 0H8m4 0h4M5 12a7 7 0 0114 0v5a3 3 0 01-3 3H8a3 3 0 01-3-3v-5zM9 14h.01M15 14h.01',
-          },
-          {
-            href: '/smb-hosting',
-            title: 'Managed Hosting & Care',
-            desc: 'Fast, secure hosting with monitoring, backups, and a team on call.',
-            icon: 'M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2M7 8h.01M7 16h.01',
-          },
-          {
-            href: '/get-quote',
-            title: 'Instant Estimate',
-            desc: 'Know your price before you commit - our AI scopes your project in minutes.',
-            icon: 'M12 3l1.9 5.8H20l-4.9 3.6 1.9 5.8-5-3.6-5 3.6 1.9-5.8L4 8.8h6.1z',
-          },
-        ].map((s) => (
-          <a
-            href={s.href}
-            class="group reveal-me flex flex-col gap-3 rounded-2xl border border-secondary/10 bg-white/60 p-6 transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:shadow-[0_16px_40px_-20px_rgba(18,216,204,0.45)] dark:border-white/10 dark:bg-white/[0.03]"
-          >
-            <span class="flex h-11 w-11 items-center justify-center rounded-xl bg-primary/10 text-primary">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-                <path d={s.icon} />
+          ['/website-dev', 'Websites & E-commerce', 'High-performance sites and stores that convert.'],
+          ['/web-app-and-saas-dev', 'Web Apps & SaaS', 'From MVP to scale, on modern stacks.'],
+          ['/mobile-app-development', 'Mobile Apps', 'iOS and Android from one codebase.'],
+          ['/process-automation', 'AI Agents & Automation', 'Assistants and workflows that kill busywork.'],
+          ['/smb-hosting', 'Managed Hosting & Care', 'Monitoring, backups, and a team on call.'],
+          ['/get-quote', 'Instant Estimate', 'Know your price before you commit.'],
+        ].map(([href, title, desc]) => (
+          <a href={href} class="group flex items-center justify-between gap-6 py-5 transition-colors md:py-6">
+            <span class="flex flex-col gap-1 md:flex-row md:items-baseline md:gap-6">
+              <span class="text-xl font-medium text-secondary transition-colors group-hover:text-primary dark:text-backgroundBody md:text-2xl md:min-w-[320px]">
+                {title}
+              </span>
+              <span class="text-[15px] text-secondary/55 dark:text-backgroundBody/55">{desc}</span>
+            </span>
+            <span class="shrink-0 text-secondary/30 transition-all duration-300 group-hover:translate-x-1.5 group-hover:text-primary dark:text-backgroundBody/30">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6" />
               </svg>
-            </span>
-            <span class="text-lg font-medium text-secondary transition-colors group-hover:text-primary dark:text-backgroundBody">
-              {s.title}
-            </span>
-            <span class="text-[15px] leading-relaxed text-secondary/60 dark:text-backgroundBody/60">
-              {s.desc}
             </span>
           </a>
         ))
@@ -220,28 +180,93 @@ const structuredData = `
 </section>
 
 <!--=====================================
-   How we work
+   Leadership
 ======================================-->
-<section class="py-14 md:py-16 lg:py-[88px]">
+<section class="py-14 md:py-20 lg:py-[100px]">
+  <div class="container px-5 md:px-8">
+    <div class="grid items-start gap-10 lg:grid-cols-[1fr_1.4fr] lg:gap-16">
+      <div class="reveal-me">
+        <p class="font-satoshi mb-3 text-sm uppercase tracking-[3px] text-primary">Leadership</p>
+        <h2 class="text-appear-2 text-3xl font-normal leading-tight md:text-[44px]">
+          The people behind
+          <span class="font-instrument italic">the work</span>
+        </h2>
+        <p class="mt-5 max-w-md text-lg text-secondary/70 dark:text-backgroundBody/70">
+          No account managers in between. When you work with Uxory, you work directly with the
+          people responsible for your project.
+        </p>
+      </div>
+
+      <div class="grid gap-4 sm:grid-cols-2">
+        <a
+          href="/pratik"
+          class="group reveal-me rounded-2xl border border-secondary/10 p-6 transition-colors hover:border-primary/50 dark:border-white/10"
+        >
+          <img
+            src="/images/headshot.webp"
+            alt="Pratik Chaudhari"
+            class="h-20 w-20 rounded-full object-cover"
+            loading="lazy"
+          />
+          <p class="mt-5 text-xl font-medium text-secondary transition-colors group-hover:text-primary dark:text-backgroundBody">
+            Pratik Chaudhari
+          </p>
+          <p class="mt-1 text-sm text-secondary/55 dark:text-backgroundBody/55">Director - Uxory LLC, USA</p>
+          <p class="mt-3 text-[15px] leading-relaxed text-secondary/65 dark:text-backgroundBody/65">
+            Leads product, engineering, and client delivery across the US and India.
+          </p>
+          <span class="mt-4 inline-flex items-center gap-1.5 text-sm text-primary">
+            View profile
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </span>
+        </a>
+
+        <a
+          href="/rajesh"
+          class="group reveal-me rounded-2xl border border-secondary/10 p-6 transition-colors hover:border-primary/50 dark:border-white/10"
+        >
+          <span class="flex h-20 w-20 items-center justify-center rounded-full bg-primary/12 text-2xl font-semibold text-primary">
+            RC
+          </span>
+          <p class="mt-5 text-xl font-medium text-secondary transition-colors group-hover:text-primary dark:text-backgroundBody">
+            Rajesh Chaudhari
+          </p>
+          <p class="mt-1 text-sm text-secondary/55 dark:text-backgroundBody/55">Director - Uxory Technologies, India</p>
+          <p class="mt-3 text-[15px] leading-relaxed text-secondary/65 dark:text-backgroundBody/65">
+            Oversees operations and long-term client relationships from Pune.
+          </p>
+          <span class="mt-4 inline-flex items-center gap-1.5 text-sm text-primary">
+            View profile
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!--=====================================
+   Why clients stay - three plain points
+======================================-->
+<section class="py-14 md:py-20 lg:py-[100px]">
   <div class="container px-5 md:px-8">
     <div class="reveal-me mb-10 text-center md:mb-14">
-      <p class="font-satoshi mb-3 text-sm uppercase tracking-[3px] text-primary">How we work</p>
+      <p class="font-satoshi mb-3 text-sm uppercase tracking-[3px] text-primary">Why clients stay</p>
       <h2 class="text-appear-2 text-3xl font-normal md:text-[44px]">
-        From first call to <span class="font-instrument italic">long after launch</span>
+        Three promises we <span class="font-instrument italic">keep</span>
       </h2>
     </div>
 
-    <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+    <div class="grid gap-10 md:grid-cols-3 md:gap-8">
       {
         [
-          ['01', 'Discover', 'A short call to understand your business, goals, and budget - then a clear, honest scope.'],
-          ['02', 'Design & build', 'We design, develop, and demo in tight loops so you see progress, not surprises.'],
-          ['03', 'Launch', 'Testing, deployment, analytics, and SEO done properly - your project goes live clean.'],
-          ['04', 'Support', 'Monitoring, maintenance, and improvements. We stay accountable after the invoice.'],
-        ].map(([n, title, desc]) => (
-          <div class="reveal-me relative rounded-2xl border border-secondary/10 p-6 dark:border-white/10">
-            <span class="font-satoshi text-sm font-bold tracking-[2px] text-primary">{n}</span>
-            <p class="mt-3 text-lg font-medium text-secondary dark:text-backgroundBody">{title}</p>
+          ['Transparent pricing', 'Public packages and an instant estimator - you see honest numbers before you ever talk to us.'],
+          ['One in-house team', 'Design to deployment under one roof. The people who scope your project build it.'],
+          ['Support that stays', 'Monitoring, maintenance, and improvements long after launch day - we stay accountable.'],
+        ].map(([title, desc], i) => (
+          <div class="reveal-me text-center md:text-left">
+            <p class="font-satoshi text-sm font-bold tracking-[2px] text-primary">0{i + 1}</p>
+            <p class="mt-3 text-xl font-medium text-secondary dark:text-backgroundBody">{title}</p>
             <p class="mt-2 text-[15px] leading-relaxed text-secondary/60 dark:text-backgroundBody/60">{desc}</p>
           </div>
         ))
@@ -251,137 +276,31 @@ const structuredData = `
 </section>
 
 <!--=====================================
-   Why choose us
+   Tooling strip - compact, subdued
 ======================================-->
-<section class="py-14 md:py-16 lg:py-[88px]">
+<section class="bg-dark py-10 md:py-12 relative overflow-hidden">
   <div class="container px-5 md:px-8">
-    <div class="grid items-start gap-10 lg:grid-cols-[1fr_1.6fr] lg:gap-16">
-      <div class="reveal-me lg:sticky lg:top-28">
-        <p class="font-satoshi mb-3 text-sm uppercase tracking-[3px] text-primary">Why Uxory</p>
-        <h2 class="text-appear-2 text-3xl font-normal leading-tight md:text-[44px]">
-          Built for people who
-          <span class="font-instrument italic">hate surprises</span>
-        </h2>
-        <p class="mt-5 max-w-md text-lg text-secondary/70 dark:text-backgroundBody/70">
-          Transparent pricing, honest timelines, and systems that keep working long after we ship.
-        </p>
-      </div>
-
-      <div class="grid gap-4 sm:grid-cols-2">
-        {
-          [
-            ['Tailored, never templated', 'Every project is scoped around your business - no one-size-fits-all builds.'],
-            ['Transparent pricing', 'Public packages and an instant estimator. You see the numbers before you commit.'],
-            ['Speed without shortcuts', 'Tight, streamlined delivery - launch quickly without trading away quality.'],
-            ['One accountable team', 'Architecture to deployment under one roof. No hand-offs, no finger-pointing.'],
-            ['Results you can measure', 'Less manual work, faster systems, more revenue - outcomes, not just deliverables.'],
-            ['Support that stays', 'Maintenance, monitoring, and improvements long after launch day.'],
-          ].map(([title, desc]) => (
-            <div class="reveal-me rounded-2xl border border-secondary/10 bg-white/60 p-6 dark:border-white/10 dark:bg-white/[0.03]">
-              <span class="flex h-8 w-8 items-center justify-center rounded-full bg-primary/10 text-primary">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-                </svg>
-              </span>
-              <p class="mt-3.5 font-medium text-secondary dark:text-backgroundBody">{title}</p>
-              <p class="mt-1.5 text-[15px] leading-relaxed text-secondary/60 dark:text-backgroundBody/60">{desc}</p>
-            </div>
-          ))
-        }
-      </div>
-    </div>
-  </div>
-</section>
-
-<!--=====================================
-   Clients Section
-======================================-->
-<section
-  class="bg-dark py-20 lg:py-[120px] dark:py-0 dark:lg:py-0 mt-14 md:mt-16 lg:mt-[88px] xl:mt-[100px] relative overflow-hidden"
->
-
-<div class="container">
-    <div
-      class="flex flex-col md:flex-row gap-x-10 gap-y-3 justify-center md:justify-between items-start md:items-end mb-10 md:mb-20"
-    >
-      <h3 class="text-appear text-backgroundBody block md:hidden flex-1">
-        <span class="font-instrument italic">Powered</span>
-
-        by the Best
-      </h3>
-      <h3 class="text-appear text-backgroundBody hidden md:block flex-1">
-        <span class="font-instrument lg:text-[70px] italic">Powered</span>
-        <br />
-        by the Best
-      </h3>
-
-      <div class="md:self-end md:justify-self-end flex-1">
-        <p
-          class="text-appear max-w-lg text-backgroundBody/70  md:text-right"
-        >
-          Industry-leading tools and platforms we rely on for software development, automation, and AI solutions.
-        </p>
-      </div>
-    </div>
-  </div>
-  
-  <!-- Clients Logo Marquee -->
-  <div class="marquee-container reveal-me">
-    <div class="flex items-center gap-10 md:gap-32 justify-between py-8">
-      <div class="w-[150px] h-[80px] flex items-center justify-center ml-10 md:ml-32">
-        <img class="max-h-full max-w-full object-contain" src="/images/icons/company/client-1.svg" alt="client Logo" />
-      </div>
-      <div class="w-[150px] h-[80px] flex items-center justify-center">
-        <img class="max-h-full max-w-full object-contain" src="/images/icons/company/client-2.svg" alt="client Logo" />
-      </div>
-      <div class="w-[150px] h-[80px] flex items-center justify-center">
-        <img class="max-h-full max-w-full object-contain" src="/images/icons/company/client-3.svg" alt="client Logo" />
-      </div>
-      <div class="w-[150px] h-[80px] flex items-center justify-center">
-        <img class="max-h-full max-w-full object-contain" src="/images/icons/company/client-4.svg" alt="client Logo" />
-      </div>
-      <div class="w-[150px] h-[80px] flex items-center justify-center">
-        <img class="max-h-full max-w-full object-contain" src="/images/icons/company/client-5.svg" alt="client Logo" />
-      </div>
-      <div class="w-[150px] h-[80px] flex items-center justify-center">
-        <img class="max-h-full max-w-full object-contain" src="/images/icons/company/client-6.svg" alt="client Logo" />
-      </div>
-      <div class="w-[150px] h-[80px] flex items-center justify-center">
-        <img class="max-h-full max-w-full object-contain" src="/images/icons/company/client-7.svg" alt="client Logo" />
-      </div>
-      <div class="w-[150px] h-[80px] flex items-center justify-center">
-        <img class="max-h-full max-w-full object-contain" src="/images/icons/company/client-8.svg" alt="client Logo" />
-      </div>
-      
-    </div>
+    <p class="reveal-me mb-6 text-center font-satoshi text-xs uppercase tracking-[3px] text-backgroundBody/40">
+      Built with industry-leading tools
+    </p>
   </div>
 
-  <!-- Reverse -->
-  <div class="marquee-reverse-container reveal-me">
-    <div class="flex items-center gap-10 md:gap-32 justify-between py-8">
-      <div class="w-[150px] h-[80px] flex items-center justify-center  ml-10 md:ml-32">
-        <img class="max-h-full max-w-full object-contain" src="/images/icons/company/client-9.svg" alt="client Logo" />
-      </div>
-      <div class="w-[150px] h-[80px] flex items-center justify-center">
-        <img class="max-h-full max-w-full object-contain" src="/images/icons/company/client-10.svg" alt="client Logo" />
-      </div>
-      <div class="w-[150px] h-[80px] flex items-center justify-center">
-        <img class="max-h-full max-w-full object-contain" src="/images/icons/company/client-11.svg" alt="client Logo" />
-      </div>
-      <div class="w-[150px] h-[80px] flex items-center justify-center">
-        <img class="max-h-full max-w-full object-contain" src="/images/icons/company/client-12.svg" alt="client Logo" />
-      </div>
-      <div class="w-[150px] h-[80px] flex items-center justify-center">
-        <img class="max-h-full max-w-full object-contain" src="/images/icons/company/client-13.svg" alt="client Logo" />
-      </div>
-      
-      <div class="w-[150px] h-[80px] flex items-center justify-center">
-        <img class="max-h-full max-w-full object-contain" src="/images/icons/company/client-15.svg" alt="client Logo" />
-      </div>
-      
+  <div class="marquee-container reveal-me opacity-50">
+    <div class="flex items-center justify-between gap-8 py-2 md:gap-16">
+      {
+        [1, 2, 3, 4, 5, 6, 7, 8].map((n) => (
+          <div class="ml-8 flex h-[40px] w-[80px] items-center justify-center first:md:ml-16">
+            <img
+              class="max-h-full max-w-full object-contain"
+              src={`/images/icons/company/client-${n}.svg`}
+              alt="Tool logo"
+              loading="lazy"
+            />
+          </div>
+        ))
+      }
     </div>
   </div>
-
 </section>
 
   <CTA />
