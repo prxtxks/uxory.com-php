@@ -1,0 +1,194 @@
+---
+/**
+ * Docs-style shell for legal pages (Terms, Privacy) - the same Google/AWS
+ * reading pattern as the docs portal: sticky "On this page" rail with
+ * scrollspy, hover anchors on headings, divider rhythm between sections.
+ *
+ * The TOC, heading ids, and anchors are generated client-side from the
+ * article's <h3> headings, so pages only need to wrap their existing content:
+ *
+ *   <LegalDoc title="Terms & Conditions" updated="July 2026">
+ *     <div>...sections with <h3> headings...</div>
+ *   </LegalDoc>
+ */
+interface Props {
+  title: string;
+  /** e.g. "July 2026" - shown as a "Last updated" pill. */
+  updated?: string;
+  intro?: string;
+}
+const { title, updated, intro } = Astro.props;
+---
+
+<div class="pt-[110px] md:pt-[150px] pb-16 md:pb-24">
+  <div class="container px-5 md:px-8">
+    <!-- Header -->
+    <header class="max-w-3xl">
+      <p class="font-satoshi mb-3 text-sm uppercase tracking-[3px] text-primary">Legal</p>
+      <h1 class="text-3xl md:text-[44px] font-normal leading-tight">{title}</h1>
+      {intro && <p class="mt-4 text-lg text-secondary/70 dark:text-backgroundBody/70">{intro}</p>}
+      {updated && (
+        <p class="mt-5 inline-flex items-center gap-2 rounded-full border border-secondary/10 px-3.5 py-1.5 text-sm text-secondary/60 dark:border-white/10 dark:text-backgroundBody/60">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path stroke-linecap="round" d="M12 7v5l3 3"/></svg>
+          Last updated: {updated}
+        </p>
+      )}
+    </header>
+
+    <div class="mt-10 flex flex-col gap-10 lg:flex-row lg:gap-14">
+      <!-- Sticky TOC (populated from headings by the script below) -->
+      <aside class="shrink-0 lg:w-[260px]">
+        <nav class="text-sm lg:sticky lg:top-28 lg:max-h-[calc(100vh-140px)] lg:overflow-y-auto" aria-label="On this page">
+          <p class="mb-3 text-xs uppercase tracking-[2px] text-secondary/40 dark:text-backgroundBody/40">On this page</p>
+          <ul id="legal-toc" class="space-y-0.5"></ul>
+        </nav>
+      </aside>
+
+      <!-- Content -->
+      <article id="legal-body" class="legal-body min-w-0 flex-1 max-w-3xl">
+        <slot />
+      </article>
+    </div>
+  </div>
+</div>
+
+<style is:global>
+  /* Section rhythm: dividers between the page's content blocks */
+  .legal-body .legal-sections > div + div {
+    border-top: 1px solid rgba(24, 24, 24, 0.08);
+    margin-top: 2.5rem;
+    padding-top: 2.5rem;
+  }
+  .dark .legal-body .legal-sections > div + div {
+    border-top-color: rgba(255, 255, 255, 0.08);
+  }
+
+  /* Typography */
+  .legal-body h3 {
+    font-size: 1.5rem;
+    line-height: 1.3;
+    font-weight: 500;
+    scroll-margin-top: 7rem;
+  }
+  @media (min-width: 768px) {
+    .legal-body h3 { font-size: 1.75rem; }
+  }
+  .legal-body p,
+  .legal-body li {
+    color: rgba(24, 24, 24, 0.78);
+    line-height: 1.75;
+    font-size: 1.0325rem;
+  }
+  .dark .legal-body p,
+  .dark .legal-body li {
+    color: rgba(237, 240, 245, 0.75);
+  }
+  .legal-body p { margin-top: 0.9rem; }
+  .legal-body ul {
+    margin-top: 0.9rem;
+    padding-left: 1.1rem;
+    list-style: disc;
+  }
+  .legal-body ul li { margin-top: 0.45rem; padding-left: 0.25rem; }
+  .legal-body a { color: #12d8cc; }
+  .legal-body a:hover { text-decoration: underline; }
+
+  /* TOC + heading anchors (mirror the docs portal) */
+  #legal-toc {
+    border-left: 1px solid rgba(24, 24, 24, 0.1);
+  }
+  .dark #legal-toc { border-left-color: rgba(255, 255, 255, 0.1); }
+  #legal-toc a {
+    display: block;
+    padding: 5px 8px 5px 14px;
+    margin-left: -1px;
+    border-left: 2px solid transparent;
+    color: rgba(24, 24, 24, 0.65);
+    line-height: 1.4;
+    transition: color 0.15s ease;
+  }
+  .dark #legal-toc a { color: rgba(237, 240, 245, 0.65); }
+  #legal-toc a:hover { color: #181818; }
+  .dark #legal-toc a:hover { color: #edf0f5; }
+  #legal-toc a.toc-active {
+    color: #12d8cc;
+    font-weight: 500;
+    border-left-color: #12d8cc;
+  }
+  .legal-body .doc-anchor {
+    margin-left: 10px;
+    color: rgba(18, 216, 204, 0.85);
+    opacity: 0;
+    text-decoration: none;
+    transition: opacity 0.15s ease;
+  }
+  .legal-body h3:hover .doc-anchor,
+  .legal-body .doc-anchor:focus-visible { opacity: 1; }
+</style>
+
+<script is:inline>
+  // Build TOC + anchors from the article's h3 headings, then scrollspy.
+  (function () {
+    const body = document.getElementById('legal-body');
+    const toc = document.getElementById('legal-toc');
+    if (!body || !toc) return;
+
+    const slug = (s) =>
+      s.toLowerCase().replace(/&/g, 'and').replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 60);
+
+    const headings = Array.from(body.querySelectorAll('h3'));
+    const links = [];
+    headings.forEach((h) => {
+      const label = h.textContent.replace(/#\s*$/, '').replace(/:\s*$/, '').trim();
+      if (!h.id) h.id = slug(label) || 'section-' + (links.length + 1);
+      // hover anchor
+      if (!h.querySelector('.doc-anchor')) {
+        const a = document.createElement('a');
+        a.className = 'doc-anchor';
+        a.href = '#' + h.id;
+        a.textContent = '#';
+        a.setAttribute('aria-label', 'Link to ' + label);
+        h.appendChild(a);
+      }
+      // toc entry
+      const li = document.createElement('li');
+      const link = document.createElement('a');
+      link.href = '#' + h.id;
+      link.textContent = label;
+      li.appendChild(link);
+      toc.appendChild(li);
+      links.push([h, link]);
+    });
+    if (!links.length) return;
+
+    let activeLink = null;
+    const onScroll = () => {
+      const vh = window.innerHeight || document.documentElement.clientHeight || 800;
+      const line = vh * 0.35;
+      let current = links[0][1];
+      for (const [h, link] of links) {
+        if (h.getBoundingClientRect().top <= line) current = link;
+        else break;
+      }
+      if (current !== activeLink) {
+        if (activeLink) activeLink.classList.remove('toc-active');
+        current.classList.add('toc-active');
+        activeLink = current;
+      }
+    };
+    let pending = false;
+    window.addEventListener(
+      'scroll',
+      () => {
+        if (pending) return;
+        pending = true;
+        setTimeout(() => {
+          pending = false;
+          onScroll();
+        }, 80);
+      },
+      { passive: true }
+    );
+    onScroll();
+  })();
+</script>

@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import LegalDoc from '../components/LegalDoc.astro';
 import CTA from '../components/CTA.astro';
 import Socials from '../components/Socials.astro';
 import Blog from '../components/Blog.astro';
@@ -12,54 +13,11 @@ import Blog from '../components/Blog.astro';
   currentParent="about"
 >
 
-<!--=====================================
-   Terms and Conditions Section
-======================================-->
-<section
-  class="pt-32 md:pt-36 lg:pt-[180px] pb-12 lg:pb-16 2xl:pb-[135px] relative overflow-hidden"
+<LegalDoc
+  title="Terms & Conditions"
+  intro="The terms that govern your use of Uxory's website and services. Please read them carefully."
 >
-  <!-- Background Gradient Wrapper: Creates a blurred, responsive background effect -->
-  <div
-    id="hero-gradient-wrapper"
-    class="absolute w-[44%] lg:w-[40%] h-[44%] lg:h-[40%] top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 -z-10 blur-[60px] md:scale-[0.7]"
-  >
-    <!-- Gradient Background Image: Positioned centrally with responsive sizing -->
-    <img
-      src="images/hero-gradient-background.png"
-      alt="hero-gradient-background"
-      id="hero-gradient"
-      class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
-    />
-  </div>
-
-  <!-- Container for page content with reveal animation -->
-  <div class="container reveal-me">
-    <div class="text-center">
-
-      <!-- Main page heading with dark mode support -->
-      <h2 class="dark:text-white font-medium">Terms & Conditions</h2>
-    </div>
-  </div>
-</section>
-
-
-<!--=====================================
-   Terms and Conditions Section
-======================================-->
-<section class="pb-14 md:pb-16 lg:pb-[88px] xl:pb-[100px]">
-  <div class="container">
-    <!-- Introduction Header -->
-    <h2
-      class="text-[25px] md:text-4xl md:leading-[1.5] mb-12 md:mb-24 reveal-me"
-    >
-      The contents of a Terms and Conditions (T&C) agreement can differ based on
-      the specific service or product provided. However, for a
-      subscription-based design agency, you'll typically find the following key
-      elements:
-    </h2>
-
-    <!-- Terms Content Body -->
-    <div class="blog-details-body">
+    <div class="legal-sections">
       <!-- 1. Introduction and Definitions -->
       <div class="reveal-me">
         <h3>1. Introduction and Definitions:</h3>
@@ -214,8 +172,7 @@ import Blog from '../components/Blog.astro';
         </ul>
       </div>
     </div>
-  </div>
-</section>
+</LegalDoc>
 
 <!--=====================================
    CTA Section

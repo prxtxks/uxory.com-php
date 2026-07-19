@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import LegalDoc from '../components/LegalDoc.astro';
 import CTA from '../components/CTA.astro';
 import Socials from '../components/Socials.astro';
 import Blog from '../components/Blog.astro';
@@ -12,50 +13,12 @@ import Blog from '../components/Blog.astro';
   currentParent="about"
 >
 
-<!--=====================================
-   Privacy Policy Header Section
-======================================-->
-<section
-  class="pt-32 md:pt-36 lg:pt-[180px] pb-12 lg:pb-16 2xl:pb-[135px] relative overflow-hidden"
+<LegalDoc
+  title="Privacy Policy"
+  updated="Jan 25, 2026 · Effective June 30, 2025"
+  intro="How we collect, use, store, and safeguard your data when you interact with our websites, applications, and services - in compliance with applicable laws in the United States, India, and other jurisdictions where we operate."
 >
-  <!-- Gradient Background Wrapper -->
-  <div
-    id="hero-gradient-wrapper"
-    class="absolute w-[44%] lg:w-[40%] h-[44%] lg:h-[40%] top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 -z-10 blur-[60px] md:scale-[0.7]"
-  >
-    <!-- Gradient Background Image: Positioned centrally with responsive sizing -->
-    <img
-      src="images/hero-gradient-background.png"
-      alt="hero-gradient-background"
-      id="hero-gradient"
-      class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
-    />
-  </div>
-
-  <!-- Header Content Container -->
-  <div class="container text-center reveal-me">
-
-    <!-- Main Title -->
-    <h2 class="dark:text-white font-medium">Privacy & Policy</h2>
-    <p class="max-w-3xl text-center mx-auto mt-3 text-appear">
-     Last Updated: Jan 25, 2026 | Effective Date: June 30, 2025
-    </p>
-  </div>
-</section>
-
-
-<!--=====================================
-   Terms and Conditions Section
-======================================-->
-<section class="pb-14 md:pb-16 lg:pb-[88px] xl:pb-[100px]">
-  <div class="container">
-    <!-- Introduction Header -->
-    <p class="reveal-text-2 text-2xl lg:text-3xl text-secondary/90 dark:text-backgroundBody/70 text-left font-normal lg:leading-[1.2] lg:tracking-[0.72px] pb-10 sm:pb-20" >
-      This Privacy Policy explains how we collect, use, store, and safeguard your data when you interact with our websites, applications, products, and services, including software development, digital marketing, SEO, branding, and related solutions. We follow strict privacy standards in compliance with applicable laws in the United States, India, and other jurisdictions where we operate.
-  </p>
-
-    <!-- Terms Content Body -->
-    <div class="blog-details-body">
+    <div class="legal-sections">
       <!-- 1. Introduction and Definitions -->
       <div class="reveal-me">
         <h3>1. Introduction</h3>
@@ -254,18 +217,15 @@ import Blog from '../components/Blog.astro';
         </p>
       </div>
 
-      <!-- 13. Termination -->
+      <!-- 13. Contact Us -->
       <div class="reveal-me">
         <h3>13. Contact Us</h3>
         <p>
           We operate remotely and do not accept physical mail. You can reach us at contact@uxory.in or call us at +1 513-413-7427 (United States) or +91 73506-77916 (India). <span class="font-medium">Uxory is registered as "Uxory LLC" in the United States and "Uxory Technologies Private Limited" in India</span>
+        </p>
       </div>
-
-
-
     </div>
-  </div>
-</section>
+</LegalDoc>
 
 
 <!--=====================================
