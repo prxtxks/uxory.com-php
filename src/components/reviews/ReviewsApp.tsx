@@ -251,14 +251,14 @@ function ReviewForm({ onPosted }: { onPosted: (r: Review, token: string) => void
               <label className="cform-label">Your name <span className="text-primary">*</span></label>
               <div className="cform-field-wrap">
                 {IconUser}
-                <input required name="author_name" maxLength={100} placeholder="John Doe" className="cform-field" />
+                <input required name="author_name" maxLength={100} placeholder="Full name" className="cform-field" />
               </div>
             </div>
             <div>
               <label className="cform-label">Company <span className="cform-optional">optional</span></label>
               <div className="cform-field-wrap">
                 {IconBuilding}
-                <input name="company_name" maxLength={100} placeholder="Acme Inc." className="cform-field" />
+                <input name="company_name" maxLength={100} placeholder="Company name" className="cform-field" />
               </div>
             </div>
             <div className={otpSent ? '' : 'md:col-span-full'}>
@@ -270,7 +270,7 @@ function ReviewForm({ onPosted }: { onPosted: (r: Review, token: string) => void
                   type="email"
                   name="email"
                   maxLength={255}
-                  placeholder="you@company.com"
+                  placeholder="Email address"
                   className="flex-1 min-w-0 py-3 px-4 bg-transparent focus:outline-none text-base"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
@@ -312,7 +312,7 @@ function ReviewForm({ onPosted }: { onPosted: (r: Review, token: string) => void
               <label className="cform-label">City</label>
               <div className="cform-field-wrap">
                 {IconPin}
-                <input name="city" maxLength={80} placeholder="Mumbai, New York…" className="cform-field" />
+                <input name="city" maxLength={80} placeholder="City" className="cform-field" />
               </div>
             </div>
             <div>
@@ -321,7 +321,7 @@ function ReviewForm({ onPosted }: { onPosted: (r: Review, token: string) => void
               </label>
               <div className="cform-field-wrap">
                 {IconGlobe}
-                <input name="country" maxLength={80} placeholder="India, USA…" className="cform-field" />
+                <input name="country" maxLength={80} placeholder="Country" className="cform-field" />
               </div>
             </div>
             <div className="md:col-span-full">

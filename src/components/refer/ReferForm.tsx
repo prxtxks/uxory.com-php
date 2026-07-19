@@ -61,28 +61,28 @@ export default function ReferForm() {
           <label className="cform-label">Your name</label>
           <div className="cform-field-wrap">
             {IconUser}
-            <input name="referrer_name" maxLength={100} placeholder="Jane Doe" className="cform-field" />
+            <input name="referrer_name" maxLength={100} placeholder="Full name" className="cform-field" />
           </div>
         </div>
         <div>
           <label className="cform-label">Your email <span className="text-primary">*</span></label>
           <div className="cform-field-wrap">
             {IconMail}
-            <input required type="email" name="referrer_email" maxLength={255} placeholder="you@email.com" className="cform-field" />
+            <input required type="email" name="referrer_email" maxLength={255} placeholder="Email address" className="cform-field" />
           </div>
         </div>
         <div>
           <label className="cform-label">Referral’s name</label>
           <div className="cform-field-wrap">
             {IconBuilding}
-            <input name="client_name" maxLength={100} placeholder="Acme Inc." className="cform-field" />
+            <input name="client_name" maxLength={100} placeholder="Name or company" className="cform-field" />
           </div>
         </div>
         <div>
           <label className="cform-label">Referral’s email <span className="text-primary">*</span></label>
           <div className="cform-field-wrap">
             {IconMail}
-            <input required type="email" name="client_email" maxLength={255} placeholder="client@company.com" className="cform-field" />
+            <input required type="email" name="client_email" maxLength={255} placeholder="Email address" className="cform-field" />
           </div>
         </div>
       </div>
