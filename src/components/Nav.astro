@@ -114,14 +114,6 @@ const { currentPage = '', currentParent = '' } = Astro.props;
 
           <li>
             <a
-              href="/blog-listings"
-              class={`text-white inline-block pb-1 pl-3 menu-list-item-dropdown-list text-base md:text-lg leading-8 md:leading-[50px] ${currentPage === 'blog' ? 'active' : ''}`}
-              >Blogs & Insights
-            </a>
-          </li>
-          
-          <li>
-            <a
               href="/faq"
               class={`text-white inline-block pb-1 pl-3 menu-list-item-dropdown-list text-base md:text-lg leading-8 md:leading-[50px] ${currentPage === 'faqs' ? 'active' : ''}`}
               >FAQs
@@ -133,6 +125,14 @@ const { currentPage = '', currentParent = '' } = Astro.props;
               href="/career"
               class={`text-white inline-block pb-1 pl-3 menu-list-item-dropdown-list text-base md:text-lg leading-8 md:leading-[50px] ${currentPage === 'career' ? 'active' : ''}`}
               >Career
+            </a>
+          </li>
+
+          <li>
+            <a
+              href="/blog-listings"
+              class={`text-white inline-block pb-1 pl-3 menu-list-item-dropdown-list text-base md:text-lg leading-8 md:leading-[50px] ${currentPage === 'blog' ? 'active' : ''}`}
+              >Blogs & Insights
             </a>
           </li>
 

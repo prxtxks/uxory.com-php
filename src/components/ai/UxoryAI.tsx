@@ -241,26 +241,26 @@ export default function UxoryAI() {
         />
       </div>
 
-      <div className="relative z-10 mx-auto flex w-full max-w-3xl flex-1 flex-col overflow-hidden px-4">
+      <div className="relative z-10 mx-auto flex w-full min-h-0 max-w-3xl flex-1 flex-col overflow-hidden px-4">
         {!started ? (
-          /* ── Landing ── */
-          <div className="flex flex-1 flex-col items-center justify-center pb-8 text-center">
-            <div className="ai-rise mb-6 flex h-14 w-14 items-center justify-center rounded-2xl" style={{ background: 'var(--ai-code-bg)' }}>
-              <Spark size={30} className="text-primary" />
+          /* ── Landing ── (min-h-0 + scroll so the input is never pushed off-screen on short/mobile viewports) */
+          <div className="flex min-h-0 flex-1 flex-col items-center justify-center overflow-y-auto py-6 text-center">
+            <div className="ai-rise mb-5 flex h-12 w-12 items-center justify-center rounded-2xl md:h-14 md:w-14" style={{ background: 'var(--ai-code-bg)' }}>
+              <Spark size={28} className="text-primary" />
             </div>
-            <h1 className="text-[38px] font-medium leading-[1.15] tracking-tight md:text-5xl">
+            <h1 className="text-[30px] font-medium leading-[1.15] tracking-tight sm:text-[38px] md:text-5xl">
               <span className="ai-rise ai-greet block">Hello, I’m Uxory AI</span>
               <span className="ai-rise block" style={{ color: 'var(--ai-faint)', animationDelay: '.2s' }}>
                 How can I help you today?
               </span>
             </h1>
 
-            <div className="mt-11 grid w-full max-w-2xl grid-cols-1 gap-3 sm:grid-cols-2">
+            <div className="mt-7 grid w-full max-w-2xl grid-cols-1 gap-2.5 sm:mt-11 sm:grid-cols-2 sm:gap-3">
               {SUGGESTIONS.map((s, i) => (
                 <button
                   key={s.label}
                   onClick={() => send(s.label)}
-                  className="ai-rise group flex items-center gap-3 rounded-2xl border p-4 text-left transition-all duration-300 hover:-translate-y-0.5"
+                  className="ai-rise group flex items-center gap-3 rounded-2xl border p-3.5 text-left transition-all duration-300 hover:-translate-y-0.5 md:p-4"
                   style={{
                     background: 'var(--ai-surface)',
                     borderColor: 'var(--ai-border)',
@@ -284,7 +284,7 @@ export default function UxoryAI() {
           </div>
         ) : (
           /* ── Conversation ── */
-          <div ref={scrollRef} className="ai-scroll flex-1 space-y-7 overflow-y-auto py-8">
+          <div ref={scrollRef} className="ai-scroll min-h-0 flex-1 space-y-7 overflow-y-auto py-8">
             {messages.map((m, i) =>
               m.role === 'user' ? (
                 <div key={i} className="ai-rise flex justify-end">

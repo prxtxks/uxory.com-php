@@ -1,42 +1,73 @@
 ---
-// Socials component - converted from components/socials.php
+// Socials component - a compact single row of icon chips.
+const socials = [
+  { href: 'https://www.instagram.com/uxoryllc/', label: 'Instagram', img: '/images/marquee-img/1.svg', external: true },
+  { href: 'https://www.linkedin.com/company/uxory/', label: 'LinkedIn', img: '/images/marquee-img/5.svg', external: true },
+  { href: 'mailto:contact@uxory.in', label: 'Email', img: '/images/marquee-img/4.svg', external: false },
+  { href: 'https://wa.me/917350677916', label: 'WhatsApp', img: '/images/marquee-img/2.svg', external: true },
+];
 ---
 
 <!-- ================================
  Socials Section
 ================================ -->
-<section
-  class="pt-14 md:pt-16 lg:pt-[88px] xl:pt-[100px] md:pb-16 lg:pb-[88px] xl:pb-[100px] relative overflow-hidden"
->
+<section class="pt-14 md:pt-16 lg:pt-[88px] xl:pt-[100px] md:pb-16 lg:pb-[88px] xl:pb-[100px] relative overflow-hidden">
   <div class="container">
-    <div
-      class="social-cards-wrap mx-auto flex flex-wrap justify-center gap-4 md:gap-6 reveal-me"
-    >
-
-      <!-- Instagram -->
-      <a href="https://www.instagram.com/uxoryllc/" target="_blank" rel="noopener noreferrer"
-        class="social-card group flex items-center justify-center">
-        <img src="/images/marquee-img/1.svg" alt="Instagram" />
-      </a>
-
-      <!-- LinkedIn -->
-      <a href="https://www.linkedin.com/company/uxory/" target="_blank" rel="noopener noreferrer"
-        class="social-card group flex items-center justify-center">
-        <img src="/images/marquee-img/5.svg" alt="LinkedIn" />
-      </a>
-
-      <!-- Email -->
-      <a href="mailto:contact@uxory.in"
-        class="social-card group flex items-center justify-center">
-        <img src="/images/marquee-img/4.svg" alt="Email" />
-      </a>
-
-      <!-- WhatsApp -->
-      <a href="https://wa.me/917350677916" target="_blank" rel="noopener noreferrer"
-        class="social-card group flex items-center justify-center">
-        <img src="/images/marquee-img/2.svg" alt="WhatsApp" />
-      </a>
-
+    <div class="flex items-center justify-center gap-3 md:gap-4 reveal-me">
+      {
+        socials.map((s) => (
+          <a
+            href={s.href}
+            aria-label={s.label}
+            {...(s.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+            class="social-chip"
+          >
+            <img src={s.img} alt={s.label} width="22" height="22" />
+          </a>
+        ))
+      }
     </div>
   </div>
 </section>
+
+<style>
+  .social-chip {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 46px;
+    height: 46px;
+    border-radius: 14px;
+    background-color: #f5f7fa;
+    border: 1px solid rgba(0, 0, 0, 0.07);
+    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+  }
+  :is(.dark) .social-chip {
+    background-color: #1a1a1a;
+    border-color: rgba(237, 240, 245, 0.1);
+  }
+  .social-chip img {
+    width: 22px;
+    height: 22px;
+    transition: transform 0.25s ease;
+  }
+  .social-chip:hover {
+    transform: translateY(-3px);
+    border-color: rgba(18, 216, 204, 0.5);
+    box-shadow: 0 10px 24px -12px rgba(18, 216, 204, 0.6);
+  }
+  .social-chip:hover img {
+    transform: scale(1.12);
+  }
+  @media (min-width: 768px) {
+    .social-chip {
+      width: 52px;
+      height: 52px;
+      border-radius: 16px;
+    }
+    .social-chip img {
+      width: 24px;
+      height: 24px;
+    }
+  }
+</style>
